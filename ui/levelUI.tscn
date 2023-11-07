@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=3 uid="uid://l3smbtvpiat2"]
+
+[ext_resource type="Script" path="res://ui/UI.gd" id="1_cjyal"]
+[ext_resource type="Texture2D" uid="uid://couu1loudue3y" path="res://player/level/gem-1.png" id="2_qnoy8"]
+[ext_resource type="Texture2D" uid="uid://balmo2vy1ff4p" path="res://items/redCoin/MonedaR.png" id="3_8tgb8"]
+[ext_resource type="Texture2D" uid="uid://caukkbudivevc" path="res://player/level/cherry-1.png" id="4_riyjx"]
+[ext_resource type="Texture2D" uid="uid://dunabe5nw4n12" path="res://items/goldCoins/MonedaD.png" id="5_7au2i"]
+
+[node name="UI" type="CanvasLayer"]
+follow_viewport_scale = 0.0
+script = ExtResource("1_cjyal")
+
+[node name="GemCounter" type="HBoxContainer" parent="."]
+offset_left = 550.0
+offset_top = 50.0
+offset_right = 590.0
+offset_bottom = 90.0
+
+[node name="gem1" type="Sprite2D" parent="GemCounter"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("2_qnoy8")
+
+[node name="gem2" type="Sprite2D" parent="GemCounter"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(45, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("2_qnoy8")
+
+[node name="gem3" type="Sprite2D" parent="GemCounter"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(90, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("2_qnoy8")
+
+[node name="gem4" type="Sprite2D" parent="GemCounter"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(135, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("2_qnoy8")
+
+[node name="gem5" type="Sprite2D" parent="GemCounter"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(180, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("2_qnoy8")
+
+[node name="RedCoinCounter" type="HBoxContainer" parent="."]
+offset_left = 850.0
+offset_top = 50.0
+offset_right = 890.0
+offset_bottom = 90.0
+
+[node name="redCoin1" type="Sprite2D" parent="RedCoinCounter"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_8tgb8")
+hframes = 5
+
+[node name="redCoin2" type="Sprite2D" parent="RedCoinCounter"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(45, 0)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_8tgb8")
+hframes = 5
+
+[node name="redCoin3" type="Sprite2D" parent="RedCoinCounter"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(90, 0)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_8tgb8")
+hframes = 5
+
+[node name="redCoin4" type="Sprite2D" parent="RedCoinCounter"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(135, 0)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_8tgb8")
+hframes = 5
+
+[node name="redCoin5" type="Sprite2D" parent="RedCoinCounter"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(180, 0)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_8tgb8")
+hframes = 5
+
+[node name="CherryCount" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 319.0
+offset_top = 23.0
+offset_right = 359.0
+offset_bottom = 63.0
+scale = Vector2(1.5, 1.5)
+
+[node name="TextureRect" type="TextureRect" parent="CherryCount"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_riyjx")
+
+[node name="Label" type="Label" parent="CherryCount"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 13.0
+offset_right = 70.0
+offset_bottom = 36.0
+text = "x 0"
+
+[node name="GoldCoinCounter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 164.0
+offset_top = 23.0
+offset_right = 204.0
+offset_bottom = 63.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="GoldCoinCounter"]
+position = Vector2(12.6667, 20.6667)
+scale = Vector2(2, 2)
+texture = ExtResource("5_7au2i")
+hframes = 5
+
+[node name="Label" type="Label" parent="GoldCoinCounter"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 13.0
+offset_right = 70.0
+offset_bottom = 36.0
+text = "x 0"

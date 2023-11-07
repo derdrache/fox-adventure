@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7a5eebnq58g"]
+
+[ext_resource type="Script" path="res://items/gem/Gem.gd" id="1_v0c4s"]
+[ext_resource type="Texture2D" uid="uid://eww3kmm3hmlo" path="res://items/gem/gem.png" id="2_f84ma"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4m70"]
+atlas = ExtResource("2_f84ma")
+region = Rect2(0, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgm48"]
+atlas = ExtResource("2_f84ma")
+region = Rect2(15, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hlo0"]
+atlas = ExtResource("2_f84ma")
+region = Rect2(30, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iet12"]
+atlas = ExtResource("2_f84ma")
+region = Rect2(45, 0, 15, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uqmc"]
+atlas = ExtResource("2_f84ma")
+region = Rect2(60, 0, 15, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bmxn5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4m70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgm48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hlo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iet12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uqmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iet12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hlo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgm48")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2f5b"]
+size = Vector2(12.9614, 11.3401)
+
+[node name="Gem" type="Area2D"]
+scale = Vector2(2.31457, 2.11638)
+script = ExtResource("1_v0c4s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bmxn5")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.06015e-07, 2.3939e-07)
+shape = SubResource("RectangleShape2D_e2f5b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

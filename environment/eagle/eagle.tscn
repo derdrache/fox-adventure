@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://bofjp331ba6v3"]
+
+[ext_resource type="Texture2D" uid="uid://o6pq6w6x2mri" path="res://environment/eagle/eagle-attack.png" id="1_cakic"]
+[ext_resource type="Script" path="res://environment/eagle/eagle.gd" id="1_hukuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bppc"]
+size = Vector2(28, 23)
+
+[sub_resource type="Animation" id="Animation_jp7wj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gire1"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_ovr2s"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hutjg"]
+_data = {
+"RESET": SubResource("Animation_jp7wj"),
+"attack": SubResource("Animation_gire1"),
+"idle": SubResource("Animation_ovr2s")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dv81"]
+size = Vector2(30, 9)
+
+[node name="eagle" type="StaticBody2D"]
+script = ExtResource("1_hukuy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cakic")
+hframes = 4
+
+[node name="CollisionMain" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 5.5)
+shape = SubResource("RectangleShape2D_0bppc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hutjg")
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -2.0
+offset_top = -8.0
+offset_right = 38.0
+offset_bottom = 32.0
+rotation = 0.218545
+text = "zzZZ"
+
+[node name="AreaTop" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTop"]
+position = Vector2(-2.75, -3)
+shape = SubResource("RectangleShape2D_1dv81")
+
+[node name="AreaBottom" type="Area2D" parent="."]
+position = Vector2(0, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBottom"]
+position = Vector2(-4, -3)
+shape = SubResource("RectangleShape2D_1dv81")
+
+[connection signal="body_entered" from="AreaTop" to="." method="_on_area_top_body_entered"]
+[connection signal="body_exited" from="AreaTop" to="." method="_on_area_top_body_exited"]
+[connection signal="body_entered" from="AreaBottom" to="." method="_on_area_bottom_body_entered"]
+[connection signal="body_exited" from="AreaBottom" to="." method="_on_area_bottom_body_exited"]

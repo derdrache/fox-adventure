@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwrcrb1vos7h3"]
+
+[ext_resource type="Texture2D" uid="uid://bxcwefqn4g7xb" path="res://level/over_world/assets/Nature.png" id="1_gglc7"]
+[ext_resource type="Script" path="res://level/over_world/moveTile/OV_move_tile.gd" id="1_mn5rt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nm6x"]
+size = Vector2(16, 16)
+
+[node name="OV_move_tile" type="Area2D"]
+script = ExtResource("1_mn5rt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gglc7")
+region_enabled = true
+region_rect = Rect2(176, 48, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4nm6x")

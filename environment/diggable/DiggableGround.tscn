@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvcsff5u5ysa7"]
+
+[ext_resource type="Script" path="res://environment/diggable/DiggableGround.gd" id="1_85tli"]
+[ext_resource type="Texture2D" uid="uid://i30qxit6v84x" path="res://asset/tileset.png" id="1_ig244"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwox0"]
+size = Vector2(16, 16)
+
+[node name="DiggableGround" type="StaticBody2D"]
+script = ExtResource("1_85tli")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ig244")
+region_enabled = true
+region_rect = Rect2(112, 112, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jwox0")

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bujsyis77mpb0"]
+
+[ext_resource type="Texture2D" uid="uid://c6pygme3vcx1" path="res://backgrounds/seaView/back.png" id="1_7l6jk"]
+[ext_resource type="Script" path="res://backgrounds/seaView/seaViewBackground.gd" id="1_d3ax7"]
+[ext_resource type="Texture2D" uid="uid://i0d1rh65mgk2" path="res://backgrounds/seaView/middle.png" id="2_5vlwr"]
+
+[node name="seaViewBackground" type="ParallaxBackground"]
+script = ExtResource("1_d3ax7")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.7)
+motion_mirroring = Vector2(1300, 0)
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(650.5, 434.5)
+scale = Vector2(3.38802, 3.62917)
+texture = ExtResource("1_7l6jk")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1300, 0)
+
+[node name="Middle" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(131, 674)
+scale = Vector2(1.495, 1.092)
+texture = ExtResource("2_5vlwr")
+
+[node name="Middle2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(391, 674)
+scale = Vector2(1.49432, 1.09239)
+texture = ExtResource("2_5vlwr")
+
+[node name="Middle3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(653.5, 674)
+scale = Vector2(1.49432, 1.09239)
+texture = ExtResource("2_5vlwr")
+
+[node name="Middle4" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(914, 674)
+scale = Vector2(1.49432, 1.09239)
+texture = ExtResource("2_5vlwr")
+
+[node name="Middle5" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1172, 674)
+scale = Vector2(1.49432, 1.09239)
+texture = ExtResource("2_5vlwr")
