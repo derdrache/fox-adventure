@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bofjp331ba6v3"]
+[gd_scene load_steps=10 format=3 uid="uid://bofjp331ba6v3"]
 
 [ext_resource type="Texture2D" uid="uid://o6pq6w6x2mri" path="res://environment/eagle/eagle-attack.png" id="1_cakic"]
 [ext_resource type="Script" path="res://environment/eagle/eagle.gd" id="1_hukuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bppc"]
-size = Vector2(28, 23)
+size = Vector2(28, 19)
 
 [sub_resource type="Animation" id="Animation_jp7wj"]
 length = 0.001
@@ -48,18 +48,22 @@ _data = {
 "idle": SubResource("Animation_ovr2s")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dv81"]
-size = Vector2(30, 9)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0dt2"]
+size = Vector2(28, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yklep"]
+size = Vector2(28, 18)
 
 [node name="eagle" type="StaticBody2D"]
 script = ExtResource("1_hukuy")
+lookRight = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cakic")
 hframes = 4
 
 [node name="CollisionMain" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 5.5)
+position = Vector2(-3, 7.5)
 shape = SubResource("RectangleShape2D_0bppc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -79,15 +83,15 @@ text = "zzZZ"
 [node name="AreaTop" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTop"]
-position = Vector2(-2.75, -3)
-shape = SubResource("RectangleShape2D_1dv81")
+position = Vector2(-3, -3.5)
+shape = SubResource("RectangleShape2D_l0dt2")
 
 [node name="AreaBottom" type="Area2D" parent="."]
 position = Vector2(0, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBottom"]
-position = Vector2(-4, -3)
-shape = SubResource("RectangleShape2D_1dv81")
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_yklep")
 
 [connection signal="body_entered" from="AreaTop" to="." method="_on_area_top_body_entered"]
 [connection signal="body_exited" from="AreaTop" to="." method="_on_area_top_body_exited"]

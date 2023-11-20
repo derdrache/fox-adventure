@@ -10,14 +10,23 @@ config_version=5
 
 [application]
 
-config/name="Game 1"
+config/name="Fox Adventure"
 run/main_scene="res://ui/startMenu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
+DialogManager="*res://globalScripts/DialogManager.gd"
+LevelManager="*res://globalScripts/LevelManager.gd"
 GameManager="*res://globalScripts/GameManager.gd"
+Utils="*res://globalScripts/Utils.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/aspect="expand"
 
 [input]
 

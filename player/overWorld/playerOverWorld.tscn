@@ -1,7 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://daovkwmm1ii6n"]
+[gd_scene load_steps=8 format=3 uid="uid://daovkwmm1ii6n"]
 
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://player/player.png" id="1_bsx8j"]
 [ext_resource type="Script" path="res://player/overWorld/playerOverWorld.gd" id="1_o7vvp"]
+
+[sub_resource type="Animation" id="Animation_pbn7e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_6ipd0"]
 resource_name = "idle"
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_pbn7e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_880t2"]
@@ -59,10 +59,14 @@ _data = {
 "run": SubResource("Animation_880t2")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q55v2"]
+size = Vector2(11, 10)
+
 [node name="playerOverWorld" type="CharacterBody2D"]
 script = ExtResource("1_o7vvp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_bsx8j")
 hframes = 6
 vframes = 6
@@ -75,10 +79,8 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="rayCastRight" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(5, 8)
 rotation = -1.56885
-scale = Vector2(1, 1)
 target_position = Vector2(0.0194383, 9.99998)
 collide_with_areas = true
 collide_with_bodies = false
@@ -87,7 +89,6 @@ collide_with_bodies = false
 visible = false
 position = Vector2(-8, 8)
 rotation = -1.56885
-scale = Vector2(1, 1)
 target_position = Vector2(-0.0213823, -11)
 collide_with_areas = true
 collide_with_bodies = false
@@ -109,3 +110,7 @@ libraries = {
 target_position = Vector2(0, 11)
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 11)
+shape = SubResource("RectangleShape2D_q55v2")

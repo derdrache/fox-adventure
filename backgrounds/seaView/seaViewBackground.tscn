@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://backgrounds/seaView/seaViewBackground.gd" id="1_d3ax7"]
 [ext_resource type="Texture2D" uid="uid://i0d1rh65mgk2" path="res://backgrounds/seaView/middle.png" id="2_5vlwr"]
 
-[node name="seaViewBackground" type="ParallaxBackground"]
+[node name="Background" type="ParallaxBackground"]
 script = ExtResource("1_d3ax7")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]

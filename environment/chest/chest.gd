@@ -5,16 +5,15 @@ class_name Chest
 
 var opened = false
 
-func openChest():
-	if opened: return false
+func _on_body_entered(body):
+	if opened: return
 	
-	opened = true
-	$Sprite2D.frame = 1
-	
-	if withKey: 
-		$keySprite.visible = true
-		await get_tree().create_timer(0.5).timeout
-		$keySprite.visible = false
+	if body is Player:
+		opened = true
+		$Sprite2D.frame = 1
 		
-
-	return true
+		if withKey: 
+			$keySprite.visible = true
+			await get_tree().create_timer(0.5).timeout
+			$keySprite.visible = false
+			body.pickupKey()

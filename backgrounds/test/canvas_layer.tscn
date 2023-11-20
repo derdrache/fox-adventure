@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgiv31i1w7om2"]
+
+[ext_resource type="Texture2D" uid="uid://c6pygme3vcx1" path="res://backgrounds/seaView/back.png" id="1_s5r00"]
+[ext_resource type="Shader" path="res://asset/shader/extern/speed_lines.gdshader" id="2_x8nib"]
+[ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://player/player.png" id="3_18lp4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7oowd"]
+shader = ExtResource("2_x8nib")
+shader_parameter/line_color = null
+shader_parameter/line_count = 0.5
+shader_parameter/line_density = 0.5
+shader_parameter/line_faloff = 0.25
+shader_parameter/mask_size = 0.1
+shader_parameter/mask_edge = 0.5
+shader_parameter/animation_speed = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s5r00")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7oowd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_repeat = 2
+scale = Vector2(1.28788, 1.15625)
+texture = ExtResource("3_18lp4")
+hframes = 6
+vframes = 6

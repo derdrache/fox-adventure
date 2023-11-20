@@ -1,0 +1,146 @@
+[gd_scene load_steps=6 format=3 uid="uid://x0di6ow8xbtg"]
+
+[ext_resource type="StyleBox" uid="uid://cq0paplwjyeto" path="res://ui/levelSpezialItemsDisplay.tres" id="1_e60c4"]
+[ext_resource type="Script" path="res://ui/levelDetails/levelDetails.gd" id="1_i825i"]
+[ext_resource type="Texture2D" uid="uid://eww3kmm3hmlo" path="res://items/gem/gem.png" id="2_bl5i1"]
+[ext_resource type="Texture2D" uid="uid://balmo2vy1ff4p" path="res://items/redCoin/MonedaR.png" id="3_k0p4q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us2eg"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="levelDetails" type="Panel"]
+offset_left = 253.0
+offset_top = 355.0
+offset_right = 385.0
+offset_bottom = 543.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_us2eg")
+script = ExtResource("1_i825i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 5.0
+offset_right = 54.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center] Wood 1"
+
+[node name="GemPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -54.0
+offset_right = 51.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_e60c4")
+
+[node name="gem1" type="Sprite2D" parent="GemPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(18, 20)
+texture = ExtResource("2_bl5i1")
+hframes = 5
+
+[node name="gem2" type="Sprite2D" parent="GemPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(34, 20)
+texture = ExtResource("2_bl5i1")
+hframes = 5
+
+[node name="gem3" type="Sprite2D" parent="GemPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(50, 20)
+texture = ExtResource("2_bl5i1")
+hframes = 5
+
+[node name="gem4" type="Sprite2D" parent="GemPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(66, 20)
+texture = ExtResource("2_bl5i1")
+hframes = 5
+
+[node name="gem5" type="Sprite2D" parent="GemPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(82, 20)
+texture = ExtResource("2_bl5i1")
+hframes = 5
+
+[node name="RedCoinPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -7.0
+offset_right = 51.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_e60c4")
+
+[node name="redCoin1" type="Sprite2D" parent="RedCoinPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(18, 20)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_k0p4q")
+hframes = 5
+
+[node name="redCoin2" type="Sprite2D" parent="RedCoinPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(34, 20)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_k0p4q")
+hframes = 5
+
+[node name="redCoin3" type="Sprite2D" parent="RedCoinPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(50, 20)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_k0p4q")
+hframes = 5
+
+[node name="redCoin4" type="Sprite2D" parent="RedCoinPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(66, 20)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_k0p4q")
+hframes = 5
+
+[node name="redCoin5" type="Sprite2D" parent="RedCoinPanel"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(82, 20)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_k0p4q")
+hframes = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -37.0
+offset_right = -27.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

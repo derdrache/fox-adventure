@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm4kloch6wnic"]
+
+[sub_resource type="Gradient" id="Gradient_fw121"]
+offsets = PackedFloat32Array(0, 0.28, 0.36)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnclh"]
+gradient = SubResource("Gradient_fw121")
+
+[sub_resource type="CurveTexture" id="CurveTexture_kx6dp"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tbs2i"]
+emission_shape = 2
+emission_sphere_radius = 8.32
+gravity = Vector3(50, 0, 0)
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_min = 0.6
+scale_max = 0.6
+color_ramp = SubResource("GradientTexture1D_jnclh")
+hue_variation_curve = SubResource("CurveTexture_kx6dp")
+
+[node name="Node2D" type="GPUParticles2D"]
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_tbs2i")
+speed_scale = 4.0
+randomness = 0.3
+trail_enabled = true
+trail_sections = 2
+trail_section_subdivisions = 1

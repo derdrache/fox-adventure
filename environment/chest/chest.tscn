@@ -22,3 +22,5 @@ shape = SubResource("RectangleShape2D_iwbuw")
 visible = false
 position = Vector2(0, -5)
 texture = ExtResource("3_t5swn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

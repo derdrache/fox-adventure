@@ -2,10 +2,10 @@ extends CanvasLayer
 
 
 func _ready():
-	GameManager.gained_cherry.connect(update_cherry_display)
-	GameManager.gained_gem.connect(update_gem_display)
-	GameManager.gained_red_coin.connect(update_red_coin_display)
-	GameManager.gained_gold_coin.connect(update_gold_coin_display)
+	LevelManager.gained_cherry.connect(update_cherry_display)
+	LevelManager.gained_gem.connect(update_gem_display)
+	LevelManager.gained_red_coin.connect(update_red_coin_display)
+	LevelManager.gained_gold_coin.connect(update_gold_coin_display)
 
 func update_cherry_display(cherries):
 	$CherryCount/Label.text = "x " + str(cherries)

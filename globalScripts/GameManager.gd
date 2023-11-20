@@ -1,27 +1,37 @@
 extends Node
 
-signal gained_cherry(int)
-signal gained_gem(int)
-signal gained_red_coin(int)
-signal gained_gold_coin(int)
 
-var cherries : int
-var gems : int
-var redCoins : int
-var goldCoins : int
+const LEVEL_COUNT = 7
+var levelDetails : Array
+var playerPosition = Vector2.ZERO
 
-func gain_gem(newGem:int):
-	gems += newGem
-	emit_signal("gained_gem", gems)
 
-func gain_cherries(newCherries:int):
-	cherries += newCherries
-	emit_signal("gained_cherry", cherries)
+func _ready():
+	if !levelDetails.is_empty(): return
 
-func gain_red_coin(newCoin:int):
-	redCoins += newCoin
-	emit_signal("gained_red_coin", redCoins)
+	levelDetails.resize(LEVEL_COUNT)
+	for i in range(LEVEL_COUNT):
+		levelDetails.fill({
+			"isFinished" : false,
+			"redCoins" : 0,
+			"gems": 0
+		})
 
-func gain_gold_coin(newCoins:int):
-	goldCoins += newCoins
-	emit_signal("gained_gold_coin", goldCoins)
+
+func updateLevelData(levelData : LevelDataClass):
+	levelDetails[levelData["level"] - 1] = {
+		"isFinished" : levelData.isFinished,
+		"redCoins": levelData.redCoins,
+		"gems": levelData.gems
+	}		
+		
+func getLevelStatus(level):
+	return levelDetails[level -1];
+		
+func change_level_status(status : String, level : int, newValue):
+	levelDetails[level -1][status] = newValue
+	
+func save_player_position(position):
+	playerPosition = position
+
+	

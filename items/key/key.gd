@@ -1,5 +1,4 @@
 extends Area2D
-class_name Key
 
 @export var activeCollision = true
 
@@ -7,5 +6,7 @@ class_name Key
 func _process(_delta):
 	if not activeCollision: $CollisionShape2D.set_deferred("disabled", true)
 
-func delete():
-	queue_free()
+func _on_body_entered(body):
+	if body is Player:
+		body.pickupKey()
+		queue_free()

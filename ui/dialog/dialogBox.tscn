@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwqvbl63jpqga"]
+
+[ext_resource type="Texture2D" uid="uid://dl613aifhflhi" path="res://ui/dialog/dialogue_box.png" id="1_8wfyc"]
+[ext_resource type="Script" path="res://ui/dialog/dialogBox.gd" id="1_oba5u"]
+
+[sub_resource type="Theme" id="Theme_i53mo"]
+default_font_size = 14
+
+[node name="dialogBox" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1251.0
+offset_bottom = -684.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oba5u")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_8wfyc")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_i53mo")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+vertical_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

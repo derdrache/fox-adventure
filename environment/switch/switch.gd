@@ -1,13 +1,8 @@
 extends Area2D
-class_name Switch
 
-var is_open = false
+var used = false
 
-func change_status():
-	if is_open:
-		$Sprite2D.frame = 0
-		is_open = false
-	else:
+func _on_body_entered(body):
+	if body is Player:
 		$Sprite2D.frame = 1
-		is_open = true
-	
+		used = true

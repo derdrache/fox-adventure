@@ -2,16 +2,22 @@ extends StaticBody2D
 class_name Eagle
 
 @onready var animationPlayer = $AnimationPlayer
+@onready var path_follow : PathFollow2D = get_parent()
 
 @export var isActive = false
-@onready var path_follow = get_parent()
+@export var lookRight = false
 
-var move_speed = 20
+
+var move_speed = 100
 var move = false
 var playerBody : CharacterBody2D
-var hanging = false
+var ridePosition = Vector2.ZERO
 
 func _ready():
+	if lookRight: 
+		$Sprite2D.flip_h = true
+		ridePosition.x = 5
+	
 	if isActive:
 		animationPlayer.play("idle")
 	else:
@@ -23,33 +29,40 @@ func _physics_process(delta):
 	if move: 
 		path_follow.progress += move_speed * delta
 		var newPosition = global_position
-		newPosition.y += 10
-		if hanging: playerBody.position = newPosition
+		newPosition += ridePosition
+		playerBody.position = newPosition
+		
+	if path_follow.progress_ratio == 1: 
+		move = false
+		
+	if !move && path_follow.progress > 0 && playerBody == null: 
+		resetPosition(delta)
 
-	if !move && path_follow.progress > 0: resetPosition()
+func resetPosition(delta):
+	await get_tree().create_timer(2).timeout
+	path_follow.progress -= move_speed * delta
+	playerBody = null
 
 
 func _on_area_top_body_entered(body):
 	if body is Player && isActive:
+		ridePosition.y = -10
+		playerBody = body
 		move = true
 
 func _on_area_top_body_exited(body):
-	if body is Player && isActive: move = false
+	if body is Player && isActive:
+		move = false
 
 func _on_area_bottom_body_entered(body):
 	if body is Player && isActive:
 		body.hold_on_object($".")
 		playerBody = body
 		move = true
-		hanging = true
+		ridePosition.y = 10
 
 func _on_area_bottom_body_exited(body):
-	hanging = false
+	if body is Player && isActive: 
+		move = false
 
-func resetPosition():
-	await get_tree().create_timer(2).timeout
-	path_follow.progress =0	
-	playerBody = null
 
-func stopHang():
-	move = false

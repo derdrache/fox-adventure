@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name PlayerOverworld
 
 @onready var rayCastDown = $rayCastDown
 @onready var rayCastUp = $rayCastUp
@@ -6,7 +7,13 @@ extends CharacterBody2D
 @onready var rayCastLeft = $rayCastLeft
 @onready var rayCastLevel = $rayCastLevel
 
+@export var blockMovement = false
+
 const SPEED = 70
+const DIALOG_LINES: Array[String] = [
+	"Oh Wow",
+	"Ich kann sprechen!",
+]
 
 var movePathDirection = ""
 var playerPosition = Vector2.ZERO
@@ -20,6 +27,8 @@ func _process(_delta):
 	enterLevel()
 
 func _physics_process(delta):
+	if blockMovement: return
+	
 	playerPosition = position
 	var moveUp = Input.is_action_just_pressed("move_up")
 	var moveDown = Input.is_action_just_pressed("move_down")
@@ -41,41 +50,48 @@ func _physics_process(delta):
 		
 	movePath(delta)
 	move_and_slide()
+	
 
 func enterLevel():
-	if movePathDirection == "" && Input.is_action_just_pressed("ui_accept"):
+	var activeDialog = DialogManager.isDialogActive
+	
+	if movePathDirection == "" && Input.is_action_just_pressed("ui_accept") && !activeDialog:
 		var levelName = rayCastLevel.get_collider().name
 		levelName = "test_room" # testZeile
 		var levelPath = "res://level/" + levelName + ".tscn"
 		get_tree().change_scene_to_file(levelPath)
 
 func movePath(_delta):
+	var pixelSize = 16
+	
 	if movePathDirection == "": 
 		$AnimationPlayer.play("idle")
 		return
+		
+	
 	
 	$AnimationPlayer.play("run")
-	if(movePathDirection == "up" && playerPosition.y > playerStartPosition.y - 16):
+	if(movePathDirection == "up" && playerPosition.y > playerStartPosition.y - pixelSize):
 		velocity.y = -1 * SPEED
-	elif (movePathDirection == "down" && playerPosition.y < playerStartPosition.y + 16): 
+	elif (movePathDirection == "down" && playerPosition.y < playerStartPosition.y + pixelSize): 
 		velocity.y = 1 * SPEED 
-	elif (movePathDirection == "right" && playerPosition.x < playerStartPosition.x + 16): 
+	elif (movePathDirection == "right" && playerPosition.x < playerStartPosition.x + pixelSize): 
 		velocity.x = 1 * SPEED
 		$Sprite2D.flip_h = false
-	elif (movePathDirection == "left" && playerPosition.x > playerStartPosition.x - 16):
+	elif (movePathDirection == "left" && playerPosition.x > playerStartPosition.x - pixelSize):
 		velocity.x = -1 * SPEED 
 		$Sprite2D.flip_h = true
 	else:
 		velocity = Vector2.ZERO
 		
 		if(movePathDirection == "up"):
-			playerStartPosition.y -= 16
+			playerStartPosition.y -= pixelSize
 		elif (movePathDirection == "down"):
-			playerStartPosition.y += 16
+			playerStartPosition.y += pixelSize
 		elif (movePathDirection == "right"):
-			playerStartPosition.x += 16
+			playerStartPosition.x += pixelSize
 		elif (movePathDirection == "left"):
-			playerStartPosition.x -= 16
+			playerStartPosition.x -= pixelSize
 		
 		position = playerStartPosition
 		var oldMoveDirection  = movePathDirection
@@ -97,3 +113,7 @@ func movePath(_delta):
 		elif rayCastLeft.is_colliding() && oldMoveDirection != "right":
 			movePathDirection = "left"
 			nextTarget = rayCastLeft.get_collider()
+
+func _unhandled_input(event):
+	if event.is_action_pressed("move_up"):
+		DialogManager.start_dialog(global_position, DIALOG_LINES)
