@@ -54,7 +54,7 @@ func level_done():
 func check_level_already_done(level):
 	var levelFinished = GameManager.getLevelStatus(int(level))["isFinished"]
 	
-	if levelFinished && not levelNewClear: true
+	if levelFinished && not levelNewClear: return true
 	
 	return false
 
