@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjibcolu08tat"]
+[gd_scene load_steps=8 format=3 uid="uid://bjibcolu08tat"]
 
 [ext_resource type="Script" path="res://ui/UI.gd" id="1_yw62n"]
 [ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="2_20pnj"]
 [ext_resource type="Texture2D" uid="uid://dludvjmjag8gi" path="res://asset/ui/cherry.png" id="3_53x7k"]
 [ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_rosf4"]
 [ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="5_drr2r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ooens"]
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0pdw8"]
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="LevelUI" type="CanvasLayer"]
 script = ExtResource("1_yw62n")
@@ -22,8 +30,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -427.0
-offset_bottom = -237.0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = -428.0
+offset_bottom = -239.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
@@ -50,6 +60,7 @@ expand_mode = 2
 [node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/GoldContainer"]
 layout_mode = 2
 text = "x 0"
+label_settings = SubResource("LabelSettings_ooens")
 
 [node name="CherryContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -62,6 +73,7 @@ expand_mode = 2
 [node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/CherryContainer"]
 layout_mode = 2
 text = "x 0"
+label_settings = SubResource("LabelSettings_0pdw8")
 
 [node name="GemContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
