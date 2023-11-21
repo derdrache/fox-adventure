@@ -6,7 +6,7 @@ class_name EnterLevelTile
 
 var isComplete = false
 
-func _process(delta):
+func _process(_delta):
 	if isComplete:
 		if interactionBody != null: interactionBody.move()
 

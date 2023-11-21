@@ -12,11 +12,10 @@ func _ready():
 	for child in children:
 		child.disable()
 		
-func _process(delta):
+func _process(_delta):
 	if isComplete: $bridgeBody.visible = true
 		
 func showPath():
-	var visibleSpeed = 0.3
 	
 	if wayGroup == null: return
 	

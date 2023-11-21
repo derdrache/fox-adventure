@@ -12,8 +12,6 @@ func _ready():
 		child.disable()
 		
 func showPath():
-	var visibleSpeed = 0.3
-	
 	if wayGroup == null: return
 	
 	var children = wayGroup.get_children()

@@ -27,7 +27,7 @@ func _ready():
 	_check_start_interactions()
 
 
-func _process(delta):		
+func _process(_delta):		
 	_check_start_interactions()
 	
 	
@@ -54,10 +54,10 @@ func _load_data():
 		ui.update_ui(GameManager.levelDetails)
 
 func changeCamera():
-	var isOnBorderTop = player.position.y < camera.position.y - CAMERA_VERTICAL / 2
-	var isOnBorderBottom = player.position.y > camera.position.y + CAMERA_VERTICAL / 2
-	var isOnBorderRight = player.position.x > camera.position.x + CAMERA_HORIZONTAL / 2
-	var isOnBorderLeft = player.position.x < camera.position.x - CAMERA_HORIZONTAL / 2
+	var isOnBorderTop = player.position.y < camera.position.y - CAMERA_VERTICAL / 2.0
+	var isOnBorderBottom = player.position.y > camera.position.y + CAMERA_VERTICAL / 2.0
+	var isOnBorderRight = player.position.x > camera.position.x + CAMERA_HORIZONTAL / 2.0
+	var isOnBorderLeft = player.position.x < camera.position.x - CAMERA_HORIZONTAL / 2.0
 
 	if isOnBorderTop:
 		camera.position.y -= CAMERA_VERTICAL

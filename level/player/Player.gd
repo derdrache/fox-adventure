@@ -197,7 +197,7 @@ func slide_state(delta):
 		state = MOVE
 		sliderEndCounter = 30
 
-func swim_state(delta):
+func swim_state(_delta):
 	if !in_water() || is_on_floor(): state = MOVE
 	
 	
