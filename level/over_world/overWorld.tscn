@@ -2644,7 +2644,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(1245207, 262147, 0, 1310743, 262147, 1, 1376279, 589827, 4, 1441815, 589827, 4, 1245208, 131075, 2, 1310744, 131075, 0, 1376280, 262147, 2, 1441816, 589827, 0, 1245209, 327683, 0, 1310745, 327683, 1, 1376281, 720899, 4, 1441817, 720899, 4)
 
 [node name="levelTiles" type="Node2D" parent="World1"]
-position = Vector2(-143, -272)
+position = Vector2(-144, -272)
 
 [node name="startPoint" parent="World1/levelTiles" instance=ExtResource("5_c870u")]
 position = Vector2(392, 568)
@@ -2658,7 +2658,7 @@ position = Vector2(231, 488)
 levelDetails = NodePath("../../ui/levelDetails2")
 
 [node name="level3" parent="World1/levelTiles" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
-position = Vector2(487, 552)
+position = Vector2(488, 552)
 levelDetails = NodePath("../../ui/levelDetails3")
 
 [node name="level4" parent="World1/levelTiles" instance=ExtResource("5_c870u")]
@@ -2759,7 +2759,6 @@ levelPath = "res://level/test/test_room.tscn"
 [node name="World2" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="World2"]
-visible = false
 position = Vector2(0, -32)
 tile_set = SubResource("TileSet_5lmdd")
 format = 2
