@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj67y2ry8a34k"]
 
-[ext_resource type="Texture2D" uid="uid://bciw85wqbgsew" path="res://chars/duckGirl/DuckGirl.png" id="1_vq5p7"]
+[ext_resource type="Texture2D" uid="uid://bciw85wqbgsew" path="res://asset/sprites/DuckGirl.png" id="1_vq5p7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybf7c"]
 size = Vector2(15, 18)

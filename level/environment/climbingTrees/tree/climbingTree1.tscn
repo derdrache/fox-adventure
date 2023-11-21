@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://e36x4eic5jxs"]
+
+[ext_resource type="Script" path="res://level/environment/climbingTrees/tree/climbingTree.gd" id="1_gq0vf"]
+[ext_resource type="Texture2D" uid="uid://c63r2qcoogs4i" path="res://asset/tileMaps/props.png" id="1_k8n0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8uyb"]
+size = Vector2(27, 59)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4tic"]
+radius = 48.0104
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hplul"]
+radius = 17.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqtqa"]
+radius = 14.0357
+
+[node name="climbingTree1" type="Area2D"]
+script = ExtResource("1_gq0vf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.49038, 1.52083)
+texture = ExtResource("1_k8n0q")
+region_enabled = true
+region_rect = Rect2(120, 32, 104, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.5, 42.5)
+shape = SubResource("RectangleShape2D_l8uyb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2, -16)
+shape = SubResource("CircleShape2D_k4tic")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-51, -6)
+shape = SubResource("CircleShape2D_hplul")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(57, -17)
+shape = SubResource("CircleShape2D_nqtqa")

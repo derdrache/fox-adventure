@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://fjlusgxeyiih"]
+
+[ext_resource type="Script" path="res://overworld/environment/levelTile/OW_level_tile.gd" id="1_8prjg"]
+[ext_resource type="Texture2D" uid="uid://bxcwefqn4g7xb" path="res://overworld/assets/Nature.png" id="2_wfwbv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gtqd"]
+size = Vector2(16, 16)
+
+[node name="OW_level_tile" type="Area2D"]
+script = ExtResource("1_8prjg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wfwbv")
+region_enabled = true
+region_rect = Rect2(16, 160, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5gtqd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

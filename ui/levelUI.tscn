@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://l3smbtvpiat2"]
 
 [ext_resource type="Script" path="res://ui/UI.gd" id="1_cjyal"]
-[ext_resource type="Texture2D" uid="uid://couu1loudue3y" path="res://player/level/gem-1.png" id="2_qnoy8"]
+[ext_resource type="Texture2D" uid="uid://couu1loudue3y" path="res://level/player/gem-1.png" id="2_qnoy8"]
 [ext_resource type="Texture2D" uid="uid://balmo2vy1ff4p" path="res://items/redCoin/MonedaR.png" id="3_8tgb8"]
-[ext_resource type="Texture2D" uid="uid://caukkbudivevc" path="res://player/level/cherry-1.png" id="4_riyjx"]
+[ext_resource type="Texture2D" uid="uid://caukkbudivevc" path="res://level/player/cherry-1.png" id="4_riyjx"]
 [ext_resource type="Texture2D" uid="uid://dunabe5nw4n12" path="res://items/goldCoins/MonedaD.png" id="5_7au2i"]
 
 [node name="UI" type="CanvasLayer"]

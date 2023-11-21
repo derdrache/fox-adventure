@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgiv31i1w7om2"]
 
-[ext_resource type="Texture2D" uid="uid://c6pygme3vcx1" path="res://backgrounds/seaView/back.png" id="1_s5r00"]
+[ext_resource type="Texture2D" uid="uid://c6pygme3vcx1" path="res://asset/background/back.png" id="1_s5r00"]
 [ext_resource type="Shader" path="res://asset/shader/extern/speed_lines.gdshader" id="2_x8nib"]
-[ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://player/player.png" id="3_18lp4"]
+[ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player.png" id="3_18lp4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7oowd"]
 shader = ExtResource("2_x8nib")

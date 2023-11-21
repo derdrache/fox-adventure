@@ -2,8 +2,8 @@
 
 [ext_resource type="StyleBox" uid="uid://cq0paplwjyeto" path="res://ui/levelSpezialItemsDisplay.tres" id="1_e60c4"]
 [ext_resource type="Script" path="res://ui/levelDetails/levelDetails.gd" id="1_i825i"]
-[ext_resource type="Texture2D" uid="uid://eww3kmm3hmlo" path="res://items/gem/gem.png" id="2_bl5i1"]
-[ext_resource type="Texture2D" uid="uid://balmo2vy1ff4p" path="res://items/redCoin/MonedaR.png" id="3_k0p4q"]
+[ext_resource type="Texture2D" uid="uid://eww3kmm3hmlo" path="res://asset/sprites/gem.png" id="2_bl5i1"]
+[ext_resource type="Texture2D" uid="uid://balmo2vy1ff4p" path="res://asset/sprites/MonedaR.png" id="3_k0p4q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us2eg"]
 bg_color = Color(1, 1, 1, 1)
