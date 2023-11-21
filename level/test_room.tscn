@@ -737,37 +737,6 @@ point_count = 4
 
 [node name="Background" parent="." instance=ExtResource("1_qjjm6")]
 
-[node name="lianen" type="Node2D" parent="."]
-position = Vector2(-1203, 47)
-
-[node name="liane1" type="Node2D" parent="lianen"]
-
-[node name="liane" parent="lianen/liane1" instance=ExtResource("14_5ghe1")]
-position = Vector2(1625, 520)
-
-[node name="liane2" parent="lianen/liane1" instance=ExtResource("14_5ghe1")]
-position = Vector2(1626, 504)
-
-[node name="liane3" parent="lianen/liane1" instance=ExtResource("14_5ghe1")]
-position = Vector2(1627, 488)
-
-[node name="liane4" parent="lianen/liane1" instance=ExtResource("14_5ghe1")]
-position = Vector2(1628, 472)
-
-[node name="liane2" type="Node2D" parent="lianen"]
-position = Vector2(1489, 461)
-
-[node name="liane" parent="lianen/liane2" instance=ExtResource("14_5ghe1")]
-position = Vector2(0, 7)
-canSwing = true
-
-[node name="liane2" parent="lianen/liane2" instance=ExtResource("14_5ghe1")]
-position = Vector2(-1, 23)
-canSwing = true
-
-[node name="liane3" parent="lianen/liane2" instance=ExtResource("14_5ghe1")]
-position = Vector2(-2, 39)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_vaxq8")
 format = 2
@@ -820,7 +789,7 @@ position = Vector2(206, 478)
 
 [node name="kiste" parent="enviroment" node_paths=PackedStringArray("spawningNode") instance=ExtResource("10_6y0rc")]
 position = Vector2(424, 584)
-spawningNode = NodePath("../../lianen/liane1")
+spawningNode = NodePath("../lianen/liane1")
 
 [node name="bigMushroom" parent="enviroment" instance=ExtResource("12_7dhol")]
 position = Vector2(1410, 607)
@@ -922,6 +891,37 @@ position = Vector2(-9.05672, 105.072)
 
 [node name="Goal" parent="enviroment" instance=ExtResource("19_0t42s")]
 position = Vector2(625, 568)
+
+[node name="lianen" type="Node2D" parent="enviroment"]
+position = Vector2(-1201, 47)
+
+[node name="liane1" type="Node2D" parent="enviroment/lianen"]
+
+[node name="liane" parent="enviroment/lianen/liane1" instance=ExtResource("14_5ghe1")]
+position = Vector2(1625, 520)
+
+[node name="liane2" parent="enviroment/lianen/liane1" instance=ExtResource("14_5ghe1")]
+position = Vector2(1626, 504)
+
+[node name="liane3" parent="enviroment/lianen/liane1" instance=ExtResource("14_5ghe1")]
+position = Vector2(1627, 488)
+
+[node name="liane4" parent="enviroment/lianen/liane1" instance=ExtResource("14_5ghe1")]
+position = Vector2(1628, 472)
+
+[node name="liane2" type="Node2D" parent="enviroment/lianen"]
+position = Vector2(1489, 461)
+
+[node name="liane" parent="enviroment/lianen/liane2" instance=ExtResource("14_5ghe1")]
+position = Vector2(0, 7)
+canSwing = true
+
+[node name="liane2" parent="enviroment/lianen/liane2" instance=ExtResource("14_5ghe1")]
+position = Vector2(-1, 23)
+canSwing = true
+
+[node name="liane3" parent="enviroment/lianen/liane2" instance=ExtResource("14_5ghe1")]
+position = Vector2(-2, 39)
 
 [node name="Player" parent="." instance=ExtResource("20_kl0xr")]
 position = Vector2(1825, 582)

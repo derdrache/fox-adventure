@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dkx1jsao0arwc" path="res://overworld/assets/terrain.png" id="1_rakek"]
 [ext_resource type="Texture2D" uid="uid://bxcwefqn4g7xb" path="res://overworld/assets/Nature.png" id="2_xctr4"]
 [ext_resource type="Texture2D" uid="uid://5ocw0140yykp" path="res://overworld/assets/buildings.png" id="3_d1u8b"]
-[ext_resource type="PackedScene" uid="uid://daovkwmm1ii6n" path="res://player/overWorld/playerOverWorld.tscn" id="4_8spb5"]
+[ext_resource type="PackedScene" uid="uid://daovkwmm1ii6n" path="res://overworld/player/playerOverWorld.tscn" id="4_8spb5"]
 [ext_resource type="PackedScene" uid="uid://fjlusgxeyiih" path="res://overworld/environment/levelTile/OW_level_tile.tscn" id="5_c870u"]
 [ext_resource type="Texture2D" uid="uid://dnq5kx33o0l6x" path="res://overworld/assets/terrainLightGreen.png" id="5_cubiq"]
 [ext_resource type="Texture2D" uid="uid://by4r468vbced0" path="res://overworld/assets/NatureLightGreen.png" id="5_j5v4t"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cce1ci32bqmph" path="res://chars/duck/Duck.tscn" id="10_1f0eq"]
 [ext_resource type="PackedScene" uid="uid://c5c1v6ajb0gca" path="res://overworld/environment/bigStone/bigStone.tscn" id="11_w7hqo"]
 [ext_resource type="PackedScene" uid="uid://x0di6ow8xbtg" path="res://ui/levelDetails/levelDetails.tscn" id="13_xrq7s"]
-[ext_resource type="Texture2D" uid="uid://dqnxm4h7lq2dk" path="res://asset/Dungeon_Tileset.png" id="16_khrfa"]
+[ext_resource type="Texture2D" uid="uid://dqnxm4h7lq2dk" path="res://asset/tileMaps/Dungeon_Tileset.png" id="16_khrfa"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1yky3"]
 tile_data = PackedInt32Array(0, 851968, 1, 65536, 851968, 2, 1, 917504, 1, 65537, 917504, 2)

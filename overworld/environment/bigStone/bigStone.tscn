@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5c1v6ajb0gca"]
 
 [ext_resource type="Texture2D" uid="uid://bxcwefqn4g7xb" path="res://overworld/assets/Nature.png" id="1_1eqvc"]
-[ext_resource type="Script" path="res://level/over_world/environment/bigStone.gd" id="1_2mtb1"]
+[ext_resource type="Script" path="res://overworld/environment/bigStone/bigStone.gd" id="1_2mtb1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfus8"]
 

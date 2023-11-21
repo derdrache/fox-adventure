@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnw2eshb1bvxi"]
 
-[ext_resource type="Texture2D" uid="uid://i30qxit6v84x" path="res://asset/tileMaps/Swamp.png" id="1_cay0e"]
-[ext_resource type="Script" path="res://environment/ladder/ladder.gd" id="1_vtdy7"]
+[ext_resource type="Script" path="res://level/environment/ladder/ladder.gd" id="1_vtdy7"]
+[ext_resource type="Texture2D" uid="uid://dourx04ukgx10" path="res://asset/tileMaps/tileset.png" id="2_gdpmn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pihnh"]
 size = Vector2(2, 29)
@@ -11,7 +11,7 @@ script = ExtResource("1_vtdy7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
-texture = ExtResource("1_cay0e")
+texture = ExtResource("2_gdpmn")
 region_enabled = true
 region_rect = Rect2(112, 160, 16, 16)
 
