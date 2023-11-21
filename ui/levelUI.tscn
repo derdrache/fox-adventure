@@ -1,132 +1,130 @@
-[gd_scene load_steps=6 format=3 uid="uid://l3smbtvpiat2"]
+[gd_scene load_steps=6 format=3 uid="uid://bjibcolu08tat"]
 
-[ext_resource type="Script" path="res://ui/UI.gd" id="1_cjyal"]
-[ext_resource type="Texture2D" uid="uid://couu1loudue3y" path="res://level/player/gem-1.png" id="2_qnoy8"]
-[ext_resource type="Texture2D" uid="uid://balmo2vy1ff4p" path="res://items/redCoin/MonedaR.png" id="3_8tgb8"]
-[ext_resource type="Texture2D" uid="uid://caukkbudivevc" path="res://level/player/cherry-1.png" id="4_riyjx"]
-[ext_resource type="Texture2D" uid="uid://dunabe5nw4n12" path="res://items/goldCoins/MonedaD.png" id="5_7au2i"]
+[ext_resource type="Script" path="res://ui/UI.gd" id="1_yw62n"]
+[ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="2_20pnj"]
+[ext_resource type="Texture2D" uid="uid://dludvjmjag8gi" path="res://asset/ui/cherry.png" id="3_53x7k"]
+[ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_rosf4"]
+[ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="5_drr2r"]
 
-[node name="UI" type="CanvasLayer"]
-follow_viewport_scale = 0.0
-script = ExtResource("1_cjyal")
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource("1_yw62n")
 
-[node name="GemCounter" type="HBoxContainer" parent="."]
-offset_left = 550.0
-offset_top = 50.0
-offset_right = 590.0
-offset_bottom = 90.0
-
-[node name="gem1" type="Sprite2D" parent="GemCounter"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(3, 3)
-texture = ExtResource("2_qnoy8")
-
-[node name="gem2" type="Sprite2D" parent="GemCounter"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(45, 0)
-scale = Vector2(3, 3)
-texture = ExtResource("2_qnoy8")
-
-[node name="gem3" type="Sprite2D" parent="GemCounter"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(90, 0)
-scale = Vector2(3, 3)
-texture = ExtResource("2_qnoy8")
-
-[node name="gem4" type="Sprite2D" parent="GemCounter"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(135, 0)
-scale = Vector2(3, 3)
-texture = ExtResource("2_qnoy8")
-
-[node name="gem5" type="Sprite2D" parent="GemCounter"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(180, 1)
-scale = Vector2(3, 3)
-texture = ExtResource("2_qnoy8")
-
-[node name="RedCoinCounter" type="HBoxContainer" parent="."]
-offset_left = 850.0
-offset_top = 50.0
-offset_right = 890.0
-offset_bottom = 90.0
-
-[node name="redCoin1" type="Sprite2D" parent="RedCoinCounter"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_8tgb8")
-hframes = 5
-
-[node name="redCoin2" type="Sprite2D" parent="RedCoinCounter"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(45, 0)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_8tgb8")
-hframes = 5
-
-[node name="redCoin3" type="Sprite2D" parent="RedCoinCounter"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(90, 0)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_8tgb8")
-hframes = 5
-
-[node name="redCoin4" type="Sprite2D" parent="RedCoinCounter"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(135, 0)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_8tgb8")
-hframes = 5
-
-[node name="redCoin5" type="Sprite2D" parent="RedCoinCounter"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(180, 0)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_8tgb8")
-hframes = 5
-
-[node name="CherryCount" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 319.0
-offset_top = 23.0
-offset_right = 359.0
-offset_bottom = 63.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -427.0
+offset_bottom = -237.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="TextureRect" type="TextureRect" parent="CherryCount"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("4_riyjx")
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 75
 
-[node name="Label" type="Label" parent="CherryCount"]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 13.0
-offset_right = 70.0
-offset_bottom = 36.0
+[node name="GoldContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GoldContainer"]
+layout_mode = 2
+texture = ExtResource("2_20pnj")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/GoldContainer"]
+layout_mode = 2
 text = "x 0"
 
-[node name="GoldCoinCounter" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 164.0
-offset_top = 23.0
-offset_right = 204.0
-offset_bottom = 63.0
-scale = Vector2(1.5, 1.5)
+[node name="CherryContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="GoldCoinCounter"]
-position = Vector2(12.6667, 20.6667)
-scale = Vector2(2, 2)
-texture = ExtResource("5_7au2i")
-hframes = 5
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/CherryContainer"]
+layout_mode = 2
+texture = ExtResource("3_53x7k")
+expand_mode = 2
 
-[node name="Label" type="Label" parent="GoldCoinCounter"]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 13.0
-offset_right = 70.0
-offset_bottom = 36.0
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/CherryContainer"]
+layout_mode = 2
 text = "x 0"
+
+[node name="GemContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Gem1" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_rosf4")
+expand_mode = 2
+
+[node name="Gem2" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_rosf4")
+expand_mode = 2
+
+[node name="Gem3" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_rosf4")
+expand_mode = 2
+
+[node name="Gem4" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_rosf4")
+expand_mode = 2
+
+[node name="Gem5" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_rosf4")
+expand_mode = 2
+
+[node name="RedCoinContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RedCoin1" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_drr2r")
+expand_mode = 2
+
+[node name="RedCoin2" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_drr2r")
+expand_mode = 2
+
+[node name="RedCoin3" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_drr2r")
+expand_mode = 2
+
+[node name="RedCoin4" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_drr2r")
+expand_mode = 2
+
+[node name="RedCoin5" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_drr2r")
+expand_mode = 2
