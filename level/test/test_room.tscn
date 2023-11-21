@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://gryvn22xsj2a"]
 
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_qjjm6"]
-[ext_resource type="Texture2D" path="res://asset/tileset.png" id="2_y32j6"]
+[ext_resource type="Texture2D" uid="uid://dourx04ukgx10" path="res://asset/tileset.png" id="2_y32j6"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://items/redCoin/redCoin.tscn" id="3_ccv1m"]
 [ext_resource type="Texture2D" uid="uid://bvspkui71n2td" path="res://asset/mountains.png" id="4_3m6ry"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://items/gem/gem.tscn" id="4_6obym"]

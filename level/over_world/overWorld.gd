@@ -27,21 +27,7 @@ func _ready():
 	_check_start_interactions()
 
 
-func _process(delta):
-	var isOnBorderTop = player.position.y < camera.position.y - CAMERA_VERTICAL / 2
-	var isOnBorderBottom = player.position.y > camera.position.y + CAMERA_VERTICAL / 2
-	var isOnBorderRight = player.position.x > camera.position.x + CAMERA_HORIZONTAL / 2
-	var isOnBorderLeft = player.position.x < camera.position.x - CAMERA_HORIZONTAL / 2
-
-	if isOnBorderTop:
-		camera.position.y -= CAMERA_VERTICAL
-	elif isOnBorderBottom:
-		camera.position.y += CAMERA_VERTICAL
-	elif isOnBorderRight:
-		camera.position.x += CAMERA_HORIZONTAL	
-	elif isOnBorderLeft:
-		camera.position.x -= CAMERA_HORIZONTAL
-		
+func _process(delta):		
 	_check_start_interactions()
 	
 	
@@ -66,7 +52,21 @@ func _load_data():
 	var uiChildren = uiNodeWorld1.get_children()
 	for ui in uiChildren:
 		ui.update_ui(GameManager.levelDetails)
-	
+
+func changeCamera():
+	var isOnBorderTop = player.position.y < camera.position.y - CAMERA_VERTICAL / 2
+	var isOnBorderBottom = player.position.y > camera.position.y + CAMERA_VERTICAL / 2
+	var isOnBorderRight = player.position.x > camera.position.x + CAMERA_HORIZONTAL / 2
+	var isOnBorderLeft = player.position.x < camera.position.x - CAMERA_HORIZONTAL / 2
+
+	if isOnBorderTop:
+		camera.position.y -= CAMERA_VERTICAL
+	elif isOnBorderBottom:
+		camera.position.y += CAMERA_VERTICAL
+	elif isOnBorderRight:
+		camera.position.x += CAMERA_HORIZONTAL	
+	elif isOnBorderLeft:
+		camera.position.x -= CAMERA_HORIZONTAL		
 
 func _check_start_interactions():
 	var startLevelInteraction = LevelManager.levelNewClear
