@@ -71,46 +71,12 @@ texture = ExtResource("1_bsx8j")
 hframes = 6
 vframes = 6
 
-[node name="rayCastDown" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(0, 16)
-target_position = Vector2(0, 8)
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="rayCastRight" type="RayCast2D" parent="."]
-position = Vector2(5, 8)
-rotation = -1.56885
-target_position = Vector2(0.0194383, 9.99998)
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="rayCastLeft" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(-8, 8)
-rotation = -1.56885
-target_position = Vector2(-0.0213823, -11)
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="rayCastUp" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(-1, 4)
-target_position = Vector2(0, -13)
-collide_with_areas = true
-collide_with_bodies = false
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_h5qcf")
 }
 
-[node name="rayCastLevel" type="RayCast2D" parent="."]
-target_position = Vector2(0, 11)
-collide_with_areas = true
-collide_with_bodies = false
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 11)
+position = Vector2(-0.5, 12)
 shape = SubResource("RectangleShape2D_q55v2")

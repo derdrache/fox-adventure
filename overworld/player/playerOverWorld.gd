@@ -6,7 +6,8 @@ class_name PlayerOverworld
 @onready var rayCastRight = $rayCastRight
 @onready var rayCastLeft = $rayCastLeft
 @onready var rayCastLevel = $rayCastLevel
-@onready var levelTileMap = get_node("../World1/TileMap")
+@onready var world1TileMap = get_node("../World1/TileMap")
+@onready var world2TileMap = get_node("../World2/TileMap")
 
 @export var blockMovement = false
 
@@ -15,10 +16,11 @@ const DIALOG_LINES: Array[String] = [
 	"Oh Wow",
 	"Ich kann sprechen!",
 ]
-const TILE_ABOVE_ADJUSTMENT = Vector2(0, 0)	
-const TILE_UNDER_ADJUSTMENT = Vector2(0,-24)
-const TILE_LEFT_ADJUSTMENT = Vector2(16, -16)
-const TILE_RIGHT_ADJUSTMENT = Vector2(-16, -16)
+const TILE_ABOVE_ADJUSTMENT = Vector2(0, 12)	
+const TILE_UNDER_ADJUSTMENT = Vector2(0,-12)
+const TILE_LEFT_ADJUSTMENT = Vector2(12, 0)
+const TILE_RIGHT_ADJUSTMENT = Vector2(-12, 0)
+
 
 var movePathDirection = ""
 var playerPosition = Vector2.ZERO
@@ -28,9 +30,11 @@ var moveTileRight = false
 var moveTileLeft = false
 var moveTileUp = false
 var moveTileDown = false
+var worldTileMaps = []
+var worldNumber = 1
 
 func _ready():
-	pass
+	worldTileMaps = [world1TileMap, world2TileMap]
 	
 func _process(_delta):
 	enterLevel()
@@ -67,7 +71,10 @@ func _physics_process(delta):
 	movePath(delta)
 	move_and_slide()
 	
-func get_tile_data(direction : String = "", searchPosition = position):
+func get_tile_data(direction : String = "", ):
+	var worldTileMap = _get_tile_world_map()
+	var centerYtoFeed = -10
+	var searchPosition = position - Vector2(0,centerYtoFeed)
 	var tileDirection = Vector2.ZERO
 	
 
@@ -80,12 +87,12 @@ func get_tile_data(direction : String = "", searchPosition = position):
 	elif direction == "up":
 		tileDirection = TILE_ABOVE_ADJUSTMENT
 	
-	var tilePos = levelTileMap.local_to_map(searchPosition - tileDirection)
-	var tileData : TileData = levelTileMap.get_cell_tile_data(3, tilePos)
+	var tilePos = worldTileMap.local_to_map(searchPosition - tileDirection)
+	var tileData : TileData = worldTileMap.get_cell_tile_data(3, tilePos)
 	
 	if tileData:
 		if tileData.get_custom_data("Floor") == "": 
-			var tileDataSecret = levelTileMap.get_cell_tile_data(0, tilePos)
+			var tileDataSecret = worldTileMap.get_cell_tile_data(0, tilePos)
 			if tileDataSecret && tileDataSecret.get_custom_data("Floor") != "":
 				return tileDataSecret.get_custom_data("Floor")
 				
@@ -145,17 +152,20 @@ func movePath(_delta):
 		
 		if moveTileUp && oldMoveDirection != "down":
 			movePathDirection = "up"
-			nextTarget = rayCastUp.get_collider()
+			nextTarget = "up"
 		elif moveTileDown && oldMoveDirection != "up":
 			movePathDirection = "down"
-			nextTarget = rayCastDown.get_collider()
+			nextTarget = "down"
 		elif moveTileRight && oldMoveDirection != "left":
 			movePathDirection = "right"
-			nextTarget = rayCastRight.get_collider()
+			nextTarget = "right"
 		elif moveTileLeft && oldMoveDirection != "right":
 			movePathDirection = "left"
-			nextTarget = rayCastLeft.get_collider()
-
+			nextTarget = "left"
+			
 func _unhandled_input(event):
 	if event.is_action_pressed("move_up"):
 		DialogManager.start_dialog(global_position, DIALOG_LINES)
+
+func _get_tile_world_map():
+	return worldTileMaps[worldNumber -1]
