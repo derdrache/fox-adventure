@@ -8,10 +8,10 @@ class_name Duck
 signal interactionDone
 
 var path : PathFollow2D
-var doMove = true
+var doMove = false
 var moveSpeed = 100
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	if parent is PathFollow2D: path = parent
 	$Sprite2D.flip_h = flipH
