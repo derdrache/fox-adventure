@@ -6,8 +6,7 @@ class_name PlayerOverworld
 @onready var rayCastRight = $rayCastRight
 @onready var rayCastLeft = $rayCastLeft
 @onready var rayCastLevel = $rayCastLevel
-@onready var world1TileMap = get_node("../World1/TileMap")
-@onready var world2TileMap = get_node("../World2/TileMap")
+@onready var worldTileMap = get_node("../GlobalTileMap")
 
 @export var blockMovement = false
 
@@ -30,11 +29,7 @@ var moveTileRight = false
 var moveTileLeft = false
 var moveTileUp = false
 var moveTileDown = false
-var worldTileMaps = []
-var worldNumber = 1
 
-func _ready():
-	worldTileMaps = [world1TileMap, world2TileMap]
 	
 func _process(_delta):
 	enterLevel()
@@ -46,8 +41,6 @@ func _physics_process(delta):
 	moveTileDown = "move" in get_tile_data("down")
 
 	if blockMovement: return
-
-
 	
 	playerPosition = position
 	var moveUp = Input.is_action_just_pressed("move_up")
@@ -72,7 +65,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func get_tile_data(direction : String = "", ):
-	var worldTileMap = _get_tile_world_map()
 	var centerYtoFeed = -10
 	var searchPosition = position - Vector2(0,centerYtoFeed)
 	var tileDirection = Vector2.ZERO
@@ -88,18 +80,21 @@ func get_tile_data(direction : String = "", ):
 		tileDirection = TILE_ABOVE_ADJUSTMENT
 	
 	var tilePos = worldTileMap.local_to_map(searchPosition - tileDirection)
-	var tileData : TileData = worldTileMap.get_cell_tile_data(3, tilePos)
 	
-	if tileData:
-		if tileData.get_custom_data("Floor") == "": 
-			var tileDataSecret = worldTileMap.get_cell_tile_data(0, tilePos)
-			if tileDataSecret && tileDataSecret.get_custom_data("Floor") != "":
-				return tileDataSecret.get_custom_data("Floor")
-				
-			return "null"
-		return tileData.get_custom_data("Floor")
+	var tileLayer1 = worldTileMap.get_cell_tile_data(0, tilePos)
+	var tileLayer2 = worldTileMap.get_cell_tile_data(1, tilePos)
+	#var tileLayer3 = worldTileMap.get_cell_tile_data(3, tilePos)
 	
-	return ""
+	
+	#if tileLayer3 && tileLayer3.get_custom_data("Floor")!= "":
+	#	return tileLayer3.get_custom_data("Floor")
+	if tileLayer2 && tileLayer2.get_custom_data("Floor")!= "":
+		return tileLayer2.get_custom_data("Floor")
+	elif tileLayer1 && tileLayer1.get_custom_data("Floor")!= "":
+		return tileLayer1.get_custom_data("Floor")
+	else:
+		return ""
+
 
 func enterLevel():
 	var activeDialog = DialogManager.isDialogActive
@@ -146,26 +141,23 @@ func movePath(_delta):
 		var oldMoveDirection  = movePathDirection
 		movePathDirection = ""
 		
-		if nextTarget is EnterLevelTile: 
+		if "level" in nextTarget:
 			nextTarget = ""
 			return
 		
 		if moveTileUp && oldMoveDirection != "down":
 			movePathDirection = "up"
-			nextTarget = "up"
+			nextTarget = get_tile_data("up")
 		elif moveTileDown && oldMoveDirection != "up":
 			movePathDirection = "down"
-			nextTarget = "down"
+			nextTarget = get_tile_data("down")
 		elif moveTileRight && oldMoveDirection != "left":
 			movePathDirection = "right"
-			nextTarget = "right"
+			nextTarget = get_tile_data("right")
 		elif moveTileLeft && oldMoveDirection != "right":
 			movePathDirection = "left"
-			nextTarget = "left"
+			nextTarget = get_tile_data("left")
 			
 func _unhandled_input(event):
 	if event.is_action_pressed("move_up"):
 		DialogManager.start_dialog(global_position, DIALOG_LINES)
-
-func _get_tile_world_map():
-	return worldTileMaps[worldNumber -1]
