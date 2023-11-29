@@ -60,9 +60,6 @@ func changeCamera():
 	var isOnBorderRight = player.position.x > camera.position.x -5  + CAMERA_HORIZONTAL / 2.0
 	var isOnBorderLeft = player.position.x < camera.position.x +5 - CAMERA_HORIZONTAL / 2.0
 
-	if(isOnBorderTop || isOnBorderBottom || isOnBorderRight || isOnBorderLeft):
-		player.worldNumber = 2
-
 	if isOnBorderTop:
 		camera.position.y -= CAMERA_VERTICAL
 	elif isOnBorderBottom:

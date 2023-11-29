@@ -24,7 +24,6 @@ const TILE_RIGHT_ADJUSTMENT = Vector2(-12, 0)
 var movePathDirection = ""
 var playerPosition = Vector2.ZERO
 var playerStartPosition = Vector2.ZERO
-var nextTarget = ""
 var moveTileRight = false
 var moveTileLeft = false
 var moveTileUp = false
@@ -60,11 +59,11 @@ func _physics_process(delta):
 	elif moveLeft && moveTileLeft && movePathDirection == "":	
 		movePathDirection = "left"
 		playerStartPosition = position
-		
+
 	movePath(delta)
 	move_and_slide()
 	
-func get_tile_data(direction : String = "", ):
+func get_tile_data(direction : String = "", layer = -1):
 	var centerYtoFeed = -10
 	var searchPosition = position - Vector2(0,centerYtoFeed)
 	var tileDirection = Vector2.ZERO
@@ -83,11 +82,15 @@ func get_tile_data(direction : String = "", ):
 	
 	var tileLayer1 = worldTileMap.get_cell_tile_data(0, tilePos)
 	var tileLayer2 = worldTileMap.get_cell_tile_data(1, tilePos)
-	#var tileLayer3 = worldTileMap.get_cell_tile_data(3, tilePos)
+	
+	if layer > 0:
+		var searchLayer = worldTileMap.get_cell_tile_data(layer, tilePos)
+		if searchLayer && searchLayer.get_custom_data("Floor")!= "":
+			return searchLayer.get_custom_data("Floor")
+		
+		return ""
 	
 	
-	#if tileLayer3 && tileLayer3.get_custom_data("Floor")!= "":
-	#	return tileLayer3.get_custom_data("Floor")
 	if tileLayer2 && tileLayer2.get_custom_data("Floor")!= "":
 		return tileLayer2.get_custom_data("Floor")
 	elif tileLayer1 && tileLayer1.get_custom_data("Floor")!= "":
@@ -112,7 +115,6 @@ func movePath(_delta):
 		$AnimationPlayer.play("idle")
 		return
 		
-	
 	
 	$AnimationPlayer.play("run")
 	if(movePathDirection == "up" && playerPosition.y > playerStartPosition.y - pixelSize):
@@ -140,23 +142,20 @@ func movePath(_delta):
 		position = playerStartPosition
 		var oldMoveDirection  = movePathDirection
 		movePathDirection = ""
-		
-		if "level" in nextTarget:
-			nextTarget = ""
+
+		if "level" in get_tile_data("", 2): 
+			movePathDirection = ""
 			return
 		
 		if moveTileUp && oldMoveDirection != "down":
 			movePathDirection = "up"
-			nextTarget = get_tile_data("up")
 		elif moveTileDown && oldMoveDirection != "up":
 			movePathDirection = "down"
-			nextTarget = get_tile_data("down")
 		elif moveTileRight && oldMoveDirection != "left":
 			movePathDirection = "right"
-			nextTarget = get_tile_data("right")
 		elif moveTileLeft && oldMoveDirection != "right":
 			movePathDirection = "left"
-			nextTarget = get_tile_data("left")
+		
 			
 func _unhandled_input(event):
 	if event.is_action_pressed("move_up"):
