@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+
 var isComplete = false
 		
 func _process(_delta):
