@@ -1,11 +1,6 @@
 extends CharacterBody2D
 class_name PlayerOverworld
 
-@onready var rayCastDown = $rayCastDown
-@onready var rayCastUp = $rayCastUp
-@onready var rayCastRight = $rayCastRight
-@onready var rayCastLeft = $rayCastLeft
-@onready var rayCastLevel = $rayCastLevel
 @onready var worldTileMap = get_node("../GlobalTileMap")
 
 @export var blockMovement = false
@@ -30,8 +25,6 @@ var moveTileUp = false
 var moveTileDown = false
 
 	
-func _process(_delta):
-	enterLevel()
 
 func _physics_process(delta):
 	moveTileRight = "move" in get_tile_data("right")
@@ -99,16 +92,6 @@ func get_tile_data(direction : String = "", layer = -1):
 		return tileLayer1.get_custom_data("Floor")
 	else:
 		return ""
-
-
-func enterLevel():
-	var activeDialog = DialogManager.isDialogActive
-	
-	if movePathDirection == "" && Input.is_action_just_pressed("ui_accept") && !activeDialog:
-		var levelName = rayCastLevel.get_collider().name
-		levelName = "test_room" # testZeile
-		var levelPath = "res://level/" + levelName + ".tscn"
-		get_tree().change_scene_to_file(levelPath)
 
 func movePath(_delta):
 	var pixelSize = 16
