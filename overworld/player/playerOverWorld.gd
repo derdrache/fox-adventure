@@ -61,7 +61,9 @@ func _physics_process(delta):
 		playerStartPosition = position
 
 	movePath(delta)
-	move_and_slide()
+	var isColliding = move_and_slide()
+	
+	if isColliding: movePathDirection = ""
 	
 func get_tile_data(direction : String = "", layer = -1):
 	var centerYtoFeed = -10
