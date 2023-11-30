@@ -1,7 +1,7 @@
 extends Area2D
 class_name EnterLevelTile
 
-@export var interactionBody : StaticBody2D
+@export var interactionBody : CharacterBody2D
 @export var levelDetails : LevelDetailsUI
 
 var isComplete = false
