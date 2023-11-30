@@ -26,7 +26,6 @@ func _ready():
 	_check_interactions_disables()
 	_check_start_interactions()
 
-
 func _process(_delta):		
 	changeCamera()
 	_check_start_interactions()
@@ -43,7 +42,6 @@ func _process(_delta):
 			lastLevelUi.visible = true
 			lastLevelUi = null
 		
-
 func _load_data():
 	var savedPlayerPosition = GameManager.playerPosition
 	
