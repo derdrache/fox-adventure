@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player = $playerOverWorld
 @onready var camera = $Camera2D
-@onready var uiNodes = $ui
+@onready var uiNodesWorld1 = $World1/ui
 
 
 const CAMERA_VERTICAL = 365
@@ -48,8 +48,8 @@ func _load_data():
 	if savedPlayerPosition != Vector2.ZERO:
 		player.position = savedPlayerPosition
 	
-	var uiChildren = uiNodes.get_children()
-	for ui in uiChildren:
+	var uiWorld1Children = uiNodesWorld1.get_children()
+	for ui in uiWorld1Children:
 		ui.update_ui(GameManager.levelDetails)
 
 func changeCamera():
