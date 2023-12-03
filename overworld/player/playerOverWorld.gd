@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name PlayerOverworld
 
-@onready var worldTileMap = get_node("../GlobalTileMap")
+@onready var worldTileMap = get_node("../TileMap")
 
 @export var blockMovement = false
 
@@ -76,7 +76,7 @@ func get_tile_data(direction : String = "", layer = -1):
 	var tilePos = worldTileMap.local_to_map(searchPosition - tileDirection)
 	
 	var tileLayer1 = worldTileMap.get_cell_tile_data(0, tilePos)
-	var tileLayer2 = worldTileMap.get_cell_tile_data(1, tilePos)
+	var tileLayer2 = worldTileMap.get_cell_tile_data(4, tilePos)
 	
 	if layer > 0:
 		var searchLayer = worldTileMap.get_cell_tile_data(layer, tilePos)
@@ -128,7 +128,7 @@ func movePath(_delta):
 		var oldMoveDirection  = movePathDirection
 		movePathDirection = ""
 
-		if "level" in get_tile_data("", 2): 
+		if "level" in get_tile_data("", 5): 
 			movePathDirection = ""
 			return
 		
