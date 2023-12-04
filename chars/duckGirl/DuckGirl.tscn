@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj67y2ry8a34k"]
+[gd_scene load_steps=4 format=3 uid="uid://cj67y2ry8a34k"]
 
+[ext_resource type="Script" path="res://chars/duckGirl/DuckGirl.gd" id="1_88gqs"]
 [ext_resource type="Texture2D" uid="uid://bciw85wqbgsew" path="res://asset/sprites/DuckGirl.png" id="1_vq5p7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybf7c"]
 size = Vector2(15, 18)
 
 [node name="DuckGirl" type="StaticBody2D"]
+script = ExtResource("1_88gqs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vq5p7")

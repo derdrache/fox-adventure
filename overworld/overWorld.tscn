@@ -2057,6 +2057,7 @@ position = Vector2(599, -89)
 
 [node name="DuckGirl" parent="World3/ducks" instance=ExtResource("9_jscls")]
 position = Vector2(1111, -283)
+flipH = true
 
 [node name="Path2D" type="Path2D" parent="World3/ducks"]
 position = Vector2(881, -325)
