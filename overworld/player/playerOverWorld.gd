@@ -23,6 +23,7 @@ var moveTileRight = false
 var moveTileLeft = false
 var moveTileUp = false
 var moveTileDown = false
+var multiPath = false
 
 	
 
@@ -31,7 +32,8 @@ func _physics_process(delta):
 	moveTileLeft = "move" in get_tile_data("left")
 	moveTileUp = "move" in get_tile_data("up")
 	moveTileDown = "move" in get_tile_data("down")
-
+	multiPath = [moveTileRight, moveTileLeft, moveTileUp, moveTileDown].count(true) >= 3
+	
 	if blockMovement: return
 	
 	playerPosition = position
@@ -114,7 +116,7 @@ func movePath(_delta):
 		$Sprite2D.flip_h = true
 	else:
 		velocity = Vector2.ZERO
-		
+
 		if(movePathDirection == "up"):
 			playerStartPosition.y -= pixelSize
 		elif (movePathDirection == "down"):
@@ -128,7 +130,7 @@ func movePath(_delta):
 		var oldMoveDirection  = movePathDirection
 		movePathDirection = ""
 
-		if "level" in get_tile_data("", 5): 
+		if "level" in get_tile_data("", 5) || multiPath: 
 			movePathDirection = ""
 			return
 		
