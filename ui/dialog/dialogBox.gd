@@ -30,8 +30,8 @@ func display_text(displayText):
 		await resized # wait for y resize
 		custom_minimum_size.y = size.y
 
-	global_position.x -= size.x / 2 # center on x 
-	global_position.y -= size.y + 12 # little obove the player
+	global_position.x -= size.x / 2 
+	global_position.y -= size.y + 12
 	
 	label.text = ""
 	
