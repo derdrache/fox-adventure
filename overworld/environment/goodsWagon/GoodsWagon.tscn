@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ivhr8is035o1"]
+
+[ext_resource type="Script" path="res://overworld/environment/goodsWagon/GoodsWagon.gd" id="1_851ud"]
+[ext_resource type="Texture2D" uid="uid://d3vasu86qyc35" path="res://overworld/assets/tilemap.png" id="1_tobu8"]
+[ext_resource type="Texture2D" uid="uid://b1vykcnx7tj0n" path="res://asset/sprites/Duck (16x16).png" id="2_vjee6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxh0j"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1uv8"]
+size = Vector2(12, 11)
+
+[node name="GoodsWagon" type="StaticBody2D"]
+script = ExtResource("1_851ud")
+
+[node name="SpriteWagon" type="Sprite2D" parent="."]
+texture = ExtResource("1_tobu8")
+region_enabled = true
+region_rect = Rect2(102, 68, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dxh0j")
+
+[node name="SpriteDuck" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -9)
+texture = ExtResource("2_vjee6")
+hframes = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_j1uv8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
