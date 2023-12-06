@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://overworld/environment/goodsWagon/GoodsWagon.gd" id="1_851ud"]
 [ext_resource type="Texture2D" uid="uid://d3vasu86qyc35" path="res://overworld/assets/tilemap.png" id="1_tobu8"]
-[ext_resource type="Texture2D" uid="uid://b1vykcnx7tj0n" path="res://asset/sprites/Duck (16x16).png" id="2_vjee6"]
+[ext_resource type="Texture2D" uid="uid://bn4mr3v04b87c" path="res://overworld/environment/goodsWagon/Duck in Wagon2.png" id="4_b1cwv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxh0j"]
 size = Vector2(12, 12)
@@ -23,9 +23,8 @@ shape = SubResource("RectangleShape2D_dxh0j")
 
 [node name="SpriteDuck" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(1, -9)
-texture = ExtResource("2_vjee6")
-hframes = 2
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("4_b1cwv")
 
 [node name="Area2D" type="Area2D" parent="."]
 
