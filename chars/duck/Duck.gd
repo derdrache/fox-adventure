@@ -1,14 +1,14 @@
 extends CharacterBody2D
 class_name Duck
 
-@export var flipH = false
+@export var flipH = false 
+@export var doMove = false
 @onready var parent = get_parent()
 
 
 signal interactionDone
 
 var path : PathFollow2D
-var doMove = false
 var moveSpeed = 100
 
 
@@ -19,8 +19,7 @@ func _ready():
 func _physics_process(delta):
 	if path == null: return;
 	
-	if doMove:
-		path.progress += moveSpeed * delta
+	if doMove: path.progress += moveSpeed * delta
 
 	if path.progress_ratio == 1: 
 		doMove = false
