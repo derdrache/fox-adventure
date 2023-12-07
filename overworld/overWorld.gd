@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = $playerOverWorld
-@onready var camera = $Camera2D
+@onready var camera = $Cameras/Camera2D
 @onready var uiNodesWorld1 = $"World1 - Wood/ui"
 
 

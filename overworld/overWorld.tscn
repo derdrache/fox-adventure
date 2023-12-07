@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dvhlbxcaua2bj"]
+[gd_scene load_steps=54 format=3 uid="uid://dvhlbxcaua2bj"]
 
 [ext_resource type="Script" path="res://overworld/overWorld.gd" id="1_q6y0r"]
 [ext_resource type="Texture2D" uid="uid://bxcwefqn4g7xb" path="res://overworld/assets/Nature.png" id="2_xctr4"]
@@ -2166,6 +2166,12 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="Curve2D" id="Curve2D_pev00"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 57, -392, 0, 0, 0, 0, 223, -491, 0, 0, 0, 0, 55, -385)
+}
+point_count = 3
+
 [node name="overWorld" type="Node2D"]
 script = ExtResource("1_q6y0r")
 
@@ -2472,7 +2478,6 @@ loop = false
 [node name="GoodsWagon2" parent="World4 - Cave/Obstacales/GoodWagon2Path/PathFollow2D" instance=ExtResource("18_lp183")]
 position = Vector2(-0.983765, -1.01596)
 rotation = -3.12546
-scale = Vector2(1, 1)
 
 [node name="Crystal" parent="World4 - Cave/Obstacales" instance=ExtResource("19_3v5jh")]
 position = Vector2(839, -643)
@@ -2564,6 +2569,10 @@ flipH = true
 [node name="Iceberg" parent="World5 - Winter/Obstacels" instance=ExtResource("22_rtmgc")]
 position = Vector2(330, -632)
 
+[node name="brokenBridge" parent="World5 - Winter/Obstacels" instance=ExtResource("9_811f1")]
+position = Vector2(232, -495)
+iceBridge = true
+
 [node name="Levels" type="Node2D" parent="World5 - Winter"]
 
 [node name="OW_level_tile" parent="World5 - Winter/Levels" instance=ExtResource("5_c870u")]
@@ -2604,27 +2613,42 @@ loop = false
 [node name="Duck" parent="World5 - Winter/Ducks/Path2D/PathFollow2D" instance=ExtResource("10_1f0eq")]
 position = Vector2(1, -1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="BridgePath" type="Path2D" parent="World5 - Winter/Ducks"]
+curve = SubResource("Curve2D_pev00")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="World5 - Winter/Ducks/BridgePath"]
+position = Vector2(57, -392)
+rotation = -0.537758
+rotates = false
+loop = false
+
+[node name="Duck" parent="World5 - Winter/Ducks/BridgePath/PathFollow2D" instance=ExtResource("10_1f0eq")]
+position = Vector2(-0.512222, 0.858856)
+rotation = 0.537758
+
+[node name="Cameras" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Cameras"]
 position = Vector2(330, 180)
 enabled = false
 zoom = Vector2(2, 2)
 
-[node name="SwampWorld" type="Camera2D" parent="."]
+[node name="SwampWorld" type="Camera2D" parent="Cameras"]
 position = Vector2(330, -180)
 enabled = false
 zoom = Vector2(2, 2)
 
-[node name="DesertWorld" type="Camera2D" parent="."]
+[node name="DesertWorld" type="Camera2D" parent="Cameras"]
 position = Vector2(976, -180)
 enabled = false
 zoom = Vector2(2, 2)
 
-[node name="CaveWorld" type="Camera2D" parent="."]
+[node name="CaveWorld" type="Camera2D" parent="Cameras"]
 position = Vector2(976, -548)
 enabled = false
 zoom = Vector2(2, 2)
 
-[node name="Winter" type="Camera2D" parent="."]
+[node name="Winter" type="Camera2D" parent="Cameras"]
 position = Vector2(330, -548)
 zoom = Vector2(2, 2)
 
