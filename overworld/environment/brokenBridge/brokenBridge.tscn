@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3p2gur1rlygd"]
+[gd_scene load_steps=6 format=3 uid="uid://b3p2gur1rlygd"]
 
 [ext_resource type="Texture2D" uid="uid://5ocw0140yykp" path="res://overworld/assets/buildings.png" id="1_0jaft"]
 [ext_resource type="Script" path="res://overworld/environment/brokenBridge/brokenBridge.gd" id="1_5ts5l"]
+[ext_resource type="Texture2D" uid="uid://cnn77okt1m78n" path="res://overworld/assets/tundra_bridge.png" id="3_kdbam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqedc"]
-size = Vector2(16, 13)
+size = Vector2(21, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwbqt"]
-size = Vector2(16, 13)
+size = Vector2(21, 16)
 
 [node name="brokenBridge" type="StaticBody2D"]
 script = ExtResource("1_5ts5l")
@@ -18,12 +19,20 @@ texture = ExtResource("1_0jaft")
 region_enabled = true
 region_rect = Rect2(32, 144, 16, 16)
 
+[node name="iceBridgeBody" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_kdbam")
+region_enabled = true
+region_rect = Rect2(16, 48, 48, 16)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_lqedc")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_qwbqt")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
