@@ -13,7 +13,6 @@ size = Vector2(30, 29)
 script = ExtResource("1_2mtb1")
 
 [node name="bigStoneNormal" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("1_1eqvc")
 region_enabled = true
 region_rect = Rect2(16, 16, 48, 32)
