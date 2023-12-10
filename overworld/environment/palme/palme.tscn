@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dds2wdr6fylu8"]
+
+[ext_resource type="Script" path="res://overworld/environment/palme/palme.gd" id="1_8rd32"]
+[ext_resource type="Texture2D" uid="uid://d1qu2k3lgohyd" path="res://overworld/assets/BeachAssets.png" id="1_dst6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqc8i"]
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdnqs"]
+size = Vector2(47, 73)
+
+[node name="Palme" type="StaticBody2D"]
+script = ExtResource("1_8rd32")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dst6x")
+region_enabled = true
+region_rect = Rect2(16, 0, 80, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 30)
+shape = SubResource("RectangleShape2D_cqc8i")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_wdnqs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
