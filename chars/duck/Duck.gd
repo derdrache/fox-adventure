@@ -3,6 +3,8 @@ class_name Duck
 
 @export var flipH = false 
 @export var doMove = false
+@export var spriteVisible = true
+
 @onready var parent = get_parent()
 
 
@@ -14,6 +16,7 @@ var moveSpeed = 100
 
 func _ready():
 	if parent is PathFollow2D: path = parent
+	$Sprite2D.visible = spriteVisible
 	$Sprite2D.flip_h = flipH
 
 func _physics_process(delta):
