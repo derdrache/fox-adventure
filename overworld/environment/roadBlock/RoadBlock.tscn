@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm4yeonfmi3br"]
+
+[ext_resource type="Texture2D" uid="uid://pv0w6gakjk7b" path="res://overworld/assets/city.png" id="1_hra2h"]
+[ext_resource type="Script" path="res://overworld/environment/roadBlock/RoadBlock.gd" id="1_yldfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o2b2"]
+size = Vector2(17, 13)
+
+[node name="RoadBlock" type="Area2D"]
+script = ExtResource("1_yldfk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hra2h")
+region_enabled = true
+region_rect = Rect2(80, 128, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_0o2b2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
