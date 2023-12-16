@@ -365,15 +365,15 @@ func followKey():
 	else: keySprite.visible = false
 
 func mushroomJump(playerDirection):
-	velocity.y = JUMP_VELOCITY *2
+	velocity.y = JUMP_VELOCITY * 2
 	
 	if playerDirection == "right":
 		sprite.flip_h = false
 		keySprite.position.x = 10
-		forceVelocityX = 200
+		forceVelocityX = 300
 	else:
 		sprite.flip_h = true
-		forceVelocityX = -200
+		forceVelocityX = -300
 	
 func move_and_check_climbing_object(newPlayerPosition):
 	var space_state = get_world_2d().direct_space_state	
