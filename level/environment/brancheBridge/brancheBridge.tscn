@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw5w7qm7wmwmn"]
+
+[ext_resource type="Texture2D" uid="uid://dourx04ukgx10" path="res://asset/tileMaps/tileset.png" id="1_u7knx"]
+[ext_resource type="Script" path="res://level/environment/brancheBridge/brancheBridge.gd" id="1_v2jp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g1f1"]
+size = Vector2(95, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahq5a"]
+size = Vector2(31, 16)
+
+[node name="BrancheBridge" type="StaticBody2D"]
+script = ExtResource("1_v2jp3")
+
+[node name="FullBridgeSprites" type="Node2D" parent="."]
+visible = false
+
+[node name="BrancheStartSprite" type="Sprite2D" parent="FullBridgeSprites"]
+position = Vector2(-1, -5)
+texture = ExtResource("1_u7knx")
+region_enabled = true
+region_rect = Rect2(112, 80, 32, 16)
+
+[node name="BrancheMiddleSprite2" type="Sprite2D" parent="FullBridgeSprites"]
+position = Vector2(23, -5)
+texture = ExtResource("1_u7knx")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="BrancheMiddleSprite3" type="Sprite2D" parent="FullBridgeSprites"]
+position = Vector2(39, -5)
+texture = ExtResource("1_u7knx")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="BrancheMiddleSprite4" type="Sprite2D" parent="FullBridgeSprites"]
+position = Vector2(55, -5)
+texture = ExtResource("1_u7knx")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="BrancheEndSprite" type="Sprite2D" parent="FullBridgeSprites"]
+position = Vector2(71, -5)
+texture = ExtResource("1_u7knx")
+region_enabled = true
+region_rect = Rect2(144, 80, 16, 16)
+
+[node name="BrokenBridgeSprites" type="Node2D" parent="."]
+
+[node name="BrancheStartSprite" type="Sprite2D" parent="BrokenBridgeSprites"]
+position = Vector2(-9, -5)
+texture = ExtResource("1_u7knx")
+region_enabled = true
+region_rect = Rect2(112, 80, 16, 16)
+
+[node name="BrancheEndSprite" type="Sprite2D" parent="BrokenBridgeSprites"]
+position = Vector2(7, -5)
+texture = ExtResource("1_u7knx")
+region_enabled = true
+region_rect = Rect2(144, 80, 16, 16)
+
+[node name="CollisionShapeFull" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(30.5, -5)
+shape = SubResource("RectangleShape2D_3g1f1")
+disabled = true
+
+[node name="CollisionShapeBroken" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -5)
+shape = SubResource("RectangleShape2D_ahq5a")
