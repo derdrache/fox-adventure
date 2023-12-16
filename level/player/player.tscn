@@ -379,10 +379,10 @@ shape = SubResource("RectangleShape2D_wmf5s")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_qmt4m")
 }
+autoplay = "idle"
 
 [node name="enviromentAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -398,7 +398,7 @@ hframes = 6
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, -37)
-zoom = Vector2(3, 3)
+zoom = Vector2(2.5, 2.5)
 script = ExtResource("5_phs5o")
 
 [node name="doorEffect" type="ColorRect" parent="Camera2D"]
