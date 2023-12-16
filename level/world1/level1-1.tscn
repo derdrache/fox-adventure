@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://qnwou1ycotof"]
+
+[ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_dbuas"]
+[ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="4_b2wqj"]
+[ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="4_bibng"]
+[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switch/switch.tscn" id="5_c32s5"]
+[ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="5_osj1c"]
+[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/brancheBridge/brancheBridge.tscn" id="6_1jbe8"]
+[ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="8_7ntlj"]
+[ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="9_a3e5t"]
+[ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="10_hqu28"]
+[ext_resource type="PackedScene" uid="uid://dyo48x8bxuhu" path="res://level/environment/bigBush/BigBush.tscn" id="11_ka0bs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1xr8"]
+size = Vector2(89, 886)
+
+[node name="Level1-1" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("4_bibng")]
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-19.5, 433)
+shape = SubResource("RectangleShape2D_e1xr8")
+
+[node name="items" type="Node2D" parent="."]
+
+[node name="gems" type="Node2D" parent="items"]
+
+[node name="Gem" parent="items/gems" instance=ExtResource("4_b2wqj")]
+position = Vector2(685, 221)
+
+[node name="redCoins" type="Node2D" parent="items"]
+position = Vector2(-1, -13)
+
+[node name="redCoin" parent="items/redCoins" instance=ExtResource("8_7ntlj")]
+position = Vector2(1161, 575)
+
+[node name="cherries" type="Node2D" parent="items"]
+
+[node name="enviroment" type="Node2D" parent="."]
+
+[node name="doors" type="Node2D" parent="enviroment"]
+
+[node name="doorSet1" type="Node2D" parent="enviroment/doors"]
+
+[node name="door" parent="enviroment/doors/doorSet1" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_osj1c")]
+position = Vector2(768, 225)
+conectionDoor = NodePath("../door2")
+
+[node name="door2" parent="enviroment/doors/doorSet1" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_osj1c")]
+position = Vector2(83, 703)
+conectionDoor = NodePath("../door")
+
+[node name="doorSet2" type="Node2D" parent="enviroment/doors"]
+
+[node name="door" parent="enviroment/doors/doorSet2" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_osj1c")]
+position = Vector2(2426, 704)
+conectionDoor = NodePath("../door2")
+
+[node name="door2" parent="enviroment/doors/doorSet2" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_osj1c")]
+position = Vector2(1827, 480)
+conectionDoor = NodePath("../door")
+
+[node name="trees" type="Node2D" parent="enviroment"]
+
+[node name="Switches" type="Node2D" parent="enviroment"]
+
+[node name="Switch" parent="enviroment/Switches" instance=ExtResource("5_c32s5")]
+position = Vector2(678, 302)
+multiUse = true
+
+[node name="BrancheBridge" parent="enviroment/Switches/Switch" instance=ExtResource("6_1jbe8")]
+position = Vector2(330, 207)
+
+[node name="kiste" parent="enviroment" instance=ExtResource("9_a3e5t")]
+position = Vector2(1159, 617)
+destroyable = false
+
+[node name="bigMushroom" parent="enviroment" instance=ExtResource("10_hqu28")]
+position = Vector2(1440, 480)
+
+[node name="bigMushroom2" parent="enviroment" instance=ExtResource("10_hqu28")]
+position = Vector2(1986, 704)
+
+[node name="Player" parent="." instance=ExtResource("3_dbuas")]
+position = Vector2(1876, 476)
+
+[node name="Gem" parent="." instance=ExtResource("4_b2wqj")]
+position = Vector2(2380, 680)
+
+[node name="BigBush" parent="." instance=ExtResource("11_ka0bs")]
+position = Vector2(1828, 481)
