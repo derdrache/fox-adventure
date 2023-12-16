@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyo48x8bxuhu"]
+
+[ext_resource type="Texture2D" uid="uid://c63r2qcoogs4i" path="res://asset/tileMaps/props.png" id="1_f4dbo"]
+
+[node name="BigBush" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2.5)
+scale = Vector2(1, 1.15625)
+texture = ExtResource("1_f4dbo")
+region_enabled = true
+region_rect = Rect2(240, 96, 48, 32)
