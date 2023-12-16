@@ -1,10 +1,11 @@
 extends StaticBody2D
 class_name Kiste
 
-var used = false
 @export var withGem = false
 @export var spawningNode : Node2D
+@export var destroyable = true
 
+var used = false
 
 func _ready():
 	if spawningNode != null:
