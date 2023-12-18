@@ -11,7 +11,6 @@ class_name Player
 @onready var normalCollision = $normalCollision
 @onready var crawlCollision = $crawlCollision
 @onready var levelTileMap = get_node("../TileMap")
-@onready var background = get_node("../Background")
 
 
 enum { MOVE , CLIMB , JUMP, STOMP, DIG, HANG, SLIDE, CRAWL, SWIM}
