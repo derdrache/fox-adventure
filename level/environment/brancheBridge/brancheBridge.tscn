@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://level/environment/brancheBridge/brancheBridge.gd" id="1_v2jp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g1f1"]
-size = Vector2(95, 17)
+size = Vector2(95, 16.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahq5a"]
 size = Vector2(31, 16)
@@ -61,7 +61,7 @@ region_rect = Rect2(144, 80, 16, 16)
 
 [node name="CollisionShapeFull" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(30.5, -5)
+position = Vector2(30.5, -4.75)
 shape = SubResource("RectangleShape2D_3g1f1")
 disabled = true
 
