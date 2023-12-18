@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://3ptydmvhu3vd"]
+[gd_scene load_steps=10 format=3 uid="uid://3ptydmvhu3vd"]
 
 [ext_resource type="Script" path="res://level/environment/kiste/kiste.gd" id="1_3eh3p"]
 [ext_resource type="Texture2D" uid="uid://c63r2qcoogs4i" path="res://asset/tileMaps/props.png" id="1_c2h0m"]
 [ext_resource type="Script" path="res://level/environment/kiste/boxSprite.gd" id="3_342b0"]
 [ext_resource type="Texture2D" uid="uid://eww3kmm3hmlo" path="res://asset/sprites/gem.png" id="3_yvb1y"]
+[ext_resource type="Texture2D" uid="uid://balmo2vy1ff4p" path="res://asset/sprites/MonedaR.png" id="5_yitdu"]
+[ext_resource type="Texture2D" uid="uid://dunabe5nw4n12" path="res://asset/sprites/MonedaD.png" id="6_b2qqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f83m4"]
 size = Vector2(16, 16)
@@ -41,8 +43,20 @@ shape = SubResource("RectangleShape2D_1lwdb")
 [node name="gemSprite" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(1, -16)
-scale = Vector2(0.75, 0.75)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_yvb1y")
+hframes = 5
+
+[node name="redCoinSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -19)
+texture = ExtResource("5_yitdu")
+hframes = 5
+
+[node name="goldCoinSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -21)
+texture = ExtResource("6_b2qqr")
 hframes = 5
 
 [connection signal="body_entered" from="bottomArea" to="." method="_on_bottom_area_body_entered"]
