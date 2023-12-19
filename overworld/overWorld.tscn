@@ -4213,7 +4213,7 @@ offset_right = 323.0
 offset_bottom = 255.0
 level_name = "Wood 1"
 level = 1
-levelPath = "res://level/test_room.tscn"
+levelPath = "res://level/world1/level1-1.tscn"
 
 [node name="levelDetails2" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
 visible = false
@@ -4719,7 +4719,6 @@ rotation = -1.62096
 [node name="Duck2" parent="World8 - City/Ducks/Path2D2/PathFollow2D" instance=ExtResource("10_1f0eq")]
 position = Vector2(-1.04889, 0.948486)
 rotation = 1.62096
-scale = Vector2(1, 1)
 
 [node name="Obstacales" type="Node2D" parent="World8 - City"]
 
