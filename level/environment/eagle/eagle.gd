@@ -2,7 +2,7 @@ extends StaticBody2D
 class_name Eagle
 
 @onready var animationPlayer = $AnimationPlayer
-@onready var path_follow : PathFollow2D = get_parent()
+@onready var path_follow : PathFollow2D
 
 @export var isActive = false
 @export var lookRight = false
@@ -14,6 +14,9 @@ var playerBody : CharacterBody2D
 var ridePosition = Vector2.ZERO
 
 func _ready():
+	if get_parent() is PathFollow2D: 
+		path_follow = get_parent()
+	
 	if lookRight: 
 		$Sprite2D.flip_h = true
 		ridePosition.x = 5
@@ -26,6 +29,9 @@ func _ready():
 
 
 func _physics_process(delta):
+	
+	if path_follow == null: return
+	
 	if move: 
 		path_follow.progress += move_speed * delta
 		var newPosition = global_position
