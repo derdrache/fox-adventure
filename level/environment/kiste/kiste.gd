@@ -16,13 +16,14 @@ func _ready():
 func _on_bottom_area_body_entered(body):
 	if body is Player:
 		if used: return
-		used = true
+		
 		
 		if withGem: await _dropGem()
 		elif withRedCoin: _dropRedCoin()
 		elif goldCoins > 0: _dropGoldCoin()
 		
 		if spawningNode != null:
+			used = true
 			var hitAnimation = await $boxSprite.hitAnimation()
 			spawningNode.visible = true
 		
@@ -36,6 +37,7 @@ func _on_top_area_body_entered(body):
 			elif goldCoins > 0: _dropGoldCoin()
 			
 			if spawningNode != null:
+				used = true
 				spawningNode.visible = true
 
 
@@ -59,10 +61,13 @@ func _dropRedCoin():
 	queue_free()
 
 func _dropGoldCoin():
-	$CollisionShape2D.set_deferred("disabled", true)
-	$boxSprite.visible = false
+	goldCoins -= 1
 	$goldCoinSprite.visible = true
 	await get_tree().create_timer(0.5).timeout
 	$goldCoinSprite.visible = false
 	LevelManager.gain_gold_coin(1)
-	queue_free()
+	
+	if goldCoins == 0:	
+		$CollisionShape2D.set_deferred("disabled", true)
+		$boxSprite.visible = false
+		queue_free()
