@@ -4224,7 +4224,7 @@ offset_right = 242.0
 offset_bottom = 246.0
 level_name = "Wood 2"
 level = 2
-levelPath = "res://level/test_room.tscn"
+levelPath = "res://level/world1/level1-2.tscn"
 
 [node name="levelDetails3" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
 visible = false
