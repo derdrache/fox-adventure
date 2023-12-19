@@ -19,6 +19,7 @@ const SPEED = 100.0
 const SWIM_SPEED = 50
 const CHERRYSPEED = 200
 const JUMP_VELOCITY = -300.0
+const CHERRY_POWER_TIME = 5
 const TILE_ABOVE_ADJUSTMENT = Vector2(0, 10)	
 const TILE_UNDER_ADJUSTMENT = Vector2(0,-20)
 const TILE_LEFT_ADJUSTMENT = Vector2(8, -2)
@@ -415,7 +416,7 @@ func activate_cherry_power():
 	LevelManager.gain_cherries(-1)
 	hasCerryPower = true
 	enviromentAnimation.play("cherry_power")
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(CHERRY_POWER_TIME).timeout
 	enviromentAnimation.stop()
 	$Sprite2D.modulate = Color(1,1,1)
 	hasCerryPower = false
