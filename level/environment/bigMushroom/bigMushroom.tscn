@@ -12,6 +12,7 @@ radius = 7.55402
 height = 25.0463
 
 [node name="bigMushroom" type="StaticBody2D"]
+visible = false
 script = ExtResource("1_cusda")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
