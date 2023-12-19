@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://cs1gputatsnv"]
+[gd_scene load_steps=17 format=3 uid="uid://cs1gputatsnv"]
 
+[ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_j6sjb"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_sqo47"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_dbuas"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="4_b2wqj"]
@@ -22,6 +23,8 @@ _data = {
 point_count = 2
 
 [node name="Level1-1" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_j6sjb")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_sqo47")
@@ -250,4 +253,4 @@ position = Vector2(2, 2)
 isActive = true
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(2735, 267)
+position = Vector2(62, 484)
