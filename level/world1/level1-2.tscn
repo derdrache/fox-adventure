@@ -91,6 +91,128 @@ hasRedCoin = true
 [node name="key" parent="items" instance=ExtResource("13_wfeaq")]
 position = Vector2(2636, 334)
 
+[node name="goldCoins" type="Node2D" parent="items"]
+
+[node name="GoldCoin" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(288, 471)
+
+[node name="GoldCoin2" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(318, 471)
+
+[node name="GoldCoin3" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(437, 475)
+
+[node name="GoldCoin4" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(614, 581)
+
+[node name="GoldCoin5" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(646, 581)
+
+[node name="GoldCoin6" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(677, 560)
+
+[node name="GoldCoin7" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(977, 575)
+
+[node name="GoldCoin8" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(1010, 586)
+
+[node name="GoldCoin9" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(694, 445)
+
+[node name="GoldCoin10" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(729, 445)
+
+[node name="GoldCoin11" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(768, 445)
+
+[node name="GoldCoin12" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(810, 483)
+
+[node name="GoldCoin13" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(1209, 487)
+
+[node name="GoldCoin14" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(1238, 488)
+
+[node name="GoldCoin15" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(1267, 486)
+
+[node name="GoldCoin16" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(2393, 323)
+
+[node name="GoldCoin17" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(2537, 323)
+
+[node name="GoldCoin18" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(2700, 289)
+
+[node name="GoldCoin19" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(3691, 626)
+
+[node name="GoldCoin20" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(3634, 667)
+
+[node name="GoldCoin21" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(3692, 707)
+
+[node name="GoldCoin22" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(3637, 737)
+
+[node name="GoldCoin23" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(3687, 768)
+
+[node name="GoldCoin24" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(3638, 800)
+
+[node name="Cherry" parent="items/goldCoins" instance=ExtResource("18_2npl6")]
+position = Vector2(4002, 466)
+
+[node name="GoldCoin25" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(5172, 635)
+
+[node name="GoldCoin26" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(5175, 663)
+
+[node name="GoldCoin27" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(5181, 689)
+
+[node name="GoldCoin28" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(5189, 719)
+
+[node name="GoldCoin29" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(5199, 750)
+
+[node name="GoldCoin30" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(5524, 706)
+
+[node name="GoldCoin31" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(4314, 482)
+
+[node name="GoldCoin32" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(4345, 482)
+
+[node name="GoldCoin33" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(4387, 482)
+
+[node name="GoldCoin34" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(4438, 481)
+
+[node name="GoldCoin35" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(4500, 484)
+
+[node name="GoldCoin36" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(4652, 485)
+
+[node name="GoldCoin37" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(4679, 488)
+
+[node name="GoldCoin38" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(4834, 483)
+
+[node name="GoldCoin39" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(4865, 483)
+
 [node name="enviroment" type="Node2D" parent="."]
 
 [node name="doors" type="Node2D" parent="enviroment"]
@@ -147,15 +269,12 @@ position = Vector2(188, 273)
 position = Vector2(5479, 573)
 
 [node name="bigMushroom" parent="enviroment/Switches/Switch2" instance=ExtResource("10_hqu28")]
-visible = true
 position = Vector2(11, 195)
 
 [node name="bigMushroom" parent="enviroment" instance=ExtResource("10_hqu28")]
-visible = true
 position = Vector2(1440, 480)
 
 [node name="bigMushroom2" parent="enviroment" instance=ExtResource("10_hqu28")]
-visible = true
 position = Vector2(1986, 704)
 
 [node name="BigBush" parent="enviroment" instance=ExtResource("11_ka0bs")]
@@ -240,126 +359,4 @@ position = Vector2(4941, 212)
 position = Vector2(6135, 728)
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(36, 461)
-
-[node name="goldCoins" type="Node2D" parent="."]
-
-[node name="GoldCoin" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(288, 471)
-
-[node name="GoldCoin2" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(318, 471)
-
-[node name="GoldCoin3" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(437, 475)
-
-[node name="GoldCoin4" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(614, 581)
-
-[node name="GoldCoin5" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(646, 581)
-
-[node name="GoldCoin6" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(677, 560)
-
-[node name="GoldCoin7" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(977, 575)
-
-[node name="GoldCoin8" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(1010, 586)
-
-[node name="GoldCoin9" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(694, 445)
-
-[node name="GoldCoin10" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(729, 445)
-
-[node name="GoldCoin11" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(768, 445)
-
-[node name="GoldCoin12" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(810, 483)
-
-[node name="GoldCoin13" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(1209, 487)
-
-[node name="GoldCoin14" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(1238, 488)
-
-[node name="GoldCoin15" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(1267, 486)
-
-[node name="GoldCoin16" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(2393, 323)
-
-[node name="GoldCoin17" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(2537, 323)
-
-[node name="GoldCoin18" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(2700, 289)
-
-[node name="GoldCoin19" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(3691, 626)
-
-[node name="GoldCoin20" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(3634, 667)
-
-[node name="GoldCoin21" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(3692, 707)
-
-[node name="GoldCoin22" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(3637, 737)
-
-[node name="GoldCoin23" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(3687, 768)
-
-[node name="GoldCoin24" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(3638, 800)
-
-[node name="Cherry" parent="." instance=ExtResource("18_2npl6")]
-position = Vector2(4002, 466)
-
-[node name="GoldCoin25" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(5172, 635)
-
-[node name="GoldCoin26" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(5175, 663)
-
-[node name="GoldCoin27" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(5181, 689)
-
-[node name="GoldCoin28" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(5189, 719)
-
-[node name="GoldCoin29" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(5199, 750)
-
-[node name="GoldCoin30" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(5524, 706)
-
-[node name="GoldCoin31" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(4314, 482)
-
-[node name="GoldCoin32" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(4345, 482)
-
-[node name="GoldCoin33" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(4387, 482)
-
-[node name="GoldCoin34" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(4438, 481)
-
-[node name="GoldCoin35" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(4500, 484)
-
-[node name="GoldCoin36" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(4652, 485)
-
-[node name="GoldCoin37" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(4679, 488)
-
-[node name="GoldCoin38" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(4834, 483)
-
-[node name="GoldCoin39" parent="." instance=ExtResource("17_wio1f")]
-position = Vector2(4865, 483)
+position = Vector2(49, 486)
