@@ -21,12 +21,11 @@ func _on_bottom_area_body_entered(body):
 		if withGem: await _dropGem()
 		elif withRedCoin: _dropRedCoin()
 		elif goldCoins > 0: _dropGoldCoin()
-		
-		if spawningNode != null:
+		elif spawningNode != null:
 			used = true
 			var hitAnimation = await $boxSprite.hitAnimation()
 			spawningNode.visible = true
-		
+		else: queue_free()
 
 func _on_top_area_body_entered(body):
 	if body is Player:
