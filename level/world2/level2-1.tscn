@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://j1j3kjcuoi88"]
+
+[ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="1_4fhsq"]
+[ext_resource type="TileSet" uid="uid://clcij836uso1g" path="res://level/world2/levelTileMap.tres" id="1_asrue"]
+[ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_hja7l"]
+[ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swarmBackground.tscn" id="1_r0bs4"]
+
+[node name="Level2-1" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_hja7l")]
+
+[node name="SwarmBackground" parent="." instance=ExtResource("1_r0bs4")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_asrue")
+format = 2
+layer_0/tile_data = PackedInt32Array(720896, 65539, 0, 720897, 131075, 0, 720898, 196611, 0, 720899, 262147, 0, 720900, 65539, 0, 720901, 131075, 0, 720902, 196611, 0, 720903, 262147, 0, 720904, 65539, 0, 720905, 131075, 0, 720906, 196611, 0, 720907, 262147, 0, 720908, 65539, 0, 720909, 131075, 0, 720910, 196611, 0, 720911, 262147, 0, 720912, 65539, 0, 720913, 131075, 0, 720914, 196611, 0, 720915, 262147, 0, 720916, 65539, 0, 720917, 131075, 0, 720918, 196611, 0, 720919, 262147, 0, 720920, 65539, 0, 720921, 131075, 0, 720922, 196611, 0, 720923, 262147, 0, 720924, 65539, 0, 720925, 131075, 0, 720926, 196611, 0, 720927, 262147, 0, 720928, 65539, 0, 720929, 131075, 0, 720930, 196611, 0, 720931, 262147, 0, 720932, 65539, 0, 720933, 131075, 0, 720934, 196611, 0, 720935, 262147, 0, 720936, 65539, 0, 720937, 131075, 0, 720938, 196611, 0, 720939, 262147, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_4fhsq")]
+position = Vector2(91, 154)

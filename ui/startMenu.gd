@@ -1,9 +1,9 @@
-extends Node2D
+extends Control
 
 
 func _on_start_button_pressed():
 	Utils.load_game()
-	get_tree().change_scene_to_file("res://level/over_world/overWorld.tscn")
+	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
 
 
 func _on_quit_button_pressed():

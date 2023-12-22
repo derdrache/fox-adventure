@@ -16,7 +16,7 @@ class_name Player
 enum { MOVE , CLIMB , JUMP, STOMP, DIG, HANG, SLIDE, CRAWL, SWIM}
 
 const SPEED = 100.0
-const SWIM_SPEED = 50
+const SWIM_SPEED = 75
 const CHERRYSPEED = 200
 const JUMP_VELOCITY = -300.0
 const CHERRY_POWER_TIME = 5
@@ -134,7 +134,7 @@ func move_state(delta):
 		velocity.x = forceVelocityX
 	else:
 		velocity.x = move_toward(velocity.x, 0, moveSpeed)
-		
+
 func climb_state(delta):
 	var tileSearchY = 10
 	
@@ -193,6 +193,10 @@ func slide_state(delta):
 	if slideDirection == "Left":
 		velocity.x = -velocity.x
 	
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		state = JUMP
+		velocity.y = JUMP_VELOCITY * 1.5
+	
 	if sliderEndCounter == 0:
 		state = MOVE
 		sliderEndCounter = 30
@@ -200,6 +204,11 @@ func slide_state(delta):
 func swim_state(_delta):
 	if !in_water() || is_on_floor(): state = MOVE
 	
+	var diggingUpOrDown = digging_object_above_or_below() && (Input.is_action_pressed("move_down") || Input.is_action_pressed("move_up"))
+	var diggingLeftOrRight = digging_object_left_or_right() && (Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"))
+
+	if diggingUpOrDown || diggingLeftOrRight:
+		state = DIG
 	
 	if "waterTop" in get_tile_data() && Input.is_action_just_pressed("ui_accept"):
 		state = JUMP
@@ -407,8 +416,10 @@ func get_tile_data(direction : String = "", searchPosition = position):
 	var tileData = levelTileMap.get_cell_tile_data(0, tilePos)
 
 	if tileData:
-		if tileData.get_custom_data("Floor") == "": return "null"
-		return tileData.get_custom_data("Floor")
+		if tileData && tileData.get_custom_data("Floor") != "": 
+			return tileData.get_custom_data("Floor")
+
+		return "null"
 	
 	return ""
 

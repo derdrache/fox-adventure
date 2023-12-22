@@ -29,7 +29,6 @@ func _ready():
 
 
 func _physics_process(delta):
-	
 	if path_follow == null: return
 	
 	if move: 
@@ -40,7 +39,7 @@ func _physics_process(delta):
 		
 	if path_follow.progress_ratio == 1: 
 		move = false
-		
+	
 	if !move && path_follow.progress > 0 && playerBody == null: 
 		resetPosition(delta)
 
@@ -59,10 +58,10 @@ func _on_area_top_body_entered(body):
 func _on_area_top_body_exited(body):
 	if body is Player && isActive:
 		move = false
+		playerBody = null
 
 func _on_area_bottom_body_entered(body):
 	if body is Player && isActive:
-		body.hold_on_object($".")
 		playerBody = body
 		move = true
 		ridePosition.y = 10
@@ -70,5 +69,6 @@ func _on_area_bottom_body_entered(body):
 func _on_area_bottom_body_exited(body):
 	if body is Player && isActive: 
 		move = false
+		playerBody = null
 
 

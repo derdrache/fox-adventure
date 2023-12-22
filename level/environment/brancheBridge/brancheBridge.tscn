@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cw5w7qm7wmwmn"]
 
-[ext_resource type="Texture2D" uid="uid://dourx04ukgx10" path="res://asset/tileMaps/tileset.png" id="1_u7knx"]
+[ext_resource type="Texture2D" uid="uid://uloa0egqd72y" path="res://asset/tileMaps/tileset.png" id="1_u7knx"]
 [ext_resource type="Script" path="res://level/environment/brancheBridge/brancheBridge.gd" id="1_v2jp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g1f1"]

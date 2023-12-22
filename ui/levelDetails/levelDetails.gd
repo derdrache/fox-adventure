@@ -10,7 +10,7 @@ func _ready():
 	$RichTextLabel.text = "[center] "+ level_name
 
 func _on_button_pressed():
-	LevelManager.set_level(level, $"../../playerOverWorld".position)
+	LevelManager.set_level(level, $"../../../playerOverWorld".position)
 	get_tree().change_scene_to_file(levelPath)
 	
 func update_ui(allLevelData):
