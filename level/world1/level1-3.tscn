@@ -205,7 +205,6 @@ loop = false
 [node name="eagle2" parent="envoirnment/eagles/Path2D/PathFollow2D" instance=ExtResource("3_tnhwe")]
 position = Vector2(2.02374, 0.95105)
 rotation = 1.54647
-scale = Vector2(1, 1)
 isActive = true
 
 [node name="eagle6" parent="envoirnment/eagles" instance=ExtResource("3_tnhwe")]
@@ -284,18 +283,18 @@ position = Vector2(1229, 239)
 [node name="Mushrooms" type="Node2D" parent="envoirnment"]
 
 [node name="bigMushroom" parent="envoirnment/Mushrooms" instance=ExtResource("4_wb14n")]
-position = Vector2(594, -577)
+position = Vector2(594, -576)
 
 [node name="bigMushroom2" parent="envoirnment/Mushrooms" instance=ExtResource("4_wb14n")]
 position = Vector2(896, -576)
 flipH = true
 
 [node name="bigMushroom3" parent="envoirnment/Mushrooms" instance=ExtResource("4_wb14n")]
-position = Vector2(86, -1252)
+position = Vector2(86, -1248)
 flipH = true
 
 [node name="bigMushroom4" parent="envoirnment/Mushrooms" instance=ExtResource("4_wb14n")]
-position = Vector2(-188, -1251)
+position = Vector2(-189, -1248)
 
 [node name="Switch" parent="envoirnment/Mushrooms" instance=ExtResource("6_rulhp")]
 position = Vector2(1402, -3634)
