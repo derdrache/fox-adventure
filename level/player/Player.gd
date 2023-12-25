@@ -322,18 +322,18 @@ func interaction():
 	elif moveUp && cherries && is_on_floor():
 		activate_cherry_power()
 		
-func do_dig(direction):
+func do_dig(digDirection):
 	if state == DIG && !doDig:
 		doDig = true
 		var tilePosition = position
 		
-		if direction == "top":
+		if digDirection == "top":
 			tilePosition -= TILE_ABOVE_ADJUSTMENT
-		elif direction == "bottom":
+		elif digDirection == "bottom":
 			tilePosition -= TILE_UNDER_ADJUSTMENT
-		elif direction == "left":
+		elif digDirection == "left":
 			tilePosition -= TILE_LEFT_ADJUSTMENT
-		elif direction == "right": 
+		elif digDirection == "right": 
 			tilePosition -= TILE_RIGHT_ADJUSTMENT
 			
 		await get_tree().create_timer(0.5).timeout
@@ -401,6 +401,8 @@ func move_and_check_climbing_object(newPlayerPosition):
 	return !results.is_empty()	
 
 func get_tile_data(direction : String = "", searchPosition = position):
+	if levelTileMap == null: return ""
+	
 	var tileDirection = Vector2.ZERO
 
 	if direction == "bottom":
