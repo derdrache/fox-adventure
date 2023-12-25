@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct5fk252jeph6"]
+
+[ext_resource type="Script" path="res://level/environment/branche/Branche.gd" id="1_po82u"]
+[ext_resource type="Texture2D" uid="uid://uloa0egqd72y" path="res://asset/tileMaps/tileset.png" id="1_u4so4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cb0o"]
+size = Vector2(43, 7)
+
+[node name="Branche" type="StaticBody2D"]
+script = ExtResource("1_po82u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.5, 0)
+scale = Vector2(1.34375, 1)
+texture = ExtResource("1_u4so4")
+region_enabled = true
+region_rect = Rect2(128, 80, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, -4.5)
+shape = SubResource("RectangleShape2D_3cb0o")
