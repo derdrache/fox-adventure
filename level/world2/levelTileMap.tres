@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://clcij836uso1g"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://clcij836uso1g"]
 
 [ext_resource type="Texture2D" uid="uid://uloa0egqd72y" path="res://asset/tileMaps/tileset.png" id="1_uwqss"]
 [ext_resource type="Texture2D" uid="uid://bvspkui71n2td" path="res://asset/test/mountains.png" id="2_kcot0"]
@@ -13,6 +13,12 @@ tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_bpoo2"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 327683, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_nlbrh"]
+tile_data = PackedInt32Array(0, 786435, 0, 1, 1048579, 0, 2, 1114115, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1xabr"]
+tile_data = PackedInt32Array(0, 786435, 0, 1, 851971, 0, 2, 917507, 0, 3, 983043, 0, 4, 1114115, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdjmj"]
 texture = ExtResource("1_uwqss")
@@ -34,12 +40,15 @@ texture = ExtResource("1_uwqss")
 9:1/0 = 0
 9:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:1/0/physics_layer_0/angular_velocity = 0.0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:1/0 = 0
 10:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:1/0/physics_layer_0/angular_velocity = 0.0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:1/0 = 0
 11:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:1/0/physics_layer_0/angular_velocity = 0.0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:1/0 = 0
 13:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:1/0/physics_layer_0/angular_velocity = 0.0
@@ -108,15 +117,19 @@ texture = ExtResource("1_uwqss")
 7:3/0 = 0
 7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:3/0/physics_layer_0/angular_velocity = 0.0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:3/0 = 0
 8:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:3/0/physics_layer_0/angular_velocity = 0.0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:3/0 = 0
 10:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:3/0/physics_layer_0/angular_velocity = 0.0
+10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:3/0 = 0
 11:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:3/0/physics_layer_0/angular_velocity = 0.0
+11:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:4/0 = 0
 14:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:4/0/physics_layer_0/angular_velocity = 0.0
@@ -141,12 +154,15 @@ texture = ExtResource("1_uwqss")
 7:5/0 = 0
 7:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:5/0/physics_layer_0/angular_velocity = 0.0
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:5/0 = 0
 8:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:5/0/physics_layer_0/angular_velocity = 0.0
+8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:5/0 = 0
 9:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:5/0/physics_layer_0/angular_velocity = 0.0
+9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:5/0 = 0
 14:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:5/0/physics_layer_0/angular_velocity = 0.0
@@ -221,9 +237,11 @@ texture = ExtResource("1_uwqss")
 10:10/0 = 0
 10:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:10/0/physics_layer_0/angular_velocity = 0.0
+10:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:10/0 = 0
 11:10/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:10/0/physics_layer_0/angular_velocity = 0.0
+11:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:11/0 = 0
 2:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:11/0/physics_layer_0/angular_velocity = 0.0
@@ -2066,3 +2084,5 @@ sources/4 = SubResource("TileSetAtlasSource_klak3")
 pattern_0 = SubResource("TileMapPattern_xegac")
 pattern_1 = SubResource("TileMapPattern_leydt")
 pattern_2 = SubResource("TileMapPattern_bpoo2")
+pattern_3 = SubResource("TileMapPattern_nlbrh")
+pattern_4 = SubResource("TileMapPattern_1xabr")
