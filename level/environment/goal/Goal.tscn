@@ -1,21 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://q7e2ahrq0vsa"]
+[gd_scene load_steps=9 format=3 uid="uid://q7e2ahrq0vsa"]
 
-[ext_resource type="Texture2D" uid="uid://c63r2qcoogs4i" path="res://asset/tileMaps/props.png" id="1_4qsds"]
 [ext_resource type="Script" path="res://level/environment/goal/Goal.gd" id="1_yxub4"]
+[ext_resource type="Texture2D" uid="uid://dl31keu0u7vxy" path="res://asset/sprites/Flag.png" id="2_ro72p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eliuo"]
+atlas = ExtResource("2_ro72p")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_770sd"]
+atlas = ExtResource("2_ro72p")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_denw6"]
+atlas = ExtResource("2_ro72p")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcac3"]
+atlas = ExtResource("2_ro72p")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fl7aq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eliuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_770sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_denw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcac3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mjol"]
-size = Vector2(65, 106)
+size = Vector2(31, 49)
 
 [node name="Goal" type="Area2D"]
 script = ExtResource("1_yxub4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4qsds")
-region_enabled = true
-region_rect = Rect2(320, 16, 88, 112)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fl7aq")
+autoplay = "default"
+frame_progress = 0.850716
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, 2)
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_6mjol")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
