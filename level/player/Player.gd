@@ -107,7 +107,7 @@ func move_state(delta):
 		
 	if  is_on_climbing_object() && (Input.is_action_pressed("move_up") || (Input.is_action_pressed("move_down") && not is_on_floor()) || (!is_on_floor() && state != JUMP)):
 		state = CLIMB
-	elif (diggingUpOrDown || diggingLeftOrRight)  && is_on_floor() && !doDig:
+	elif _canDig()  && is_on_floor() && !doDig:
 		state = DIG
 	elif Input.is_action_pressed("move_down") || cantStandUp:
 		state = CRAWL
@@ -168,6 +168,9 @@ func climb_state(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		state = JUMP
 		velocity.y = JUMP_VELOCITY
+		
+	if _canDig():
+		state = DIG
 		
 func stomp_state(delta):
 	if is_on_floor():
@@ -443,3 +446,9 @@ func in_water():
 
 func return_last_position():
 	position = lastFloorPosition
+
+func _canDig():
+	var diggingUpOrDown = digging_object_above_or_below() && (Input.is_action_pressed("move_down") || Input.is_action_pressed("move_up"))
+	var diggingLeftOrRight = digging_object_left_or_right() && (Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"))
+	
+	return diggingUpOrDown || diggingLeftOrRight
