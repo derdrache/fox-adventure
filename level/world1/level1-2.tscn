@@ -368,7 +368,7 @@ isActive = true
 position = Vector2(4941, 212)
 
 [node name="Goal" parent="enviroment" instance=ExtResource("16_cxcy5")]
-position = Vector2(6135, 728)
+position = Vector2(6136, 760)
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
 position = Vector2(49, 486)

@@ -467,7 +467,7 @@ position = Vector2(7302, 77)
 position = Vector2(315, -96)
 
 [node name="Goal" parent="environment" instance=ExtResource("16_vayv4")]
-position = Vector2(9260, -57)
+position = Vector2(9268, -24)
 
 [node name="Path2D3" type="Path2D" parent="environment"]
 curve = SubResource("Curve2D_ow3ed")

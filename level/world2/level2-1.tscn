@@ -398,7 +398,7 @@ position = Vector2(-136, -198)
 flipH = true
 
 [node name="Goal" parent="environment" instance=ExtResource("12_w6581")]
-position = Vector2(6858, 455)
+position = Vector2(6857, 488)
 
 [node name="Player" parent="." instance=ExtResource("1_4fhsq")]
 position = Vector2(116, 354)

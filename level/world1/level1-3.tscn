@@ -337,7 +337,7 @@ position = Vector2(2278, -3456)
 conectionDoor = NodePath("../door")
 
 [node name="Goal" parent="envoirnment" instance=ExtResource("13_iwb5w")]
-position = Vector2(2955, -3766)
+position = Vector2(2961, -3736)
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
 position = Vector2(856, -1559)

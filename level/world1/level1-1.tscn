@@ -246,7 +246,7 @@ position = Vector2(1052, 562)
 goldCoins = 2
 
 [node name="Goal" parent="envoirnment" instance=ExtResource("5_88kff")]
-position = Vector2(5330, 263)
+position = Vector2(5328, 296)
 
 [node name="Switch" parent="envoirnment" instance=ExtResource("5_c32s5")]
 position = Vector2(3703, 382)
