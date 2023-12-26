@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cte60hqiibghr"]
+[gd_scene load_steps=21 format=3 uid="uid://cte60hqiibghr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_gq7xa"]
+[ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="2_m4kyd"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="2_shwbj"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="3_v5c65"]
 [ext_resource type="PackedScene" uid="uid://c1x3k7val2sjc" path="res://level/items/key/key.tscn" id="4_h7v7r"]
@@ -14,6 +15,21 @@
 [ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/eagle/eagle.tscn" id="12_ctqn3"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_5clfr"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xamfr"]
+size = Vector2(504.5, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgm5c"]
+size = Vector2(626, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62teu"]
+size = Vector2(350, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0miig"]
+size = Vector2(2342, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6miu"]
+size = Vector2(39, 900)
+
 [sub_resource type="Curve2D" id="Curve2D_gguyc"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2471, 606, 0, 0, 0, 0, 2863, 339)
@@ -24,6 +40,30 @@ point_count = 2
 
 [node name="Background" parent="." instance=ExtResource("3_v5c65")]
 scroll_limit_end = Vector2(0, 720)
+
+[node name="WorldEnd" parent="." instance=ExtResource("2_m4kyd")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(1364, 685)
+shape = SubResource("RectangleShape2D_xamfr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(2674, 708)
+shape = SubResource("RectangleShape2D_wgm5c")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(5038, 823)
+shape = SubResource("RectangleShape2D_62teu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(6418, 102)
+shape = SubResource("RectangleShape2D_0miig")
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-21, 444)
+shape = SubResource("RectangleShape2D_y6miu")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_gq7xa")
@@ -390,4 +430,4 @@ position = Vector2(5846, -356)
 position = Vector2(7275, -168)
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(2041, 990)
+position = Vector2(2030, 993)

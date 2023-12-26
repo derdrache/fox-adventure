@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://cx2064asos07c"]
+[gd_scene load_steps=25 format=3 uid="uid://cx2064asos07c"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_3wr8p"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_krlhy"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="2_dbmni"]
+[ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="2_nvtlw"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="3_4iplu"]
 [ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/eagle/eagle.tscn" id="3_tnhwe"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="4_oob1e"]
@@ -15,6 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="8_6jbg3"]
 [ext_resource type="PackedScene" uid="uid://c1x3k7val2sjc" path="res://level/items/key/key.tscn" id="9_4sal4"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_iwb5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74pcc"]
+size = Vector2(2895, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oss0o"]
+size = Vector2(4021, 51.5)
 
 [sub_resource type="Curve2D" id="Curve2D_lmmee"]
 _data = {
@@ -56,6 +63,16 @@ point_count = 2
 
 [node name="Background" parent="." instance=ExtResource("1_krlhy")]
 scroll_limit_end = Vector2(0, 720)
+
+[node name="WorldEnd" parent="." instance=ExtResource("2_nvtlw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(176.5, 116)
+shape = SubResource("RectangleShape2D_74pcc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(1647.5, -2588)
+shape = SubResource("RectangleShape2D_oss0o")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_3wr8p")
@@ -323,4 +340,4 @@ conectionDoor = NodePath("../door")
 position = Vector2(2955, -3766)
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(18, 27)
+position = Vector2(856, -1559)
