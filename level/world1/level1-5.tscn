@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5sebwc4ipfgr"]
+[gd_scene load_steps=24 format=3 uid="uid://c5sebwc4ipfgr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_ca526"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_eedi0"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="2_fhwis"]
+[ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="2_o748a"]
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="3_tuu28"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="5_qnkd6"]
 [ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switch/switch.tscn" id="6_bcb6w"]
@@ -17,6 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://xi7o83rjmb0g" path="res://level/environment/liane/liane.tscn" id="14_nokws"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="16_vayv4"]
 [ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="17_q44ft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psbly"]
+size = Vector2(10103.5, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyhfm"]
+size = Vector2(53, 959)
 
 [sub_resource type="Curve2D" id="Curve2D_e0ac8"]
 _data = {
@@ -40,6 +47,18 @@ point_count = 3
 
 [node name="Background" parent="." instance=ExtResource("1_eedi0")]
 scroll_limit_end = Vector2(0, 720)
+
+[node name="WorldEnd" parent="." instance=ExtResource("2_o748a")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(5056.25, 815)
+shape = SubResource("RectangleShape2D_psbly")
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-27, 415.5)
+shape = SubResource("RectangleShape2D_xyhfm")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_ca526")
