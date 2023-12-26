@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://rigwbpt8u7nn"]
+
+[ext_resource type="Script" path="res://level/world_end.gd" id="1_0rlco"]
+
+[node name="WorldEnd" type="Area2D"]
+script = ExtResource("1_0rlco")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
