@@ -31,7 +31,10 @@ func _ready():
 func _physics_process(delta):
 	if path_follow == null: return
 	
-	if move: 
+	if !move && path_follow.progress > 0 && playerBody == null: 
+		resetPosition(delta)
+	
+	if move && playerBody != null: 
 		path_follow.progress += move_speed * delta
 		var newPosition = global_position
 		newPosition += ridePosition
@@ -40,14 +43,11 @@ func _physics_process(delta):
 	if path_follow.progress_ratio == 1: 
 		move = false
 	
-	if !move && path_follow.progress > 0 && playerBody == null: 
-		resetPosition(delta)
+
 
 func resetPosition(delta):
-	await get_tree().create_timer(2).timeout
 	path_follow.progress -= move_speed * delta
-	playerBody = null
-
+	
 
 func _on_area_top_body_entered(body):
 	if body is Player && isActive:
