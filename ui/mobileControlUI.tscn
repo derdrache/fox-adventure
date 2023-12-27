@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgwo4my704n33"]
+
+[ext_resource type="Texture2D" uid="uid://d8n7ubggpich" path="res://asset/ui/01.png" id="1_j8s4m"]
+[ext_resource type="Texture2D" uid="uid://d05im41paldql" path="res://asset/icon.svg" id="2_nnxbh"]
+
+[node name="MobileControlUi" type="CanvasLayer"]
+
+[node name="left" type="TouchScreenButton" parent="."]
+position = Vector2(883, 618)
+rotation = -1.00356
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_j8s4m")
+action = "move_left"
+
+[node name="right" type="TouchScreenButton" parent="."]
+position = Vector2(1331, 585)
+rotation = 2.26893
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_j8s4m")
+action = "move_right"
+
+[node name="up" type="TouchScreenButton" parent="."]
+position = Vector2(1075, 375)
+rotation = 0.523599
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_j8s4m")
+action = "move_up"
+
+[node name="down" type="TouchScreenButton" parent="."]
+position = Vector2(1162, 781)
+rotation = 3.49066
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_j8s4m")
+action = "move_down"
+
+[node name="action" type="TouchScreenButton" parent="."]
+position = Vector2(111, 525)
+texture_normal = ExtResource("2_nnxbh")
+texture_pressed = ExtResource("2_nnxbh")
+action = "ui_accept"
