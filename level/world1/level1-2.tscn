@@ -371,7 +371,7 @@ position = Vector2(4941, 212)
 position = Vector2(6136, 760)
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(49, 486)
+position = Vector2(68, 477)
 
 [node name="WorldEnd" parent="." instance=ExtResource("19_ktcov")]
 
