@@ -353,10 +353,10 @@ func doorInteraction(collision_object):
 		collision_object.openDoor()
 		
 	if Input.is_action_just_pressed("move_up") && not switchDoors:
-		$Camera2D/doorEffect.visible = true;
+		#$Camera2D/doorEffect.visible = true;
 		enviromentAnimation.play("door");
 
-		await get_tree().create_timer(0.6).timeout
+		#await get_tree().create_timer(0.6).timeout
 		
 		var newPosition = collision_object.getConnectionDoorPosition()
 		$".".position.x = newPosition.x
@@ -365,8 +365,8 @@ func doorInteraction(collision_object):
 
 		enviromentAnimation.play_backwards("door");
 	
-		await get_tree().create_timer(0.7).timeout
-		$Camera2D/doorEffect.visible = false;
+		#await get_tree().create_timer(0.7).timeout
+		#$Camera2D/doorEffect.visible = false;
 	
 func pickupKey():
 	hasKey = true
