@@ -78,12 +78,12 @@ func _check_start_interactions():
 	level_interaction_dict[str(startLevelInteraction)].call()
 	
 func _level_interaction0():
-	$World1/Ducks/PathStone/PathFollow2D/Duck.move()
-	$World1/Ducks/PathStone/PathFollow2D/Duck.connect("interactionDone", interaction_done)
+	$"World1 - Wood/Ducks/PathStone/PathFollow2D/Duck".move()
+	$"World1 - Wood/Ducks/PathStone/PathFollow2D/Duck".connect("interactionDone", interaction_done)
 		
 func _level_interaction1():
-	$World1/Ducks/PathBridge/PathFollow2D/Duck2.move()
-	$World1/Ducks/PathBridge/PathFollow2D/Duck2.connect("interactionDone", interaction_done)
+	$"World1 - Wood/Ducks/PathBridge/PathFollow2D/Duck2".move()
+	$"World1 - Wood/Ducks/PathBridge/PathFollow2D/Duck2".connect("interactionDone", interaction_done)
 	
 func _check_interactions_disables():
 	for level in LEVEL_INTERACTION_Disable_DICT:
@@ -101,7 +101,7 @@ func _disable_level_interaction1():
 
 
 func _disable_ui():
-	var allUi = $World1/ui.get_children()
+	var allUi = $"World1 - Wood/ui".get_children()
 	
 	for ui in allUi:
 		if ui.visible: lastLevelUi = ui
