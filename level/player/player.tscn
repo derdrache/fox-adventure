@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://hsjuocp3ilb4"]
+[gd_scene load_steps=24 format=3 uid="uid://hsjuocp3ilb4"]
 
 [ext_resource type="Script" path="res://level/player/Player.gd" id="1_ii644"]
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player.png" id="2_1h11w"]
+[ext_resource type="PackedScene" uid="uid://dgwo4my704n33" path="res://ui/mobileControlUI.tscn" id="2_h384v"]
 [ext_resource type="PackedScene" uid="uid://bjibcolu08tat" path="res://ui/LevelUI.tscn" id="7_ag5j1"]
 [ext_resource type="PackedScene" uid="uid://c1x3k7val2sjc" path="res://level/items/key/key.tscn" id="7_utnci"]
 [ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://level/player/enemy-deadth.png" id="8_b8dw4"]
@@ -272,3 +273,5 @@ position = Vector2(-20, 8)
 activeCollision = false
 
 [node name="LevelUI" parent="." instance=ExtResource("7_ag5j1")]
+
+[node name="MobileControlUi" parent="." instance=ExtResource("2_h384v")]

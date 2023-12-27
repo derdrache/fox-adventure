@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuyk1s6m6eekk"]
+
+[ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swampBackground.tscn" id="1_sv2ka"]
+[ext_resource type="TileSet" uid="uid://clcij836uso1g" path="res://level/world2/levelTileMap.tres" id="2_gb6qb"]
+[ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="2_tmuyh"]
+
+[node name="Level2-2" type="Node2D"]
+
+[node name="SwampBackground" parent="." instance=ExtResource("1_sv2ka")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_gb6qb")
+format = 2
+layer_0/tile_data = PackedInt32Array(1310725, 786435, 0, 1310726, 851971, 0, 1310727, 917507, 0, 1310728, 983043, 0, 1310729, 1048579, 0, 1310730, 1114115, 0, 1310731, 65536, 3, 1245195, 65536, 3, 1179659, 65536, 3, 1114123, 65536, 3, 1048587, 65536, 3, 983051, 65536, 3, 917515, 65536, 3, 851979, 65536, 3, 786443, 65536, 3, 786442, 327680, 7, 720906, 327680, 7, 720905, 327680, 7, 786441, 327680, 7)
+
+[node name="Player" parent="." instance=ExtResource("2_tmuyh")]
+position = Vector2(132, 291)

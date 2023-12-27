@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://daovkwmm1ii6n"]
+[gd_scene load_steps=9 format=3 uid="uid://daovkwmm1ii6n"]
 
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player.png" id="1_bsx8j"]
 [ext_resource type="Script" path="res://overworld/player/playerOverWorld.gd" id="1_o7vvp"]
+[ext_resource type="PackedScene" uid="uid://dgwo4my704n33" path="res://ui/mobileControlUI.tscn" id="3_tpqdk"]
 
 [sub_resource type="Animation" id="Animation_pbn7e"]
 length = 0.001
@@ -80,3 +81,5 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 12)
 shape = SubResource("RectangleShape2D_q55v2")
+
+[node name="MobileControlUi" parent="." instance=ExtResource("3_tpqdk")]

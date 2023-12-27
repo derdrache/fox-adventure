@@ -6,30 +6,31 @@
 [node name="MobileControlUi" type="CanvasLayer"]
 
 [node name="left" type="TouchScreenButton" parent="."]
-position = Vector2(883, 618)
+position = Vector2(807, 610)
 rotation = -1.00356
 scale = Vector2(3, 3)
 texture_normal = ExtResource("1_j8s4m")
 action = "move_left"
 
 [node name="right" type="TouchScreenButton" parent="."]
-position = Vector2(1331, 585)
+position = Vector2(1343, 568)
 rotation = 2.26893
 scale = Vector2(3, 3)
 texture_normal = ExtResource("1_j8s4m")
 action = "move_right"
 
 [node name="up" type="TouchScreenButton" parent="."]
-position = Vector2(1075, 375)
+position = Vector2(1032, 333)
 rotation = 0.523599
 scale = Vector2(3, 3)
 texture_normal = ExtResource("1_j8s4m")
 action = "move_up"
 
 [node name="down" type="TouchScreenButton" parent="."]
-position = Vector2(1162, 781)
+position = Vector2(1136, 799)
 rotation = 3.49066
-scale = Vector2(3, 3)
+scale = Vector2(3.12702, 3.04096)
+skew = -0.0785398
 texture_normal = ExtResource("1_j8s4m")
 action = "move_down"
 
