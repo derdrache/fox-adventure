@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cs1gputatsnv"]
+[gd_scene load_steps=22 format=3 uid="uid://cs1gputatsnv"]
 
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_j6sjb"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_sqo47"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="10_hqu28"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="12_dw686"]
 [ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/eagle/eagle.tscn" id="14_5ah3e"]
+[ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="16_seo3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1woi"]
 size = Vector2(2.47261, 730)
@@ -27,9 +28,12 @@ size = Vector2(58.75, 470)
 
 [sub_resource type="Curve2D" id="Curve2D_dah4w"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3065, 198, 0, 0, 0, 0, 3440, 144)
+"points": PackedVector2Array(0, 0, 0, 0, 3049, 228, 0, 0, 0, 0, 3440, 144)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogrf3"]
+size = Vector2(5999, 42)
 
 [node name="Level1-1" type="Node2D"]
 
@@ -270,7 +274,7 @@ position = Vector2(2849, 268)
 curve = SubResource("Curve2D_dah4w")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="envoirnment/eagles/Path2D"]
-position = Vector2(3065, 198)
+position = Vector2(3049, 228)
 rotates = false
 loop = false
 
@@ -279,4 +283,11 @@ position = Vector2(2, 2)
 isActive = true
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(62, 484)
+position = Vector2(45, 492)
+
+[node name="WorldEnd" parent="." instance=ExtResource("16_seo3y")]
+position = Vector2(723, 453)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(2273.5, 372)
+shape = SubResource("RectangleShape2D_ogrf3")
