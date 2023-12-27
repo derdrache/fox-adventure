@@ -28,7 +28,7 @@ size = Vector2(58.75, 470)
 
 [sub_resource type="Curve2D" id="Curve2D_dah4w"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3049, 228, 0, 0, 0, 0, 3440, 144)
+"points": PackedVector2Array(0, 0, 0, 0, 3048, 148, 0, 0, 0, 0, 3440, 144)
 }
 point_count = 2
 
@@ -274,7 +274,7 @@ position = Vector2(2849, 268)
 curve = SubResource("Curve2D_dah4w")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="envoirnment/eagles/Path2D"]
-position = Vector2(3049, 228)
+position = Vector2(3048, 148)
 rotates = false
 loop = false
 
@@ -283,7 +283,7 @@ position = Vector2(2, 2)
 isActive = true
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(45, 492)
+position = Vector2(34, 496)
 
 [node name="WorldEnd" parent="." instance=ExtResource("16_seo3y")]
 position = Vector2(723, 453)
