@@ -52,7 +52,7 @@ _data = {
 size = Vector2(28, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yklep"]
-size = Vector2(28, 18)
+size = Vector2(28, 12)
 
 [node name="eagle" type="StaticBody2D"]
 script = ExtResource("1_hukuy")
@@ -90,7 +90,7 @@ shape = SubResource("RectangleShape2D_l0dt2")
 position = Vector2(0, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBottom"]
-position = Vector2(-3, -4)
+position = Vector2(-3, -1)
 shape = SubResource("RectangleShape2D_yklep")
 
 [connection signal="body_entered" from="AreaTop" to="." method="_on_area_top_body_entered"]

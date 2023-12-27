@@ -39,6 +39,7 @@ var slideDirection = ""
 var hasCerryPower = false
 var underWater = false
 var lastFloorPosition = Vector2.ZERO
+var onMoveableObject = false
 
 
 func _process(_delta):
@@ -48,7 +49,7 @@ func _process(_delta):
 	followKey()
 
 func _physics_process(delta):
-	if is_on_floor(): lastFloorPosition = position
+	if is_on_floor() && !onMoveableObject: lastFloorPosition = position
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis( "move_up", "move_down")
 	

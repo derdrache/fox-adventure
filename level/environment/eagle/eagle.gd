@@ -51,23 +51,27 @@ func resetPosition(delta):
 
 func _on_area_top_body_entered(body):
 	if body is Player && isActive:
+		body.onMoveableObject = true
 		ridePosition.y = -10
 		playerBody = body
 		move = true
 
 func _on_area_top_body_exited(body):
 	if body is Player && isActive:
+		body.onMoveableObject = false
 		move = false
 		playerBody = null
 
 func _on_area_bottom_body_entered(body):
 	if body is Player && isActive:
+		body.onMoveableObject = true
 		playerBody = body
 		move = true
 		ridePosition.y = 10
 
 func _on_area_bottom_body_exited(body):
 	if body is Player && isActive: 
+		body.onMoveableObject = false
 		move = false
 		playerBody = null
 
