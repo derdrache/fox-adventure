@@ -113,7 +113,9 @@ func digging_object_left_or_right():
 func move_state(delta):
 	var moveSpeed = SPEED
 	if underWater: moveSpeed = SWIM_SPEED
-	if hasCerryPower: moveSpeed += CHERRYSPEED
+	elif hasCerryPower: moveSpeed += CHERRYSPEED
+	elif state == CRAWL: moveSpeed = moveSpeed / 2
+	
 	
 	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
 	var diggingLeftOrRight = digging_object_left_or_right() && (Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"))
