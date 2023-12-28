@@ -37,19 +37,19 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_81gpn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 579, -1811, 0, 0, 0, 0, 295, -1956)
+"points": PackedVector2Array(0, 0, 0, 0, 609, -1805, 0, 0, 0, 0, 295, -1956)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_3hv7v"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 244, -1959, 0, 0, 0, 0, 251, -2317)
+"points": PackedVector2Array(0, 0, 0, 0, 264, -1960, 0, 0, 0, 0, 251, -2317)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_w13ds"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 293, -2325, 0, 0, 0, 0, 366, -2667)
+"points": PackedVector2Array(0, 0, 0, 0, 293, -2325, 0, 0, 0, 0, 389, -2673)
 }
 point_count = 2
 
@@ -244,7 +244,7 @@ isActive = true
 curve = SubResource("Curve2D_81gpn")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="envoirnment/eagles/Path2D3"]
-position = Vector2(579, -1811)
+position = Vector2(609, -1805)
 rotates = false
 loop = false
 
@@ -256,7 +256,7 @@ isActive = true
 curve = SubResource("Curve2D_3hv7v")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="envoirnment/eagles/Path2D4"]
-position = Vector2(244, -1959)
+position = Vector2(264, -1960)
 rotates = false
 loop = false
 
