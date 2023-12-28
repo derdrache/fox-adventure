@@ -118,12 +118,13 @@ func move_state(delta):
 	
 	
 	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
-	var diggingLeftOrRight = digging_object_left_or_right() && (Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"))
+	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
 	var cantStandUp = state == CRAWL && (get_tile_data("top") == "null" 
 		|| get_tile_data("top", position - TILE_RIGHT_ADJUSTMENT) == "null" 
 		|| get_tile_data("top", position - TILE_LEFT_ADJUSTMENT) == "null")
 		
-	if  is_on_climbing_object() && (Input.is_action_pressed("move_up") || (Input.is_action_pressed("move_down") && not is_on_floor()) || (!is_on_floor() && state != JUMP)):
+	if  (is_on_climbing_object() && 
+		(pressedUp || (pressedDown && not is_on_floor()) || (!is_on_floor() && state != JUMP))):
 		state = CLIMB
 	elif _canDig()  && is_on_floor() && !doDig:
 		state = DIG
@@ -144,7 +145,7 @@ func move_state(delta):
 		state = JUMP
 		velocity.y = JUMP_VELOCITY
 
-	if not is_on_floor() && Input.is_action_just_pressed("move_down"):
+	if not is_on_floor() && pressedDown:
 		state = STOMP
 		doStomp = true
 	
@@ -227,8 +228,8 @@ func slide_state(delta):
 func swim_state(_delta):
 	if !in_water() || is_on_floor(): state = MOVE
 	
-	var diggingUpOrDown = digging_object_above_or_below() && (Input.is_action_pressed("move_down") || Input.is_action_pressed("move_up"))
-	var diggingLeftOrRight = digging_object_left_or_right() && (Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"))
+	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
+	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
 
 	if diggingUpOrDown || diggingLeftOrRight:
 		state = DIG
@@ -318,8 +319,10 @@ func getShapeCollision():
 	return collision_check.get_collider(0)
 
 func getSideRayCollision():
-	if collision_check_right.is_colliding() && Input.is_action_pressed("move_right"): return collision_check_right.get_collider()
-	elif collision_check_left.is_colliding() && Input.is_action_pressed("move_left"): return collision_check_left.get_collider()
+	if collision_check_right.is_colliding() && pressedRight: 
+		return collision_check_right.get_collider()
+	elif collision_check_left.is_colliding() && pressedLeft: 
+		return collision_check_left.get_collider()
 	
 	return null
 
@@ -327,22 +330,18 @@ func getSideRayCollision():
 func interaction():
 	var collision_object = getShapeCollision()
 	
-	var moveUp = Input.is_action_pressed("move_up")
-	var moveDown = Input.is_action_pressed("move_down")
-	var moveLeft = Input.is_action_pressed("move_left")
-	var moveRight = Input.is_action_pressed("move_right")
 	var cherries = LevelManager.cherries > 0;
 
 	if collision_object is Door: doorInteraction(collision_object)
 	
-	if "dig" in get_tile_data("bottom") && moveDown: do_dig("bottom")
-	elif "dig" in get_tile_data("top") && moveUp: do_dig("top")
-	elif "dig" in get_tile_data("left") && moveLeft: do_dig("left")
-	elif "dig" in get_tile_data("right") && moveRight: do_dig("right")
-	elif "ramp" in get_tile_data("bottom") && moveDown:
+	if "dig" in get_tile_data("bottom") && pressedDown: do_dig("bottom")
+	elif "dig" in get_tile_data("top") && pressedUp: do_dig("top")
+	elif "dig" in get_tile_data("left") && pressedLeft: do_dig("left")
+	elif "dig" in get_tile_data("right") && pressedRight: do_dig("right")
+	elif "ramp" in get_tile_data("bottom") && pressedDown:
 		slideDirection = get_tile_data("bottom").replace("ramp", "")
 		state = SLIDE
-	elif moveUp && cherries && is_on_floor():
+	elif pressedUp && cherries && is_on_floor():
 		activate_cherry_power()
 		
 func do_dig(digDirection):
@@ -466,7 +465,7 @@ func return_last_position():
 	position = lastFloorPosition
 
 func _canDig():
-	var diggingUpOrDown = digging_object_above_or_below() && (Input.is_action_pressed("move_down") || Input.is_action_pressed("move_up"))
-	var diggingLeftOrRight = digging_object_left_or_right() && (Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"))
+	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
+	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
 	
 	return diggingUpOrDown || diggingLeftOrRight
