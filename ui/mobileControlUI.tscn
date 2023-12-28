@@ -14,17 +14,52 @@
 
 [node name="MobileControlUi" type="CanvasLayer"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -362.0
+offset_top = -322.0
+offset_right = -66.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/MarginContainer"]
 modulate = Color(1, 1, 1, 0.588235)
-position = Vector2(1067, 551)
+position = Vector2(149, 153)
 scale = Vector2(12, 12)
 texture = ExtResource("1_cxjg3")
 region_enabled = true
 region_rect = Rect2(192, 112, 32, 32)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = -252.0
+offset_right = 244.0
+offset_bottom = -92.0
+grow_vertical = 0
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/MarginContainer2"]
 modulate = Color(1, 1, 1, 0.588235)
-position = Vector2(166, 551)
+position = Vector2(80, 80)
 scale = Vector2(10, 10)
 texture = ExtResource("1_cxjg3")
 region_enabled = true
