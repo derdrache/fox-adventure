@@ -19,6 +19,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 918.0
+offset_top = 398.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
@@ -46,18 +48,26 @@ texture = ExtResource("1_cxjg3")
 region_enabled = true
 region_rect = Rect2(192, 112, 32, 32)
 
-[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 84.0
+offset_top = 468.0
+offset_right = 244.0
+offset_bottom = 628.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control2"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 84.0
-offset_top = -252.0
-offset_right = 244.0
-offset_bottom = -92.0
+offset_top = -160.0
+offset_right = 160.0
 grow_vertical = 0
 
-[node name="Sprite2D2" type="Sprite2D" parent="Control/MarginContainer2"]
+[node name="Sprite2D2" type="Sprite2D" parent="Control2/MarginContainer2"]
 modulate = Color(1, 1, 1, 0.588235)
 position = Vector2(80, 80)
 scale = Vector2(10, 10)
