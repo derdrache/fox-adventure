@@ -40,6 +40,10 @@ var hasCerryPower = false
 var underWater = false
 var lastFloorPosition = Vector2.ZERO
 var onMoveableObject = false
+var pressedLeft = false
+var pressedRight = false
+var pressedUp = false
+var pressedDown = false
 
 
 func _process(_delta):
@@ -50,8 +54,19 @@ func _process(_delta):
 
 func _physics_process(delta):
 	if is_on_floor() && !onMoveableObject: lastFloorPosition = position
+	
 	direction.x = Input.get_axis("move_left", "move_right")
+	if direction.x == 0: direction.x = Input.get_axis("touch_left_down", "touch_right_down")
+	if direction.x == 0: direction.x = Input.get_axis("touch_left_up", "touch_right_up")
+	
 	direction.y = Input.get_axis( "move_up", "move_down")
+	if direction.y == 0: direction.y = Input.get_axis("touch_left_up" , "touch_left_down")
+	if direction.y == 0: direction.y = Input.get_axis("touch_right_up" , "touch_right_down")
+	
+	pressedLeft = direction.x == -1
+	pressedRight = direction.x == 1
+	pressedUp = direction.y == -1
+	pressedDown = direction.y == 1
 	
 	match state:
 		MOVE, JUMP, CRAWL: move_state(delta)
@@ -100,7 +115,7 @@ func move_state(delta):
 	if underWater: moveSpeed = SWIM_SPEED
 	if hasCerryPower: moveSpeed += CHERRYSPEED
 	
-	var diggingUpOrDown = digging_object_above_or_below() && (Input.is_action_pressed("move_down") || Input.is_action_pressed("move_up"))
+	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
 	var diggingLeftOrRight = digging_object_left_or_right() && (Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right"))
 	var cantStandUp = state == CRAWL && (get_tile_data("top") == "null" 
 		|| get_tile_data("top", position - TILE_RIGHT_ADJUSTMENT) == "null" 
@@ -110,7 +125,7 @@ func move_state(delta):
 		state = CLIMB
 	elif _canDig()  && is_on_floor() && !doDig:
 		state = DIG
-	elif Input.is_action_pressed("move_down") || cantStandUp:
+	elif (pressedDown || cantStandUp):
 		state = CRAWL
 	elif in_water() && !is_on_floor():
 		state = SWIM
