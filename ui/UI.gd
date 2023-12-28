@@ -26,3 +26,7 @@ func update_red_coin_display(coins):
 
 func update_gold_coin_display(coins):
 	goldCoinLabel.text = "x " + str(coins)
+
+
+func _on_texture_button_pressed():
+	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")

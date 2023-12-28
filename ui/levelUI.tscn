@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjibcolu08tat"]
+[gd_scene load_steps=9 format=3 uid="uid://bjibcolu08tat"]
 
 [ext_resource type="Script" path="res://ui/UI.gd" id="1_yw62n"]
 [ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="2_20pnj"]
 [ext_resource type="Texture2D" uid="uid://dludvjmjag8gi" path="res://asset/ui/cherry.png" id="3_53x7k"]
 [ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_rosf4"]
 [ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="5_drr2r"]
+[ext_resource type="Texture2D" uid="uid://bcnspvx6g2483" path="res://asset/ui/close.png" id="6_wi2q4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ooens"]
 shadow_size = 3
@@ -140,3 +141,16 @@ modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("5_drr2r")
 expand_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TextureButton"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_wi2q4")
+expand_mode = 1
+
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
