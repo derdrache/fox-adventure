@@ -108,9 +108,6 @@ position = Vector2(2636, 334)
 [node name="GoldCoin" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
 position = Vector2(288, 471)
 
-[node name="GoldCoin2" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
-position = Vector2(318, 471)
-
 [node name="GoldCoin3" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
 position = Vector2(437, 475)
 
