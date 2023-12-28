@@ -1,41 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgwo4my704n33"]
+[gd_scene load_steps=7 format=3 uid="uid://dgwo4my704n33"]
 
-[ext_resource type="Texture2D" uid="uid://d8n7ubggpich" path="res://asset/ui/01.png" id="1_j8s4m"]
-[ext_resource type="Texture2D" uid="uid://d05im41paldql" path="res://asset/icon.svg" id="2_nnxbh"]
+[ext_resource type="Texture2D" uid="uid://dup3f2djbvq54" path="res://asset/ui/gdb-switch-2.png" id="1_cxjg3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn6aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctjjn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxqt5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_illbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_baa1x"]
 
 [node name="MobileControlUi" type="CanvasLayer"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1067, 549)
+scale = Vector2(8, 8)
+texture = ExtResource("1_cxjg3")
+region_enabled = true
+region_rect = Rect2(192, 112, 32, 32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(166, 551)
+scale = Vector2(8, 8)
+texture = ExtResource("1_cxjg3")
+region_enabled = true
+region_rect = Rect2(400, 224, 16, 16)
+
 [node name="left" type="TouchScreenButton" parent="."]
-position = Vector2(807, 610)
-rotation = -1.00356
+position = Vector2(1002, 551)
 scale = Vector2(3, 3)
-texture_normal = ExtResource("1_j8s4m")
+shape = SubResource("RectangleShape2D_wn6aa")
 action = "move_left"
 
 [node name="right" type="TouchScreenButton" parent="."]
-position = Vector2(1343, 568)
-rotation = 2.26893
+position = Vector2(1131, 551)
 scale = Vector2(3, 3)
-texture_normal = ExtResource("1_j8s4m")
+shape = SubResource("RectangleShape2D_ctjjn")
 action = "move_right"
 
 [node name="up" type="TouchScreenButton" parent="."]
-position = Vector2(1032, 333)
-rotation = 0.523599
+position = Vector2(1067, 484)
 scale = Vector2(3, 3)
-texture_normal = ExtResource("1_j8s4m")
+shape = SubResource("RectangleShape2D_rxqt5")
 action = "move_up"
 
 [node name="down" type="TouchScreenButton" parent="."]
-position = Vector2(1136, 799)
-rotation = 3.49066
-scale = Vector2(3.12702, 3.04096)
-skew = -0.0785398
-texture_normal = ExtResource("1_j8s4m")
+position = Vector2(1067, 612)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_illbp")
 action = "move_down"
 
 [node name="action" type="TouchScreenButton" parent="."]
-position = Vector2(111, 525)
-texture_normal = ExtResource("2_nnxbh")
-texture_pressed = ExtResource("2_nnxbh")
+position = Vector2(166, 551)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_baa1x")
 action = "ui_accept"
