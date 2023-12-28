@@ -29,4 +29,5 @@ func update_gold_coin_display(coins):
 
 
 func _on_texture_button_pressed():
+	LevelManager.reset_all_stats()
 	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
