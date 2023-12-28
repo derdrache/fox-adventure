@@ -92,12 +92,12 @@ func _check_interactions_disables():
 				
 	
 func _disable_level_interaction0():	
-	$Ducks/PathStone.visible = false
-	$Obstacle/bigStone.visible = false
+	$"World1 - Wood/Ducks/PathStone".visible = false
+	$"World1 - Wood/Obstacle/bigStone".visible = false
 
 func _disable_level_interaction1():
-	$Ducks/PathBridge.visible = false
-	$Obstacle/brokenBridge.isComplete = true
+	$"World1 - Wood/Ducks/PathBridge".visible = false
+	$"World1 - Wood/Obstacle/brokenBridge".isComplete = true
 
 
 func _disable_ui():
