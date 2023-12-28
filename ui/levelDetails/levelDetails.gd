@@ -11,6 +11,7 @@ func _ready():
 
 func _on_button_pressed():
 	LevelManager.set_level(level, $"../../../playerOverWorld".position)
+	GameManager.save_player_position($"../../../playerOverWorld".position)
 	get_tree().change_scene_to_file(levelPath)
 	
 func update_ui(allLevelData):
