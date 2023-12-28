@@ -48,7 +48,7 @@ func level_done():
 	GameManager.change_level_status("isFinished", activeLevel, true)
 	GameManager.save_player_position(activeLevelPosition)
 	
-	_reset_all_stats()
+	reset_all_stats()
 	Utils.save_game()
 
 func check_level_already_done(level):
@@ -74,7 +74,7 @@ func _save_items():
 	
 	GameManager.updateLevelData(newLevelData)
 
-func _reset_all_stats():
+func reset_all_stats():
 	cherries = 0
 	gems = 0
 	redCoins = 0
