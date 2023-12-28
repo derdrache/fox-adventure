@@ -15,45 +15,71 @@
 [node name="MobileControlUi" type="CanvasLayer"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1067, 549)
-scale = Vector2(8, 8)
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(1067, 551)
+scale = Vector2(12, 12)
 texture = ExtResource("1_cxjg3")
 region_enabled = true
 region_rect = Rect2(192, 112, 32, 32)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
 position = Vector2(166, 551)
-scale = Vector2(8, 8)
+scale = Vector2(10, 10)
 texture = ExtResource("1_cxjg3")
 region_enabled = true
 region_rect = Rect2(400, 224, 16, 16)
 
 [node name="left" type="TouchScreenButton" parent="."]
-position = Vector2(1002, 551)
-scale = Vector2(3, 3)
+position = Vector2(971, 551)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_wn6aa")
 action = "move_left"
 
+[node name="left_down" type="TouchScreenButton" parent="."]
+position = Vector2(971, 648)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wn6aa")
+action = "touch_left_down"
+
+[node name="right_down" type="TouchScreenButton" parent="."]
+position = Vector2(1161, 648)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wn6aa")
+action = "touch_right_down"
+
 [node name="right" type="TouchScreenButton" parent="."]
-position = Vector2(1131, 551)
-scale = Vector2(3, 3)
+position = Vector2(1161, 551)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ctjjn")
 action = "move_right"
 
 [node name="up" type="TouchScreenButton" parent="."]
-position = Vector2(1067, 484)
-scale = Vector2(3, 3)
+position = Vector2(1067, 452)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_rxqt5")
 action = "move_up"
 
+[node name="left_up" type="TouchScreenButton" parent="."]
+position = Vector2(971, 452)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wn6aa")
+action = "touch_left_up"
+
+[node name="right_up" type="TouchScreenButton" parent="."]
+position = Vector2(1161, 452)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wn6aa")
+action = "touch_right_up"
+
 [node name="down" type="TouchScreenButton" parent="."]
-position = Vector2(1067, 612)
-scale = Vector2(3, 3)
+position = Vector2(1067, 648)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_illbp")
 action = "move_down"
 
 [node name="action" type="TouchScreenButton" parent="."]
 position = Vector2(166, 551)
-scale = Vector2(6, 6)
+scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_baa1x")
 action = "ui_accept"
