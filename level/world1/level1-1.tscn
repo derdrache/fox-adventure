@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cs1gputatsnv"]
+[gd_scene load_steps=20 format=3 uid="uid://cs1gputatsnv"]
 
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_j6sjb"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_sqo47"]
@@ -20,15 +20,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1woi"]
 size = Vector2(2.47261, 730)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6sox"]
-size = Vector2(317, 65)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xnsv"]
-size = Vector2(58.75, 470)
-
 [sub_resource type="Curve2D" id="Curve2D_dah4w"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3048, 148, 0, 0, 0, 0, 3440, 144)
+"points": PackedVector2Array(0, 0, 0, 0, 3047, 225, 0, 0, 0, 0, 3440, 144)
 }
 point_count = 2
 
@@ -47,14 +41,6 @@ position = Vector2(-46, 386)
 rotation = 3.14159
 scale = Vector2(-38.9317, -124.382)
 shape = SubResource("RectangleShape2D_g1woi")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(4880.5, 305.5)
-shape = SubResource("RectangleShape2D_b6sox")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(5405, 102)
-shape = SubResource("RectangleShape2D_1xnsv")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_sqo47")
@@ -274,7 +260,7 @@ position = Vector2(2849, 268)
 curve = SubResource("Curve2D_dah4w")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="envoirnment/eagles/Path2D"]
-position = Vector2(3048, 148)
+position = Vector2(3047, 225)
 rotates = false
 loop = false
 
