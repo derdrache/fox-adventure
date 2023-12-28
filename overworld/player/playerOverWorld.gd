@@ -145,5 +145,6 @@ func movePath(_delta):
 		
 			
 func _unhandled_input(event):
+	return
 	if event.is_action_pressed("move_up"):
 		DialogManager.start_dialog(global_position, DIALOG_LINES)
