@@ -216,6 +216,7 @@ hframes = 6
 vframes = 6
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -25)
 zoom = Vector2(3, 3)
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
