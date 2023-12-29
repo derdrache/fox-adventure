@@ -28,8 +28,6 @@ func _ready():
 
 func _process(_delta):		
 	changeCamera()
-	_check_start_interactions()
-	
 	
 	if activeInteraction : 
 		_disable_ui()
@@ -68,11 +66,10 @@ func changeCamera():
 		camera.position.x -= CAMERA_HORIZONTAL		
 
 func _check_start_interactions():
-	var startLevelInteraction = LevelManager.levelNewClear
+	var startLevelInteraction = LevelManager.activeLevel
 	
 	if !level_interaction_dict.has(str(startLevelInteraction)): return
 	
-	LevelManager.levelNewClear = 0
 	activeInteraction = true
 	
 	level_interaction_dict[str(startLevelInteraction)].call()
@@ -87,7 +84,9 @@ func _level_interaction1():
 	
 func _check_interactions_disables():
 	for level in LEVEL_INTERACTION_Disable_DICT:
-		if LevelManager.check_level_already_done(int(level)): 
+		var firstTimeClear = LevelManager.activeLevel == int(level) && LevelManager.levelNewClear
+		
+		if LevelManager.check_level_already_done(int(level)) && !firstTimeClear:
 			LEVEL_INTERACTION_Disable_DICT[level].call()
 				
 	

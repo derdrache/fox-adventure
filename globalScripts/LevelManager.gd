@@ -11,7 +11,7 @@ var redCoins : int
 var goldCoins : int
 var activeLevel : int
 var activeLevelPosition : Vector2
-var levelNewClear : int
+var levelNewClear : bool
 
 
 
@@ -34,7 +34,8 @@ func gain_gold_coin(newCoins:int):
 
 
 func set_level(level : int, position: Vector2):
-	levelNewClear = 0
+	reset_all_stats()
+	
 	activeLevel = level
 	activeLevelPosition = position
 	
@@ -43,20 +44,18 @@ func level_done():
 	var levelFinished = GameManager.getLevelStatus(activeLevel)["isFinished"]
 	
 	_save_items()
+
+	if !levelFinished: levelNewClear = true
 	
-	if !levelFinished: levelNewClear = activeLevel
 	GameManager.change_level_status("isFinished", activeLevel, true)
 	GameManager.save_player_position(activeLevelPosition)
 	
-	reset_all_stats()
 	Utils.save_game()
 
 func check_level_already_done(level):
 	var levelFinished = GameManager.getLevelStatus(int(level))["isFinished"]
-	
-	if levelFinished && not levelNewClear: return true
-	
-	return false
+
+	return levelFinished
 
 func _save_items():
 	var newLevelData = LevelDataClass.new()
@@ -80,4 +79,5 @@ func reset_all_stats():
 	redCoins = 0
 	goldCoins = 0
 	activeLevel = 0
+	levelNewClear = false
 
