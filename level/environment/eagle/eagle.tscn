@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bofjp331ba6v3"]
+[gd_scene load_steps=11 format=3 uid="uid://bofjp331ba6v3"]
 
 [ext_resource type="Texture2D" uid="uid://o6pq6w6x2mri" path="res://level/environment/eagle/eagle-attack.png" id="1_cakic"]
 [ext_resource type="Script" path="res://level/environment/eagle/eagle.gd" id="1_hukuy"]
 
+[sub_resource type="Curve2D" id="Curve2D_hr1jp"]
+resource_local_to_scene = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bppc"]
-size = Vector2(28, 19)
+size = Vector2(28, 11)
 
 [sub_resource type="Animation" id="Animation_jp7wj"]
 length = 0.001
@@ -54,24 +57,30 @@ size = Vector2(28, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yklep"]
 size = Vector2(28, 12)
 
-[node name="eagle" type="StaticBody2D"]
+[node name="Eagle" type="Path2D"]
+curve = SubResource("Curve2D_hr1jp")
 script = ExtResource("1_hukuy")
-lookRight = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
+
+[node name="eagleBody" type="StaticBody2D" parent="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/eagleBody"]
 texture = ExtResource("1_cakic")
 hframes = 4
 
-[node name="CollisionMain" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 7.5)
+[node name="CollisionMain" type="CollisionShape2D" parent="PathFollow2D/eagleBody"]
+position = Vector2(-3, 5.5)
 shape = SubResource("RectangleShape2D_0bppc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D/eagleBody"]
 libraries = {
 "": SubResource("AnimationLibrary_hutjg")
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="PathFollow2D/eagleBody"]
 visible = false
 offset_left = -2.0
 offset_top = -8.0
@@ -80,20 +89,20 @@ offset_bottom = 32.0
 rotation = 0.218545
 text = "zzZZ"
 
-[node name="AreaTop" type="Area2D" parent="."]
+[node name="AreaTop" type="Area2D" parent="PathFollow2D/eagleBody"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaTop"]
-position = Vector2(-3, -3.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/eagleBody/AreaTop"]
+position = Vector2(-3, -9)
 shape = SubResource("RectangleShape2D_l0dt2")
 
-[node name="AreaBottom" type="Area2D" parent="."]
+[node name="AreaBottom" type="Area2D" parent="PathFollow2D/eagleBody"]
 position = Vector2(0, 19)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBottom"]
-position = Vector2(-3, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/eagleBody/AreaBottom"]
+position = Vector2(-3, -2)
 shape = SubResource("RectangleShape2D_yklep")
 
-[connection signal="body_entered" from="AreaTop" to="." method="_on_area_top_body_entered"]
-[connection signal="body_exited" from="AreaTop" to="." method="_on_area_top_body_exited"]
-[connection signal="body_entered" from="AreaBottom" to="." method="_on_area_bottom_body_entered"]
-[connection signal="body_exited" from="AreaBottom" to="." method="_on_area_bottom_body_exited"]
+[connection signal="body_entered" from="PathFollow2D/eagleBody/AreaTop" to="." method="_on_area_top_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/eagleBody/AreaTop" to="." method="_on_area_top_body_exited"]
+[connection signal="body_entered" from="PathFollow2D/eagleBody/AreaBottom" to="." method="_on_area_bottom_body_entered"]
+[connection signal="body_exited" from="PathFollow2D/eagleBody/AreaBottom" to="." method="_on_area_bottom_body_exited"]

@@ -1,54 +1,50 @@
-extends StaticBody2D
+extends Path2D
 class_name Eagle
 
-@onready var animationPlayer = $AnimationPlayer
-@onready var path_follow : PathFollow2D
+@onready var animationPlayer = $PathFollow2D/eagleBody/AnimationPlayer
+@onready var path_follow = $PathFollow2D
+@onready var eagleBody = $PathFollow2D/eagleBody
+@onready var eagleSprite = $PathFollow2D/eagleBody/Sprite2D
+@onready var sleepText = $PathFollow2D/eagleBody/RichTextLabel
 
 @export var isActive = false
-@export var lookRight = false
+@export var flip_h = false
 
 
-var move_speed = 100
+const MOVE_SPEED = 100
+
 var move = false
 var playerBody : CharacterBody2D
 var ridePosition = Vector2.ZERO
 
 func _ready():
-	if get_parent() is PathFollow2D: 
-		path_follow = get_parent()
-	
-	if lookRight: 
-		$Sprite2D.flip_h = true
+	if flip_h: 
+		eagleSprite.flip_h = true
 		ridePosition.x = 5
 	
 	if isActive:
 		animationPlayer.play("idle")
 	else:
-		$RichTextLabel.visible = true
-		$Sprite2D.frame = 1
+		sleepText.visible = true
+		eagleSprite.frame = 1
 
 
 func _physics_process(delta):
-	if path_follow == null: return
-	
 	if !move && path_follow.progress > 0 && playerBody == null: 
 		resetPosition(delta)
 	
 	if move && playerBody != null: 
-		path_follow.progress += move_speed * delta
-		var newPosition = global_position
+		path_follow.progress += MOVE_SPEED * delta
+		var newPosition = eagleBody.global_position
 		newPosition += ridePosition
 		playerBody.position = newPosition
 		
 	if path_follow.progress_ratio == 1: 
 		move = false
 	
-
-
 func resetPosition(delta):
-	path_follow.progress -= move_speed * delta
+	path_follow.progress -= MOVE_SPEED * delta
 	
-
 func _on_area_top_body_entered(body):
 	if body is Player && isActive:
 		body.onMoveableObject = true
