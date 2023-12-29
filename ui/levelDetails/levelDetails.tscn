@@ -12,15 +12,19 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="levelDetails" type="Panel"]
-offset_left = 253.0
-offset_top = 355.0
-offset_right = 385.0
-offset_bottom = 543.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_us2eg")
+[node name="levelDetails" type="CanvasLayer"]
 script = ExtResource("1_i825i")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Panel" type="Panel" parent="."]
+z_index = 9
+offset_left = 488.0
+offset_top = 45.0
+offset_right = 620.0
+offset_bottom = 233.0
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_us2eg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -34,7 +38,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "[center] Wood 1"
 
-[node name="GemPanel" type="Panel" parent="."]
+[node name="GemPanel" type="Panel" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,37 +53,37 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_e60c4")
 
-[node name="gem1" type="Sprite2D" parent="GemPanel"]
+[node name="gem1" type="Sprite2D" parent="Panel/GemPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(18, 20)
 texture = ExtResource("2_bl5i1")
 hframes = 5
 
-[node name="gem2" type="Sprite2D" parent="GemPanel"]
+[node name="gem2" type="Sprite2D" parent="Panel/GemPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(34, 20)
 texture = ExtResource("2_bl5i1")
 hframes = 5
 
-[node name="gem3" type="Sprite2D" parent="GemPanel"]
+[node name="gem3" type="Sprite2D" parent="Panel/GemPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(50, 20)
 texture = ExtResource("2_bl5i1")
 hframes = 5
 
-[node name="gem4" type="Sprite2D" parent="GemPanel"]
+[node name="gem4" type="Sprite2D" parent="Panel/GemPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(66, 20)
 texture = ExtResource("2_bl5i1")
 hframes = 5
 
-[node name="gem5" type="Sprite2D" parent="GemPanel"]
+[node name="gem5" type="Sprite2D" parent="Panel/GemPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(82, 20)
 texture = ExtResource("2_bl5i1")
 hframes = 5
 
-[node name="RedCoinPanel" type="Panel" parent="."]
+[node name="RedCoinPanel" type="Panel" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -94,42 +98,42 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_e60c4")
 
-[node name="redCoin1" type="Sprite2D" parent="RedCoinPanel"]
+[node name="redCoin1" type="Sprite2D" parent="Panel/RedCoinPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(18, 20)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_k0p4q")
 hframes = 5
 
-[node name="redCoin2" type="Sprite2D" parent="RedCoinPanel"]
+[node name="redCoin2" type="Sprite2D" parent="Panel/RedCoinPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(34, 20)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_k0p4q")
 hframes = 5
 
-[node name="redCoin3" type="Sprite2D" parent="RedCoinPanel"]
+[node name="redCoin3" type="Sprite2D" parent="Panel/RedCoinPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(50, 20)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_k0p4q")
 hframes = 5
 
-[node name="redCoin4" type="Sprite2D" parent="RedCoinPanel"]
+[node name="redCoin4" type="Sprite2D" parent="Panel/RedCoinPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(66, 20)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_k0p4q")
 hframes = 5
 
-[node name="redCoin5" type="Sprite2D" parent="RedCoinPanel"]
+[node name="redCoin5" type="Sprite2D" parent="Panel/RedCoinPanel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(82, 20)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_k0p4q")
 hframes = 5
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -143,4 +147,4 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Start"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

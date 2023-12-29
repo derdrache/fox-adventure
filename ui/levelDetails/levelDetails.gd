@@ -1,4 +1,4 @@
-extends Panel
+extends CanvasLayer
 class_name LevelDetailsUI
 
 @export var level_name : String = ""
@@ -7,7 +7,7 @@ class_name LevelDetailsUI
 
 
 func _ready():
-	$RichTextLabel.text = "[center] "+ level_name
+	$Panel/RichTextLabel.text = "[center] "+ level_name
 
 func _on_button_pressed():
 	LevelManager.set_level(level, $"../../../playerOverWorld".position)
