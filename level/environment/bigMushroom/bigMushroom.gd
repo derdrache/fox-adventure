@@ -23,12 +23,6 @@ func _process(delta):
 	if showMushroom: sprite.modulate.a = 1
 	else: sprite.modulate.a = 0.25
 
-func _on_area_2d_body_entered(body):
-	if body is Player:
-		var direction = "right"
-		if sprite.flip_h: direction = "left"
-		body.mushroomJump(direction)
-
 func _checkParentSwitch():
 	var parent = get_parent()
 	
@@ -36,3 +30,8 @@ func _checkParentSwitch():
 	else: return false
 
 
+func _on_area_2d_body_entered(body):
+	if body is Player:
+		var direction = "right"
+		if sprite.flip_h: direction = "left"
+		body.mushroomJump(direction)
