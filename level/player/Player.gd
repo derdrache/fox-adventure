@@ -46,6 +46,9 @@ var pressedUp = false
 var pressedDown = false
 
 
+func _ready():
+	$MobileControlUi.visible = true
+
 func _process(_delta):
 	underWater = "water" in get_tile_data()
 	
