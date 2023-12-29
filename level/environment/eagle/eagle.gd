@@ -7,7 +7,7 @@ class_name Eagle
 @onready var eagleSprite = $PathFollow2D/eagleBody/Sprite2D
 @onready var sleepText = $PathFollow2D/eagleBody/RichTextLabel
 
-@export var isActive = false
+@export var isActive = true
 @export var flip_h = false
 
 
