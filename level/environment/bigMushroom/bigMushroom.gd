@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+@onready var sprite = $Sprite2D
+
 @export var flipH = false
 @export var flipV = false
 
@@ -7,21 +9,24 @@ var parentIsSwitch = false
 var showMushroom = true
 
 func _ready():
-	if flipH: $Sprite2D.flip_h = true
-	if flipV: $Sprite2D.flip_v = true
+	sprite.flip_h = flipH
+	sprite.flip_v = flipV
 	
 	parentIsSwitch = _checkParentSwitch()
 
 func _process(delta):
 	if parentIsSwitch: showMushroom = get_parent().used
 	
-	if showMushroom: _activateMushroom()
-	else: _deactivateMushroom()
+	$CollisionShape2D.disabled = !showMushroom
+	$Area2D.monitoring = showMushroom
+	
+	if showMushroom: sprite.modulate.a = 1
+	else: sprite.modulate.a = 0.25
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
 		var direction = "right"
-		if $Sprite2D.flip_h: direction = "left"
+		if sprite.flip_h: direction = "left"
 		body.mushroomJump(direction)
 
 func _checkParentSwitch():
@@ -30,12 +35,4 @@ func _checkParentSwitch():
 	if parent is Switch: return true
 	else: return false
 
-func _deactivateMushroom():
-	$Sprite2D.visible = false
-	$CollisionShape2D.disabled = true
-	$Area2D.monitoring = false
 
-func _activateMushroom():
-	$Sprite2D.visible = true
-	$CollisionShape2D.disabled = false
-	$Area2D.monitoring = true
