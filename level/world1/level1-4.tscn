@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cte60hqiibghr"]
+[gd_scene load_steps=25 format=3 uid="uid://cte60hqiibghr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_gq7xa"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="2_m4kyd"]
@@ -30,11 +30,24 @@ size = Vector2(2342, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6miu"]
 size = Vector2(39, 900)
 
-[sub_resource type="Curve2D" id="Curve2D_gguyc"]
+[sub_resource type="Curve2D" id="Curve2D_xfx7u"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2471, 606, 0, 0, 0, 0, 2863, 339)
+"points": PackedVector2Array(0, 0, 0, 0, -1, 2, 0, 0, 0, 0, 432, -217)
 }
 point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_5ahve"]
+resource_local_to_scene = true
+
+[sub_resource type="Curve2D" id="Curve2D_nqfnd"]
+resource_local_to_scene = true
+
+[sub_resource type="Curve2D" id="Curve2D_exjq6"]
+resource_local_to_scene = true
+
+[sub_resource type="Curve2D" id="Curve2D_o13t6"]
+resource_local_to_scene = true
 
 [node name="Level1-4" type="Node2D"]
 
@@ -396,38 +409,39 @@ used = true
 position = Vector2(1530, -417)
 fullBridge = true
 
-[node name="Path2D" type="Path2D" parent="envoirnment"]
-curve = SubResource("Curve2D_gguyc")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="envoirnment/Path2D"]
-position = Vector2(2471, 606)
-rotates = false
-loop = false
-
-[node name="eagle" parent="envoirnment/Path2D/PathFollow2D" instance=ExtResource("12_ctqn3")]
-position = Vector2(0, -7)
-isActive = true
-
 [node name="Switch3" parent="envoirnment" instance=ExtResource("6_gbwl1")]
 position = Vector2(6549, -433)
 
 [node name="BrancheBridge" parent="envoirnment/Switch3" instance=ExtResource("7_kiyv7")]
 position = Vector2(284, 334)
 
+[node name="Eagle" parent="envoirnment" instance=ExtResource("12_ctqn3")]
+position = Vector2(2421, 590)
+curve = SubResource("Curve2D_xfx7u")
+flip_h = true
+
 [node name="eagle" parent="envoirnment" instance=ExtResource("12_ctqn3")]
 position = Vector2(5992, -263)
+curve = SubResource("Curve2D_5ahve")
+isActive = false
 
 [node name="eagle2" parent="envoirnment" instance=ExtResource("12_ctqn3")]
 position = Vector2(5940, -292)
+curve = SubResource("Curve2D_nqfnd")
+isActive = false
 
 [node name="eagle3" parent="envoirnment" instance=ExtResource("12_ctqn3")]
 position = Vector2(5891, -321)
+curve = SubResource("Curve2D_exjq6")
+isActive = false
 
 [node name="eagle4" parent="envoirnment" instance=ExtResource("12_ctqn3")]
 position = Vector2(5846, -356)
+curve = SubResource("Curve2D_o13t6")
+isActive = false
 
 [node name="Goal" parent="envoirnment" instance=ExtResource("13_5clfr")]
 position = Vector2(7293, -136)
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(2030, 993)
+position = Vector2(7164, -170)
