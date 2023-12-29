@@ -20,9 +20,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g371c"]
 size = Vector2(492, 731.75)
 
-[sub_resource type="Curve2D" id="Curve2D_favij"]
+[sub_resource type="Curve2D" id="Curve2D_dwqit"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3822, 144, 0, 0, 0, 0, 3077, 144)
+"points": PackedVector2Array(0, 0, 0, 0, -1, 1, 0, 0, 0, 0, -767, -8)
 }
 point_count = 2
 
@@ -353,18 +354,9 @@ multiUse = true
 position = Vector2(1261, 11)
 flipH = true
 
-[node name="Path2D" type="Path2D" parent="environment"]
-curve = SubResource("Curve2D_favij")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="environment/Path2D"]
-position = Vector2(3822, 144)
-rotates = false
-loop = false
-
-[node name="eagle" parent="environment/Path2D/PathFollow2D" instance=ExtResource("9_lgvgi")]
-position = Vector2(1, 0)
-isActive = true
-lookRight = false
+[node name="eagle" parent="environment" instance=ExtResource("9_lgvgi")]
+position = Vector2(3820, 145)
+curve = SubResource("Curve2D_dwqit")
 
 [node name="doorSets" type="Node2D" parent="environment"]
 
