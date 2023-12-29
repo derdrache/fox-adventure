@@ -12,7 +12,6 @@ func save_game():
 	}
 	
 	var jsonString = JSON.stringify(data)
-	
 	file.store_line(jsonString)
 	
 	
