@@ -276,3 +276,4 @@ activeCollision = false
 [node name="LevelUI" parent="." instance=ExtResource("7_ag5j1")]
 
 [node name="MobileControlUi" parent="." instance=ExtResource("2_h384v")]
+visible = false
