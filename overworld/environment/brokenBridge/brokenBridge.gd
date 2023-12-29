@@ -7,7 +7,7 @@ var bridgeSprite : Sprite2D
 
 func _ready():
 	if iceBridge: bridgeSprite = $iceBridgeBody
-	else: $bridgeBody
+	else: bridgeSprite = $bridgeBody
 
 		
 func _process(_delta):
