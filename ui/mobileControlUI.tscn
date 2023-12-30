@@ -20,9 +20,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 68.0
-offset_top = 398.0
-offset_right = -850.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
@@ -30,16 +27,13 @@ size_flags_vertical = 8
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -362.0
-offset_top = -322.0
-offset_right = -66.0
-offset_bottom = -13.0
-grow_horizontal = 0
+offset_left = 53.0
+offset_top = -361.0
+offset_right = 53.0
+offset_bottom = -361.0
 grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/MarginContainer"]
@@ -100,19 +94,25 @@ action = "move_down"
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 1042.0
-offset_top = 468.0
-offset_right = 1202.0
-offset_bottom = 628.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -307.0
+offset_bottom = -147.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control2"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_left = -62.0
 offset_top = -160.0
-offset_right = 160.0
+offset_right = 98.0
 grow_vertical = 0
 
 [node name="Sprite2D2" type="Sprite2D" parent="Control2/MarginContainer2"]

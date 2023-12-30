@@ -13,10 +13,10 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="levelDetails" type="CanvasLayer"]
+layer = 9
 script = ExtResource("1_i825i")
 
 [node name="Panel" type="Panel" parent="."]
-z_index = 9
 offset_left = 488.0
 offset_top = 45.0
 offset_right = 620.0

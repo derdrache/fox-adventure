@@ -19,8 +19,8 @@ func update_ui(allLevelData):
 	var gems = levelData["gems"]
 	var redCoins = levelData["redCoins"]
 	
-	_activate_sprite(gems, "GemPanel/gem")
-	_activate_sprite(redCoins, "RedCoinPanel/redCoin")		
+	_activate_sprite(gems, "Panel/GemPanel/gem")
+	_activate_sprite(redCoins, "Panel/RedCoinPanel/redCoin")		
 		
 		
 func _activate_sprite(count, spritePath):
