@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cte60hqiibghr"]
+[gd_scene load_steps=26 format=3 uid="uid://cte60hqiibghr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_gq7xa"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="2_m4kyd"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="11_660cf"]
 [ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/eagle/eagle.tscn" id="12_ctqn3"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_5clfr"]
+[ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="15_nm11r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xamfr"]
 size = Vector2(504.5, 96)
@@ -444,4 +445,7 @@ isActive = false
 position = Vector2(7293, -136)
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(7164, -170)
+position = Vector2(34, 591)
+
+[node name="Cherry" parent="." instance=ExtResource("15_nm11r")]
+position = Vector2(139, 595)
