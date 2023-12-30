@@ -347,7 +347,7 @@ func interaction():
 	elif "ramp" in get_tile_data("bottom") && pressedDown:
 		slideDirection = get_tile_data("bottom").replace("ramp", "")
 		state = SLIDE
-	elif pressedUp && cherries && is_on_floor():
+	elif pressedUp && cherries && is_on_floor() && state == MOVE:
 		activate_cherry_power()
 		
 func do_dig(digDirection):
