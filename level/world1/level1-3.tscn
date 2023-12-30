@@ -184,7 +184,7 @@ position = Vector2(3337, 618)
 position = Vector2(5078, 186)
 
 [node name="Gem5" parent="items/gems" instance=ExtResource("3_4iplu")]
-position = Vector2(5645, 344)
+position = Vector2(5651, 403)
 
 [node name="redCoins" type="Node2D" parent="items"]
 position = Vector2(-1, -13)
