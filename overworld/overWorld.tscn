@@ -4124,11 +4124,12 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_yg680"]
+[sub_resource type="Curve2D" id="Curve2D_etqkf"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1224, -1004, 0, 0, 0, 0, -1237, -958, -0.33371, -0.66742, 0.33371, 0.66742, -1236, -868, 0, 0, 0, 0, -1215, -859, 0, 0, 0, 0, -1182, -859, 0, 0, 0, 0, -1163, -841, 0, 0, 0, 0, -1161, -805)
+"points": PackedVector2Array(0, 0, 0, 0, -1, 5, 0, 0, 0, 0, -14, 56, 0, 0, 0, 0, -13, 144, 0, 0, 0, 0, 42, 156, 0, 0, 0, 0, 57, 170, 0, 0, 0, 0, 62, 208)
 }
-point_count = 7
+point_count = 6
 
 [node name="overWorld" type="Node2D"]
 script = ExtResource("1_q6y0r")
@@ -4633,18 +4634,9 @@ curve = SubResource("Curve2D_vtm8g")
 [node name="RoadBlock" parent="World8 - City/Obstacales" instance=ExtResource("32_mgx7o")]
 position = Vector2(-1224, -840)
 
-[node name="Path2D" type="Path2D" parent="World8 - City/Obstacales"]
-curve = SubResource("Curve2D_yg680")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="World8 - City/Obstacales/Path2D"]
-position = Vector2(-1224, -1004)
-rotation = 1.84622
-rotates = false
-loop = false
-
-[node name="CarBlock" parent="World8 - City/Obstacales/Path2D/PathFollow2D" instance=ExtResource("33_pfea0")]
-position = Vector2(-2.88696, 0.815918)
-rotation = -1.84622
+[node name="CarBlock" parent="World8 - City/Obstacales" instance=ExtResource("33_pfea0")]
+position = Vector2(-1223, -1014)
+curve = SubResource("Curve2D_etqkf")
 
 [node name="Cameras" type="Node2D" parent="."]
 
