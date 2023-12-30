@@ -98,6 +98,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		forceVelocityX = 0
 
+
 func apply_gravity(delta):
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -460,7 +461,7 @@ func activate_cherry_power():
 	enviromentAnimation.play("cherry_power")
 	await get_tree().create_timer(CHERRY_POWER_TIME).timeout
 	enviromentAnimation.stop()
-	$Sprite2D.modulate = Color(1,1,1)
+	sprite.modulate = Color(1,1,1)
 	hasCerryPower = false
 
 func in_water():
