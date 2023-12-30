@@ -4205,66 +4205,36 @@ offset_bottom = 40.0
 
 [node name="levelDetails1" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
 visible = false
-layout_mode = 0
-offset_left = 191.0
-offset_top = 67.0
-offset_right = 323.0
-offset_bottom = 255.0
 level_name = "Wood 1"
 level = 1
 levelPath = "res://level/world1/level1-1.tscn"
 
 [node name="levelDetails2" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
 visible = false
-layout_mode = 0
-offset_left = 110.0
-offset_top = 58.0
-offset_right = 242.0
-offset_bottom = 246.0
 level_name = "Wood 2"
 level = 2
 levelPath = "res://level/world1/level1-2.tscn"
 
 [node name="levelDetails3" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
 visible = false
-layout_mode = 0
-offset_left = 187.0
-offset_top = 67.0
-offset_right = 319.0
-offset_bottom = 255.0
 level_name = "Wood 3"
 level = 3
 levelPath = "res://level/world1/level1-3.tscn"
 
 [node name="levelDetails4" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
 visible = false
-layout_mode = 0
-offset_left = 413.0
-offset_top = 40.0
-offset_right = 545.0
-offset_bottom = 228.0
 level_name = "Wood 4"
 level = 4
 levelPath = "res://level/world1/level1-4.tscn"
 
 [node name="levelDetails5" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
 visible = false
-layout_mode = 0
-offset_left = 205.0
-offset_top = 67.0
-offset_right = 337.0
-offset_bottom = 255.0
 level_name = "Wood 5"
 level = 5
 levelPath = "res://level/world1/level1-5.tscn"
 
 [node name="levelDetails6" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
 visible = false
-layout_mode = 0
-offset_left = 276.0
-offset_top = 22.0
-offset_right = 408.0
-offset_bottom = 210.0
 level_name = "Wood 6"
 level = 6
 levelPath = "res://level/world1/level1-6.tscn"
