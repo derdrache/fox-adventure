@@ -274,6 +274,7 @@ position = Vector2(-20, 8)
 activeCollision = false
 
 [node name="LevelUI" parent="." instance=ExtResource("7_ag5j1")]
+visible = false
 
 [node name="MobileControlUi" parent="." instance=ExtResource("2_h384v")]
 visible = false
