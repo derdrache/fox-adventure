@@ -86,17 +86,17 @@ func _level_interaction1():
 func _check_interactions_disables():
 	for level in LEVEL_INTERACTION_Disable_DICT:
 		var firstTimeClear = LevelManager.activeLevel == int(level) && LevelManager.levelNewClear
-		
 		if LevelManager.check_level_already_done(int(level)) && !firstTimeClear:
 			LEVEL_INTERACTION_Disable_DICT[level].call()
 				
 	
 func _disable_level_interaction0():	
 	duckWorld1_1.visible = false
+	$"World1 - Wood/Obstacle/bigStone".done()
 
 func _disable_level_interaction1():
 	duckWorld1_1.visible = false
-
+	$"World1 - Wood/Obstacle/brokenBridge".done()
 
 func _disable_ui():
 	var allUi = $"World1 - Wood/ui".get_children()
