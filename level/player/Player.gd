@@ -148,10 +148,10 @@ func move_state(delta):
 	
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		state = JUMP
+		if state != CRAWL: state = JUMP
 		velocity.y = JUMP_VELOCITY
 
-	if not is_on_floor() && pressedDown:
+	if not is_on_floor() && Input.is_action_just_pressed("move_down"):
 		state = STOMP
 	
 	if direction && forceVelocityX == 0:
