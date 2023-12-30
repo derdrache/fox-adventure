@@ -30,7 +30,6 @@ var state = MOVE
 var hasKey = false
 var switchDoors = false
 var direction = Vector2.ZERO
-var doStomp = false
 var forceVelocityX = 0
 var doDig = false
 var digRotation = 0
@@ -142,7 +141,6 @@ func move_state(delta):
 		state = SWIM
 	elif is_on_floor():
 		state = MOVE
-		doStomp = false
 	elif !is_on_floor():
 		state = JUMP
 	
@@ -155,7 +153,6 @@ func move_state(delta):
 
 	if not is_on_floor() && pressedDown:
 		state = STOMP
-		doStomp = true
 	
 	if direction && forceVelocityX == 0:
 		velocity.x = direction.x * moveSpeed
@@ -205,9 +202,8 @@ func stomp_state(delta):
 		stompAnimation()
 	
 	if in_water():
-		state = MOVE
+		state = SWIM
 		
-	
 	velocity.y += gravity*4 * delta
 
 func dig_state():
@@ -234,7 +230,7 @@ func slide_state(delta):
 		sliderEndCounter = 30
 
 func swim_state(_delta):
-	if !in_water() && is_on_floor(): state = MOVE
+	if !in_water() || (!in_water() && is_on_floor()): state = MOVE
 	
 	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
 	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
