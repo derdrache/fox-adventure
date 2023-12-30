@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cx2064asos07c"]
+[gd_scene load_steps=23 format=3 uid="uid://cx2064asos07c"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="2_5dy3f"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_dbuas"]
@@ -22,6 +22,9 @@ size = Vector2(2895, 76)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oss0o"]
 size = Vector2(4021, 47.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llosm"]
+size = Vector2(20, 647.5)
 
 [sub_resource type="Curve2D" id="Curve2D_cxqbo"]
 resource_local_to_scene = true
@@ -58,6 +61,12 @@ shape = SubResource("RectangleShape2D_74pcc")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(1366, -2304)
 shape = SubResource("RectangleShape2D_oss0o")
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-10, -260.25)
+shape = SubResource("RectangleShape2D_llosm")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_5dy3f")
