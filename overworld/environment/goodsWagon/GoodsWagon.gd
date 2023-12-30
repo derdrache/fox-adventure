@@ -1,21 +1,18 @@
-extends StaticBody2D
+extends Path2D
 
-@onready var parent = get_parent()
+@onready var pathFollow = $PathFollow2D/GoodsWagonBody
+@onready var sprite = $PathFollow2D/GoodsWagonBody/SpriteDuck
 
 var doMove = false
-var path : PathFollow2D
 var moveSpeed = 50
 
-func _ready():
-	if parent is PathFollow2D: path = parent
-
 func _physics_process(delta):
-	if doMove: path.progress += moveSpeed * delta
+	if doMove: pathFollow.progress += moveSpeed * delta
 
 
 func _on_area_2d_body_entered(body):
 	if "Duck" in body.name:
 		await get_tree().create_timer(2).timeout
-		$SpriteDuck.flip_h = body.flipH
-		$SpriteDuck.visible = true
+		sprite.flip_h = body.flipH
+		sprite.visible = true
 		doMove = true		
