@@ -2,17 +2,15 @@ extends StaticBody2D
 
 @export var iceBridge = false
 
-var isComplete = false
 var bridgeSprite : Sprite2D
 
 func _ready():
 	if iceBridge: bridgeSprite = $iceBridgeBody
 	else: bridgeSprite = $bridgeBody
-
-		
-func _process(_delta):
-	if isComplete: bridgeSprite.visible = true
-		
+				
+func done():
+	bridgeSprite.visible = true
+	$CollisionShape2D.disabled = true
 
 func _on_area_2d_body_entered(body):
 	if "Duck" in body.name:
