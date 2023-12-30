@@ -28,7 +28,7 @@ size = Vector2(53, 959)
 [sub_resource type="Curve2D" id="Curve2D_i8urx"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 19, 49, 0, 0, 0, 0, 346.685, -295.839)
+"points": PackedVector2Array(0, 0, 0, 0, 19, 49, 0, 0, 0, 0, 345.778, -314.717)
 }
 point_count = 2
 
@@ -151,6 +151,7 @@ position = Vector2(3475, 231)
 position = Vector2(3487.18, 76.0659)
 scale = Vector2(1.09556, 0.794574)
 curve = SubResource("Curve2D_i8urx")
+flip_h = true
 
 [node name="Switch2" parent="environment" instance=ExtResource("6_bcb6w")]
 position = Vector2(5585, 591)
@@ -462,4 +463,4 @@ position = Vector2(9076, -170)
 position = Vector2(9128, -235)
 
 [node name="Player" parent="." instance=ExtResource("2_fhwis")]
-position = Vector2(10, -40)
+position = Vector2(12, 1)
