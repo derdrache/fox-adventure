@@ -1,19 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://w47lyofbgr58"]
+[gd_scene load_steps=5 format=3 uid="uid://w47lyofbgr58"]
 
 [ext_resource type="Script" path="res://overworld/environment/carBlock/CarBlock.gd" id="1_c6tnb"]
 [ext_resource type="Texture2D" uid="uid://pv0w6gakjk7b" path="res://overworld/assets/city.png" id="1_htexj"]
 
+[sub_resource type="Curve2D" id="Curve2D_aim0u"]
+resource_local_to_scene = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1445q"]
 size = Vector2(14, 20)
 
-[node name="CarBlock" type="Area2D"]
+[node name="CarBlock" type="Path2D"]
+curve = SubResource("Curve2D_aim0u")
 script = ExtResource("1_c6tnb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
+
+[node name="CarBlockBody" type="Area2D" parent="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/CarBlockBody"]
 texture = ExtResource("1_htexj")
 region_enabled = true
 region_rect = Rect2(336, 224, 16, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CarBlockBody"]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_1445q")
