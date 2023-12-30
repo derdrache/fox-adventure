@@ -63,7 +63,7 @@ func _on_area_bottom_body_entered(body):
 		body.onMoveableObject = true
 		playerBody = body
 		move = true
-		ridePosition.y = 10
+		ridePosition.y = 8
 
 func _on_area_bottom_body_exited(body):
 	if body is Player && isActive: 
