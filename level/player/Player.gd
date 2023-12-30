@@ -234,7 +234,7 @@ func slide_state(delta):
 		sliderEndCounter = 30
 
 func swim_state(_delta):
-	if !in_water() || is_on_floor(): state = MOVE
+	if !in_water() && is_on_floor(): state = MOVE
 	
 	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
 	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
