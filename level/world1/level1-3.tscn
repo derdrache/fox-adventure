@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://qnwou1ycotof"]
+[gd_scene load_steps=26 format=3 uid="uid://qnwou1ycotof"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_3wr8p"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_krlhy"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b8uku6hxgf7b4" path="res://level/environment/climbingTrees/palm/climbingPalm.tscn" id="10_wbkhw"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_iwb5w"]
 [ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="17_aidc0"]
+[ext_resource type="PackedScene" uid="uid://cjhu3ajoox1s5" path="res://level/environment/moving_objects/moving_platform.tscn" id="20_kohlr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1xr8"]
 size = Vector2(63, 886)
@@ -33,12 +34,12 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_d4cx7"]
+[sub_resource type="Curve2D" id="Curve2D_cox5p"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0.000488281, 2.99982, 0, 0, 0, 0, 194, -100)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 115, -107, 0, 0, 0, 0, 0, 0)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axd5f"]
 size = Vector2(6602, 32)
@@ -160,12 +161,12 @@ position = Vector2(3402, 697)
 position = Vector2(3764, 421)
 curve = SubResource("Curve2D_4qi03")
 
-[node name="eagle4" parent="enviroment/eagels" instance=ExtResource("3_tnhwe")]
-position = Vector2(4460, 374)
-curve = SubResource("Curve2D_d4cx7")
-
 [node name="Goal" parent="enviroment" instance=ExtResource("13_iwb5w")]
 position = Vector2(5968, 760)
+
+[node name="MovingPlatform" parent="enviroment" instance=ExtResource("20_kohlr")]
+position = Vector2(4494, 388)
+curve = SubResource("Curve2D_cox5p")
 
 [node name="items" type="Node2D" parent="."]
 
@@ -316,7 +317,7 @@ position = Vector2(4865, 483)
 position = Vector2(4002, 466)
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(232.5, 479)
+position = Vector2(230, 480)
 
 [node name="WorldEnd" parent="." instance=ExtResource("2_nvtlw")]
 
