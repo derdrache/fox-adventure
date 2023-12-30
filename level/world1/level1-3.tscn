@@ -203,6 +203,9 @@ withRedCoin = true
 position = Vector2(3640, 689)
 hasRedCoin = true
 
+[node name="redCoin3" parent="items/redCoins" instance=ExtResource("6_fk03u")]
+position = Vector2(4756, 416)
+
 [node name="cherries" type="Node2D" parent="items"]
 
 [node name="key" parent="items" instance=ExtResource("9_4sal4")]
@@ -313,7 +316,7 @@ position = Vector2(4865, 483)
 position = Vector2(4002, 466)
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(30, 481)
+position = Vector2(32, 480)
 
 [node name="WorldEnd" parent="." instance=ExtResource("2_nvtlw")]
 
