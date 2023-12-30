@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cce1ci32bqmph"]
+[gd_scene load_steps=8 format=3 uid="uid://cce1ci32bqmph"]
 
 [ext_resource type="Script" path="res://chars/duck/Duck.gd" id="1_l21ul"]
 [ext_resource type="Texture2D" uid="uid://b43iwic6xrpnf" path="res://asset/sprites/DuckAnimation.png" id="2_2u3yj"]
+
+[sub_resource type="Curve2D" id="Curve2D_hyirh"]
+resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4de3o"]
 size = Vector2(12, 14)
@@ -44,18 +47,25 @@ _data = {
 "fly": SubResource("Animation_2vexl")
 }
 
-[node name="Duck" type="CharacterBody2D"]
+[node name="Duck" type="Path2D"]
+curve = SubResource("Curve2D_hyirh")
 script = ExtResource("1_l21ul")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
+
+[node name="DuckBody" type="CharacterBody2D" parent="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/DuckBody"]
 texture = ExtResource("2_2u3yj")
 hframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/DuckBody"]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_4de3o")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D/DuckBody"]
 libraries = {
 "": SubResource("AnimationLibrary_70eoq")
 }

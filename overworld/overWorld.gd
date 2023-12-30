@@ -3,7 +3,8 @@ extends Node2D
 @onready var player = $playerOverWorld
 @onready var camera = $Cameras/Camera2D
 @onready var uiNodesWorld1 = $"World1 - Wood/ui"
-
+@onready var duckWorld1_1 = $"World1 - Wood/Ducks/Duck"
+@onready var duckWorld1_2 = $"World1 - Wood/Ducks/Duck2"
 
 const CAMERA_VERTICAL = 365
 const CAMERA_HORIZONTAL = 650 
@@ -75,12 +76,12 @@ func _check_start_interactions():
 	level_interaction_dict[str(startLevelInteraction)].call()
 	
 func _level_interaction0():
-	$"World1 - Wood/Ducks/PathStone/PathFollow2D/Duck".move()
-	$"World1 - Wood/Ducks/PathStone/PathFollow2D/Duck".connect("interactionDone", interaction_done)
+	duckWorld1_1.move()
+	duckWorld1_1.connect("interactionDone", interaction_done)
 		
 func _level_interaction1():
-	$"World1 - Wood/Ducks/PathBridge/PathFollow2D/Duck2".move()
-	$"World1 - Wood/Ducks/PathBridge/PathFollow2D/Duck2".connect("interactionDone", interaction_done)
+	duckWorld1_2.move()
+	duckWorld1_2.connect("interactionDone", interaction_done)
 	
 func _check_interactions_disables():
 	for level in LEVEL_INTERACTION_Disable_DICT:
@@ -91,12 +92,10 @@ func _check_interactions_disables():
 				
 	
 func _disable_level_interaction0():	
-	$"World1 - Wood/Ducks/PathStone".visible = false
-	$"World1 - Wood/Obstacle/bigStone".visible = false
+	duckWorld1_1.visible = false
 
 func _disable_level_interaction1():
-	$"World1 - Wood/Ducks/PathBridge".visible = false
-	$"World1 - Wood/Obstacle/brokenBridge".isComplete = true
+	duckWorld1_1.visible = false
 
 
 func _disable_ui():

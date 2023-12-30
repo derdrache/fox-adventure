@@ -15,7 +15,7 @@ func _process(_delta):
 		
 
 func _on_area_2d_body_entered(body):
-	if body is Duck:
+	if "Duck" in body.name:
 		await get_tree().create_timer(1).timeout
 		bridgeSprite.visible = true
 		$CollisionShape2D.disabled = true

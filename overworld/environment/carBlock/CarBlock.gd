@@ -14,7 +14,7 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body is Duck:
+	if "Duck" in body.name:
 		await get_tree().create_timer(2).timeout
 		$SpriteDuck.flip_h = body.flipH
 		$SpriteDuck.visible = true

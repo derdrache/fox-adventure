@@ -1,37 +1,31 @@
-extends CharacterBody2D
-class_name Duck
+extends Path2D
 
-@onready var sprite = $Sprite2D
-@onready var animation = $AnimationPlayer
-@onready var parent = get_parent()
+@onready var sprite = $PathFollow2D/DuckBody/Sprite2D
+@onready var animation = $PathFollow2D/DuckBody/AnimationPlayer
+@onready var pathFollow = $PathFollow2D
 
 @export var flipH = false 
 @export var doMove = false
 @export var spriteVisible = true
 
 
-
-
 signal interactionDone
 
-var path : PathFollow2D
+
 var moveSpeed = 100
 
 
 func _ready():
-	if parent is PathFollow2D: path = parent
 	sprite.visible = spriteVisible
 	sprite.flip_h = flipH
 
 func _physics_process(delta):
-	if path == null: return;
-	
 	if doMove: 
 		animation.play("fly")
-		path.progress += moveSpeed * delta
+		pathFollow.progress += moveSpeed * delta
 	else: animation.stop()
 
-	if path.progress_ratio == 1: 
+	if pathFollow.progress_ratio == 1: 
 		doMove = false
 		await _remove_obstacle_animation()
 		emit_signal("interactionDone")	
