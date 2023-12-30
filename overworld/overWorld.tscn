@@ -4024,15 +4024,17 @@ _data = {
 }
 point_count = 4
 
-[sub_resource type="Curve2D" id="Curve2D_us6n8"]
+[sub_resource type="Curve2D" id="Curve2D_vnhvj"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1144, -570, 0, 0, 0, 0, 1240, -569, 0, 0, 0, 0, 1240, -586, 0, 0, 0, 0, 1256, -585)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 96, 1, 0, 0, 0, 0, 96, -15, 0, 0, 0, 0, 113, -14)
 }
 point_count = 4
 
-[sub_resource type="Curve2D" id="Curve2D_ugd8o"]
+[sub_resource type="Curve2D" id="Curve2D_f6b1t"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 887, -476, 0, 0, 0, 0, 825, -475, 0, 0, 0, 0, 825, -584, 0, 0, 0, 0, 709, -586, 0, 0, 0, 0, 709, -570)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 3.05176e-05, 0, 0, 0, 0, -64, 0.000366211, 0, 0, 0, 0, -65.0005, -109, 0, 0, 0, 0, -176.001, -109.999, 0, 0, 0, 0, -176, -94.9991)
 }
 point_count = 5
 
@@ -4361,29 +4363,13 @@ position = Vector2(1115, -175)
 
 [node name="Obstacales" type="Node2D" parent="World4 - Cave"]
 
-[node name="GoodsWagon1Path" type="Path2D" parent="World4 - Cave/Obstacales"]
-curve = SubResource("Curve2D_us6n8")
+[node name="GoodsWagon1" parent="World4 - Cave/Obstacales" instance=ExtResource("18_lp183")]
+position = Vector2(1144, -569)
+curve = SubResource("Curve2D_vnhvj")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="World4 - Cave/Obstacales/GoodsWagon1Path"]
-position = Vector2(1144, -570)
-rotation = 0.0104163
-loop = false
-
-[node name="GoodsWagon1" parent="World4 - Cave/Obstacales/GoodsWagon1Path/PathFollow2D" instance=ExtResource("18_lp183")]
-position = Vector2(0.010376, 0.999939)
-rotation = -0.0104163
-
-[node name="GoodWagon2Path" type="Path2D" parent="World4 - Cave/Obstacales"]
-curve = SubResource("Curve2D_ugd8o")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="World4 - Cave/Obstacales/GoodWagon2Path"]
-position = Vector2(887, -476)
-rotation = 3.12546
-loop = false
-
-[node name="GoodsWagon2" parent="World4 - Cave/Obstacales/GoodWagon2Path/PathFollow2D" instance=ExtResource("18_lp183")]
-position = Vector2(-0.983765, -1.01596)
-rotation = -3.12546
+[node name="GoodsWagon2" parent="World4 - Cave/Obstacales" instance=ExtResource("18_lp183")]
+position = Vector2(888, -475)
+curve = SubResource("Curve2D_f6b1t")
 
 [node name="Crystal" parent="World4 - Cave/Obstacales" instance=ExtResource("19_3v5jh")]
 position = Vector2(839, -643)
