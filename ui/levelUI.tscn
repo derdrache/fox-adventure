@@ -37,7 +37,7 @@ offset_right = -428.0
 offset_bottom = -239.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
@@ -45,10 +45,9 @@ theme_override_constants/margin_bottom = 30
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 75
+theme_override_constants/separation = 50
 
 [node name="GoldContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -146,10 +145,10 @@ expand_mode = 2
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TextureButton"]
-custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 30.0
+offset_bottom = 30.0
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_wi2q4")
 expand_mode = 1
 
