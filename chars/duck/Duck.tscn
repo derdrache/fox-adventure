@@ -59,4 +59,3 @@ shape = SubResource("RectangleShape2D_4de3o")
 libraries = {
 "": SubResource("AnimationLibrary_70eoq")
 }
-autoplay = "fly"

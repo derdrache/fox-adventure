@@ -1,11 +1,15 @@
 extends CharacterBody2D
 class_name Duck
 
+@onready var sprite = $Sprite2D
+@onready var animation = $AnimationPlayer
+@onready var parent = get_parent()
+
 @export var flipH = false 
 @export var doMove = false
 @export var spriteVisible = true
 
-@onready var parent = get_parent()
+
 
 
 signal interactionDone
@@ -16,13 +20,16 @@ var moveSpeed = 100
 
 func _ready():
 	if parent is PathFollow2D: path = parent
-	$Sprite2D.visible = spriteVisible
-	$Sprite2D.flip_h = flipH
+	sprite.visible = spriteVisible
+	sprite.flip_h = flipH
 
 func _physics_process(delta):
 	if path == null: return;
 	
-	if doMove: path.progress += moveSpeed * delta
+	if doMove: 
+		animation.play("fly")
+		path.progress += moveSpeed * delta
+	else: animation.stop()
 
 	if path.progress_ratio == 1: 
 		doMove = false
