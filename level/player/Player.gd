@@ -10,7 +10,7 @@ class_name Player
 @onready var keySprite = $key
 @onready var normalCollision = $normalCollision
 @onready var crawlCollision = $crawlCollision
-@onready var levelTileMap = get_node("../TileMap")
+@onready var levelTileMap : TileMap = get_node("../TileMap")
 
 
 enum { MOVE , CLIMB , JUMP, STOMP, DIG, HANG, SLIDE, CRAWL, SWIM}
@@ -126,10 +126,10 @@ func move_state(delta):
 	
 	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
 	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
-	var cantStandUp = state == CRAWL && (get_tile_data("top") == "null" 
-		|| get_tile_data("top", position - TILE_RIGHT_ADJUSTMENT) == "null" 
-		|| get_tile_data("top", position - TILE_LEFT_ADJUSTMENT) == "null")
-		
+	var cantStandUp = state == CRAWL && (get_tile_data("top", "collision") == 1 
+		|| get_tile_data("top",  "collision", position - TILE_RIGHT_ADJUSTMENT) == 1 
+		|| get_tile_data("top",  "collision", position - TILE_LEFT_ADJUSTMENT) == 1)
+			
 	if  (is_on_climbing_object() && 
 		(pressedUp || (pressedDown && not is_on_floor()) || (!is_on_floor() && state != JUMP))):
 		state = CLIMB
@@ -172,8 +172,8 @@ func climb_state(delta):
 		tileSearchY = -10
 	
 	
-	var canClimbRight = "climb" in get_tile_data("right") || "climb" in get_tile_data("right", position- Vector2(0, tileSearchY))
-	var canClimbLeft = "climb" in get_tile_data("left") || "climb" in get_tile_data("left", position- Vector2(0, tileSearchY))
+	var canClimbRight = "climb" in get_tile_data("right") || "climb" in get_tile_data("right", "customData", position- Vector2(0, tileSearchY))
+	var canClimbLeft = "climb" in get_tile_data("left") || "climb" in get_tile_data("left",  "customData", position- Vector2(0, tileSearchY))
 	var nextStepIsClimbable = move_and_check_climbing_object(position+ (velocity*2 * delta))
 	
 	var canClimb = nextStepIsClimbable || canClimbRight || canClimbLeft
@@ -200,8 +200,7 @@ func stomp_state(delta):
 	if is_on_floor():
 		state = MOVE
 		stompAnimation()
-	
-	if in_water():
+	elif in_water():
 		state = SWIM
 		
 	velocity.y += gravity*4 * delta
@@ -426,7 +425,9 @@ func move_and_check_climbing_object(newPlayerPosition):
 
 	return !results.is_empty()	
 
-func get_tile_data(direction : String = "", searchPosition = position):
+func get_tile_data(direction : String = "", 
+	dataType = "customData",  searchPosition = position):
+		
 	if levelTileMap == null: return ""
 	
 	var tileDirection = Vector2.ZERO
@@ -441,15 +442,21 @@ func get_tile_data(direction : String = "", searchPosition = position):
 		tileDirection = TILE_ABOVE_ADJUSTMENT	
 	
 	var tilePos = levelTileMap.local_to_map(searchPosition - tileDirection)
-	var tileData = levelTileMap.get_cell_tile_data(0, tilePos)
-
-	if tileData:
-		if tileData && tileData.get_custom_data("Floor") != "": 
-			return tileData.get_custom_data("Floor")
-
-		return "null"
+	var tileData : TileData = levelTileMap.get_cell_tile_data(0, tilePos)
 	
-	return ""
+	if dataType == "customData": 
+		
+		if tileData:
+			if tileData && tileData.get_custom_data("Floor") != "": 
+				return tileData.get_custom_data("Floor")
+
+			return "null"
+		
+		return ""
+	elif dataType == "collision":
+		if tileData : return tileData.get_collision_polygons_count(0)
+		#return tileData
+	
 
 func activate_cherry_power():
 	LevelManager.gain_cherries(-1)
