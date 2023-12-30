@@ -39,6 +39,7 @@ var slideDirection = ""
 var hasCerryPower = false
 var underWater = false
 var lastFloorPosition = Vector2.ZERO
+var lastFloorFlipH = false
 var onMoveableObject = false
 var pressedLeft = false
 var pressedRight = false
@@ -56,7 +57,9 @@ func _process(_delta):
 	followKey()
 
 func _physics_process(delta):
-	if is_on_floor() && !onMoveableObject: lastFloorPosition = position
+	if is_on_floor() && !onMoveableObject:
+		lastFloorFlipH = sprite.flip_h
+		lastFloorPosition = position
 	
 	direction.x = Input.get_axis("move_left", "move_right")
 	if direction.x == 0: direction.x = Input.get_axis("touch_left_down", "touch_right_down")
@@ -465,7 +468,11 @@ func in_water():
 		return "water" in tileData
 
 func return_last_position():
-	position = lastFloorPosition
+	var lastPosition = lastFloorPosition
+	if lastFloorFlipH: lastPosition.x += 10
+	else: lastPosition.x -= 10
+
+	position = lastPosition
 
 func _canDig():
 	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
