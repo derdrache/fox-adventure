@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8uku6hxgf7b4"]
+[gd_scene load_steps=4 format=3 uid="uid://b8uku6hxgf7b4"]
 
-[ext_resource type="Texture2D" uid="uid://bxryb1yd8oc6i" path="res://level/environment/climbingTrees/palm/palm.png" id="1_0s7bm"]
-[ext_resource type="Script" path="res://level/environment/climbingTrees/palm/climbingPalm.gd" id="1_8neqa"]
+[ext_resource type="Texture2D" uid="uid://bxryb1yd8oc6i" path="res://level/environment/climbingTrees/palm.png" id="1_0s7bm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyuf6"]
 size = Vector2(8, 105)
@@ -11,7 +10,6 @@ radius = 40.9999
 height = 95.9998
 
 [node name="climbingPalm" type="Area2D"]
-script = ExtResource("1_8neqa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(25.75, -10.5)

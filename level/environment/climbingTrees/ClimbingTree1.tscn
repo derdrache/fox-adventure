@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://e36x4eic5jxs"]
+[gd_scene load_steps=6 format=3 uid="uid://e36x4eic5jxs"]
 
-[ext_resource type="Script" path="res://level/environment/climbingTrees/tree/climbingTree.gd" id="1_gq0vf"]
 [ext_resource type="Texture2D" uid="uid://c63r2qcoogs4i" path="res://asset/tileMaps/props.png" id="1_k8n0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8uyb"]
@@ -16,7 +15,6 @@ radius = 17.0
 radius = 14.0357
 
 [node name="climbingTree1" type="Area2D"]
-script = ExtResource("1_gq0vf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.49038, 1.52083)
