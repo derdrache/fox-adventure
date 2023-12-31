@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var collision_check = $ShapeCast2D
+@onready var collision_check : ShapeCast2D = $ShapeCast2D
 @onready var collision_check_right = $RayCastRight
 @onready var collision_check_left = $RayCastLeft
 @onready var animationPlayer = $AnimationPlayer
@@ -103,13 +103,14 @@ func apply_gravity(delta):
 			velocity.y += gravity * delta
 
 func is_on_climbing_object():
-	var onLadder = getShapeCollision() is Ladder
-	var onClimbingTree = getShapeCollision() is ClimbingTree
+	var collisionObjectName = ""
+	if getShapeCollision() != null: collisionObjectName = getShapeCollision().name
+
+	var onClimbingObject = "Climb" in collisionObjectName
 	var onLiane = getShapeCollision() is Liane
-	var onClimbingPalm = getShapeCollision() is ClimbingPalm
 	var onWall = "climb" in get_tile_data("right") || "climb" in get_tile_data("left")
 	
-	return onLadder || onClimbingTree || onLiane || onClimbingPalm || onWall
+	return onClimbingObject || onLiane || onWall
 
 func digging_object_above_or_below():	
 	return "dig" in get_tile_data("top")|| "dig" in get_tile_data("bottom")
@@ -181,13 +182,8 @@ func climb_state(delta):
 	
 	if is_on_floor():
 		state = MOVE
-
-	if !canClimb: 
-		if collision_check_right.get_collider() is Ladder || collision_check_left.get_collider() is Ladder:
-			state = MOVE
-		else:
-			velocity = Vector2.ZERO
-	
+		
+	if !canClimb: velocity = Vector2.ZERO
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		state = JUMP
@@ -321,7 +317,6 @@ func stompAnimation():
 
 func getShapeCollision():
 	if !collision_check.is_colliding(): return null
-
 	return collision_check.get_collider(0)
 
 func getSideRayCollision():
