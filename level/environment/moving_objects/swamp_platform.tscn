@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyapx4t30r7dt"]
+[gd_scene load_steps=7 format=3 uid="uid://dyapx4t30r7dt"]
 
-[ext_resource type="Texture2D" uid="uid://i30qxit6v84x" path="res://asset/tileMaps/Swamp.png" id="1_nw5nw"]
+[ext_resource type="Texture2D" uid="uid://i30qxit6v84x" path="res://asset/tileMaps/Swamp.png" id="1_7pk5r"]
+[ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_n3bcw"]
+
+[sub_resource type="Curve2D" id="Curve2D_sywd7"]
+resource_local_to_scene = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28wal"]
-texture = ExtResource("1_nw5nw")
+texture = ExtResource("1_7pk5r")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -235,13 +239,21 @@ sources/0 = SubResource("TileSetAtlasSource_28wal")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_miylj"]
 size = Vector2(94, 15)
 
-[node name="SwampPlatform" type="StaticBody2D"]
+[node name="SwampPlatform" type="Path2D"]
+curve = SubResource("Curve2D_sywd7")
+script = ExtResource("1_n3bcw")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D"]
+position = Vector2(0, 7)
+
+[node name="TileMap" type="TileMap" parent="PathFollow2D/StaticBody2D"]
 tile_set = SubResource("TileSet_k3q8o")
 format = 2
 layer_0/tile_data = PackedInt32Array(-3, 786432, 0, -2, 851968, 0, -1, 917504, 0, -65536, 983040, 0, -65535, 1048576, 0, -65534, 1114112, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/StaticBody2D"]
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_miylj")

@@ -6,3 +6,4 @@ extends Path2D
 
 func _physics_process(delta):
 	pathFollow.progress += moving_speed * delta
+	

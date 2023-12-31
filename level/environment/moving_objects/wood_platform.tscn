@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0vxd5mtdpqsc"]
+[gd_scene load_steps=7 format=3 uid="uid://c0vxd5mtdpqsc"]
 
-[ext_resource type="Texture2D" uid="uid://uloa0egqd72y" path="res://asset/tileMaps/tileset.png" id="1_f36tc"]
+[ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_800jl"]
+[ext_resource type="Texture2D" uid="uid://uloa0egqd72y" path="res://asset/tileMaps/tileset.png" id="2_oemd1"]
+
+[sub_resource type="Curve2D" id="Curve2D_1yu7q"]
+resource_local_to_scene = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4hv6s"]
-texture = ExtResource("1_f36tc")
+texture = ExtResource("2_oemd1")
 1:1/0 = 0
 3:1/0 = 0
 5:1/0 = 0
@@ -139,13 +143,22 @@ sources/0 = SubResource("TileSetAtlasSource_4hv6s")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmkh2"]
 size = Vector2(95, 15)
 
-[node name="WoodPlatform" type="StaticBody2D"]
+[node name="WoodPlatform" type="Path2D"]
+curve = SubResource("Curve2D_1yu7q")
+script = ExtResource("1_800jl")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-1, -2)
+rotates = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D"]
+position = Vector2(1, 8)
+
+[node name="TileMap" type="TileMap" parent="PathFollow2D/StaticBody2D"]
 tile_set = SubResource("TileSet_jr8h3")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1, 1114112, 14, -65536, 1114112, 14, -65535, 1114112, 14, -3, 983040, 14, -2, 1114112, 14, -65534, 1245184, 14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/StaticBody2D"]
 position = Vector2(0.5, -8.5)
 shape = SubResource("RectangleShape2D_vmkh2")
