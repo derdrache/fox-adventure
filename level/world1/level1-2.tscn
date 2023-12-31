@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_dbuas"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="4_b2wqj"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="4_bibng"]
-[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switch/switch.tscn" id="5_c32s5"]
+[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switchObjects/switch/switch.tscn" id="5_c32s5"]
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="5_osj1c"]
-[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/brancheBridge/brancheBridge.tscn" id="6_1jbe8"]
+[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/bridgeObjects/brancheBridge.tscn" id="6_1jbe8"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="8_7ntlj"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="9_a3e5t"]
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="10_hqu28"]
@@ -93,7 +93,7 @@ curve = SubResource("Curve2D_ocd6m")
 position = Vector2(286, -1250)
 
 [node name="BrancheBridge" parent="envoirnment/Switch" instance=ExtResource("6_1jbe8")]
-position = Vector2(323, 239)
+position = Vector2(353, 234)
 
 [node name="Mushrooms" type="Node2D" parent="envoirnment"]
 
@@ -260,4 +260,4 @@ position = Vector2(508, -2672)
 position = Vector2(1791, -2796)
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(47, 32)
+position = Vector2(59, 32)
