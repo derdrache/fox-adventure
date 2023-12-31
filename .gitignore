@@ -2,3 +2,4 @@
 .godot/
 apk/
 savegame.bin
+*.tmp
