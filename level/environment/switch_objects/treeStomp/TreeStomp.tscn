@@ -17,6 +17,7 @@ texture = ExtResource("1_3q1vj")
 hframes = 2
 
 [node name="CollisionShapeNormal" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_p3bot")
 
