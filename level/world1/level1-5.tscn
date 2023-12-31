@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="2_o748a"]
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="3_tuu28"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="5_qnkd6"]
-[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switch/switch.tscn" id="6_bcb6w"]
+[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switchObjects/switch/switch.tscn" id="6_bcb6w"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="7_0hkvr"]
-[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/brancheBridge/brancheBridge.tscn" id="8_5u3s0"]
+[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/bridgeObjects/brancheBridge.tscn" id="8_5u3s0"]
 [ext_resource type="PackedScene" uid="uid://c1x3k7val2sjc" path="res://level/items/key/key.tscn" id="9_iu1qt"]
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="10_4dui3"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="11_0eylj"]
@@ -105,10 +105,10 @@ position = Vector2(8741, -14)
 position = Vector2(781, 590)
 
 [node name="BrancheBridge" parent="environment/Switch" instance=ExtResource("8_5u3s0")]
-position = Vector2(420, 31)
+position = Vector2(450, 26)
 
 [node name="BrancheBridge2" parent="environment/Switch" instance=ExtResource("8_5u3s0")]
-position = Vector2(675, 31)
+position = Vector2(706, 26)
 
 [node name="doorSets" type="Node2D" parent="environment"]
 
@@ -157,7 +157,7 @@ flip_h = true
 position = Vector2(5585, 591)
 
 [node name="BrancheBridge" parent="environment/Switch2" instance=ExtResource("8_5u3s0")]
-position = Vector2(-96, -402)
+position = Vector2(-67, -407)
 
 [node name="kiste" parent="environment" node_paths=PackedStringArray("spawningNode") instance=ExtResource("5_qnkd6")]
 position = Vector2(6002, 145)
@@ -206,7 +206,7 @@ curve = SubResource("Curve2D_k52a7")
 position = Vector2(7302, 77)
 
 [node name="BrancheBridge" parent="environment/Switch3" instance=ExtResource("8_5u3s0")]
-position = Vector2(315, -96)
+position = Vector2(345, -101)
 
 [node name="Goal" parent="environment" instance=ExtResource("16_vayv4")]
 position = Vector2(9268, -24)
