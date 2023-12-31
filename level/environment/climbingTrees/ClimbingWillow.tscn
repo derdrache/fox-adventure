@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://3u8gexpj31rv"]
+
+[ext_resource type="Texture2D" uid="uid://b4l243fjl6h31" path="res://level/environment/climbingTrees/3.png" id="1_wfljy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ghayi"]
+radius = 28.0
+height = 178.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imbnm"]
+size = Vector2(20, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wri8"]
+size = Vector2(79.2462, 22.7279)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_su7ta"]
+radius = 21.0238
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wbmie"]
+radius = 16.0312
+
+[node name="ClimbingWillow" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wfljy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ghayi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(48, 80)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_imbnm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(24.9822, 39.0533)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_5wri8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(25, -60)
+shape = SubResource("CircleShape2D_su7ta")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(-21, -48)
+shape = SubResource("CircleShape2D_wbmie")
