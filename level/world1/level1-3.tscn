@@ -5,19 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="2_dbmni"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="2_nvtlw"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="3_4iplu"]
-[ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/eagle/eagle.tscn" id="3_tnhwe"]
+[ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/moving_objects/eagle.tscn" id="3_tnhwe"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="4_oob1e"]
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="4_wb14n"]
-[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/bridgeObjects/brancheBridge.tscn" id="5_g2fyr"]
+[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/bridge_objects/brancheBridge.tscn" id="5_g2fyr"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="5_hem0g"]
-[ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridgeObjects/stompBridge.tscn" id="6_ed51l"]
+[ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridge_objects/stompBridge.tscn" id="6_ed51l"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="6_fk03u"]
-[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switchObjects/switch/switch.tscn" id="6_rulhp"]
+[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switch_objects/switch/switch.tscn" id="6_rulhp"]
 [ext_resource type="PackedScene" uid="uid://dyo48x8bxuhu" path="res://level/environment/bigBush/BigBush.tscn" id="7_j4y87"]
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="8_6jbg3"]
 [ext_resource type="PackedScene" uid="uid://c1x3k7val2sjc" path="res://level/items/key/key.tscn" id="9_4sal4"]
 [ext_resource type="PackedScene" uid="uid://xi7o83rjmb0g" path="res://level/environment/liane/liane.tscn" id="9_g1oro"]
-[ext_resource type="PackedScene" uid="uid://b8uku6hxgf7b4" path="res://level/environment/climbingTrees/palm/climbingPalm.tscn" id="10_wbkhw"]
+[ext_resource type="PackedScene" uid="uid://b8uku6hxgf7b4" path="res://level/environment/climbingTrees/ClimbingPalm.tscn" id="10_wbkhw"]
 [ext_resource type="PackedScene" uid="uid://c0vxd5mtdpqsc" path="res://level/environment/moving_objects/types/wood_platform.tscn" id="13_7ddom"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_iwb5w"]
 [ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="17_aidc0"]
@@ -134,30 +134,12 @@ spawningNode = NodePath("../../lianes/lianes1")
 [node name="lianes1" type="Node2D" parent="enviroment/lianes"]
 
 [node name="liane" parent="enviroment/lianes/lianes1" instance=ExtResource("9_g1oro")]
-position = Vector2(2341, 280)
-
-[node name="liane8" parent="enviroment/lianes/lianes1" instance=ExtResource("9_g1oro")]
-position = Vector2(2341, 296)
+position = Vector2(2350, 272)
 
 [node name="liane2" parent="enviroment/lianes/lianes1" instance=ExtResource("9_g1oro")]
-position = Vector2(2341, 264)
+position = Vector2(2350, 208)
 
-[node name="liane3" parent="enviroment/lianes/lianes1" instance=ExtResource("9_g1oro")]
-position = Vector2(2341, 248)
-
-[node name="liane4" parent="enviroment/lianes/lianes1" instance=ExtResource("9_g1oro")]
-position = Vector2(2341, 232)
-
-[node name="liane5" parent="enviroment/lianes/lianes1" instance=ExtResource("9_g1oro")]
-position = Vector2(2341, 216)
-
-[node name="liane6" parent="enviroment/lianes/lianes1" instance=ExtResource("9_g1oro")]
-position = Vector2(2342, 202)
-
-[node name="liane7" parent="enviroment/lianes/lianes1" instance=ExtResource("9_g1oro")]
-position = Vector2(2342, 186)
-
-[node name="climbingPalm" parent="enviroment" instance=ExtResource("10_wbkhw")]
+[node name="ClimbingPalm" parent="enviroment" instance=ExtResource("10_wbkhw")]
 position = Vector2(3402, 697)
 
 [node name="eagels" type="Node2D" parent="enviroment"]

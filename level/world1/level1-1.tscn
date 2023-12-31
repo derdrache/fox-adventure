@@ -5,15 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_dbuas"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="4_b2wqj"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="5_88kff"]
-[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switchObjects/switch/switch.tscn" id="5_c32s5"]
+[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switch_objects/switch/switch.tscn" id="5_c32s5"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="5_d2sl0"]
-[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/bridgeObjects/brancheBridge.tscn" id="6_1jbe8"]
+[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/bridge_objects/brancheBridge.tscn" id="6_1jbe8"]
 [ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="7_wn52m"]
-[ext_resource type="PackedScene" uid="uid://e36x4eic5jxs" path="res://level/environment/climbingTrees/tree/climbingTree1.tscn" id="8_wsy6d"]
+[ext_resource type="PackedScene" uid="uid://e36x4eic5jxs" path="res://level/environment/climbingTrees/ClimbingTree1.tscn" id="8_wsy6d"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="9_a3e5t"]
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="10_hqu28"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="12_dw686"]
-[ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/eagle/eagle.tscn" id="14_5ah3e"]
+[ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/moving_objects/eagle.tscn" id="14_5ah3e"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="16_seo3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1woi"]
@@ -77,7 +77,7 @@ multiUse = true
 [node name="BrancheBridge" parent="envoirnment/Switch" instance=ExtResource("6_1jbe8")]
 position = Vector2(106, 26)
 
-[node name="climbingTree1" parent="envoirnment" instance=ExtResource("8_wsy6d")]
+[node name="ClimbingTree1" parent="envoirnment" instance=ExtResource("8_wsy6d")]
 position = Vector2(2672, 375)
 
 [node name="bigMushroom" parent="envoirnment" instance=ExtResource("10_hqu28")]
@@ -249,7 +249,7 @@ position = Vector2(3687, 415)
 position = Vector2(3718, 415)
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(66, 495)
+position = Vector2(50, 497)
 
 [node name="WorldEnd" parent="." instance=ExtResource("16_seo3y")]
 position = Vector2(723, 453)

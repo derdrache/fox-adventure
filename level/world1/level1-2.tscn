@@ -4,15 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_dbuas"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="4_b2wqj"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="4_bibng"]
-[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switchObjects/switch/switch.tscn" id="5_c32s5"]
+[ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switch_objects/switch/switch.tscn" id="5_c32s5"]
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="5_osj1c"]
-[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/bridgeObjects/brancheBridge.tscn" id="6_1jbe8"]
+[ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/bridge_objects/brancheBridge.tscn" id="6_1jbe8"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="8_7ntlj"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="9_a3e5t"]
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="10_hqu28"]
-[ext_resource type="PackedScene" uid="uid://e36x4eic5jxs" path="res://level/environment/climbingTrees/tree/climbingTree1.tscn" id="13_aqb37"]
+[ext_resource type="PackedScene" uid="uid://e36x4eic5jxs" path="res://level/environment/climbingTrees/ClimbingTree1.tscn" id="13_aqb37"]
 [ext_resource type="PackedScene" uid="uid://c1x3k7val2sjc" path="res://level/items/key/key.tscn" id="13_wfeaq"]
-[ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/eagle/eagle.tscn" id="15_1latl"]
+[ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/moving_objects/eagle.tscn" id="15_1latl"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="16_cxcy5"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="17_wio1f"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="19_ktcov"]
@@ -117,7 +117,7 @@ position = Vector2(445, -2674)
 [node name="bigMushroom5" parent="envoirnment/Mushrooms/Switch" instance=ExtResource("10_hqu28")]
 position = Vector2(870, -94)
 
-[node name="climbingTree1" parent="envoirnment" instance=ExtResource("13_aqb37")]
+[node name="ClimbingTree1" parent="envoirnment" instance=ExtResource("13_aqb37")]
 position = Vector2(-262, -1849)
 
 [node name="doorSets" type="Node2D" parent="envoirnment"]
