@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c1x3k7val2sjc" path="res://level/items/key/key.tscn" id="7_utnci"]
 [ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://level/player/enemy-deadth.png" id="8_b8dw4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0hqa"]
-size = Vector2(14, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1rr"]
+size = Vector2(14, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmf5s"]
 size = Vector2(14, 14)
@@ -215,14 +215,14 @@ texture = ExtResource("2_1h11w")
 hframes = 6
 vframes = 6
 
+[node name="normalCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_5v1rr")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -25)
 zoom = Vector2(3, 3)
-
-[node name="normalCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_j0hqa")
 
 [node name="crawlCollision" type="CollisionShape2D" parent="."]
 visible = false
