@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb6pkg80f062k"
-path="res://.godot/imported/Baumstamm.png-2ced9981933cf17d32c6e9f24af27234.ctex"
+path="res://.godot/imported/Baumstamm.png-750ee8eaf9f6d5a5a78d1d9ec67ead49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/environment/switchObjects/treeStomp/Baumstamm.png"
-dest_files=["res://.godot/imported/Baumstamm.png-2ced9981933cf17d32c6e9f24af27234.ctex"]
+source_file="res://level/environment/switch_objects/treeStomp/Baumstamm.png"
+dest_files=["res://.godot/imported/Baumstamm.png-750ee8eaf9f6d5a5a78d1d9ec67ead49.ctex"]
 
 [params]
 

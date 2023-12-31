@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://sdf3ivtdspav"]
 
-[ext_resource type="Texture2D" uid="uid://cb6pkg80f062k" path="res://level/environment/switchObjects/treeStomp/Baumstamm.png" id="1_3q1vj"]
-[ext_resource type="Script" path="res://level/environment/switchObjects/treeStomp/TreeStomp.gd" id="1_milin"]
+[ext_resource type="Texture2D" uid="uid://cb6pkg80f062k" path="res://level/environment/switch_objects/treeStomp/Baumstamm.png" id="1_3q1vj"]
+[ext_resource type="Script" path="res://level/environment/switch_objects/treeStomp/TreeStomp.gd" id="1_milin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3bot"]
 size = Vector2(14, 16)

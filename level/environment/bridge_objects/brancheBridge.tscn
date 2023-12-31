@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw5w7qm7wmwmn"]
 
 [ext_resource type="Texture2D" uid="uid://uloa0egqd72y" path="res://asset/tileMaps/tileset.png" id="1_u7knx"]
-[ext_resource type="Script" path="res://level/environment/bridgeObjects/brancheBridge.gd" id="1_v2jp3"]
+[ext_resource type="Script" path="res://level/environment/bridge_objects/brancheBridge.gd" id="1_v2jp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmyo3"]
 texture = ExtResource("1_u7knx")

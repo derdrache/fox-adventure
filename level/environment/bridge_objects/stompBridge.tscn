@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgndd8xxy3owe"]
 
-[ext_resource type="Script" path="res://level/environment/bridgeObjects/stompBridge.gd" id="1_0bc4l"]
+[ext_resource type="Script" path="res://level/environment/bridge_objects/stompBridge.gd" id="1_0bc4l"]
 [ext_resource type="Texture2D" uid="uid://uloa0egqd72y" path="res://asset/tileMaps/tileset.png" id="1_o0rsx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mqipq"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bofjp331ba6v3"]
 
-[ext_resource type="Texture2D" uid="uid://o6pq6w6x2mri" path="res://level/environment/eagle/eagle-attack.png" id="1_cakic"]
-[ext_resource type="Script" path="res://level/environment/eagle/eagle.gd" id="1_hukuy"]
+[ext_resource type="Texture2D" uid="uid://o6pq6w6x2mri" path="res://asset/sprites/eagle-attack.png" id="1_cakic"]
+[ext_resource type="Script" path="res://level/environment/moving_objects/eagle.gd" id="1_hukuy"]
 
 [sub_resource type="Curve2D" id="Curve2D_hr1jp"]
 resource_local_to_scene = true
