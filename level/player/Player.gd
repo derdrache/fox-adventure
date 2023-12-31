@@ -211,6 +211,8 @@ func dig_state():
 	if !doDig: state = MOVE
 	
 func slide_state(delta):
+	if in_water(): state = MOVE
+	
 	if not "ramp" in get_tile_data("bottom"): 
 		sliderEndCounter -= 1
 		
@@ -263,6 +265,7 @@ func animation_state():
 			digRotation = 0
 		else:
 			sprite.rotation = deg_to_rad(0)
+	
 	
 	if move_up && state == CLIMB:
 		keySprite.position.x = 0
