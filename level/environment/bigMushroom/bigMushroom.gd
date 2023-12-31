@@ -13,7 +13,7 @@ func _ready():
 
 
 func _process(delta):
-	var parentIsSwitch = HelperFunctions.is_parent_switch()
+	var parentIsSwitch = HelperFunctions.is_parent_switch(get_parent())
 	
 	if parentIsSwitch: showMushroom = get_parent().used
 	
