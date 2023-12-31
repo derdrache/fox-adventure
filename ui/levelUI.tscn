@@ -16,7 +16,7 @@ shadow_size = 3
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="LevelUI" type="CanvasLayer"]
-layer = 2
+layer = 3
 script = ExtResource("1_yw62n")
 
 [node name="Control" type="Control" parent="."]
