@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cte60hqiibghr"]
+[gd_scene load_steps=24 format=3 uid="uid://cte60hqiibghr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_gq7xa"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="2_m4kyd"]
@@ -16,8 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridge_objects/stompBridge.tscn" id="12_k37w6"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_5clfr"]
 [ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="15_nm11r"]
-[ext_resource type="PackedScene" uid="uid://c0vxd5mtdpqsc" path="res://level/environment/moving_objects/types/wood_platform.tscn" id="15_q3p1r"]
-[ext_resource type="PackedScene" uid="uid://cjhu3ajoox1s5" path="res://level/environment/moving_objects/moving_platform.tscn" id="16_l2wvw"]
+[ext_resource type="PackedScene" uid="uid://c0vxd5mtdpqsc" path="res://level/environment/moving_objects/wood_platform.tscn" id="15_q3p1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xamfr"]
 size = Vector2(504.5, 96)
@@ -38,10 +37,10 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_k5y1v"]
+[sub_resource type="Curve2D" id="Curve2D_ocf4m"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2, -1, 0, 0, 0, 0, -158, -140, 0, 0, 0, 0, 2, -1)
+"points": PackedVector2Array(0, 0, 0, 0, -0.286133, -1.47565, 0, 0, 0, 0, -153.286, -99.4756, 0, 0, 0, 0, -0.286133, -1.47565)
 }
 point_count = 3
 
@@ -405,20 +404,12 @@ flip_h = true
 [node name="Goal" parent="envoirnment" instance=ExtResource("13_5clfr")]
 position = Vector2(7293, -136)
 
-[node name="MovingPlatform" parent="envoirnment" instance=ExtResource("16_l2wvw")]
-position = Vector2(5929, -227)
-curve = SubResource("Curve2D_k5y1v")
-
-[node name="PathFollow2D" parent="envoirnment/MovingPlatform" index="0"]
-position = Vector2(2, -1)
-
-[node name="WoodPlatform" parent="envoirnment/MovingPlatform/PathFollow2D" index="0" instance=ExtResource("15_q3p1r")]
-position = Vector2(1, 4)
+[node name="WoodPlatform" parent="envoirnment" instance=ExtResource("15_q3p1r")]
+position = Vector2(5931.29, -252.524)
+curve = SubResource("Curve2D_ocf4m")
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(48, 592)
+position = Vector2(33, 592)
 
 [node name="Cherry" parent="." instance=ExtResource("15_nm11r")]
 position = Vector2(139, 595)
-
-[editable path="envoirnment/MovingPlatform"]

@@ -144,7 +144,7 @@ conectionDoor = NodePath("../door2")
 position = Vector2(5898, 591)
 conectionDoor = NodePath("../door")
 
-[node name="climbingTree1" parent="environment" instance=ExtResource("12_n6orh")]
+[node name="ClimbingTree1" parent="environment" instance=ExtResource("12_n6orh")]
 position = Vector2(3475, 231)
 
 [node name="eagle" parent="environment" instance=ExtResource("13_mkncg")]
@@ -463,4 +463,4 @@ position = Vector2(9076, -170)
 position = Vector2(9128, -235)
 
 [node name="Player" parent="." instance=ExtResource("2_fhwis")]
-position = Vector2(12, 1)
+position = Vector2(26, 5)

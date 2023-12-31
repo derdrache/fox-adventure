@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://qnwou1ycotof"]
+[gd_scene load_steps=27 format=3 uid="uid://qnwou1ycotof"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_3wr8p"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_krlhy"]
@@ -18,10 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://c1x3k7val2sjc" path="res://level/items/key/key.tscn" id="9_4sal4"]
 [ext_resource type="PackedScene" uid="uid://xi7o83rjmb0g" path="res://level/environment/liane/liane.tscn" id="9_g1oro"]
 [ext_resource type="PackedScene" uid="uid://b8uku6hxgf7b4" path="res://level/environment/climbingTrees/ClimbingPalm.tscn" id="10_wbkhw"]
-[ext_resource type="PackedScene" uid="uid://c0vxd5mtdpqsc" path="res://level/environment/moving_objects/types/wood_platform.tscn" id="13_7ddom"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_iwb5w"]
 [ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="17_aidc0"]
-[ext_resource type="PackedScene" uid="uid://cjhu3ajoox1s5" path="res://level/environment/moving_objects/moving_platform.tscn" id="20_kohlr"]
+[ext_resource type="PackedScene" uid="uid://c0vxd5mtdpqsc" path="res://level/environment/moving_objects/wood_platform.tscn" id="21_dec6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1xr8"]
 size = Vector2(63, 886)
@@ -36,10 +35,10 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_cox5p"]
+[sub_resource type="Curve2D" id="Curve2D_qqlgi"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 115, -107, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 1, -4, 0, 0, 0, 0, 139, -112, 0, 0, 0, 0, 1, -4)
 }
 point_count = 3
 
@@ -151,11 +150,9 @@ curve = SubResource("Curve2D_4qi03")
 [node name="Goal" parent="enviroment" instance=ExtResource("13_iwb5w")]
 position = Vector2(5968, 760)
 
-[node name="MovingPlatform" parent="enviroment" instance=ExtResource("20_kohlr")]
-position = Vector2(4494, 388)
-curve = SubResource("Curve2D_cox5p")
-
-[node name="WoodPlatform" parent="enviroment/MovingPlatform/PathFollow2D" index="0" instance=ExtResource("13_7ddom")]
+[node name="WoodPlatform" parent="enviroment" instance=ExtResource("21_dec6v")]
+position = Vector2(4490, 398)
+curve = SubResource("Curve2D_qqlgi")
 
 [node name="items" type="Node2D" parent="."]
 
@@ -306,12 +303,10 @@ position = Vector2(4865, 483)
 position = Vector2(4002, 466)
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(243, 480)
+position = Vector2(240, 480)
 
 [node name="WorldEnd" parent="." instance=ExtResource("2_nvtlw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(3052, 883)
 shape = SubResource("RectangleShape2D_axd5f")
-
-[editable path="enviroment/MovingPlatform"]
