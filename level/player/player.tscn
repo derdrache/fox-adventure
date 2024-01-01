@@ -205,7 +205,7 @@ animations = [{
 size = Vector2(10, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmf5s"]
-size = Vector2(14, 14)
+size = Vector2(13, 7)
 
 [sub_resource type="Animation" id="Animation_ipp55"]
 length = 0.001
@@ -306,10 +306,10 @@ script = ExtResource("1_ii644")
 sprite_frames = SubResource("SpriteFrames_5nbca")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.551541
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 5.5)
+visible = false
+position = Vector2(-1, 6.5)
 shape = SubResource("RectangleShape2D_5v1rr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -318,7 +318,7 @@ zoom = Vector2(3, 3)
 
 [node name="crawlCollision" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(0, 9)
+position = Vector2(0.5, 12.5)
 shape = SubResource("RectangleShape2D_wmf5s")
 disabled = true
 
