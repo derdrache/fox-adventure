@@ -10,21 +10,20 @@ class_name Kiste
 var used = false
 
 func _ready():
-	if spawningNode != null:
-		spawningNode.visible = false
+	if spawningNode != null: _changeSpawningNodeVisibility(false)
 
 func _on_bottom_area_body_entered(body):
 	if body is Player:
 		if used: return
-		
-		
+	
 		if withGem: await _dropGem()
 		elif withRedCoin: _dropRedCoin()
 		elif goldCoins > 0: _dropGoldCoin()
 		elif spawningNode != null:
 			used = true
 			var hitAnimation = await $boxSprite.hitAnimation()
-			spawningNode.visible = true
+			_changeSpawningNodeVisibility(true)
+			
 		else: queue_free()
 
 func _on_top_area_body_entered(body):
@@ -39,6 +38,10 @@ func _on_top_area_body_entered(body):
 				used = true
 				spawningNode.visible = true
 
+func _changeSpawningNodeVisibility(show):
+	spawningNode.visible = show
+	for node : Area2D in spawningNode.get_children():
+		node.set_collision_layer_value(1, show)
 
 
 func _dropGem():
