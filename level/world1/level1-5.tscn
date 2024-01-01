@@ -41,7 +41,7 @@ point_count = 2
 [sub_resource type="Curve2D" id="Curve2D_iohrh"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -3, 0, 0, 0, 0, 0, -12, -274, 0, 0, 0, 0, 122, -254)
+"points": PackedVector2Array(0, 0, 0, 0, -3, 0, 0, 0, 0, 0, -12, -274, 0, 0, 0, 0, 74, -256)
 }
 point_count = 3
 
@@ -178,10 +178,10 @@ position = Vector2(6022, -80)
 curve = SubResource("Curve2D_k52a7")
 
 [node name="Switch3" parent="environment" instance=ExtResource("6_bcb6w")]
-position = Vector2(7302, 77)
+position = Vector2(7301, 78)
 
 [node name="BrancheBridge" parent="environment/Switch3" instance=ExtResource("8_5u3s0")]
-position = Vector2(345, -101)
+position = Vector2(346, -102)
 
 [node name="Goal" parent="environment" instance=ExtResource("16_vayv4")]
 position = Vector2(9268, -24)
@@ -227,7 +227,7 @@ position = Vector2(4375, 205)
 position = Vector2(5319, 582)
 
 [node name="Gem5" parent="items/gems" instance=ExtResource("7_0hkvr")]
-position = Vector2(9158, -166)
+position = Vector2(9212, -167)
 
 [node name="key" parent="items" instance=ExtResource("9_iu1qt")]
 position = Vector2(1412, 594)
