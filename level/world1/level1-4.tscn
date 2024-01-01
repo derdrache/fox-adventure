@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cte60hqiibghr"]
+[gd_scene load_steps=23 format=3 uid="uid://cte60hqiibghr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_gq7xa"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/world_end.tscn" id="2_m4kyd"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/moving_objects/eagle.tscn" id="12_ctqn3"]
 [ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridge_objects/stompBridge.tscn" id="12_k37w6"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_5clfr"]
-[ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="15_nm11r"]
 [ext_resource type="PackedScene" uid="uid://c0vxd5mtdpqsc" path="res://level/environment/moving_objects/wood_platform.tscn" id="15_q3p1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xamfr"]
@@ -113,7 +112,7 @@ position = Vector2(4372, 1278)
 hasRedCoin = true
 
 [node name="GoldCoin3" parent="items/redCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6435, -141)
+position = Vector2(5779, -204)
 hasRedCoin = true
 
 [node name="key2" parent="items" instance=ExtResource("4_h7v7r")]
@@ -305,34 +304,34 @@ position = Vector2(6087, -33)
 goldCoins = 5
 
 [node name="GoldCoin60" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6408, -247)
+position = Vector2(6411, -436)
 
 [node name="GoldCoin61" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6426, -220)
+position = Vector2(6439, -456)
 
 [node name="GoldCoin62" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6446, -195)
+position = Vector2(6469, -455)
 
 [node name="GoldCoin63" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6472, -170)
+position = Vector2(6495, -434)
 
 [node name="GoldCoin64" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6492, -144)
+position = Vector2(6437, -17)
 
 [node name="GoldCoin65" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6414, -116)
+position = Vector2(6406, -18)
 
 [node name="GoldCoin66" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6399, -92)
+position = Vector2(6374, -17)
 
 [node name="GoldCoin67" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6388, -65)
+position = Vector2(6322, -253)
 
 [node name="GoldCoin68" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6380, -39)
+position = Vector2(5779, -229)
 
 [node name="GoldCoin69" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(6372, -9)
+position = Vector2(6290, -253)
 
 [node name="envoirnment" type="Node2D" parent="."]
 
@@ -409,7 +408,4 @@ position = Vector2(5931.29, -252.524)
 curve = SubResource("Curve2D_ocf4m")
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(33, 592)
-
-[node name="Cherry" parent="." instance=ExtResource("15_nm11r")]
-position = Vector2(139, 595)
+position = Vector2(53, 583)

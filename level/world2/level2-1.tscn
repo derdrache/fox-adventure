@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://j1j3kjcuoi88"]
+[gd_scene load_steps=18 format=3 uid="uid://j1j3kjcuoi88"]
 
 [ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swampBackground.tscn" id="1_3nqpj"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="1_4fhsq"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="13_36t3s"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="14_egqua"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="15_ebayw"]
-[ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="16_mpqga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g371c"]
 size = Vector2(492, 731.75)
@@ -331,9 +330,6 @@ position = Vector2(6513, 448)
 [node name="GoldCoin69" parent="items/goldCoins" instance=ExtResource("15_ebayw")]
 position = Vector2(6553, 448)
 
-[node name="Cherry" parent="items" instance=ExtResource("16_mpqga")]
-position = Vector2(4996, 354)
-
 [node name="environment" type="Node2D" parent="."]
 
 [node name="Switch" parent="environment" instance=ExtResource("4_brv26")]
@@ -397,6 +393,3 @@ position = Vector2(6857, 488)
 
 [node name="Player" parent="." instance=ExtResource("1_4fhsq")]
 position = Vector2(116, 354)
-
-[node name="Cherry" parent="." instance=ExtResource("16_mpqga")]
-position = Vector2(344, 353)

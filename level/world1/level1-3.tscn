@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://qnwou1ycotof"]
+[gd_scene load_steps=26 format=3 uid="uid://qnwou1ycotof"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_3wr8p"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_krlhy"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://xi7o83rjmb0g" path="res://level/environment/liane/liane.tscn" id="9_g1oro"]
 [ext_resource type="PackedScene" uid="uid://b8uku6hxgf7b4" path="res://level/environment/climbingTrees/ClimbingPalm.tscn" id="10_wbkhw"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_iwb5w"]
-[ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="17_aidc0"]
 [ext_resource type="PackedScene" uid="uid://c0vxd5mtdpqsc" path="res://level/environment/moving_objects/wood_platform.tscn" id="21_dec6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1xr8"]
@@ -193,8 +192,6 @@ hasRedCoin = true
 [node name="redCoin3" parent="items/redCoins" instance=ExtResource("6_fk03u")]
 position = Vector2(5413, 522)
 
-[node name="cherries" type="Node2D" parent="items"]
-
 [node name="key" parent="items" instance=ExtResource("9_4sal4")]
 position = Vector2(2459, 344)
 
@@ -299,11 +296,8 @@ position = Vector2(4834, 483)
 [node name="GoldCoin39" parent="items/goldCoins" instance=ExtResource("5_hem0g")]
 position = Vector2(4865, 483)
 
-[node name="Cherry" parent="items" instance=ExtResource("17_aidc0")]
-position = Vector2(4002, 466)
-
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(240, 480)
+position = Vector2(232, 481)
 
 [node name="WorldEnd" parent="." instance=ExtResource("2_nvtlw")]
 

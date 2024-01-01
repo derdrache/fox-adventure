@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c5sebwc4ipfgr"]
+[gd_scene load_steps=23 format=3 uid="uid://c5sebwc4ipfgr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/world1/levelTileMap.tres" id="1_ca526"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_eedi0"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="14_4uplx"]
 [ext_resource type="PackedScene" uid="uid://xi7o83rjmb0g" path="res://level/environment/liane/liane.tscn" id="14_nokws"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="16_vayv4"]
-[ext_resource type="PackedScene" uid="uid://e6dgvnbfn4cw" path="res://level/items/cherry/cherry.tscn" id="17_q44ft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_psbly"]
 size = Vector2(10103.5, 50)
@@ -141,7 +140,7 @@ position = Vector2(5312, -77)
 conectionDoor = NodePath("../door2")
 
 [node name="door2" parent="environment/doorSets/doorSet3" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("10_4dui3")]
-position = Vector2(5898, 591)
+position = Vector2(5898, 592)
 conectionDoor = NodePath("../door")
 
 [node name="ClimbingTree1" parent="environment" instance=ExtResource("12_n6orh")]
@@ -166,37 +165,13 @@ spawningNode = NodePath("../lianes")
 [node name="lianes" type="Node2D" parent="environment"]
 
 [node name="liane" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, 130)
+position = Vector2(6011, 105)
 
 [node name="liane2" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, 114)
+position = Vector2(6011, 41)
 
 [node name="liane3" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, 98)
-
-[node name="liane4" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, 82)
-
-[node name="liane5" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, 66)
-
-[node name="liane6" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, 50)
-
-[node name="liane7" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, 34)
-
-[node name="liane8" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, 18)
-
-[node name="liane9" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, 2)
-
-[node name="liane10" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, -14)
-
-[node name="liane11" parent="environment/lianes" instance=ExtResource("14_nokws")]
-position = Vector2(6003, -30)
+position = Vector2(6012, -17)
 
 [node name="eagle2" parent="environment" instance=ExtResource("13_mkncg")]
 position = Vector2(6022, -80)
@@ -391,9 +366,6 @@ position = Vector2(5344, 291)
 
 [node name="kiste5" parent="items/goldCoins" instance=ExtResource("5_qnkd6")]
 position = Vector2(5273, 386)
-
-[node name="Cherry" parent="items/goldCoins" instance=ExtResource("17_q44ft")]
-position = Vector2(5373, 409)
 
 [node name="GoldCoin38" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
 position = Vector2(5822, 567)
