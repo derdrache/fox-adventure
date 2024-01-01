@@ -130,14 +130,15 @@ func move_state(delta):
 	var cantStandUp = state == CRAWL && (get_tile_data("top", "collision") == 1 
 		|| get_tile_data("top",  "collision", position - TILE_RIGHT_ADJUSTMENT) == 1 
 		|| get_tile_data("top",  "collision", position - TILE_LEFT_ADJUSTMENT) == 1)
-			
-	if  (is_on_climbing_object() && 
+	
+	
+	if (pressedDown || cantStandUp):
+		state = CRAWL
+	elif  (is_on_climbing_object() && 
 		(pressedUp || (pressedDown && not is_on_floor()) || (!is_on_floor() && state != JUMP))):
 		state = CLIMB
 	elif _canDig()  && is_on_floor() && !doDig:
 		state = DIG
-	elif (pressedDown || cantStandUp):
-		state = CRAWL
 	elif in_water() && !is_on_floor():
 		state = SWIM
 	elif is_on_floor():
