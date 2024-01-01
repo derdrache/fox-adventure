@@ -4,9 +4,9 @@ class_name Player
 @onready var collision_check : ShapeCast2D = $ShapeCast2D
 @onready var collision_check_right = $RayCastRight
 @onready var collision_check_left = $RayCastLeft
-@onready var animationPlayer = $AnimationPlayer
+@onready var playerAnimation = $AnimatedSprite2D
 @onready var enviromentAnimation = $enviromentAnimation
-@onready var sprite = $Sprite2D
+@onready var sprite = $AnimatedSprite2D
 @onready var keySprite = $key
 @onready var normalCollision = $normalCollision
 @onready var crawlCollision = $crawlCollision
@@ -16,10 +16,8 @@ class_name Player
 enum { MOVE , CLIMB , JUMP, STOMP, DIG, HANG, SLIDE, CRAWL, SWIM}
 
 const SPEED = 100.0
-const SWIM_SPEED = 75
-const CHERRYSPEED = 200
+const SWIM_SPEED = 125
 const JUMP_VELOCITY = -300.0
-const CHERRY_POWER_TIME = 5
 const TILE_ABOVE_ADJUSTMENT = Vector2(0, 10)	
 const TILE_UNDER_ADJUSTMENT = Vector2(0,-20)
 const TILE_LEFT_ADJUSTMENT = Vector2(8, -2)
@@ -44,6 +42,7 @@ var pressedLeft = false
 var pressedRight = false
 var pressedUp = false
 var pressedDown = false
+var climbSideways = false
 
 
 func _ready():
@@ -121,7 +120,6 @@ func digging_object_left_or_right():
 func move_state(delta):
 	var moveSpeed = SPEED
 	if underWater: moveSpeed = SWIM_SPEED
-	elif hasCerryPower: moveSpeed += CHERRYSPEED
 	elif state == CRAWL: moveSpeed = moveSpeed / 2
 	
 	
@@ -173,9 +171,14 @@ func climb_state(delta):
 		tileSearchY = -10
 	
 	
-	var canClimbRight = "climb" in get_tile_data("right") || "climb" in get_tile_data("right", "customData", position- Vector2(0, tileSearchY))
-	var canClimbLeft = "climb" in get_tile_data("left") || "climb" in get_tile_data("left",  "customData", position- Vector2(0, tileSearchY))
+	var canClimbRight = ("climb" in get_tile_data("right") 
+		|| "climb" in get_tile_data("right", "customData", position- Vector2(0, tileSearchY)))
+	var canClimbLeft = ("climb" in get_tile_data("left") 
+		|| "climb" in get_tile_data("left",  "customData", position- Vector2(0, tileSearchY)))
 	var nextStepIsClimbable = move_and_check_climbing_object(position+ (velocity*2 * delta))
+	
+	if canClimbRight || canClimbLeft: climbSideways = true
+	else: climbSideways = false
 	
 	var canClimb = nextStepIsClimbable || canClimbRight || canClimbLeft
 	
@@ -291,23 +294,21 @@ func animation_state():
 		keySprite.position.y = 8
 	elif move_left: 
 		sprite.flip_h = true
-		if state == SWIM: 
-			sprite.flip_v = true
-			sprite.flip_h = false
 		keySprite.position.x = 20
 		keySprite.position.y = 8		
 	
 	match state:
 		MOVE:
-			if direction.x == 0: animationPlayer.play("idle")
-			else: animationPlayer.play("run")	
+			if direction.x == 0: playerAnimation.play("idle")
+			else: playerAnimation.play("run")	
 		CLIMB: 
-			if direction == Vector2.ZERO: animationPlayer.stop(true)
-			else: animationPlayer.play("climb")
-		DIG: animationPlayer.play("climb")
-		JUMP: animationPlayer.play("jump")
-		CRAWL: animationPlayer.play("crawl")
-		SWIM: sprite.rotation = deg_to_rad(90)
+			if direction == Vector2.ZERO: playerAnimation.stop()
+			elif climbSideways: playerAnimation.play("climbSideways")
+			else: playerAnimation.play("climb")
+		DIG: playerAnimation.play("climb")
+		JUMP: playerAnimation.play("jump")
+		CRAWL: playerAnimation.play("crawl")
+		SWIM: playerAnimation.play("swim")
 
 func stompAnimation():
 	$stompSprite.visible = true
@@ -342,8 +343,6 @@ func interaction():
 	elif "ramp" in get_tile_data("bottom") && pressedDown:
 		slideDirection = get_tile_data("bottom").replace("ramp", "")
 		state = SLIDE
-	elif pressedUp && cherries && is_on_floor() && state == MOVE:
-		activate_cherry_power()
 		
 func do_dig(digDirection):
 	if state == DIG && !doDig:
@@ -454,16 +453,6 @@ func get_tile_data(direction : String = "",
 	elif dataType == "collision":
 		if tileData : return tileData.get_collision_polygons_count(0)
 		#return tileData
-	
-
-func activate_cherry_power():
-	LevelManager.gain_cherries(-1)
-	hasCerryPower = true
-	enviromentAnimation.play("cherry_power")
-	await get_tree().create_timer(CHERRY_POWER_TIME).timeout
-	enviromentAnimation.stop()
-	sprite.modulate = Color(1,1,1)
-	hasCerryPower = false
 
 func in_water():
 		var tileData = get_tile_data()
