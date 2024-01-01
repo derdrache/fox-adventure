@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgwo4my704n33"]
+[gd_scene load_steps=9 format=3 uid="uid://dgwo4my704n33"]
 
+[ext_resource type="Texture2D" uid="uid://cmxujosqc8pjw" path="res://asset/ui/Icon_ArrowLeft.png" id="1_ay6ku"]
 [ext_resource type="Texture2D" uid="uid://dup3f2djbvq54" path="res://asset/ui/gdb-switch-2.png" id="1_cxjg3"]
+[ext_resource type="Texture2D" uid="uid://cyw41klncw3kg" path="res://asset/ui/Icon_ArrowUp.png" id="2_2tarb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wn6aa"]
 
@@ -20,6 +22,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 13.0
+offset_right = 26.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
@@ -36,13 +42,31 @@ offset_right = 91.0
 offset_bottom = -361.0
 grow_vertical = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/MarginContainer"]
-modulate = Color(1, 1, 1, 0.588235)
-position = Vector2(149, 153)
-scale = Vector2(12, 12)
-texture = ExtResource("1_cxjg3")
-region_enabled = true
-region_rect = Rect2(192, 112, 32, 32)
+[node name="Left" type="Sprite2D" parent="Control/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(51, 154)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_ay6ku")
+
+[node name="Right" type="Sprite2D" parent="Control/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(244, 150)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_ay6ku")
+flip_h = true
+
+[node name="Up" type="Sprite2D" parent="Control/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(147, 52)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_2tarb")
+
+[node name="Down" type="Sprite2D" parent="Control/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(148, 252)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_2tarb")
+flip_v = true
 
 [node name="left" type="TouchScreenButton" parent="Control/MarginContainer"]
 position = Vector2(53, 153)

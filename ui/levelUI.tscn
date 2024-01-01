@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dludvjmjag8gi" path="res://asset/ui/cherry.png" id="3_53x7k"]
 [ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_rosf4"]
 [ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="5_drr2r"]
-[ext_resource type="Texture2D" uid="uid://bcnspvx6g2483" path="res://asset/ui/close.png" id="6_wi2q4"]
+[ext_resource type="Texture2D" uid="uid://tii2jfuaathy" path="res://asset/ui/Icon_Exit.png" id="6_g7jca"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ooens"]
 shadow_size = 3
@@ -142,15 +142,15 @@ layout_mode = 2
 texture = ExtResource("5_drr2r")
 expand_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
+[node name="ExitButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/TextureButton"]
+[node name="Exit" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/ExitButton"]
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 30.0
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("6_wi2q4")
+texture = ExtResource("6_g7jca")
 expand_mode = 1
 
-[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_texture_button_pressed"]
