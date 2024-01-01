@@ -8,6 +8,10 @@ class_name LevelDetailsUI
 
 func _ready():
 	$Panel/RichTextLabel.text = "[center] "+ level_name
+	
+	
+func _input(event):
+	if event.is_action_pressed("ui_accept") && visible: _on_button_pressed()
 
 func _on_button_pressed():
 	LevelManager.set_level(level, $"../../../playerOverWorld".position)
