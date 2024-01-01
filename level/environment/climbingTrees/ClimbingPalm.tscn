@@ -9,7 +9,7 @@ size = Vector2(8, 105)
 radius = 40.9999
 height = 95.9998
 
-[node name="climbingPalm" type="Area2D"]
+[node name="ClimbingPalm" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(25.75, -10.5)
