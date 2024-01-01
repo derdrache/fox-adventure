@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://daovkwmm1ii6n"]
 
-[ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player.png" id="1_bsx8j"]
+[ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player/player.png" id="1_bsx8j"]
 [ext_resource type="Script" path="res://overworld/player/playerOverWorld.gd" id="1_o7vvp"]
 [ext_resource type="PackedScene" uid="uid://dgwo4my704n33" path="res://ui/mobileControlUI.tscn" id="3_tpqdk"]
 
