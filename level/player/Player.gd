@@ -249,7 +249,9 @@ func swim_state(_delta):
 
 	if state == JUMP: return
 	
-	if direction: velocity = direction * SWIM_SPEED
+	if !("water" in get_tile_data("top", "customData", position - Vector2(0, -8))) && pressedUp:
+		velocity = Vector2.ZERO
+	elif direction: velocity = direction * SWIM_SPEED
 	else: velocity = Vector2.ZERO
 	
 func animation_state():
