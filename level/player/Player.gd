@@ -43,6 +43,7 @@ var pressedRight = false
 var pressedUp = false
 var pressedDown = false
 var climbSideways = false
+var doStomp = false
 
 
 func _ready():
@@ -57,6 +58,7 @@ func _process(_delta):
 
 func _physics_process(delta):
 	if is_on_floor() && !onMoveableObject:
+		doStomp = false
 		lastFloorFlipH = sprite.flip_h
 		lastFloorPosition = position
 	
@@ -196,6 +198,8 @@ func climb_state(delta):
 		state = DIG
 		
 func stomp_state(delta):
+	doStomp = true
+	
 	if is_on_floor():
 		state = MOVE
 		stompAnimation()
