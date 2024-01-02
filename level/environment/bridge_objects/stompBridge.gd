@@ -4,7 +4,7 @@ extends StaticBody2D
 
 var showBridge = false
 
-func _process(delta):
+func _process(_delta):
 	var parentIsSwitch = HelperFunctions.is_parent_switch(get_parent())
 	
 	if parentIsSwitch:

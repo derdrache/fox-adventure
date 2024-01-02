@@ -8,7 +8,7 @@ func _ready():
 	if used: $Sprite2D.frame = 1
 	
 	
-func _process(delta):
+func _process(_delta):
 	if used: $Sprite2D.frame = 1
 	else: $Sprite2D.frame = 0
 

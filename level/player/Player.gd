@@ -120,10 +120,6 @@ func move_state(delta):
 	elif state == CRAWL: moveSpeed = moveSpeed / 2
 	
 	
-	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
-	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
-	
-	
 	if (pressedDown && !digging_object_above_or_below() || state == CRAWL && _cant_stand_up()):
 		state = CRAWL
 	elif _can_and_do_climb():
@@ -448,8 +444,6 @@ func get_tile_data(direction : String = "",
 		return ""
 	elif dataType == "collision":
 		if tileData : return tileData.get_collision_polygons_count(0)
-		else: 0
-		#return tileData
 	
 func in_water():
 		var tileData = get_tile_data()

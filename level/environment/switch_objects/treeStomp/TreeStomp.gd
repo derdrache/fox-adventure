@@ -4,7 +4,7 @@ class_name treeStomp
 var used = false
 
 
-func _process(delta):
+func _process(_delta):
 	if used: 
 		$Sprite2D.frame = 1
 		$CollisionShapeNormal.disabled = true

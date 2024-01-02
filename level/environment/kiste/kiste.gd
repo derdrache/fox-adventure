@@ -21,7 +21,7 @@ func _on_bottom_area_body_entered(body):
 		elif goldCoins > 0: _dropGoldCoin()
 		elif spawningNode != null:
 			used = true
-			var hitAnimation = await $boxSprite.hitAnimation()
+			await $boxSprite.hitAnimation()
 			_changeSpawningNodeVisibility(true)
 			
 		else: queue_free()
