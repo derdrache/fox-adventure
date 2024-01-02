@@ -4331,8 +4331,14 @@ offset_bottom = 40.0
 [node name="levelDetails1" parent="World2 - Swamp/ui" instance=ExtResource("13_xrq7s")]
 visible = false
 level_name = "Swamp 1"
-level = 1
+level = 7
 levelPath = "res://level/world2/level2-1.tscn"
+
+[node name="levelDetails2" parent="World2 - Swamp/ui" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Swamp 2"
+level = 8
+levelPath = "res://level/world2/level2-2.tscn"
 
 [node name="World3 - Desert" type="Node2D" parent="."]
 
