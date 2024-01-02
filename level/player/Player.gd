@@ -8,8 +8,9 @@ class_name Player
 @onready var enviromentAnimation = $enviromentAnimation
 @onready var sprite = $AnimatedSprite2D
 @onready var keySprite = $key
-@onready var normalCollision = $normalCollision
-@onready var crawlCollision = $crawlCollision
+@onready var normalCollider = $normalCollision
+@onready var crawlCollider = $crawlCollision
+@onready var climbCollider = $climbCollision
 @onready var levelTileMap : TileMap = get_node("../TileMap")
 
 
@@ -32,8 +33,6 @@ var forceVelocityX = 0
 var doDig = false
 var digRotation = 0
 var sliderEndCounter = 30
-var slideDirection = ""
-var hasCerryPower = false
 var underWater = false
 var lastFloorPosition = Vector2.ZERO
 var lastFloorFlipH = false
@@ -83,15 +82,10 @@ func _physics_process(delta):
 		STOMP: stomp_state(delta)
 		SLIDE: slide_state(delta)
 	
-	if state == CRAWL:
-		normalCollision.disabled = true
-		crawlCollision.disabled = false
-	else:
-		normalCollision.disabled = false
-		crawlCollision.disabled = true
-	
 	animation_state()
 	
+	_change_collider()
+
 	move_and_slide()
 	
 	
@@ -121,23 +115,20 @@ func digging_object_left_or_right():
 		
 func move_state(delta):
 	var moveSpeed = SPEED
+	
 	if underWater: moveSpeed = SWIM_SPEED
 	elif state == CRAWL: moveSpeed = moveSpeed / 2
 	
 	
 	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
 	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
-	var cantStandUp = state == CRAWL && (get_tile_data("top", "collision") == 1 
-		|| get_tile_data("top",  "collision", position - TILE_RIGHT_ADJUSTMENT) == 1 
-		|| get_tile_data("top",  "collision", position - TILE_LEFT_ADJUSTMENT) == 1)
 	
 	
-	if (pressedDown || cantStandUp):
+	if (pressedDown || _cant_stand_up()):
 		state = CRAWL
-	elif  (is_on_climbing_object() && 
-		(pressedUp || (pressedDown && not is_on_floor()) || (!is_on_floor() && state != JUMP))):
+	elif _can_and_do_climb():
 		state = CLIMB
-	elif _canDig()  && is_on_floor() && !doDig:
+	elif _can_dig()  && is_on_floor() && !doDig:
 		state = DIG
 	elif in_water() && !is_on_floor():
 		state = SWIM
@@ -164,38 +155,27 @@ func move_state(delta):
 		velocity.x = move_toward(velocity.x, 0, moveSpeed)
 
 func climb_state(delta):
-	var tileSearchY = 10
-	
 	velocity = direction * 50
+
+	var nextStepIsClimbableOnTree = _check_next_climbstep_on_tree(
+		position+ (velocity*2 * delta))
+	var nextStepIsClimableOnClimgTiles = _check_next_climbstep_on_tiles(
+		position+ (velocity*2 * delta))
 	
-	if direction.y == -1:
-		tileSearchY = 10
-	elif direction.y == 1:
-		tileSearchY = -10
+	var canClimb = nextStepIsClimbableOnTree || nextStepIsClimableOnClimgTiles
 	
-	
-	var canClimbRight = ("climb" in get_tile_data("right") 
-		|| "climb" in get_tile_data("right", "customData", position- Vector2(0, tileSearchY)))
-	var canClimbLeft = ("climb" in get_tile_data("left") 
-		|| "climb" in get_tile_data("left",  "customData", position- Vector2(0, tileSearchY)))
-	var nextStepIsClimbable = move_and_check_climbing_object(position+ (velocity*2 * delta))
-	
-	if canClimbRight || canClimbLeft: climbSideways = true
-	else: climbSideways = false
-	
-	var canClimb = nextStepIsClimbable || canClimbRight || canClimbLeft
-	
-	
-	if is_on_floor():
+	if is_on_floor(): 
 		state = MOVE
 		
 	if !canClimb: velocity = Vector2.ZERO
+	
+	if climbSideways: direction.x = 0
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		state = JUMP
 		velocity.y = JUMP_VELOCITY
 		
-	if _canDig():
+	if _can_dig():
 		state = DIG
 		
 func stomp_state(delta):
@@ -223,7 +203,7 @@ func slide_state(delta):
 	velocity.y += gravity * delta * 10
 	velocity.x = sliderEndCounter * 10
 	
-	if slideDirection == "Left":
+	if get_tile_data("bottom").replace("ramp", "")  == "Left":
 		velocity.x = -velocity.x
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -339,17 +319,13 @@ func getSideRayCollision():
 func interaction():
 	var collision_object = getShapeCollision()
 	
-	var cherries = LevelManager.cherries > 0;
-
 	if collision_object is Door: doorInteraction(collision_object)
 	
 	if "dig" in get_tile_data("bottom") && pressedDown: do_dig("bottom")
 	elif "dig" in get_tile_data("top") && pressedUp: do_dig("top")
 	elif "dig" in get_tile_data("left") && pressedLeft: do_dig("left")
 	elif "dig" in get_tile_data("right") && pressedRight: do_dig("right")
-	elif "ramp" in get_tile_data("bottom") && pressedDown:
-		slideDirection = get_tile_data("bottom").replace("ramp", "")
-		state = SLIDE
+	elif "ramp" in get_tile_data("bottom") && pressedDown: state = SLIDE
 		
 func do_dig(digDirection):
 	if state == DIG && !doDig:
@@ -413,7 +389,7 @@ func mushroomJump(playerDirection):
 		sprite.flip_h = true
 		forceVelocityX = -300
 	
-func move_and_check_climbing_object(newPlayerPosition):
+func _check_next_climbstep_on_tree(newPlayerPosition):
 	var space_state = get_world_2d().direct_space_state	
 	var parameters = PhysicsShapeQueryParameters2D.new()
 	var shape_rid = CircleShape2D.new()
@@ -428,6 +404,20 @@ func move_and_check_climbing_object(newPlayerPosition):
 	var results = space_state.intersect_shape(parameters, 1)
 
 	return !results.is_empty()	
+
+func _check_next_climbstep_on_tiles(newPlayerPosition):
+	var climbSideway = ("climbSideway" in get_tile_data("left","customData", position) 
+		|| "climbSideway" in get_tile_data("right","customData", position))
+
+	if climbSideway:
+		climbSideways = true
+		var canClimbLeft = "climb" in get_tile_data("left","customData", newPlayerPosition)
+		var canClimbRight = "climb" in get_tile_data("right","customData", newPlayerPosition)
+		return canClimbLeft || canClimbRight
+	else: 
+		climbSideways = false
+		return "climb" in get_tile_data("","customData", newPlayerPosition)
+
 
 func get_tile_data(direction : String = "", 
 	dataType = "customData",  searchPosition = position):
@@ -473,8 +463,32 @@ func return_last_position():
 
 	position = lastPosition
 
-func _canDig():
+func _can_dig():
 	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
 	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
 	
-	return diggingUpOrDown || diggingLeftOrRight
+	return (diggingUpOrDown || diggingLeftOrRight) && !doDig
+
+func _can_and_do_climb():
+	#return (is_on_climbing_object() && (pressedUp || (pressedDown && not is_on_floor()) || (!is_on_floor() && state != JUMP)))
+	return is_on_climbing_object() && (pressedUp || (pressedDown && not is_on_floor()))
+
+func _cant_stand_up():
+	return state == CRAWL && (get_tile_data("top", "collision") == 1 
+		|| get_tile_data("top",  "collision", position - TILE_RIGHT_ADJUSTMENT) == 1 
+		|| get_tile_data("top",  "collision", position - TILE_LEFT_ADJUSTMENT) == 1)
+
+func _change_collider():
+	match state:
+		MOVE, JUMP, SWIM: 
+			normalCollider.disabled = false
+			crawlCollider.disabled = true
+			climbCollider.disabled = true
+		CRAWL:
+			normalCollider.disabled = true
+			crawlCollider.disabled = false
+			climbCollider.disabled = true
+		CLIMB:
+			normalCollider.disabled = true
+			crawlCollider.disabled = true
+			climbCollider.disabled = false
