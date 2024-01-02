@@ -20,6 +20,7 @@ var level_interaction_dict : Dictionary = {
 var activeInteraction = false
 var lastLevelUi
 var levelStatusList = []
+var cameraOnChange = false
 
 
 func _ready():
@@ -52,20 +53,37 @@ func _load_data():
 		ui.update_ui(GameManager.levelDetails)
 
 func changeCamera():
+	if cameraOnChange: return
+	
+	
+	var tween = create_tween()
 	var isOnBorderTop = player.position.y < camera.position.y +5 - CAMERA_VERTICAL / 2.0
 	var isOnBorderBottom = player.position.y > camera.position.y -5 + CAMERA_VERTICAL / 2.0
 	var isOnBorderRight = player.position.x > camera.position.x -5  + CAMERA_HORIZONTAL / 2.0
 	var isOnBorderLeft = player.position.x < camera.position.x +5 - CAMERA_HORIZONTAL / 2.0
 
 	if isOnBorderTop:
-		camera.position.y -= CAMERA_VERTICAL
+		tween.tween_property(
+			camera, "position:y", camera.position.y - CAMERA_VERTICAL, 1.0).set_trans(
+				Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	elif isOnBorderBottom:
-		camera.position.y += CAMERA_VERTICAL
+		tween.tween_property(
+			camera, "position:y", camera.position.y + CAMERA_VERTICAL, 1.0).set_trans(
+				Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	elif isOnBorderRight:
-		camera.position.x += CAMERA_HORIZONTAL	
+		tween.tween_property(
+			camera, "position:x", camera.position.x + CAMERA_HORIZONTAL, 1.0).set_trans(
+				Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	elif isOnBorderLeft:
-		camera.position.x -= CAMERA_HORIZONTAL		
+		tween.tween_property(
+			camera, "position:x", camera.position.x - CAMERA_HORIZONTAL, 1.0).set_trans(
+				Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)	
 
+	if isOnBorderTop || isOnBorderBottom || isOnBorderRight || isOnBorderLeft:
+		cameraOnChange = true
+		await get_tree().create_timer(2.0).timeout
+		cameraOnChange = false
+		
 func _check_start_interactions():
 	var startLevelInteraction = LevelManager.activeLevel
 	
