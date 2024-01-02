@@ -32,6 +32,7 @@ func _physics_process(delta):
 	moveTileLeft = "move" in get_tile_data("left")
 	moveTileUp = "move" in get_tile_data("up")
 	moveTileDown = "move" in get_tile_data("down")
+	
 	multiPath = [moveTileRight, moveTileLeft, moveTileUp, moveTileDown].count(true) >= 3
 	
 	if blockMovement: return
@@ -55,7 +56,13 @@ func _physics_process(delta):
 		movePathDirection = "left"
 		playerStartPosition = position
 
+	if movePathDirection == "": 
+		$AnimationPlayer.play("idle")
+		return
+	else: $AnimationPlayer.play("run")
+	
 	movePath(delta)
+	
 	var isColliding = move_and_slide()
 	
 	if isColliding: movePathDirection = ""
@@ -97,13 +104,8 @@ func get_tile_data(direction : String = "", layer = -1):
 
 func movePath(_delta):
 	var pixelSize = 16
+	var moveDuration = 1
 	
-	if movePathDirection == "": 
-		$AnimationPlayer.play("idle")
-		return
-		
-	
-	$AnimationPlayer.play("run")
 	if(movePathDirection == "up" && playerPosition.y > playerStartPosition.y - pixelSize):
 		velocity.y = -1 * SPEED
 	elif (movePathDirection == "down" && playerPosition.y < playerStartPosition.y + pixelSize): 
@@ -112,11 +114,10 @@ func movePath(_delta):
 		velocity.x = 1 * SPEED
 		$Sprite2D.flip_h = false
 	elif (movePathDirection == "left" && playerPosition.x > playerStartPosition.x - pixelSize):
-		velocity.x = -1 * SPEED 
+		velocity.x = -1 * SPEED
 		$Sprite2D.flip_h = true
 	else:
 		velocity = Vector2.ZERO
-
 		if(movePathDirection == "up"):
 			playerStartPosition.y -= pixelSize
 		elif (movePathDirection == "down"):
@@ -129,11 +130,10 @@ func movePath(_delta):
 		position = playerStartPosition
 		var oldMoveDirection  = movePathDirection
 		movePathDirection = ""
-
-		if "level" in get_tile_data("", 5) || multiPath: 
-			movePathDirection = ""
-			return
 		
+		
+		if "level" in get_tile_data("", 5) || multiPath: return
+
 		if moveTileUp && oldMoveDirection != "down":
 			movePathDirection = "up"
 		elif moveTileDown && oldMoveDirection != "up":
