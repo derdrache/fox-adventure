@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://hsjuocp3ilb4"]
+[gd_scene load_steps=49 format=3 uid="uid://hsjuocp3ilb4"]
 
 [ext_resource type="Script" path="res://level/player/Player.gd" id="1_ii644"]
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player/player.png" id="2_g3iq6"]
@@ -207,6 +207,9 @@ size = Vector2(10, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmf5s"]
 size = Vector2(13, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wxj5"]
+size = Vector2(12, 20)
+
 [sub_resource type="Animation" id="Animation_ipp55"]
 length = 0.001
 
@@ -307,19 +310,25 @@ sprite_frames = SubResource("SpriteFrames_5nbca")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -25)
+zoom = Vector2(3, 3)
+
 [node name="normalCollision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(-1, 6.5)
 shape = SubResource("RectangleShape2D_5v1rr")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -25)
-zoom = Vector2(3, 3)
-
 [node name="crawlCollision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0.5, 12.5)
 shape = SubResource("RectangleShape2D_wmf5s")
+disabled = true
+
+[node name="climbCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_4wxj5")
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
