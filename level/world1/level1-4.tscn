@@ -408,4 +408,4 @@ position = Vector2(5931.29, -252.524)
 curve = SubResource("Curve2D_ocf4m")
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(53, 583)
+position = Vector2(43, 592)
