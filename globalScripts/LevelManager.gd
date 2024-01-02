@@ -1,11 +1,9 @@
 extends Node
 
-signal gained_cherry(int)
 signal gained_gem(int)
 signal gained_red_coin(int)
 signal gained_gold_coin(int)
 
-var cherries : int
 var gems : int
 var redCoins : int
 var goldCoins : int
@@ -18,10 +16,6 @@ var levelNewClear : bool
 func gain_gem(newGem:int):
 	gems += newGem
 	emit_signal("gained_gem", gems)
-
-func gain_cherries(newCherries:int):
-	cherries += newCherries
-	emit_signal("gained_cherry", cherries)
 
 func gain_red_coin(newCoin:int):
 	redCoins += newCoin
@@ -74,7 +68,6 @@ func _save_items():
 	GameManager.updateLevelData(newLevelData)
 
 func reset_all_stats():
-	cherries = 0
 	gems = 0
 	redCoins = 0
 	goldCoins = 0

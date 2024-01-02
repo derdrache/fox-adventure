@@ -1,17 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjibcolu08tat"]
+[gd_scene load_steps=7 format=3 uid="uid://bjibcolu08tat"]
 
 [ext_resource type="Script" path="res://ui/UI.gd" id="1_yw62n"]
 [ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="2_20pnj"]
-[ext_resource type="Texture2D" uid="uid://dludvjmjag8gi" path="res://asset/ui/cherry.png" id="3_53x7k"]
 [ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_rosf4"]
 [ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="5_drr2r"]
 [ext_resource type="Texture2D" uid="uid://tii2jfuaathy" path="res://asset/ui/Icon_Exit.png" id="6_g7jca"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ooens"]
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_0pdw8"]
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 1)
 
@@ -62,19 +57,6 @@ expand_mode = 2
 layout_mode = 2
 text = "x 0"
 label_settings = SubResource("LabelSettings_ooens")
-
-[node name="CherryContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/CherryContainer"]
-layout_mode = 2
-texture = ExtResource("3_53x7k")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/CherryContainer"]
-layout_mode = 2
-text = "x 0"
-label_settings = SubResource("LabelSettings_0pdw8")
 
 [node name="GemContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
