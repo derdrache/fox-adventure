@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyapx4t30r7dt"]
+[gd_scene load_steps=5 format=3 uid="uid://dyapx4t30r7dt"]
 
+[ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_3kddi"]
 [ext_resource type="Texture2D" uid="uid://i30qxit6v84x" path="res://asset/tileMaps/Swamp.png" id="1_7pk5r"]
 
 [sub_resource type="Curve2D" id="Curve2D_sywd7"]
@@ -10,6 +11,7 @@ size = Vector2(94, 15)
 
 [node name="SwampPlatform" type="Path2D"]
 curve = SubResource("Curve2D_sywd7")
+script = ExtResource("1_3kddi")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 rotates = false
