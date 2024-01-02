@@ -18,7 +18,7 @@ enum { MOVE , CLIMB , JUMP, STOMP, DIG, HANG, SLIDE, CRAWL, SWIM}
 
 const SPEED = 100.0
 const SWIM_SPEED = 125
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -310.0
 const TILE_ABOVE_ADJUSTMENT = Vector2(0, 10)	
 const TILE_UNDER_ADJUSTMENT = Vector2(0,-20)
 const TILE_LEFT_ADJUSTMENT = Vector2(8, -2)
@@ -124,7 +124,7 @@ func move_state(delta):
 	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
 	
 	
-	if (pressedDown || _cant_stand_up()):
+	if (pressedDown && !digging_object_above_or_below() || state == CRAWL && _cant_stand_up()):
 		state = CRAWL
 	elif _can_and_do_climb():
 		state = CLIMB
@@ -439,7 +439,6 @@ func get_tile_data(direction : String = "",
 	var tileData : TileData = levelTileMap.get_cell_tile_data(0, tilePos)
 	
 	if dataType == "customData": 
-		
 		if tileData:
 			if tileData && tileData.get_custom_data("Floor") != "": 
 				return tileData.get_custom_data("Floor")
@@ -449,8 +448,9 @@ func get_tile_data(direction : String = "",
 		return ""
 	elif dataType == "collision":
 		if tileData : return tileData.get_collision_polygons_count(0)
+		else: 0
 		#return tileData
-
+	
 func in_water():
 		var tileData = get_tile_data()
 		
