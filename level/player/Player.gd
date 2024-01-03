@@ -27,7 +27,6 @@ const TILE_RIGHT_ADJUSTMENT = Vector2(-8, -2)
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = MOVE
 var hasKey = false
-var switchDoors = false
 var direction = Vector2.ZERO
 var forceVelocityX = 0
 var doDig = false
@@ -315,8 +314,6 @@ func getSideRayCollision():
 func interaction():
 	var collision_object = getShapeCollision()
 	
-	if collision_object is Door: doorInteraction(collision_object)
-	
 	if "dig" in get_tile_data("bottom") && pressedDown: do_dig("bottom")
 	elif "dig" in get_tile_data("top") && pressedUp: do_dig("top")
 	elif "dig" in get_tile_data("left") && pressedLeft: do_dig("left")
@@ -340,29 +337,7 @@ func do_dig(digDirection):
 		await get_tree().create_timer(0.5).timeout
 		tilePosition = levelTileMap.local_to_map(tilePosition)
 		levelTileMap.set_cell(0, tilePosition, 0)
-		doDig = false
-
-func doorInteraction(collision_object):
-	if collision_object.isClosed():
-		if not hasKey: return
-		hasKey = false
-		collision_object.openDoor()
-		
-	if Input.is_action_just_pressed("move_up") && not switchDoors:
-		#$Camera2D/doorEffect.visible = true;
-		enviromentAnimation.play("door");
-
-		#await get_tree().create_timer(0.6).timeout
-		
-		var newPosition = collision_object.getConnectionDoorPosition()
-		$".".position.x = newPosition.x
-		$".".position.y = newPosition.y
-		
-
-		enviromentAnimation.play_backwards("door");
-	
-		#await get_tree().create_timer(0.7).timeout
-		#$Camera2D/doorEffect.visible = false;
+		doDig = false		
 	
 func pickupKey():
 	hasKey = true

@@ -8,6 +8,7 @@ size = Vector2(23, 25)
 
 [node name="door" type="Area2D"]
 script = ExtResource("1_wb6ly")
+closed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_rf5f0")
@@ -17,3 +18,6 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 3.5)
 shape = SubResource("RectangleShape2D_7xv6j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
