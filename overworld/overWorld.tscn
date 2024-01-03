@@ -4274,8 +4274,9 @@ position = Vector2(0, 32)
 position = Vector2(152, -120)
 levelDetails = NodePath("../../ui/levelDetails1")
 
-[node name="OW_level_tile2" parent="World2 - Swamp/level" instance=ExtResource("5_c870u")]
+[node name="OW_level_tile2" parent="World2 - Swamp/level" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(40, -216)
+levelDetails = NodePath("../../ui/levelDetails3")
 
 [node name="OW_level_tile3" parent="World2 - Swamp/level" instance=ExtResource("5_c870u")]
 position = Vector2(72, -312)
@@ -4339,6 +4340,12 @@ visible = false
 level_name = "Swamp 2"
 level = 8
 levelPath = "res://level/world2/level2-2.tscn"
+
+[node name="levelDetails3" parent="World2 - Swamp/ui" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Swamp 3"
+level = 9
+levelPath = "res://level/world2/level2-3.tscn"
 
 [node name="World3 - Desert" type="Node2D" parent="."]
 
