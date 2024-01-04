@@ -4276,10 +4276,11 @@ levelDetails = NodePath("../../ui/levelDetails1")
 
 [node name="OW_level_tile2" parent="World2 - Swamp/level" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(40, -216)
-levelDetails = NodePath("../../ui/levelDetails3")
+levelDetails = NodePath("../../ui/levelDetails2")
 
-[node name="OW_level_tile3" parent="World2 - Swamp/level" instance=ExtResource("5_c870u")]
+[node name="OW_level_tile3" parent="World2 - Swamp/level" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(72, -312)
+levelDetails = NodePath("../../ui/levelDetails3")
 
 [node name="OW_level_tile4" parent="World2 - Swamp/level" instance=ExtResource("5_c870u")]
 position = Vector2(376, -280)
