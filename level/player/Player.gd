@@ -35,7 +35,6 @@ var sliderEndCounter = 30
 var underWater = false
 var lastFloorPosition = Vector2.ZERO
 var lastFloorFlipH = false
-var onMoveableObject = false
 var pressedLeft = false
 var pressedRight = false
 var pressedUp = false
@@ -54,7 +53,7 @@ func _process(_delta):
 	followKey()
 
 func _physics_process(delta):
-	if is_on_floor() && !onMoveableObject:
+	if is_on_floor():
 		doStomp = false
 		lastFloorFlipH = sprite.flip_h
 		lastFloorPosition = position
