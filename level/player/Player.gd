@@ -41,6 +41,7 @@ var pressedUp = false
 var pressedDown = false
 var climbSideways = false
 var doStomp = false
+var lastMovableObject
 
 
 func _ready():
@@ -55,8 +56,9 @@ func _process(_delta):
 func _physics_process(delta):
 	if is_on_floor():
 		doStomp = false
-		lastFloorFlipH = sprite.flip_h
-		lastFloorPosition = position
+
+		
+	_check_last_floor_position()
 	
 	direction.x = Input.get_axis("move_left", "move_right")
 	if direction.x == 0: direction.x = Input.get_axis("touch_left_down", "touch_right_down")
@@ -423,6 +425,9 @@ func return_last_position():
 	if lastFloorFlipH: lastPosition.x += 10
 	else: lastPosition.x -= 10
 
+	if lastMovableObject != null:
+		lastPosition = lastMovableObject.global_position + Vector2(0,-20)
+	
 	position = lastPosition
 
 func _can_climb():
@@ -448,3 +453,13 @@ func _change_collider():
 			normalCollider.disabled = true
 			crawlCollider.disabled = true
 			climbCollider.disabled = false
+
+func _check_last_floor_position():
+	if is_on_floor():
+		if "Platform" in getShapeCollision().name: 
+			lastMovableObject = getShapeCollision()
+			
+		else:
+			lastFloorFlipH = sprite.flip_h
+			lastFloorPosition = position
+			lastMovableObject = null
