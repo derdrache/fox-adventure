@@ -9,7 +9,7 @@ func _ready():
 	$Sprite2D.flip_h = flipH
 
 func _process(delta):
-	var parentIsSwitch = HelperFunctions.arentIsSwitch(get_parent())
+	var parentIsSwitch = HelperFunctions.is_parent_switch(get_parent())
 	if parentIsSwitch: showBranche = get_parent().used
 	
 	if showBranche:
