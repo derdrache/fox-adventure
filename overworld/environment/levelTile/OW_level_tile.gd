@@ -1,14 +1,7 @@
 extends Area2D
 class_name EnterLevelTile
 
-@export var interactionBody : CharacterBody2D
 @export var levelDetails : LevelDetailsUI
-
-var isComplete = false
-
-func _process(_delta):
-	if isComplete:
-		if interactionBody != null: interactionBody.move()
 
 
 func _on_body_entered(body):
