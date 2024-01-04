@@ -182,6 +182,7 @@ func stomp_state(delta):
 	velocity.y += gravity*4 * delta
 
 func dig_state():
+	sprite.position.y = 5
 	velocity = Vector2.ZERO
 	
 	if "dig" in get_tile_data("bottom") && pressedDown: do_dig("bottom")
@@ -257,21 +258,6 @@ func animation_state():
 	elif move_down && state == CLIMB:
 		keySprite.position.x = 0
 		keySprite.position.y = -20
-	elif move_down && state == DIG:
-		sprite.flip_v = true
-		sprite.position.y = 20
-	elif move_right && state == DIG:
-		if digRotation == 0: 
-			digRotation = PI/2.0
-			sprite.rotate(digRotation)
-			sprite.position.x = 10
-			sprite.position.y = 5
-	elif move_left && state == DIG:
-		if digRotation == 0:
-			digRotation = -PI/2.0
-			sprite.rotate(digRotation)	
-			sprite.position.x = -10
-			sprite.position.y = 5
 	elif move_right: 
 		sprite.flip_h = false
 		if state == SWIM: sprite.flip_v = false
@@ -282,6 +268,8 @@ func animation_state():
 		keySprite.position.x = 20
 		keySprite.position.y = 8		
 	
+
+	
 	match state:
 		MOVE:
 			if direction.x == 0: playerAnimation.play("idle")
@@ -290,9 +278,11 @@ func animation_state():
 			if direction == Vector2.ZERO: playerAnimation.stop()
 			elif climbSideways: playerAnimation.play("climbSideways")
 			else: playerAnimation.play("climb")
-		DIG: playerAnimation.play("climb")
-		JUMP: playerAnimation.play("jump")
+		DIG: playerAnimation.play("dig")
 		CRAWL: playerAnimation.play("crawl")
+		JUMP: 
+			if velocity.y <= 0: playerAnimation.play("jumpUp")
+			else: playerAnimation.play("jumpDown")
 		SWIM: playerAnimation.play("swim")
 
 func stompAnimation():
@@ -314,12 +304,11 @@ func getSideRayCollision():
 	return null
 
 func _can_dig():
-	var digUp = "dig" in get_tile_data("top") && pressedUp
 	var digDown = "dig" in get_tile_data("bottom") && pressedDown
-	var digLeft = "left" in get_tile_data("right") && pressedLeft
-	var digRight = "left" in get_tile_data("left") && pressedLeft
-	
-	return (digUp || digDown || digLeft || digRight) && !doDig
+	var digLeft = "dig" in get_tile_data("left") && pressedLeft
+	var digRight = "dig" in get_tile_data("right") && pressedRight
+
+	return (digDown || digLeft || digRight) && !doDig
 		
 func do_dig(digDirection):
 	if state == DIG && !doDig:
