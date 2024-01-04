@@ -346,12 +346,12 @@ script = ExtResource("1_ii644")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5nbca")
-animation = &"dig"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -25)
-zoom = Vector2(3, 3)
+zoom = Vector2(3.5, 3.5)
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
 visible = false
