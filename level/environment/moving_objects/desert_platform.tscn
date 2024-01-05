@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5fod1dhvmiep"]
+
+[ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_rxcge"]
+[ext_resource type="Texture2D" uid="uid://dpv6ocp1aywc4" path="res://asset/sprites/desert_platform.png" id="2_2qll1"]
+
+[sub_resource type="Curve2D" id="Curve2D_phsli"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmkh2"]
+size = Vector2(80, 16)
+
+[node name="DesertPlatform" type="Path2D"]
+curve = SubResource("Curve2D_phsli")
+script = ExtResource("1_rxcge")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="WoodenPlatform" type="StaticBody2D" parent="PathFollow2D"]
+position = Vector2(1, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/WoodenPlatform"]
+position = Vector2(1, -8)
+texture = ExtResource("2_2qll1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/WoodenPlatform"]
+position = Vector2(1, -8)
+shape = SubResource("RectangleShape2D_vmkh2")
