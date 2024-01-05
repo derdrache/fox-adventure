@@ -147,7 +147,7 @@ script = ExtResource("1_v2jp3")
 position = Vector2(-31, 24)
 tile_set = SubResource("TileSet_6xf4a")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65537, 458752, 5, -131072, 524288, 5, -131071, 524288, 5, -131070, 524288, 5, -131069, 524288, 5, -131068, 589824, 5)
+layer_0/tile_data = PackedInt32Array(-65537, 524288, 5, -131072, 524288, 5, -131071, 524288, 5, -131070, 524288, 5, -131069, 524288, 5, -131068, 589824, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, 0)
