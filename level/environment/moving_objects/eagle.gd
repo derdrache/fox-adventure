@@ -32,7 +32,7 @@ func _physics_process(delta):
 	
 	_moving(delta)
 		
-	_bottomRealse()
+	_release()
 	
 func _resetPosition(delta):
 	if !move && path_follow.progress > 0 && playerBody == null: 
@@ -49,12 +49,13 @@ func _moving(delta):
 		newPosition += ridePosition
 		playerBody.position = newPosition
 
-func _bottomRealse():
+func _release():
 	var pressRealseButtons = (Input.is_action_pressed("ui_accept") 
 		|| Input.is_action_pressed("move_down"))
 	var isMoving = path_follow.progress > 1	
 	
 	if enteredBottom && pressRealseButtons && isMoving: move = false
+	elif !enteredBottom && path_follow.progress_ratio == 1: move = false
 		
 func _on_area_top_body_entered(body):
 	if body is Player && isActive:
