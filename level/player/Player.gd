@@ -57,7 +57,6 @@ func _physics_process(delta):
 	if is_on_floor():
 		doStomp = false
 
-		
 	_check_last_floor_position()
 	
 	direction.x = Input.get_axis("move_left", "move_right")
@@ -456,7 +455,7 @@ func _change_collider():
 
 func _check_last_floor_position():
 	if is_on_floor():
-		if "Platform" in getShapeCollision().name: 
+		if getShapeCollision() != null && "Platform" in getShapeCollision().name: 
 			lastMovableObject = getShapeCollision()
 			
 		else:
