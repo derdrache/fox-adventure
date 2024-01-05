@@ -150,7 +150,6 @@ position = Vector2(3475, 231)
 position = Vector2(3487.18, 76.0659)
 scale = Vector2(1.09556, 0.794574)
 curve = SubResource("Curve2D_i8urx")
-flip_h = true
 
 [node name="Switch2" parent="environment" instance=ExtResource("6_bcb6w")]
 position = Vector2(5585, 591)
