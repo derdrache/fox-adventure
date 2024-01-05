@@ -17,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="8_6jbg3"]
 [ext_resource type="PackedScene" uid="uid://c1x3k7val2sjc" path="res://level/items/key/key.tscn" id="9_4sal4"]
 [ext_resource type="PackedScene" uid="uid://xi7o83rjmb0g" path="res://level/environment/liane/liane.tscn" id="9_g1oro"]
-[ext_resource type="PackedScene" uid="uid://b8uku6hxgf7b4" path="res://level/environment/climbingTrees/ClimbingPalm.tscn" id="10_wbkhw"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_iwb5w"]
+[ext_resource type="PackedScene" uid="uid://e36x4eic5jxs" path="res://level/environment/climbingTrees/ClimbingTree1.tscn" id="14_ys2uq"]
 [ext_resource type="PackedScene" uid="uid://c0vxd5mtdpqsc" path="res://level/environment/moving_objects/wood_platform.tscn" id="21_dec6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1xr8"]
@@ -137,9 +137,6 @@ position = Vector2(2350, 272)
 [node name="liane2" parent="enviroment/lianes/lianes1" instance=ExtResource("9_g1oro")]
 position = Vector2(2350, 208)
 
-[node name="ClimbingPalm" parent="enviroment" instance=ExtResource("10_wbkhw")]
-position = Vector2(3402, 697)
-
 [node name="eagels" type="Node2D" parent="enviroment"]
 
 [node name="eagle3" parent="enviroment/eagels" instance=ExtResource("3_tnhwe")]
@@ -152,6 +149,10 @@ position = Vector2(5968, 760)
 [node name="WoodenPlatform" parent="enviroment" instance=ExtResource("21_dec6v")]
 position = Vector2(4494, 396)
 curve = SubResource("Curve2D_5ab2l")
+
+[node name="ClimbingTree1" parent="enviroment" instance=ExtResource("14_ys2uq")]
+position = Vector2(3409, 675)
+scale = Vector2(1.125, 1.5)
 
 [node name="items" type="Node2D" parent="."]
 
