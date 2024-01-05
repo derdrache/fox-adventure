@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://3jqlknpvgshn"]
+
+[ext_resource type="Texture2D" uid="uid://bm6qotw0yqq66" path="res://asset/background/desert/1/DesertLayer3.png" id="1_vfrb8"]
+[ext_resource type="Texture2D" uid="uid://28dp8b3bhb5u" path="res://asset/background/desert/1/DesertLayer2.png" id="2_pknd5"]
+[ext_resource type="Texture2D" uid="uid://cjj48sxlf84qk" path="res://asset/background/desert/1/DesertLayer1.png" id="3_y3ro3"]
+[ext_resource type="Texture2D" uid="uid://ck151vrhsgeba" path="res://asset/background/desert/1/DesertLayer0.png" id="4_uq67f"]
+
+[node name="SwampBackground" type="ParallaxBackground"]
+scale = Vector2(0.3, 0.3)
+transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_vfrb8")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_pknd5")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("3_y3ro3")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+texture = ExtResource("4_uq67f")
+centered = false
