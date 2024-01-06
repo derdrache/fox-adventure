@@ -755,8 +755,9 @@ autoplay = "idle"
 visible = false
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_yfp1m")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.55287
 
 [node name="blackCat" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -771,6 +772,7 @@ position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_2jcs7")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.354417
 
 [node name="blueCat" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -789,6 +791,7 @@ autoplay = "idle"
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_xhd50")
 
