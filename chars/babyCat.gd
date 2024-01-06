@@ -41,7 +41,7 @@ func _move():
 		var direction = (targetPosition - position).normalized()
 		velocity = direction * SPEED
 		velocity.y *= 3
-	elif (position.y - targetPosition.y) < -0.5 || (position.y - targetPosition.y) > 0:
+	elif (position.y - targetPosition.y) < -2 || (position.y - targetPosition.y) > 2:
 		velocity.x = 0
 	else: velocity = Vector2.ZERO
 
@@ -53,7 +53,7 @@ func _set_animation():
 	if velocity.x > 0: animationSprite.flip_h = false
 	elif velocity.x < 0: animationSprite.flip_h = true
 	
-	var not_on_floor = (position.y - targetPosition.y) < -1.0 || (position.y - targetPosition.y) > 0
+	var not_on_floor = (position.y - targetPosition.y) < -2 || (position.y - targetPosition.y) > 2
 	
 	if not target.is_on_floor() || not_on_floor:
 		if targetPosition.y < position.y: animationSprite.play("jumpUp")
