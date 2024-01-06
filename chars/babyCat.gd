@@ -13,9 +13,8 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animationSprite : AnimatedSprite2D
+var followPosition = 0
 
 
 func _ready():
@@ -23,21 +22,18 @@ func _ready():
 	_selectCatColor()
 
 func _physics_process(delta):
-	_move()
+	_calculate_velocity()
 	
 	move_and_slide()
 	
 	_set_animation()
 	
-func _move():
+func _calculate_velocity():
 	if isWaiting: return
-	
-	var catNumber = int(name.replace("Cat", ""))
-	var catMultiplicator = 1 if catNumber == 0 else catNumber
 
 	var targetPosition = target.position - Vector2(0, -9)
 
-	if position.distance_to(targetPosition) > 20 * catMultiplicator:
+	if position.distance_to(targetPosition) > 20 * followPosition:
 		var direction = (targetPosition - position).normalized()
 		velocity = direction * SPEED
 		velocity.y *= 3
@@ -71,8 +67,8 @@ func _selectCatColor():
 	animationSprite = catColorArray[randomNumber]
 	animationSprite.visible = true
 
-
-
 func _on_area_2d_body_entered(body):
 	if body is Player && isWaiting:
 		isWaiting = false
+		followPosition = body.followObjects + 1
+		body.followObjects += 1
