@@ -421,6 +421,7 @@ func in_water():
 
 func return_last_position():
 	var lastPosition = lastFloorPosition
+
 	if lastFloorFlipH: lastPosition.x += 10
 	else: lastPosition.x -= 10
 
@@ -454,7 +455,9 @@ func _change_collider():
 			climbCollider.disabled = false
 
 func _check_last_floor_position():
-	if is_on_floor():
+	var isOnDigTile = "dig" == get_tile_data("bottom", "customData",position)
+
+	if is_on_floor() && !isOnDigTile && not state == DIG:
 		if getShapeCollision() != null && "Platform" in getShapeCollision().name: 
 			lastMovableObject = getShapeCollision()
 			
@@ -462,3 +465,4 @@ func _check_last_floor_position():
 			lastFloorFlipH = sprite.flip_h
 			lastFloorPosition = position
 			lastMovableObject = null
+	
