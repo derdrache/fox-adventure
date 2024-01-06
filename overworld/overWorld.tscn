@@ -4323,7 +4323,7 @@ position = Vector2(601, -282)
 curve = SubResource("Curve2D_d6tdg")
 
 [node name="DuckGirl" parent="World2 - Swamp/Ducks" instance=ExtResource("9_jscls")]
-position = Vector2(600, -75)
+position = Vector2(614, -90)
 
 [node name="ui" type="Control" parent="World2 - Swamp"]
 layout_mode = 3
@@ -4378,8 +4378,9 @@ curve = SubResource("Curve2D_3fq0g")
 
 [node name="Levels" type="Node2D" parent="World3 - Desert"]
 
-[node name="OW_level_tile" parent="World3 - Desert/Levels" instance=ExtResource("5_c870u")]
+[node name="OW_level_tile" parent="World3 - Desert/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(760, -72)
+levelDetails = NodePath("../../ui/levelDetails1")
 
 [node name="OW_level_tile2" parent="World3 - Desert/Levels" instance=ExtResource("5_c870u")]
 position = Vector2(920, -104)
@@ -4403,6 +4404,17 @@ position = Vector2(1128, -280)
 
 [node name="BigStoneDesert" parent="World3 - Desert/Obstacales" instance=ExtResource("24_d8i1p")]
 position = Vector2(1115, -175)
+
+[node name="ui" type="Control" parent="World3 - Desert"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="levelDetails1" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+level_name = "Desert1"
+level = 13
+levelPath = "res://level/world3/level3-1.tscn"
 
 [node name="World4 - Cave" type="Node2D" parent="."]
 
