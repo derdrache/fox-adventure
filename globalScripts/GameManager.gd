@@ -1,7 +1,7 @@
 extends Node
 
 
-const LEVEL_COUNT = 7
+const LEVEL_COUNT = 48
 var levelDetails : Array
 var playerPosition = Vector2.ZERO
 
