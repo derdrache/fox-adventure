@@ -59,7 +59,7 @@ animations = [{
 size = Vector2(12.9614, 11.3401)
 
 [node name="Gem" type="Area2D"]
-scale = Vector2(2.31457, 2.11638)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_v0c4s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
