@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cjj48sxlf84qk" path="res://asset/background/desert/1/DesertLayer1.png" id="3_y3ro3"]
 [ext_resource type="Texture2D" uid="uid://ck151vrhsgeba" path="res://asset/background/desert/1/DesertLayer0.png" id="4_uq67f"]
 
-[node name="SwampBackground" type="ParallaxBackground"]
+[node name="DesertBackground" type="ParallaxBackground"]
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
 
