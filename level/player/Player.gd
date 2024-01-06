@@ -7,7 +7,6 @@ class_name Player
 @onready var playerAnimation = $AnimatedSprite2D
 @onready var enviromentAnimation = $enviromentAnimation
 @onready var sprite = $AnimatedSprite2D
-@onready var keySprite = $key
 @onready var normalCollider = $normalCollision
 @onready var crawlCollider = $crawlCollision
 @onready var climbCollider = $climbCollision
@@ -42,7 +41,7 @@ var pressedDown = false
 var climbSideways = false
 var doStomp = false
 var lastMovableObject
-
+var followObjects : int = 0
 
 func _ready():
 	$MobileControlUi.visible = true
@@ -50,8 +49,6 @@ func _ready():
 
 func _process(_delta):
 	underWater = "water" in get_tile_data()
-	
-	followKey()
 
 func _physics_process(delta):
 	if is_on_floor():
@@ -252,24 +249,8 @@ func animation_state():
 		else:
 			sprite.rotation = deg_to_rad(0)
 	
-	
-	if move_up && state == CLIMB:
-		keySprite.position.x = 0
-		keySprite.position.y = 25
-	elif move_down && state == CLIMB:
-		keySprite.position.x = 0
-		keySprite.position.y = -20
-	elif move_right: 
-		sprite.flip_h = false
-		if state == SWIM: sprite.flip_v = false
-		keySprite.position.x = -20
-		keySprite.position.y = 8
-	elif move_left: 
-		sprite.flip_h = true
-		keySprite.position.x = 20
-		keySprite.position.y = 8		
-	
-
+	if move_right: sprite.flip_h = false
+	elif move_left: sprite.flip_h = true
 	
 	match state:
 		MOVE:
@@ -329,23 +310,16 @@ func do_dig(digDirection):
 		tilePosition = levelTileMap.local_to_map(tilePosition)
 		levelTileMap.set_cell(0, tilePosition, 0)
 		doDig = false		
-	
-func pickupKey():
-	hasKey = true
+
 
 func getPlayerDirection():
 	return direction;
-
-func followKey():
-	if hasKey: keySprite.visible = true
-	else: keySprite.visible = false
 
 func mushroomJump(playerDirection):
 	velocity.y = JUMP_VELOCITY * 2
 	
 	if playerDirection == "right":
 		sprite.flip_h = false
-		keySprite.position.x = 10
 		forceVelocityX = 300
 	else:
 		sprite.flip_h = true
