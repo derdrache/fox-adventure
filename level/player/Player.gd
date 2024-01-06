@@ -375,7 +375,7 @@ func get_tile_data(direction : String = "",
 		tileDirection = TILE_ABOVE_ADJUSTMENT	
 	
 	var tilePos = levelTileMap.local_to_map(searchPosition - tileDirection)
-	var tileData : TileData = levelTileMap.get_cell_tile_data(0, tilePos)
+	var tileData : TileData = levelTileMap.get_cell_tile_data(1, tilePos)
 	
 	if dataType == "customData": 
 		if tileData:
