@@ -104,7 +104,6 @@ func get_tile_data(direction : String = "", layer = -1):
 
 func movePath(_delta):
 	var pixelSize = 16
-	var moveDuration = 1
 	
 	if(movePathDirection == "up" && playerPosition.y > playerStartPosition.y - pixelSize):
 		velocity.y = -1 * SPEED
