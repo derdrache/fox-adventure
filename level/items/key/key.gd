@@ -7,8 +7,6 @@ const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
 
-
-
 func _physics_process(delta):
 	if !isWaiting && !target.hasKey: queue_free()
 	
@@ -31,7 +29,9 @@ func _calculate_velocity():
 		velocity.x = 0
 	else: velocity = Vector2.ZERO
 
-func _on_area_2d_body_entered(body):
+
+func _on_key_body_entered(body):
 	if body is Player && isWaiting: 
-		isWaiting = false
 		body.hasKey = true
+		isWaiting = false
+		
