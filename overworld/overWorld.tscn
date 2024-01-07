@@ -4382,11 +4382,12 @@ curve = SubResource("Curve2D_3fq0g")
 position = Vector2(760, -72)
 levelDetails = NodePath("../../ui/levelDetails1")
 
-[node name="OW_level_tile2" parent="World3 - Desert/Levels" instance=ExtResource("5_c870u")]
-position = Vector2(920, -104)
+[node name="OW_level_tile2" parent="World3 - Desert/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
+position = Vector2(792, -217)
+levelDetails = NodePath("../../ui/levelDetails2")
 
 [node name="OW_level_tile3" parent="World3 - Desert/Levels" instance=ExtResource("5_c870u")]
-position = Vector2(792, -216)
+position = Vector2(920, -104)
 
 [node name="OW_level_tile4" parent="World3 - Desert/Levels" instance=ExtResource("5_c870u")]
 position = Vector2(888, -280)
@@ -4412,9 +4413,40 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="levelDetails1" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+visible = false
 level_name = "Desert1"
 level = 13
 levelPath = "res://level/world3/level3-1.tscn"
+
+[node name="levelDetails2" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert2"
+level = 14
+levelPath = "res://level/world3/level3-2.tscn"
+
+[node name="levelDetails3" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert3"
+level = 15
+levelPath = "res://level/world3/level3-3.tscn"
+
+[node name="levelDetails4" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert4"
+level = 16
+levelPath = "res://level/world3/level3-4.tscn"
+
+[node name="levelDetails5" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert5"
+level = 17
+levelPath = "res://level/world3/level3-5.tscn"
+
+[node name="levelDetails6" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert6"
+level = 18
+levelPath = "res://level/world3/level3-6.tscn"
 
 [node name="World4 - Cave" type="Node2D" parent="."]
 
@@ -4729,4 +4761,4 @@ enabled = false
 zoom = Vector2(2, 2)
 
 [node name="playerOverWorld" parent="." instance=ExtResource("4_8spb5")]
-position = Vector2(249, 288)
+position = Vector2(249, 287)
