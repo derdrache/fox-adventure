@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ymc6euyccb1v"]
+
+[ext_resource type="Texture2D" uid="uid://bixok0dg7vak2" path="res://overworld/assets/DesertTilemap16x16.png" id="1_8wtoy"]
+[ext_resource type="Script" path="res://overworld/environment/obstacles/obstacleRemove.gd" id="1_ff6tx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhd4n"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0eh6"]
+size = Vector2(16, 16)
+
+[node name="Cactus" type="StaticBody2D"]
+script = ExtResource("1_ff6tx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, 2)
+texture = ExtResource("1_8wtoy")
+region_enabled = true
+region_rect = Rect2(80, 48, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 2)
+shape = SubResource("RectangleShape2D_yhd4n")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-5, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_j0eh6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
