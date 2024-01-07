@@ -3,25 +3,34 @@ extends Node2D
 @onready var player = $playerOverWorld
 @onready var camera = $Cameras/Camera2D
 @onready var uiNodesWorld1 = $"World1 - Wood/ui"
+
 @onready var duckWorld1_1 = $"World1 - Wood/Ducks/Duck"
 @onready var duckWorld1_2 = $"World1 - Wood/Ducks/Duck2"
 @onready var duckWorld2_1 = $"World2 - Swamp/Ducks/Duck"
 @onready var duckWorld2_2 = $"World2 - Swamp/Ducks/Duck2"
 
+@onready var obstacle1_1 = $"World1 - Wood/Obstacle/bigStone"
+@onready var obstacle1_2 = $"World1 - Wood/Obstacle/brokenBridge"
+@onready var obstacle2_1 = $"World2 - Swamp/Obstacles/bridge1/brokenBridge"
+@onready var obstacle2_2 = $"World2 - Swamp/Obstacles/bridge2"
+
+
 const CAMERA_VERTICAL = 365
 const CAMERA_HORIZONTAL = 650 
 
-var LEVEL_INTERACTION_Disable_DICT : Dictionary = {
-	"2": _disable_level_interaction0,
-	"4": _disable_level_interaction1,
-	"9": _disable_level_interaction2,
-	"11": _disable_level_interaction3
+var interactionsList: Array
+var obstaclesList : Array
+const LEVEL_INTERACTION_Disable_DICT : Dictionary = {
+	"2": 0,
+	"4": 1,
+	"9": 2,
+	"11": 3
 }
-var level_interaction_dict : Dictionary = {
-	"2": _level_interaction0,
-	"4": _level_interaction1,
-	"9": _level_interaction2,
-	"11": _level_interaction3
+const LEVEL_INTERACTION_DICT: Dictionary = {
+	"2": 0,
+	"4": 1,
+	"9": 2,
+	"11": 3
 }
 var activeInteraction = false
 var lastLevelUi
@@ -30,6 +39,9 @@ var cameraOnChange = false
 
 
 func _ready():
+	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2]
+	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2]
+
 	_load_data()
 	_check_interactions_disables()
 	_check_start_interactions()
@@ -59,9 +71,7 @@ func _load_data():
 		ui.update_ui(GameManager.levelDetails)
 
 func changeCamera():
-	
 	if cameraOnChange: return
-	
 	
 	var isOnBorderTop = player.position.y < camera.position.y +5 - CAMERA_VERTICAL / 2.0
 	var isOnBorderBottom = player.position.y > camera.position.y -5 + CAMERA_VERTICAL / 2.0
@@ -69,7 +79,7 @@ func changeCamera():
 	var isOnBorderLeft = player.position.x < camera.position.x +5 - CAMERA_HORIZONTAL / 2.0
 	
 	if !isOnBorderTop && !isOnBorderBottom && !isOnBorderRight && !isOnBorderLeft: return
-	print("test")
+
 	var tween = create_tween()
 	if isOnBorderTop:
 		tween.tween_property(
@@ -96,53 +106,32 @@ func changeCamera():
 func _check_start_interactions():
 	var startLevelInteraction = LevelManager.activeLevel
 	
-	if !level_interaction_dict.has(str(startLevelInteraction)): return
+	if !LEVEL_INTERACTION_DICT.has(str(startLevelInteraction)): return
 	
 	activeInteraction = true
 	
-	level_interaction_dict[str(startLevelInteraction)].call()
+	_level_interaction(LEVEL_INTERACTION_DICT[str(startLevelInteraction)])
 	
 func _check_interactions_disables():
 	for level in LEVEL_INTERACTION_Disable_DICT:
 		var firstTimeClear = LevelManager.activeLevel == int(level) && LevelManager.levelNewClear
 		if LevelManager.check_level_already_done(int(level)) && !firstTimeClear:
-			LEVEL_INTERACTION_Disable_DICT[level].call()
-				
+			_disable_level_interaction(LEVEL_INTERACTION_Disable_DICT[level])
+
+
+func _level_interaction(i):
+	interactionsList[i].move()
+	interactionsList[i].connect("interactionDone", interaction_done)
+
+func _disable_level_interaction(i):
+	interactionsList[i].visible = false
+	var obstacle = obstaclesList[i]
 	
-func _level_interaction0():
-	duckWorld1_1.move()
-	duckWorld1_1.connect("interactionDone", interaction_done)
-		
-func _level_interaction1():
-	duckWorld1_2.move()
-	duckWorld1_2.connect("interactionDone", interaction_done)
-
-func _level_interaction2():
-	duckWorld2_1.move()
-	duckWorld2_1.connect("interactionDone", interaction_done)
-
-func _level_interaction3():
-	duckWorld2_2.move()
-	duckWorld2_2.connect("interactionDone", interaction_done)
-
-
-func _disable_level_interaction0():	
-	duckWorld1_1.visible = false
-	$"World1 - Wood/Obstacle/bigStone".done()
-
-func _disable_level_interaction1():
-	duckWorld1_1.visible = false
-	$"World1 - Wood/Obstacle/brokenBridge".done()
+	if obstacle is Node2D:
+		for child in obstacle.get_children():
+			child.done()
+	else: obstacle.done()
 	
-func _disable_level_interaction2():
-	duckWorld2_1.visible = false
-	$"World2 - Swamp/Obstacles/bridge1/brokenBridge".done()
-	
-func _disable_level_interaction3():
-	duckWorld2_2.visible = false
-	$"World2 - Swamp/Obstacles/bridge2/brokenBridge".done()
-	$"World2 - Swamp/Obstacles/bridge2/brokenBridge2".done()
-	$"World2 - Swamp/Obstacles/bridge2/brokenBridge3".done()
 	
 func _disable_ui():
 	var allUi = $"World1 - Wood/ui".get_children()
