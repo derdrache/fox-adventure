@@ -216,6 +216,21 @@ goldCoins = 5
 [node name="GoldCoin12" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
 position = Vector2(880, -1493)
 
+[node name="GoldCoin25" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(596, -1595)
+
+[node name="GoldCoin26" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(533, -1640)
+
+[node name="GoldCoin27" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(440, -1688)
+
+[node name="GoldCoin28" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(376, -1728)
+
+[node name="GoldCoin29" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(304, -1760)
+
 [node name="GoldCoin13" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
 position = Vector2(917, -1493)
 
@@ -263,4 +278,4 @@ position = Vector2(508, -2672)
 position = Vector2(1791, -2796)
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(59, 32)
+position = Vector2(37, 32)
