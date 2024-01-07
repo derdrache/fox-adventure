@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://l88ttp1lstsb"]
 
-[ext_resource type="Texture2D" uid="uid://bci11kyyyemc5" path="res://overworld/assets/tundra_ [resources].png" id="1_6vg5k"]
-[ext_resource type="Script" path="res://overworld/environment/iceberg/Iceberg.gd" id="1_v6yfv"]
+[ext_resource type="Script" path="res://overworld/environment/obstacles/obstacleRemove.gd" id="1_mghqn"]
+[ext_resource type="Texture2D" uid="uid://bci11kyyyemc5" path="res://overworld/assets/tundra_ [resources].png" id="2_lw4yh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bkla"]
 size = Vector2(22, 26)
@@ -10,10 +10,10 @@ size = Vector2(22, 26)
 size = Vector2(22, 26)
 
 [node name="Iceberg" type="StaticBody2D"]
-script = ExtResource("1_v6yfv")
+script = ExtResource("1_mghqn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6vg5k")
+texture = ExtResource("2_lw4yh")
 region_enabled = true
 region_rect = Rect2(128, 80, 32, 32)
 

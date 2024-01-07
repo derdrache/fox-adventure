@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwno4hdx3186r"]
 
-[ext_resource type="Script" path="res://overworld/environment/bigStoneDesert/bigStoneDesert.gd" id="1_qity2"]
-[ext_resource type="Texture2D" uid="uid://bixok0dg7vak2" path="res://overworld/assets/DesertTilemap16x16.png" id="1_sj4s5"]
+[ext_resource type="Script" path="res://overworld/environment/obstacles/obstacleRemove.gd" id="1_svayh"]
+[ext_resource type="Texture2D" uid="uid://bixok0dg7vak2" path="res://overworld/assets/DesertTilemap16x16.png" id="2_4p4se"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pid0"]
 size = Vector2(35, 28)
@@ -10,10 +10,10 @@ size = Vector2(35, 28)
 size = Vector2(35, 28)
 
 [node name="BigStoneDesert" type="StaticBody2D"]
-script = ExtResource("1_qity2")
+script = ExtResource("1_svayh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_sj4s5")
+texture = ExtResource("2_4p4se")
 region_enabled = true
 region_rect = Rect2(176, 64, 48, 32)
 

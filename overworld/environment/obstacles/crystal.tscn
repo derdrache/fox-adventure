@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://wrhsdn4xi5ya"]
 
-[ext_resource type="Script" path="res://overworld/environment/crystal/crystal.gd" id="1_b848f"]
-[ext_resource type="Texture2D" uid="uid://bwaj3r2acxyyg" path="res://overworld/assets/CrystalTiles.png" id="1_r4ebq"]
+[ext_resource type="Script" path="res://overworld/environment/obstacles/obstacleRemove.gd" id="1_glcpr"]
+[ext_resource type="Texture2D" uid="uid://bwaj3r2acxyyg" path="res://overworld/assets/CrystalTiles.png" id="2_k76ad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgwff"]
 size = Vector2(14, 15)
@@ -10,10 +10,10 @@ size = Vector2(14, 15)
 size = Vector2(14, 15)
 
 [node name="Crystal" type="StaticBody2D"]
-script = ExtResource("1_b848f")
+script = ExtResource("1_glcpr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_r4ebq")
+texture = ExtResource("2_k76ad")
 region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 
