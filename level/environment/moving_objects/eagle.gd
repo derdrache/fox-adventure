@@ -52,9 +52,9 @@ func _moving(delta):
 func _release():
 	var pressRealseButtons = (Input.is_action_pressed("ui_accept") 
 		|| Input.is_action_pressed("move_down"))
-	var isMoving = path_follow.progress > 1	
+	var pathAllowed = path_follow.progress_ratio > 0.2	
 	
-	if enteredBottom && pressRealseButtons && isMoving: move = false
+	if enteredBottom && pressRealseButtons && pathAllowed: move = false
 	elif !enteredBottom && path_follow.progress_ratio == 1: move = false
 		
 func _on_area_top_body_entered(body):
