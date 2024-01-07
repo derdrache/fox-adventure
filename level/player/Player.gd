@@ -308,7 +308,7 @@ func do_dig(digDirection):
 			
 		await get_tree().create_timer(0.5).timeout
 		tilePosition = levelTileMap.local_to_map(tilePosition)
-		levelTileMap.set_cell(0, tilePosition, 0)
+		levelTileMap.set_cell(1, tilePosition, 0)
 		doDig = false		
 
 
