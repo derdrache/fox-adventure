@@ -300,7 +300,7 @@ position = Vector2(4834, 483)
 position = Vector2(4865, 483)
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(243, 480)
+position = Vector2(234, 481)
 
 [node name="WorldEnd" parent="." instance=ExtResource("2_nvtlw")]
 
