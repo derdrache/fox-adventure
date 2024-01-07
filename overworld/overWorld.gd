@@ -45,6 +45,8 @@ func _ready():
 	_load_data()
 	_check_interactions_disables()
 	_check_start_interactions()
+	
+	_disable_level_interaction(0)
 
 func _process(_delta):		
 	changeCamera()
@@ -126,12 +128,13 @@ func _level_interaction(i):
 func _disable_level_interaction(i):
 	interactionsList[i].visible = false
 	var obstacle = obstaclesList[i]
-	
-	if obstacle is Node2D:
+
+	if obstacle is StaticBody2D:
+		obstacle.done()
+	else: 
 		for child in obstacle.get_children():
 			child.done()
-	else: obstacle.done()
-	
+		
 	
 func _disable_ui():
 	var allUi = $"World1 - Wood/ui".get_children()
