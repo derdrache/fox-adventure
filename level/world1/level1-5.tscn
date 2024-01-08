@@ -153,6 +153,7 @@ position = Vector2(3475, 231)
 position = Vector2(3487.18, 76.0659)
 scale = Vector2(1.09556, 0.794574)
 curve = SubResource("Curve2D_i8urx")
+flipH = true
 
 [node name="Switch2" parent="environment" instance=ExtResource("6_bcb6w")]
 position = Vector2(5585, 591)
@@ -178,6 +179,7 @@ position = Vector2(6012, -17)
 [node name="eagle2" parent="environment" instance=ExtResource("13_mkncg")]
 position = Vector2(6022, -80)
 curve = SubResource("Curve2D_k52a7")
+flipH = true
 
 [node name="Switch3" parent="environment" instance=ExtResource("6_bcb6w")]
 position = Vector2(7301, 78)
@@ -331,7 +333,16 @@ position = Vector2(4116, 518)
 position = Vector2(4204, 521)
 
 [node name="GoldCoin28" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
-position = Vector2(3504, 148)
+position = Vector2(3563, 108)
+
+[node name="GoldCoin59" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
+position = Vector2(3644, 46)
+
+[node name="GoldCoin60" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
+position = Vector2(3713, -7)
+
+[node name="GoldCoin61" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
+position = Vector2(3777, -60)
 
 [node name="GoldCoin29" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
 position = Vector2(3496, 172)
@@ -381,7 +392,19 @@ position = Vector2(5852, 565)
 position = Vector2(6004, 106)
 
 [node name="GoldCoin41" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
-position = Vector2(6004, 73)
+position = Vector2(6069, -44)
+
+[node name="GoldCoin62" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
+position = Vector2(6156, -47)
+
+[node name="GoldCoin63" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
+position = Vector2(6242, -55)
+
+[node name="GoldCoin64" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
+position = Vector2(6335, -64)
+
+[node name="GoldCoin65" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
+position = Vector2(6422, -64)
 
 [node name="GoldCoin42" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
 position = Vector2(6004, 38)

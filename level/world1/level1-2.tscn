@@ -87,6 +87,7 @@ curve = SubResource("Curve2D_cxqbo")
 [node name="eagle3" parent="envoirnment/eagles" instance=ExtResource("15_1latl")]
 position = Vector2(324, -642)
 curve = SubResource("Curve2D_1oxif")
+flipH = true
 
 [node name="eagle2" parent="envoirnment/eagles" instance=ExtResource("15_1latl")]
 position = Vector2(745, -1505)
@@ -191,6 +192,12 @@ position = Vector2(40, -245)
 [node name="GoldCoin2" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
 position = Vector2(29, -271)
 
+[node name="GoldCoin6" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(91, -392)
+
+[node name="GoldCoin11" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
+position = Vector2(117, -472)
+
 [node name="GoldCoin3" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
 position = Vector2(322, -265)
 
@@ -198,10 +205,10 @@ position = Vector2(322, -265)
 position = Vector2(319, -634)
 
 [node name="GoldCoin8" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
-position = Vector2(318, -825)
+position = Vector2(319, -752)
 
 [node name="GoldCoin9" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
-position = Vector2(319, -847)
+position = Vector2(320, -984)
 
 [node name="GoldCoin10" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
 position = Vector2(642, -671)

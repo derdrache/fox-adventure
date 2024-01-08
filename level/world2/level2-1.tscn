@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="16_8f6d3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g371c"]
-size = Vector2(492, 731.75)
+size = Vector2(54, 731.75)
 
 [sub_resource type="Curve2D" id="Curve2D_dwqit"]
 resource_local_to_scene = true
@@ -32,11 +32,11 @@ point_count = 3
 [node name="worldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="worldBorder"]
-position = Vector2(54, 266.75)
+position = Vector2(37, 266.75)
 shape = SubResource("RectangleShape2D_g371c")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="worldBorder"]
-position = Vector2(4458, 194.875)
+position = Vector2(4396, 200)
 shape = SubResource("RectangleShape2D_g371c")
 
 [node name="SwampBackground" parent="." instance=ExtResource("1_3nqpj")]
@@ -232,6 +232,24 @@ position = Vector2(3489, 209)
 [node name="GoldCoin35" parent="items/goldCoins" instance=ExtResource("15_ebayw")]
 position = Vector2(3600, 172)
 
+[node name="GoldCoin70" parent="items/goldCoins" instance=ExtResource("15_ebayw")]
+position = Vector2(3599, 87)
+
+[node name="GoldCoin71" parent="items/goldCoins" instance=ExtResource("15_ebayw")]
+position = Vector2(3490, 90)
+
+[node name="GoldCoin72" parent="items/goldCoins" instance=ExtResource("15_ebayw")]
+position = Vector2(3375, 94)
+
+[node name="GoldCoin73" parent="items/goldCoins" instance=ExtResource("15_ebayw")]
+position = Vector2(3281, 94)
+
+[node name="GoldCoin74" parent="items/goldCoins" instance=ExtResource("15_ebayw")]
+position = Vector2(3189, 94)
+
+[node name="GoldCoin75" parent="items/goldCoins" instance=ExtResource("15_ebayw")]
+position = Vector2(3095, 96)
+
 [node name="GoldCoin36" parent="items/goldCoins" instance=ExtResource("15_ebayw")]
 position = Vector2(3695, 147)
 
@@ -408,4 +426,4 @@ position = Vector2(1004, 377)
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_4fhsq")]
-position = Vector2(3001, 106)
+position = Vector2(113, 352)

@@ -171,6 +171,7 @@ position = Vector2(-219, -35)
 [node name="Eagle2" parent="environment" instance=ExtResource("9_dttfk")]
 position = Vector2(4860, 480)
 curve = SubResource("Curve2D_6of0q")
+flipH = true
 
 [node name="DesertPlatform4" parent="environment" instance=ExtResource("6_q2e50")]
 position = Vector2(4452, 488)
@@ -231,6 +232,15 @@ position = Vector2(177, 427)
 
 [node name="GoldCoin2" parent="items/goldCoins" instance=ExtResource("15_d1ash")]
 position = Vector2(197, 449)
+
+[node name="GoldCoin13" parent="items/goldCoins" instance=ExtResource("15_d1ash")]
+position = Vector2(3353, 447)
+
+[node name="GoldCoin38" parent="items/goldCoins" instance=ExtResource("15_d1ash")]
+position = Vector2(4859, 382)
+
+[node name="GoldCoin37" parent="items/goldCoins" instance=ExtResource("15_d1ash")]
+position = Vector2(3314, 407)
 
 [node name="GoldCoin3" parent="items/goldCoins" instance=ExtResource("15_d1ash")]
 position = Vector2(404, 442)

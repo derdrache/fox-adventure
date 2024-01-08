@@ -86,6 +86,7 @@ position = Vector2(4145, 303)
 [node name="Eagle" parent="envoirnment" instance=ExtResource("14_5ah3e")]
 position = Vector2(3044, 218)
 curve = SubResource("Curve2D_yvusa")
+flipH = true
 
 [node name="items" type="Node2D" parent="."]
 
@@ -242,6 +243,12 @@ position = Vector2(3687, 415)
 [node name="GoldCoin39" parent="items/goldCoins" instance=ExtResource("12_dw686")]
 position = Vector2(3718, 415)
 
+[node name="GoldCoin40" parent="items/goldCoins" instance=ExtResource("12_dw686")]
+position = Vector2(3089, 147)
+
+[node name="GoldCoin41" parent="items/goldCoins" instance=ExtResource("12_dw686")]
+position = Vector2(3118, 107)
+
 [node name="Cat1" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
 position = Vector2(593, 409)
 target = NodePath("../../Player")
@@ -255,7 +262,7 @@ position = Vector2(3573, 441)
 target = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(39, 495)
+position = Vector2(2915, 172)
 
 [node name="WorldEnd" parent="." instance=ExtResource("16_seo3y")]
 position = Vector2(723, 453)
