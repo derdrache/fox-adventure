@@ -31,13 +31,13 @@ func _physics_process(delta):
 func _calculate_velocity():
 	if isWaiting: return
 
-	var targetPosition = target.position - Vector2(0, -9)
+	var targetPosition = target.global_position - Vector2(0, -9)
 
-	if position.distance_to(targetPosition) > 20 * followPosition:
-		var direction = (targetPosition - position).normalized()
+	if global_position.distance_to(targetPosition) > 20 * followPosition:
+		var direction = (targetPosition - global_position).normalized()
 		velocity = direction * SPEED
 		velocity.y *= 3
-	elif (position.y - targetPosition.y) < -2 || (position.y - targetPosition.y) > 2:
+	elif (global_position.y - targetPosition.y) < -2 || (global_position.y - targetPosition.y) > 2:
 		velocity.x = 0
 	else: velocity = Vector2.ZERO
 
@@ -70,7 +70,6 @@ func _selectCatColor():
 func _on_area_2d_body_entered(body):
 	if body is Player && isWaiting:
 		var catNumber = int(name.replace("Cat", ""))
-		
 		isWaiting = false
 		followPosition = body.followObjects + 1
 		body.followObjects += 1

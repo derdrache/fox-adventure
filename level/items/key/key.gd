@@ -19,13 +19,13 @@ func _calculate_velocity():
 	if isWaiting: return
 
 	var followPosition = target.followObjects + 1
-	var targetPosition = target.position - Vector2(0, -8)
+	var targetPosition = target.global_position - Vector2(0, -8)
 
-	if position.distance_to(targetPosition) > 20 * followPosition:
-		var direction = (targetPosition - position).normalized()
+	if global_position.distance_to(targetPosition) > 20 * followPosition:
+		var direction = (targetPosition - global_position).normalized()
 		velocity = direction * SPEED
 		velocity.y *= 3
-	elif (position.y - targetPosition.y) < -2 || (position.y - targetPosition.y) > 2:
+	elif (global_position.y - targetPosition.y) < -2 || (global_position.y - targetPosition.y) > 2:
 		velocity.x = 0
 	else: velocity = Vector2.ZERO
 
