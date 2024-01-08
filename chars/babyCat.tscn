@@ -743,7 +743,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhd50"]
 size = Vector2(15, 12)
 
-[node name="Cat" type="CharacterBody2D"]
+[node name="Cat1" type="CharacterBody2D"]
 script = ExtResource("1_ll2a6")
 
 [node name="whiteCat" type="AnimatedSprite2D" parent="."]
