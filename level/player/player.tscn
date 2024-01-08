@@ -240,7 +240,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1rr"]
-size = Vector2(10, 19)
+size = Vector2(10, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmf5s"]
 size = Vector2(13, 7)
@@ -353,7 +353,6 @@ offset = Vector2(0, -25)
 zoom = Vector2(3.5, 3.5)
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 6.5)
 shape = SubResource("RectangleShape2D_5v1rr")
 
