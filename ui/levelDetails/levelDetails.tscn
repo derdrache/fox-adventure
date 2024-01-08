@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://x0di6ow8xbtg"]
+[gd_scene load_steps=7 format=3 uid="uid://x0di6ow8xbtg"]
 
 [ext_resource type="StyleBox" uid="uid://cq0paplwjyeto" path="res://ui/levelSpezialItemsDisplay.tres" id="1_e60c4"]
 [ext_resource type="Script" path="res://ui/levelDetails/levelDetails.gd" id="1_i825i"]
-[ext_resource type="Texture2D" uid="uid://eww3kmm3hmlo" path="res://asset/sprites/gem.png" id="2_bl5i1"]
-[ext_resource type="Texture2D" uid="uid://balmo2vy1ff4p" path="res://asset/sprites/MonedaR.png" id="3_k0p4q"]
+[ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="3_rq7bb"]
+[ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="4_u37hw"]
+[ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="5_jt5ps"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us2eg"]
 bg_color = Color(1, 1, 1, 1)
@@ -20,131 +21,194 @@ script = ExtResource("1_i825i")
 offset_left = 488.0
 offset_top = 45.0
 offset_right = 620.0
-offset_bottom = 233.0
+offset_bottom = 266.0
 scale = Vector2(2, 2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_us2eg")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -50.0
-offset_top = 5.0
-offset_right = 54.0
-offset_bottom = 32.0
-grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-bbcode_enabled = true
-text = "[center] Wood 1"
-
-[node name="GemPanel" type="Panel" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -54.0
-offset_right = 51.0
-offset_bottom = -14.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("1_e60c4")
-
-[node name="gem1" type="Sprite2D" parent="Panel/GemPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(18, 20)
-texture = ExtResource("2_bl5i1")
-hframes = 5
-
-[node name="gem2" type="Sprite2D" parent="Panel/GemPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(34, 20)
-texture = ExtResource("2_bl5i1")
-hframes = 5
-
-[node name="gem3" type="Sprite2D" parent="Panel/GemPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(50, 20)
-texture = ExtResource("2_bl5i1")
-hframes = 5
-
-[node name="gem4" type="Sprite2D" parent="Panel/GemPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(66, 20)
-texture = ExtResource("2_bl5i1")
-hframes = 5
-
-[node name="gem5" type="Sprite2D" parent="Panel/GemPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(82, 20)
-texture = ExtResource("2_bl5i1")
-hframes = 5
-
-[node name="RedCoinPanel" type="Panel" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -7.0
-offset_right = 51.0
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("1_e60c4")
-
-[node name="redCoin1" type="Sprite2D" parent="Panel/RedCoinPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(18, 20)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_k0p4q")
-hframes = 5
-
-[node name="redCoin2" type="Sprite2D" parent="Panel/RedCoinPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(34, 20)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_k0p4q")
-hframes = 5
-
-[node name="redCoin3" type="Sprite2D" parent="Panel/RedCoinPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(50, 20)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_k0p4q")
-hframes = 5
-
-[node name="redCoin4" type="Sprite2D" parent="Panel/RedCoinPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(66, 20)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_k0p4q")
-hframes = 5
-
-[node name="redCoin5" type="Sprite2D" parent="Panel/RedCoinPanel"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(82, 20)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_k0p4q")
-hframes = 5
-
-[node name="Button" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = -37.0
-offset_right = -27.0
-offset_bottom = -17.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Title" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Wood 1"
+
+[node name="Gems" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="GemPanel" type="Panel" parent="Panel/VBoxContainer/Gems"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_e60c4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/Gems/GemPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 13
+
+[node name="Gems" type="HBoxContainer" parent="Panel/VBoxContainer/Gems/GemPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="gem1" type="TextureRect" parent="Panel/VBoxContainer/Gems/GemPanel/MarginContainer/Gems"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("3_rq7bb")
+expand_mode = 2
+
+[node name="gem2" type="TextureRect" parent="Panel/VBoxContainer/Gems/GemPanel/MarginContainer/Gems"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("3_rq7bb")
+expand_mode = 2
+
+[node name="gem3" type="TextureRect" parent="Panel/VBoxContainer/Gems/GemPanel/MarginContainer/Gems"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("3_rq7bb")
+expand_mode = 2
+
+[node name="gem4" type="TextureRect" parent="Panel/VBoxContainer/Gems/GemPanel/MarginContainer/Gems"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("3_rq7bb")
+expand_mode = 2
+
+[node name="gem5" type="TextureRect" parent="Panel/VBoxContainer/Gems/GemPanel/MarginContainer/Gems"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("3_rq7bb")
+expand_mode = 2
+
+[node name="RedCoins" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="RedCoinPanel" type="Panel" parent="Panel/VBoxContainer/RedCoins"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_e60c4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/RedCoins/RedCoinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 13
+
+[node name="RedCoins" type="HBoxContainer" parent="Panel/VBoxContainer/RedCoins/RedCoinPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="redCoin1" type="TextureRect" parent="Panel/VBoxContainer/RedCoins/RedCoinPanel/MarginContainer/RedCoins"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_u37hw")
+expand_mode = 2
+
+[node name="redCoin2" type="TextureRect" parent="Panel/VBoxContainer/RedCoins/RedCoinPanel/MarginContainer/RedCoins"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_u37hw")
+expand_mode = 2
+
+[node name="redCoin3" type="TextureRect" parent="Panel/VBoxContainer/RedCoins/RedCoinPanel/MarginContainer/RedCoins"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_u37hw")
+expand_mode = 2
+
+[node name="redCoin4" type="TextureRect" parent="Panel/VBoxContainer/RedCoins/RedCoinPanel/MarginContainer/RedCoins"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_u37hw")
+expand_mode = 2
+
+[node name="redCoin5" type="TextureRect" parent="Panel/VBoxContainer/RedCoins/RedCoinPanel/MarginContainer/RedCoins"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_u37hw")
+expand_mode = 2
+
+[node name="Cats" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="RedCoinPanel" type="Panel" parent="Panel/VBoxContainer/Cats"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_e60c4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/Cats/RedCoinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 13
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 13
+
+[node name="Cats" type="HBoxContainer" parent="Panel/VBoxContainer/Cats/RedCoinPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="cat1" type="TextureRect" parent="Panel/VBoxContainer/Cats/RedCoinPanel/MarginContainer/Cats"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("5_jt5ps")
+expand_mode = 2
+
+[node name="cat2" type="TextureRect" parent="Panel/VBoxContainer/Cats/RedCoinPanel/MarginContainer/Cats"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("5_jt5ps")
+expand_mode = 2
+
+[node name="cat3" type="TextureRect" parent="Panel/VBoxContainer/Cats/RedCoinPanel/MarginContainer/Cats"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("5_jt5ps")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
 text = "Start"
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

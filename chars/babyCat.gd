@@ -69,6 +69,9 @@ func _selectCatColor():
 
 func _on_area_2d_body_entered(body):
 	if body is Player && isWaiting:
+		var catNumber = int(name.replace("Cat", ""))
+		
 		isWaiting = false
 		followPosition = body.followObjects + 1
 		body.followObjects += 1
+		LevelManager.gain_cat(catNumber)

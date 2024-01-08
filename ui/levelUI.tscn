@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjibcolu08tat"]
+[gd_scene load_steps=8 format=3 uid="uid://bjibcolu08tat"]
 
-[ext_resource type="Script" path="res://ui/UI.gd" id="1_yw62n"]
+[ext_resource type="Script" path="res://ui/LevelUI.gd" id="1_tddkm"]
 [ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="2_20pnj"]
 [ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_rosf4"]
 [ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="5_drr2r"]
+[ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="6_d1kwq"]
 [ext_resource type="Texture2D" uid="uid://tii2jfuaathy" path="res://asset/ui/Icon_Exit.png" id="6_g7jca"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ooens"]
@@ -12,7 +13,7 @@ shadow_color = Color(0, 0, 0, 1)
 
 [node name="LevelUI" type="CanvasLayer"]
 layer = 3
-script = ExtResource("1_yw62n")
+script = ExtResource("1_tddkm")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -29,8 +30,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1.0
 offset_top = 2.0
-offset_right = -428.0
-offset_bottom = -239.0
+offset_right = -641.0
+offset_bottom = -635.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -39,95 +40,100 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 70
 
-[node name="GoldContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+[node name="GoldContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GoldContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GoldContainer"]
 layout_mode = 2
 texture = ExtResource("2_20pnj")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/GoldContainer"]
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GoldContainer"]
 layout_mode = 2
 text = "x 0"
 label_settings = SubResource("LabelSettings_ooens")
 
-[node name="GemContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+[node name="GemContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Gem1" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+[node name="Gem1" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("4_rosf4")
 expand_mode = 2
 
-[node name="Gem2" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+[node name="Gem2" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("4_rosf4")
 expand_mode = 2
 
-[node name="Gem3" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+[node name="Gem3" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("4_rosf4")
 expand_mode = 2
 
-[node name="Gem4" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+[node name="Gem4" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("4_rosf4")
 expand_mode = 2
 
-[node name="Gem5" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/GemContainer"]
+[node name="Gem5" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("4_rosf4")
 expand_mode = 2
 
-[node name="RedCoinContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+[node name="RedCoinContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="RedCoin1" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+[node name="RedCoin1" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("5_drr2r")
 expand_mode = 2
 
-[node name="RedCoin2" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+[node name="RedCoin2" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("5_drr2r")
 expand_mode = 2
 
-[node name="RedCoin3" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+[node name="RedCoin3" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("5_drr2r")
 expand_mode = 2
 
-[node name="RedCoin4" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+[node name="RedCoin4" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("5_drr2r")
 expand_mode = 2
 
-[node name="RedCoin5" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/RedCoinContainer"]
+[node name="RedCoin5" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 texture = ExtResource("5_drr2r")
 expand_mode = 2
 
-[node name="ExitButton" type="TextureButton" parent="Control/MarginContainer/HBoxContainer"]
+[node name="ExitButton" type="TextureButton" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Exit" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/ExitButton"]
+[node name="Exit" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/ExitButton"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 30.0
@@ -135,4 +141,30 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_g7jca")
 expand_mode = 1
 
-[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_texture_button_pressed"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 70
+
+[node name="CatContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Cat1" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/CatContainer"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("6_d1kwq")
+
+[node name="Cat2" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/CatContainer"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("6_d1kwq")
+
+[node name="Cat3" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/CatContainer"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("6_d1kwq")
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_texture_button_pressed"]

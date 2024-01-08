@@ -14,15 +14,16 @@ func _ready():
 		levelDetails.fill({
 			"isFinished" : false,
 			"redCoins" : 0,
-			"gems": 0
+			"gems": 0,
+			"cats": [false,false,false]
 		})
-
 
 func updateLevelData(levelData : LevelDataClass):
 	levelDetails[levelData["level"] - 1] = {
 		"isFinished" : levelData.isFinished,
 		"redCoins": levelData.redCoins,
-		"gems": levelData.gems
+		"gems": levelData.gems,
+		"cats": levelData.cats
 	}		
 		
 func getLevelStatus(level):

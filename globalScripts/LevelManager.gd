@@ -3,6 +3,7 @@ extends Node
 signal gained_gem(int)
 signal gained_red_coin(int)
 signal gained_gold_coin(int)
+signal gained_cat(Array)
 
 var gems : int
 var redCoins : int
@@ -10,6 +11,7 @@ var goldCoins : int
 var activeLevel : int
 var activeLevelPosition : Vector2
 var levelNewClear : bool
+var catArray: Array = [false, false, false]
 
 
 
@@ -25,6 +27,9 @@ func gain_gold_coin(newCoins:int):
 	goldCoins += newCoins
 	emit_signal("gained_gold_coin", goldCoins)
 
+func gain_cat(catNumber: int):
+	catArray[catNumber-1] = true
+	emit_signal("gained_cat", catArray)
 
 
 func set_level(level : int, position: Vector2):
@@ -59,6 +64,7 @@ func _save_items():
 	newLevelData.isFinished = true
 	newLevelData.redCoins = redCoins
 	newLevelData.gems = gems
+	newLevelData.cats = catArray
 	
 	if newLevelData.redCoins < oldLevelData.redCoins:
 		newLevelData.redCoins = oldLevelData.redCoins
@@ -73,4 +79,4 @@ func reset_all_stats():
 	goldCoins = 0
 	activeLevel = 0
 	levelNewClear = false
-
+	catArray = [false, false, false]
