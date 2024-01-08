@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6w3decyhh2tv"]
+[gd_scene load_steps=26 format=3 uid="uid://b6w3decyhh2tv"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_2mg4t"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="2_uaevd"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="12_fojk7"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="12_gehwq"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="14_km8x1"]
+[ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="17_e882l"]
 
 [sub_resource type="Curve2D" id="Curve2D_656y0"]
 resource_local_to_scene = true
@@ -329,5 +330,17 @@ shape = SubResource("RectangleShape2D_4blre")
 position = Vector2(-11.1329, 206.5)
 shape = SubResource("RectangleShape2D_v26m3")
 
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
+position = Vector2(5376.08, 665.185)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
+position = Vector2(3693, 553)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
+position = Vector2(1627.81, 505.236)
+target = NodePath("../Player")
+
 [node name="Player" parent="." instance=ExtResource("3_d4jyt")]
-position = Vector2(235, 321)
+position = Vector2(48, 337)

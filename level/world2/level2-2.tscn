@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cuyk1s6m6eekk"]
+[gd_scene load_steps=25 format=3 uid="uid://cuyk1s6m6eekk"]
 
 [ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swampBackground.tscn" id="1_sv2ka"]
 [ext_resource type="PackedScene" uid="uid://3u8gexpj31rv" path="res://level/environment/climbingTrees/ClimbingWillow.tscn" id="2_8r8u5"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="15_w4yxt"]
 [ext_resource type="PackedScene" uid="uid://sdf3ivtdspav" path="res://level/environment/switch_objects/treeStomp/TreeStomp.tscn" id="15_wbucs"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="16_kb2po"]
+[ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="18_rotkb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkwnb"]
 size = Vector2(12, 494)
@@ -330,3 +331,15 @@ target = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_tmuyh")]
 position = Vector2(109, 289)
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
+position = Vector2(3991, 169)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
+position = Vector2(998, 297)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
+position = Vector2(2246.02, 41.7164)
+target = NodePath("../Player")

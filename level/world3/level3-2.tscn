@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cd1sxqyo4afpc"]
+[gd_scene load_steps=27 format=3 uid="uid://cd1sxqyo4afpc"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_1poy8"]
 [ext_resource type="PackedScene" uid="uid://3jqlknpvgshn" path="res://backgrounds/desert/desertBackground.tscn" id="1_glji3"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="11_x7s0m"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="12_8pde6"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="13_fi8j8"]
+[ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="18_wg7e2"]
 
 [sub_resource type="Curve2D" id="Curve2D_8robn"]
 resource_local_to_scene = true
@@ -220,9 +221,6 @@ position = Vector2(132, 131)
 [node name="GoldCoin3" parent="items/goldCoins" instance=ExtResource("12_8pde6")]
 position = Vector2(132, 156)
 
-[node name="GoldCoin4" parent="items/goldCoins" instance=ExtResource("12_8pde6")]
-position = Vector2(601, 112)
-
 [node name="GoldCoin5" parent="items/goldCoins" instance=ExtResource("12_8pde6")]
 position = Vector2(849, 112)
 
@@ -353,6 +351,18 @@ shape = SubResource("RectangleShape2D_71nj2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(5, 166)
 shape = SubResource("RectangleShape2D_dkbmn")
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_wg7e2")]
+position = Vector2(597, 137)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_wg7e2")]
+position = Vector2(1410, -326)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_wg7e2")]
+position = Vector2(4491.25, 136.931)
+target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_rv5bl")]
 position = Vector2(49, 256)

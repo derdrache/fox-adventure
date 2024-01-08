@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cqo5rsy683uri"]
+[gd_scene load_steps=30 format=3 uid="uid://cqo5rsy683uri"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_ma4q1"]
 [ext_resource type="PackedScene" uid="uid://3jqlknpvgshn" path="res://backgrounds/desert/desertBackground.tscn" id="1_wswsx"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="14_b0bd8"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="15_d1ash"]
 [ext_resource type="PackedScene" uid="uid://c80b6wwgokyuh" path="res://level/items/key/key.tscn" id="16_lun45"]
+[ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="19_fbybh"]
 
 [sub_resource type="Curve2D" id="Curve2D_s3vhy"]
 resource_local_to_scene = true
@@ -297,9 +298,6 @@ position = Vector2(2047, 1007)
 [node name="GoldCoin12" parent="items/goldCoins" instance=ExtResource("15_d1ash")]
 position = Vector2(1932, 1148)
 
-[node name="GoldCoin13" parent="items/goldCoins" instance=ExtResource("15_d1ash")]
-position = Vector2(1952, 1149)
-
 [node name="GoldCoin14" parent="items/goldCoins" instance=ExtResource("15_d1ash")]
 position = Vector2(1972, 1148)
 
@@ -365,9 +363,6 @@ target = NodePath("../../Player")
 position = Vector2(3191, 794)
 shape = SubResource("RectangleShape2D_ue5dp")
 
-[node name="Player" parent="." instance=ExtResource("4_6yo7s")]
-position = Vector2(39, 511)
-
 [node name="WorldBorder" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
@@ -377,3 +372,18 @@ shape = SubResource("RectangleShape2D_ixswn")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(6315, 424)
 shape = SubResource("RectangleShape2D_lrcjl")
+
+[node name="Player" parent="." instance=ExtResource("4_6yo7s")]
+position = Vector2(39, 511)
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_fbybh")]
+position = Vector2(1951, 1177)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_fbybh")]
+position = Vector2(3971, 601)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_fbybh")]
+position = Vector2(5137, 633)
+target = NodePath("../Player")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c5sebwc4ipfgr"]
+[gd_scene load_steps=24 format=3 uid="uid://c5sebwc4ipfgr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_ca526"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_eedi0"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="14_4uplx"]
 [ext_resource type="PackedScene" uid="uid://xi7o83rjmb0g" path="res://level/environment/liane/liane.tscn" id="14_nokws"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="16_vayv4"]
+[ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="18_hsfym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_psbly"]
 size = Vector2(10103.5, 50)
@@ -222,7 +223,7 @@ position = Vector2(141, 678)
 position = Vector2(2971, -90)
 
 [node name="Gem3" parent="items/gems" instance=ExtResource("7_0hkvr")]
-position = Vector2(4375, 205)
+position = Vector2(4427, 274)
 
 [node name="Gem4" parent="items/gems" instance=ExtResource("7_0hkvr")]
 position = Vector2(5319, 582)
@@ -439,3 +440,15 @@ position = Vector2(9128, -235)
 
 [node name="Player" parent="." instance=ExtResource("2_fhwis")]
 position = Vector2(10, 2)
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_hsfym")]
+position = Vector2(1060, 441)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_hsfym")]
+position = Vector2(3411, 297)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_hsfym")]
+position = Vector2(5852, 169)
+target = NodePath("../Player")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://qnwou1ycotof"]
+[gd_scene load_steps=27 format=3 uid="uid://qnwou1ycotof"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_3wr8p"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_krlhy"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="13_iwb5w"]
 [ext_resource type="PackedScene" uid="uid://e36x4eic5jxs" path="res://level/environment/climbingTrees/ClimbingTree1.tscn" id="14_ys2uq"]
 [ext_resource type="PackedScene" uid="uid://c0vxd5mtdpqsc" path="res://level/environment/moving_objects/wood_platform.tscn" id="21_dec6v"]
+[ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="21_rkeg2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1xr8"]
 size = Vector2(63, 886)
@@ -299,11 +300,23 @@ position = Vector2(4834, 483)
 [node name="GoldCoin39" parent="items/goldCoins" instance=ExtResource("5_hem0g")]
 position = Vector2(4865, 483)
 
-[node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(234, 481)
-
 [node name="WorldEnd" parent="." instance=ExtResource("2_nvtlw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(3052, 883)
 shape = SubResource("RectangleShape2D_axd5f")
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("21_rkeg2")]
+position = Vector2(1162, 489)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("21_rkeg2")]
+position = Vector2(2625, 345)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("21_rkeg2")]
+position = Vector2(5290, 585)
+target = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_dbmni")]
+position = Vector2(234, 481)

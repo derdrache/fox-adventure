@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cs1gputatsnv"]
+[gd_scene load_steps=19 format=3 uid="uid://cs1gputatsnv"]
 
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_j6sjb"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_sqo47"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cw5w7qm7wmwmn" path="res://level/environment/bridge_objects/brancheBridge.tscn" id="6_1jbe8"]
 [ext_resource type="PackedScene" uid="uid://e36x4eic5jxs" path="res://level/environment/climbingTrees/ClimbingTree1.tscn" id="8_wsy6d"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="9_a3e5t"]
+[ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="10_6lr25"]
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="10_hqu28"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="12_dw686"]
 [ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/moving_objects/eagle.tscn" id="14_5ah3e"]
@@ -240,6 +241,18 @@ position = Vector2(3687, 415)
 
 [node name="GoldCoin39" parent="items/goldCoins" instance=ExtResource("12_dw686")]
 position = Vector2(3718, 415)
+
+[node name="Cat1" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
+position = Vector2(593, 409)
+target = NodePath("../../Player")
+
+[node name="Cat2" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
+position = Vector2(2928, 441)
+target = NodePath("../../Player")
+
+[node name="Cat3" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
+position = Vector2(3573, 441)
+target = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
 position = Vector2(39, 495)

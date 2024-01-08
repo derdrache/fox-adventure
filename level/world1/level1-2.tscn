@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cx2064asos07c"]
+[gd_scene load_steps=24 format=3 uid="uid://cx2064asos07c"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_5dy3f"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_dbuas"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c80b6wwgokyuh" path="res://level/items/key/key.tscn" id="13_wfeaq"]
 [ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/moving_objects/eagle.tscn" id="15_1latl"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="16_cxcy5"]
+[ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="17_o2srk"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="17_wio1f"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="19_ktcov"]
 
@@ -276,6 +277,18 @@ position = Vector2(508, -2672)
 
 [node name="GoldCoin24" parent="items/goldCoins" instance=ExtResource("17_wio1f")]
 position = Vector2(1791, -2796)
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
+position = Vector2(431, -567)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
+position = Vector2(699, -2535)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
+position = Vector2(850, -1479)
+target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
 position = Vector2(37, 32)
