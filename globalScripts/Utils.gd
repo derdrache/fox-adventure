@@ -12,8 +12,6 @@ func save_game():
 	var jsonString = JSON.stringify(data)
 	file.store_line(jsonString)
 	
-	
-	
 func load_game():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	
@@ -22,3 +20,5 @@ func load_game():
 		GameManager.levelDetails = data["levelDetails"]
 		GameManager.playerPosition = str_to_var(data["playerPosition"])
 
+func delete_game():
+	DirAccess.remove_absolute(SAVE_PATH)
