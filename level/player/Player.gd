@@ -52,6 +52,7 @@ func _process(_delta):
 	underWater = "water" in get_tile_data()
 
 func _physics_process(delta):
+	
 	if is_on_floor():
 		wasOnCLimbingObject = false
 		doStomp = false
@@ -259,9 +260,10 @@ func animation_state():
 		MOVE:
 			if direction.x == 0: playerAnimation.play("idle")
 			else: playerAnimation.play("run")	
-		CLIMB: 
-			playerAnimation.play("climb")
-			if direction == Vector2.ZERO: playerAnimation.stop()
+		CLIMB:
+			if not climbSideways: playerAnimation.play("climb")
+			if direction == Vector2.ZERO: 
+				playerAnimation.stop()
 			elif climbSideways: playerAnimation.play("climbSideways")
 			else: playerAnimation.play("climb")
 		DIG: playerAnimation.play("dig")
