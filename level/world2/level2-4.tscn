@@ -30,7 +30,7 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_4u7ik"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2, 0, 0, 0, 0, 0, -335, 2, 0, 0, 0, 0, -2, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -337, 2, 0, 0, 0, 0, -2, -3, 0, 0, 0, 0, -337, 2)
 }
 point_count = 3
 
@@ -123,8 +123,7 @@ position = Vector2(3694, 336)
 [node name="gems" type="Node2D" parent="items"]
 
 [node name="Gem2" parent="items/gems" instance=ExtResource("11_nlj2u")]
-position = Vector2(532, 622)
-scale = Vector2(5.35723, 4.47906)
+position = Vector2(543, 576)
 
 [node name="Gem" parent="items/gems" instance=ExtResource("11_nlj2u")]
 position = Vector2(1478, 752)
