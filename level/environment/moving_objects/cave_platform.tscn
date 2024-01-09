@@ -20,6 +20,7 @@ position = Vector2(1, -8)
 texture = ExtResource("2_3tvol")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CavePlatformBody"]
+visible = false
 position = Vector2(1, -8)
 shape = SubResource("RectangleShape2D_vmkh2")
 
