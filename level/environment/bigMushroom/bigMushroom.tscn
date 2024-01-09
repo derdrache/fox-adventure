@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbie5ng2hscv1"]
+[gd_scene load_steps=6 format=3 uid="uid://cbie5ng2hscv1"]
 
 [ext_resource type="Script" path="res://level/environment/bigMushroom/bigMushroom.gd" id="1_cusda"]
 [ext_resource type="Texture2D" uid="uid://d31qlaye758d5" path="res://asset/tileMaps/jungle decoration.png" id="2_klbea"]
@@ -10,6 +10,12 @@ height = 29.9976
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqc0l"]
 radius = 7.55402
 height = 25.0463
+
+[sub_resource type="Curve2D" id="Curve2D_u0by2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, -4, -59.936, 5.66325, 59.936, -5.66325, 187, -205, 0, 0, 0, 0, 400, 7)
+}
+point_count = 3
 
 [node name="bigMushroom" type="StaticBody2D"]
 script = ExtResource("1_cusda")
@@ -30,5 +36,9 @@ shape = SubResource("CapsuleShape2D_g0xnd")
 position = Vector2(2, -5)
 rotation = -1.03847
 shape = SubResource("CapsuleShape2D_wqc0l")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(2, 1)
+curve = SubResource("Curve2D_u0by2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
