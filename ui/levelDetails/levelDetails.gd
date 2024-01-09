@@ -22,7 +22,6 @@ func _on_button_pressed():
 	get_tree().change_scene_to_file(levelPath)
 	
 func update_ui(allLevelData):
-	
 	var levelData = allLevelData[level -1]
 	var gems = levelData["gems"]
 	var redCoins = levelData["redCoins"]
