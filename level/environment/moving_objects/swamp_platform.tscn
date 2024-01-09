@@ -13,15 +13,15 @@ size = Vector2(94, 15)
 curve = SubResource("Curve2D_sywd7")
 script = ExtResource("1_3kddi")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="SwampPlatformBody" type="AnimatableBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="SwampPlatformBody"]
 position = Vector2(0, -7)
 texture = ExtResource("1_7pk5r")
 region_enabled = true
 region_rect = Rect2(192, 0, 96, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwampPlatformBody"]
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_miylj")
 
@@ -29,4 +29,4 @@ shape = SubResource("RectangleShape2D_miylj")
 rotates = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
-remote_path = NodePath("../../StaticBody2D")
+remote_path = NodePath("../../SwampPlatformBody")
