@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://pl53g41xmwl0" path="res://asset/background/cave/05 rocksfront.png" id="5_s30bg"]
 
 [node name="CaveBackground" type="ParallaxBackground"]
-scale = Vector2(3, 3)
-transform = Transform2D(3, 0, 0, 3, 0, 0)
-scroll_limit_end = Vector2(0, 1000)
+scale = Vector2(3, 2)
+transform = Transform2D(3, 0, 0, 2, 0, 0)
+scroll_limit_end = Vector2(0, 800)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)
-motion_scale = Vector2(0.5, 1)
+motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(128, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
@@ -22,7 +22,7 @@ centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)
-motion_scale = Vector2(0.5, 1)
+motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(128, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
@@ -42,7 +42,7 @@ centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)
-motion_scale = Vector2(0.5, 1)
+motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(128, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
@@ -51,7 +51,7 @@ centered = false
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)
-motion_scale = Vector2(0.5, 1)
+motion_scale = Vector2(0.3, 1)
 motion_mirroring = Vector2(128, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
