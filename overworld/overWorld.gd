@@ -3,6 +3,9 @@ extends Node2D
 @onready var player = $playerOverWorld
 @onready var camera = $Cameras/Camera2D
 @onready var uiNodesWorld1 = $"World1 - Wood/ui"
+@onready var uiNodesWorld2 = $"World2 - Swamp/ui"
+@onready var uiNodesWorld3 = $"World3 - Desert/ui"
+@onready var uiNodesWorld4 = $"World4 - Cave/ui"
 
 @onready var duckWorld1_1 = $"World1 - Wood/Ducks/Duck"
 @onready var duckWorld1_2 = $"World1 - Wood/Ducks/Duck2"
@@ -37,7 +40,7 @@ func _ready():
 	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2, duckWorld3_1, duckWorld3_2]
 	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2, obstacle3_1, obstacle3_2]
 
-	_load_data()
+	_load_and_update_data()
 	_check_interactions_disables()
 	_check_start_interactions()
 
@@ -56,15 +59,17 @@ func _process(_delta):
 			lastLevelUi.visible = true
 			lastLevelUi = null
 		
-func _load_data():
+func _load_and_update_data():
 	var savedPlayerPosition = GameManager.playerPosition
 	
 	if savedPlayerPosition != Vector2.ZERO:
 		player.position = savedPlayerPosition
 	
-	var uiWorld1Children = uiNodesWorld1.get_children()
-	for ui in uiWorld1Children:
-		ui.update_ui(GameManager.levelDetails)
+	var levelUis = [uiNodesWorld1, uiNodesWorld2, uiNodesWorld3, uiNodesWorld4]
+	for levelUi in levelUis:
+		var urChildren = levelUi.get_children()
+		for ui in urChildren:
+			ui.update_ui(GameManager.levelDetails)
 
 func changeCamera():
 	if cameraOnChange: return
