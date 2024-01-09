@@ -14,7 +14,6 @@
 offset = Vector2(0, -300)
 scale = Vector2(0.8, 0.8)
 transform = Transform2D(0.8, 0, 0, 0.8, 0, -300)
-follow_viewport_enabled = true
 scroll_limit_end = Vector2(0, 800)
 scroll_ignore_camera_zoom = true
 
