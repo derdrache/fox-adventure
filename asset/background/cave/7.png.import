@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pl53g41xmwl0"
-path="res://.godot/imported/05 rocksfront.png-3232a0fd525db0ca8b7abf575a200d27.ctex"
+uid="uid://b6n70y7tvnaov"
+path="res://.godot/imported/7.png-f247e9729c4ec7408b523c1936730e5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/background/cave/05 rocksfront.png"
-dest_files=["res://.godot/imported/05 rocksfront.png-3232a0fd525db0ca8b7abf575a200d27.ctex"]
+source_file="res://asset/background/cave/7.png"
+dest_files=["res://.godot/imported/7.png-f247e9729c4ec7408b523c1936730e5c.ctex"]
 
 [params]
 

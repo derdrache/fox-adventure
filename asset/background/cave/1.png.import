@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbf0epejsabvp"
-path="res://.godot/imported/04 rocksback.png-3d9ae6d935b0f1b296d4e123840a04f5.ctex"
+uid="uid://bh3uhwsbnj0dq"
+path="res://.godot/imported/1.png-38f8fef696139ca6c9b84a18159c2e33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/background/cave/04 rocksback.png"
-dest_files=["res://.godot/imported/04 rocksback.png-3d9ae6d935b0f1b296d4e123840a04f5.ctex"]
+source_file="res://asset/background/cave/1.png"
+dest_files=["res://.godot/imported/1.png-38f8fef696139ca6c9b84a18159c2e33.ctex"]
 
 [params]
 
