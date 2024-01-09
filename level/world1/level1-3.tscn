@@ -94,7 +94,7 @@ multiUse = true
 position = Vector2(79, 2)
 
 [node name="Switch" parent="enviroment/Switches" instance=ExtResource("6_rulhp")]
-position = Vector2(868.5, 301)
+position = Vector2(868.5, 302)
 multiUse = true
 
 [node name="StompBridge" parent="enviroment/Switches/Switch" instance=ExtResource("6_ed51l")]
