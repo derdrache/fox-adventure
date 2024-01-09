@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://level/environment/bridge_objects/stompBridge.gd" id="1_0bc4l"]
 [ext_resource type="Texture2D" uid="uid://uloa0egqd72y" path="res://asset/tileMaps/tileset.png" id="1_o0rsx"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mqipq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mmaqo"]
 texture = ExtResource("1_o0rsx")
 1:1/0 = 0
 3:1/0 = 0
@@ -135,7 +135,7 @@ texture = ExtResource("1_o0rsx")
 15:21/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_b4w8s"]
-sources/0 = SubResource("TileSetAtlasSource_mqipq")
+sources/2 = SubResource("TileSetAtlasSource_mmaqo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g63ur"]
 size = Vector2(64, 16)
@@ -146,7 +146,7 @@ script = ExtResource("1_0bc4l")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_b4w8s")
 format = 2
-layer_0/tile_data = PackedInt32Array(-1, 720896, 10, -65536, 720896, 10, -65535, 720896, 10, -2, 720896, 10)
+layer_0/tile_data = PackedInt32Array(-1, 720898, 10, -65536, 720898, 10, -65535, 720898, 10, -2, 720898, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
