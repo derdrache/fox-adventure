@@ -42,6 +42,7 @@ var climbSideways = false
 var doStomp = false
 var lastMovableObject
 var followObjects : int = 0
+var wasOnCLimbingObject = false
 
 func _ready():
 	$MobileControlUi.visible = true
@@ -52,6 +53,7 @@ func _process(_delta):
 
 func _physics_process(delta):
 	if is_on_floor():
+		wasOnCLimbingObject = false
 		doStomp = false
 
 	_check_last_floor_position()
@@ -113,11 +115,11 @@ func move_state(delta):
 	
 	if underWater: moveSpeed = SWIM_SPEED
 	elif state == CRAWL: moveSpeed = moveSpeed / 2
-	
+		
 	
 	if (pressedDown && !digging_object_above_or_below() || state == CRAWL && _cant_stand_up()):
 		state = CRAWL
-	elif _can_climb():
+	elif _can_climb() || state == JUMP && is_on_climbing_object() && !wasOnCLimbingObject:
 		state = CLIMB
 	elif _can_dig()  && is_on_floor() && !doDig:
 		state = DIG
@@ -147,6 +149,7 @@ func move_state(delta):
 
 func climb_state(delta):
 	velocity = direction * 50
+	wasOnCLimbingObject = true
 
 	var nextStepIsClimbableOnTree = _check_next_climbstep_on_tree(
 		position+ (velocity*2 * delta))
@@ -257,6 +260,7 @@ func animation_state():
 			if direction.x == 0: playerAnimation.play("idle")
 			else: playerAnimation.play("run")	
 		CLIMB: 
+			playerAnimation.play("climb")
 			if direction == Vector2.ZERO: playerAnimation.stop()
 			elif climbSideways: playerAnimation.play("climbSideways")
 			else: playerAnimation.play("climb")
@@ -310,7 +314,6 @@ func do_dig(digDirection):
 		tilePosition = levelTileMap.local_to_map(tilePosition)
 		levelTileMap.set_cell(1, tilePosition, 0)
 		doDig = false		
-
 
 func getPlayerDirection():
 	return direction;
