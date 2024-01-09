@@ -14,24 +14,19 @@ extends Node2D
 @onready var obstacle2_1 = $"World2 - Swamp/Obstacles/bridge1/brokenBridge"
 @onready var obstacle2_2 = $"World2 - Swamp/Obstacles/bridge2"
 
+@onready var duckWorld3_1 = $"World3 - Desert/ducks/Duck"
+@onready var duckWorld3_2 = $"World3 - Desert/ducks/Duck2"
+@onready var obstacle3_1 = $"World3 - Desert/Obstacales/catuse"
+@onready var obstacle3_2 = $"World3 - Desert/Obstacales/BigStoneDesert"
+
 
 const CAMERA_VERTICAL = 365
 const CAMERA_HORIZONTAL = 650 
+const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17]
 
 var interactionsList: Array
 var obstaclesList : Array
-const LEVEL_INTERACTION_Disable_DICT : Dictionary = {
-	"2": 0,
-	"4": 1,
-	"9": 2,
-	"11": 3
-}
-const LEVEL_INTERACTION_DICT: Dictionary = {
-	"2": 0,
-	"4": 1,
-	"9": 2,
-	"11": 3
-}
+
 var activeInteraction = false
 var lastLevelUi
 var levelStatusList = []
@@ -39,14 +34,13 @@ var cameraOnChange = false
 
 
 func _ready():
-	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2]
-	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2]
+	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2, duckWorld3_1, duckWorld3_2]
+	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2, obstacle3_1, obstacle3_2]
 
 	_load_data()
 	_check_interactions_disables()
 	_check_start_interactions()
-	
-	_disable_level_interaction(0)
+
 
 func _process(_delta):		
 	changeCamera()
@@ -108,17 +102,19 @@ func changeCamera():
 func _check_start_interactions():
 	var startLevelInteraction = LevelManager.activeLevel
 	
-	if !LEVEL_INTERACTION_DICT.has(str(startLevelInteraction)): return
+	if !LEVEL_INTERACTIONS.has(startLevelInteraction): return
 	
 	activeInteraction = true
 	
-	_level_interaction(LEVEL_INTERACTION_DICT[str(startLevelInteraction)])
+	var index = LEVEL_INTERACTIONS.find(startLevelInteraction,0)
+	_level_interaction(index)
 	
 func _check_interactions_disables():
-	for level in LEVEL_INTERACTION_Disable_DICT:
-		var firstTimeClear = LevelManager.activeLevel == int(level) && LevelManager.levelNewClear
-		if LevelManager.check_level_already_done(int(level)) && !firstTimeClear:
-			_disable_level_interaction(LEVEL_INTERACTION_Disable_DICT[level])
+	for i in len(LEVEL_INTERACTIONS):
+		var level = LEVEL_INTERACTIONS[i]
+		var firstTimeClear = LevelManager.activeLevel == level && LevelManager.levelNewClear
+		if LevelManager.check_level_already_done(level) && !firstTimeClear:
+			_disable_level_interaction(i)
 
 
 func _level_interaction(i):
