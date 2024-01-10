@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dm22oble4adtw"]
 
-[ext_resource type="PackedScene" uid="uid://dlrxxcrr12xet" path="res://backgrounds/cave/caveBackground.tscn" id="1_1j57u"]
+[ext_resource type="PackedScene" uid="uid://3i47rat1kqdr" path="res://backgrounds/cave/caveBackground.tscn" id="1_1j57u"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_1mufq"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_s74we"]
 [ext_resource type="PackedScene" uid="uid://bqgsjqmhud87i" path="res://level/environment/bridge_objects/caveBridge.tscn" id="3_v43ql"]
@@ -38,8 +38,10 @@ _data = {
 point_count = 3
 
 [node name="Level4-2" type="Node2D"]
+position = Vector2(-40, 520)
 
 [node name="CaveBackground" parent="." instance=ExtResource("1_1j57u")]
+follow_viewport_enabled = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_1mufq")

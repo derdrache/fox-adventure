@@ -330,7 +330,7 @@ shape = SubResource("RectangleShape2D_4blre")
 position = Vector2(-11.1329, 206.5)
 shape = SubResource("RectangleShape2D_v26m3")
 
-[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
 position = Vector2(5376.08, 665.185)
 target = NodePath("../Player")
 
@@ -338,7 +338,7 @@ target = NodePath("../Player")
 position = Vector2(3693, 553)
 target = NodePath("../Player")
 
-[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
 position = Vector2(1627.81, 505.236)
 target = NodePath("../Player")
 

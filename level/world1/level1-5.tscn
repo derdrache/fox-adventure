@@ -333,7 +333,7 @@ position = Vector2(4116, 518)
 position = Vector2(4204, 521)
 
 [node name="GoldCoin28" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
-position = Vector2(3563, 108)
+position = Vector2(3570, 88)
 
 [node name="GoldCoin59" parent="items/goldCoins" instance=ExtResource("14_4uplx")]
 position = Vector2(3644, 46)
@@ -462,7 +462,7 @@ position = Vector2(9076, -170)
 position = Vector2(9128, -235)
 
 [node name="Player" parent="." instance=ExtResource("2_fhwis")]
-position = Vector2(10, 2)
+position = Vector2(11, 3)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_hsfym")]
 position = Vector2(1060, 441)

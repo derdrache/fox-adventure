@@ -391,14 +391,14 @@ scroll_offset = Vector2(558.917, -151.396)
 [node name="Player" parent="." instance=ExtResource("4_g8b7m")]
 position = Vector2(310, 249)
 
-[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_wft2y")]
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_wft2y")]
 position = Vector2(3704, 58)
 target = NodePath("../Player")
 
-[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_wft2y")]
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_wft2y")]
 position = Vector2(770, 249)
 target = NodePath("../Player")
 
-[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_wft2y")]
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_wft2y")]
 position = Vector2(1715, 233)
 target = NodePath("../Player")

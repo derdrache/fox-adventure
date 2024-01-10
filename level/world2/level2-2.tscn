@@ -342,14 +342,14 @@ target = NodePath("../../Player")
 [node name="Player" parent="." instance=ExtResource("2_tmuyh")]
 position = Vector2(109, 289)
 
-[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
 position = Vector2(3991, 169)
 target = NodePath("../Player")
 
-[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
 position = Vector2(998, 297)
 target = NodePath("../Player")
 
-[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
 position = Vector2(2246.02, 41.7164)
 target = NodePath("../Player")

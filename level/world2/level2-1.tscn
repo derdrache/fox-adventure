@@ -410,7 +410,7 @@ flipH = true
 [node name="Goal" parent="environment" instance=ExtResource("12_w6581")]
 position = Vector2(6857, 488)
 
-[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_8f6d3")]
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_8f6d3")]
 position = Vector2(5062, 553)
 target = NodePath("../Player")
 
@@ -418,9 +418,9 @@ target = NodePath("../Player")
 position = Vector2(2879, 281)
 target = NodePath("../Player")
 
-[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_8f6d3")]
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_8f6d3")]
 position = Vector2(1004, 377)
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_4fhsq")]
-position = Vector2(94, 353)
+position = Vector2(102, 351)

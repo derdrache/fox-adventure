@@ -289,11 +289,11 @@ position = Vector2(1791, -2796)
 position = Vector2(431, -567)
 target = NodePath("../Player")
 
-[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
 position = Vector2(699, -2535)
 target = NodePath("../Player")
 
-[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
 position = Vector2(850, -1479)
 target = NodePath("../Player")
 
