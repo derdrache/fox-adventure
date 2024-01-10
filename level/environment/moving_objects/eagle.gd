@@ -42,7 +42,7 @@ func _moving(delta):
 	if move && playerBody != null: 
 		var ridePosition = Vector2(
 			5 if flipH else 0, 
-			8 if enteredBottom else -10)
+			5 if enteredBottom else -10)
 		
 		path_follow.progress += MOVE_SPEED * delta
 		var newPosition = eagleBody.global_position
