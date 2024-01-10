@@ -41,7 +41,6 @@ point_count = 3
 position = Vector2(-40, 520)
 
 [node name="CaveBackground" parent="." instance=ExtResource("1_1j57u")]
-follow_viewport_enabled = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_1mufq")

@@ -275,4 +275,4 @@ position = Vector2(3546, 121)
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_no2du")]
-position = Vector2(1096, 352)
+position = Vector2(80, 400)
