@@ -302,7 +302,7 @@ target = NodePath("../Player")
 position = Vector2(2981, -87)
 target = NodePath("../Player")
 
-[node name="WorldBorder" type="Area2D" parent="."]
+[node name="WorldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(-32, 216)

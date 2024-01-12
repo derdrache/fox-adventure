@@ -319,13 +319,13 @@ position = Vector2(5440, -3)
 position = Vector2(5462, 20)
 
 [node name="GoldCoin32" parent="items/goldCoins" instance=ExtResource("15_w4yxt")]
-position = Vector2(5544, -37)
+position = Vector2(5578, -8)
 
 [node name="GoldCoin33" parent="items/goldCoins" instance=ExtResource("15_w4yxt")]
-position = Vector2(5596, -86)
+position = Vector2(5620, -46)
 
 [node name="GoldCoin34" parent="items/goldCoins" instance=ExtResource("15_w4yxt")]
-position = Vector2(5648, -133)
+position = Vector2(5668, -92)
 
 [node name="kiste4" parent="items/goldCoins" instance=ExtResource("5_qrp7n")]
 position = Vector2(3863, 108)
@@ -340,7 +340,7 @@ position = Vector2(3449, 248)
 target = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_tmuyh")]
-position = Vector2(109, 289)
+position = Vector2(90, 288)
 
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
 position = Vector2(3991, 169)

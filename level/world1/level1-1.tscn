@@ -195,31 +195,31 @@ position = Vector2(2104, 592)
 position = Vector2(3355, 631)
 
 [node name="GoldCoin24" parent="items/goldCoins" instance=ExtResource("12_dw686")]
-position = Vector2(4208, 193)
+position = Vector2(4215, 201)
 
 [node name="GoldCoin25" parent="items/goldCoins" instance=ExtResource("12_dw686")]
-position = Vector2(4233, 172)
+position = Vector2(4238, 176)
 
 [node name="GoldCoin26" parent="items/goldCoins" instance=ExtResource("12_dw686")]
-position = Vector2(4256, 148)
+position = Vector2(4260, 150)
 
 [node name="GoldCoin27" parent="items/goldCoins" instance=ExtResource("12_dw686")]
 position = Vector2(4282, 131)
 
 [node name="GoldCoin28" parent="items/goldCoins" instance=ExtResource("12_dw686")]
-position = Vector2(4316, 108)
+position = Vector2(4314, 105)
 
 [node name="GoldCoin29" parent="items/goldCoins" instance=ExtResource("12_dw686")]
 position = Vector2(4349, 100)
 
 [node name="GoldCoin30" parent="items/goldCoins" instance=ExtResource("12_dw686")]
-position = Vector2(4409, 130)
+position = Vector2(4409, 140)
 
 [node name="GoldCoin31" parent="items/goldCoins" instance=ExtResource("12_dw686")]
-position = Vector2(4456, 172)
+position = Vector2(4469, 209)
 
 [node name="GoldCoin32" parent="items/goldCoins" instance=ExtResource("12_dw686")]
-position = Vector2(4434, 148)
+position = Vector2(4435, 171)
 
 [node name="GoldCoin33" parent="items/goldCoins" instance=ExtResource("12_dw686")]
 position = Vector2(3380, 433)

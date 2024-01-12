@@ -29,17 +29,24 @@ point_count = 3
 
 [node name="Level2-1" type="Node2D"]
 
+[node name="SwampBackground" parent="." instance=ExtResource("1_3nqpj")]
+offset = Vector2(0, -165.465)
+scale = Vector2(2.3, 2.3)
+transform = Transform2D(2.3, 0, 0, 2.3, 0, -165.465)
+scroll_limit_begin = Vector2(0, -50)
+scroll_limit_end = Vector2(0, 1400)
+scroll_ignore_camera_zoom = true
+
 [node name="worldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="worldBorder"]
 position = Vector2(37, 266.75)
 shape = SubResource("RectangleShape2D_g371c")
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="worldBorder"]
 position = Vector2(4396, 200)
 shape = SubResource("RectangleShape2D_g371c")
-
-[node name="SwampBackground" parent="." instance=ExtResource("1_3nqpj")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("3_t42i7")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b84vaqn3xgv3e"]
+[gd_scene load_steps=24 format=3 uid="uid://b84vaqn3xgv3e"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_8c3qh"]
 [ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swampBackground.tscn" id="1_r7chp"]
@@ -38,6 +38,9 @@ size = Vector2(5258, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_radmx"]
 size = Vector2(20, 526)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b16i7"]
+size = Vector2(24, 435)
 
 [node name="Level2-5" type="Node2D"]
 
@@ -200,16 +203,16 @@ position = Vector2(289, 206)
 position = Vector2(317, 193)
 
 [node name="GoldCoin34" parent="items/goldCoins" instance=ExtResource("14_qc1jx")]
-position = Vector2(3140, -224)
+position = Vector2(3140, -256)
 
 [node name="GoldCoin35" parent="items/goldCoins" instance=ExtResource("14_qc1jx")]
-position = Vector2(3084, -216)
+position = Vector2(3076, -248)
 
 [node name="GoldCoin36" parent="items/goldCoins" instance=ExtResource("14_qc1jx")]
-position = Vector2(3024, -208)
+position = Vector2(3016, -241)
 
 [node name="GoldCoin37" parent="items/goldCoins" instance=ExtResource("14_qc1jx")]
-position = Vector2(2956, -200)
+position = Vector2(2948, -233)
 
 [node name="GoldCoin3" parent="items/goldCoins" instance=ExtResource("14_qc1jx")]
 position = Vector2(495, 103)
@@ -276,7 +279,7 @@ position = Vector2(3195, -14)
 position = Vector2(3220, -14)
 
 [node name="GoldCoin22" parent="items/goldCoins" instance=ExtResource("14_qc1jx")]
-position = Vector2(2869, -217)
+position = Vector2(2887, -225)
 
 [node name="GoldCoin23" parent="items/goldCoins" instance=ExtResource("14_qc1jx")]
 position = Vector2(3574, -179)
@@ -340,6 +343,12 @@ shape = SubResource("RectangleShape2D_42fid")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(5130, 18)
 shape = SubResource("RectangleShape2D_radmx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-11, 180.5)
+shape = SubResource("RectangleShape2D_b16i7")
 
 [node name="Player" parent="." instance=ExtResource("2_37nhb")]
 position = Vector2(91, 224)

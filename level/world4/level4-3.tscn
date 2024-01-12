@@ -248,17 +248,17 @@ shape = SubResource("RectangleShape2D_gv7we")
 position = Vector2(-223.171, -219.686)
 shape = SubResource("RectangleShape2D_ic72q")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="WorldBorder" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(23, 456)
 shape = SubResource("RectangleShape2D_t27v6")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(3320, -200)
 shape = SubResource("RectangleShape2D_rn1y2")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(5192, 0)
 shape = SubResource("RectangleShape2D_l2lig")
 

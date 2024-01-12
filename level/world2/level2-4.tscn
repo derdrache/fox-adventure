@@ -171,16 +171,16 @@ position = Vector2(3339, 505)
 position = Vector2(3365, 505)
 
 [node name="GoldCoin28" parent="items/goldCoins" instance=ExtResource("13_jvh3o")]
-position = Vector2(4977, 548)
+position = Vector2(4992, 515)
 
 [node name="GoldCoin29" parent="items/goldCoins" instance=ExtResource("13_jvh3o")]
-position = Vector2(5038, 571)
+position = Vector2(5038, 528)
 
 [node name="GoldCoin30" parent="items/goldCoins" instance=ExtResource("13_jvh3o")]
-position = Vector2(5102, 591)
+position = Vector2(5110, 552)
 
 [node name="GoldCoin31" parent="items/goldCoins" instance=ExtResource("13_jvh3o")]
-position = Vector2(5166, 611)
+position = Vector2(5174, 573)
 
 [node name="GoldCoin5" parent="items/goldCoins" instance=ExtResource("13_jvh3o")]
 position = Vector2(3775, 485)
@@ -284,7 +284,7 @@ goldCoins = 2
 position = Vector2(2231, 662)
 target = NodePath("../../Player")
 
-[node name="worldBorder" type="Area2D" parent="."]
+[node name="worldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="worldBorder"]
 position = Vector2(-1, 353)

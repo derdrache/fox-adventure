@@ -254,7 +254,7 @@ goldCoins = 1
 position = Vector2(1996, 508)
 shape = SubResource("RectangleShape2D_ktw13")
 
-[node name="WorldBorder" type="Area2D" parent="."]
+[node name="WorldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(-42, 93)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dm22oble4adtw"]
+[gd_scene load_steps=21 format=3 uid="uid://dm22oble4adtw"]
 
 [ext_resource type="PackedScene" uid="uid://3i47rat1kqdr" path="res://backgrounds/cave/caveBackground.tscn" id="1_1j57u"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_1mufq"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="11_eo7jx"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="12_1hgjy"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="12_j2cng"]
+[ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="16_jm7oc"]
 
 [sub_resource type="Curve2D" id="Curve2D_t4vab"]
 resource_local_to_scene = true
@@ -36,6 +37,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -1, -7, 0, 0, 0, 0, 116, -128, 0, 0, 0, 0, -1, -6)
 }
 point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cabhp"]
+size = Vector2(584.786, 203.127)
 
 [node name="Level4-2" type="Node2D"]
 position = Vector2(-40, 520)
@@ -229,3 +233,10 @@ target = NodePath("../Player")
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_1hgjy")]
 position = Vector2(2313, -183)
 target = NodePath("../Player")
+
+[node name="WorldEnd" parent="." instance=ExtResource("16_jm7oc")]
+position = Vector2(20, -292)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(1119.61, 468)
+shape = SubResource("RectangleShape2D_cabhp")

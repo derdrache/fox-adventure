@@ -324,7 +324,7 @@ position = Vector2(3119.74, 409.946)
 position = Vector2(2994.03, 981)
 shape = SubResource("RectangleShape2D_4blre")
 
-[node name="WorldBorder" type="Area2D" parent="."]
+[node name="WorldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(-11.1329, 206.5)

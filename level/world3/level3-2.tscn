@@ -346,7 +346,7 @@ target = NodePath("../../Player")
 position = Vector2(2908.61, 915)
 shape = SubResource("RectangleShape2D_71nj2")
 
-[node name="WorldBorder" type="Area2D" parent="."]
+[node name="WorldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(5, 166)
