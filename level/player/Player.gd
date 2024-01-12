@@ -45,7 +45,7 @@ var followObjects : int = 0
 var wasOnCLimbingObject = false
 
 func _ready():
-	$MobileControlUi.visible = true
+	#$MobileControlUi.visible = true
 	$LevelUI.visible = true
 
 func _process(_delta):
@@ -53,10 +53,10 @@ func _process(_delta):
 
 func _physics_process(delta):
 	
-	if is_on_floor():
-		wasOnCLimbingObject = false
-		doStomp = false
-
+	if is_on_floor(): doStomp = false
+	
+	_reset_was_on_climbing_object()
+	
 	_check_last_floor_position()
 	
 	direction.x = Input.get_axis("move_left", "move_right")
@@ -117,8 +117,9 @@ func move_state(delta):
 	if underWater: moveSpeed = SWIM_SPEED
 	elif state == CRAWL: moveSpeed = moveSpeed / 2
 		
-	
-	if (pressedDown && !digging_object_above_or_below() || state == CRAWL && _cant_stand_up()):
+	if "ramp" in get_tile_data("bottom") && pressedDown: 
+		state = SLIDE
+	elif (pressedDown && !digging_object_above_or_below() || state == CRAWL && _cant_stand_up()):
 		state = CRAWL
 	elif _can_climb() || state == JUMP && is_on_climbing_object() && !wasOnCLimbingObject:
 		state = CLIMB
@@ -134,11 +135,11 @@ func move_state(delta):
 	apply_gravity(delta);
 	
 	
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		if state != CRAWL: state = JUMP
 		velocity.y = JUMP_VELOCITY
 
-	if not is_on_floor() && Input.is_action_just_pressed("move_down"):
+	if not is_on_floor() && Input.is_action_pressed("move_down"):
 		state = STOMP
 	
 	if direction && forceVelocityX == 0:
@@ -165,7 +166,7 @@ func climb_state(delta):
 	
 	if climbSideways: direction.x = 0
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_pressed("ui_accept"):
 		state = JUMP
 		velocity.y = JUMP_VELOCITY
 		
@@ -191,7 +192,6 @@ func dig_state():
 	elif "dig" in get_tile_data("top") && pressedUp: do_dig("top")
 	elif "dig" in get_tile_data("left") && pressedLeft: do_dig("left")
 	elif "dig" in get_tile_data("right") && pressedRight: do_dig("right")
-	elif "ramp" in get_tile_data("bottom") && pressedDown: state = SLIDE
 	
 	if !doDig: state = MOVE
 	
@@ -207,7 +207,7 @@ func slide_state(delta):
 	if get_tile_data("bottom").replace("ramp", "")  == "Left":
 		velocity.x = -velocity.x
 	
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		state = JUMP
 		velocity.y = JUMP_VELOCITY * 1.5
 	
@@ -410,8 +410,9 @@ func return_last_position():
 	position = lastPosition
 
 func _can_climb():
-	return is_on_climbing_object() && (
-		pressedUp || (pressedDown && not is_on_floor()))
+	return (is_on_climbing_object() 
+	&& (pressedUp || 
+	(pressedDown && not is_on_floor())))
 
 func _cant_stand_up():
 	return state == CRAWL && (get_tile_data("top", "collision") == 1 
@@ -445,3 +446,5 @@ func _check_last_floor_position():
 			lastFloorPosition = position
 			lastMovableObject = null
 	
+func _reset_was_on_climbing_object():
+	if !is_on_climbing_object() || is_on_floor(): wasOnCLimbingObject = false
