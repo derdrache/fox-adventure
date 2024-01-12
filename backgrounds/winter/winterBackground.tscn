@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://fdca1hmim6d4"]
+
+[ext_resource type="Texture2D" uid="uid://drk0ksershtim" path="res://asset/background/winter/sky up.png" id="1_sjd6r"]
+[ext_resource type="Texture2D" uid="uid://cd1uvr5eji2h1" path="res://asset/background/winter/layer 5 mountain and sky.png" id="2_0lsm2"]
+[ext_resource type="Texture2D" uid="uid://b4j67gnan8l2u" path="res://asset/background/winter/layer 4 mountain.png" id="3_ruyte"]
+[ext_resource type="Texture2D" uid="uid://vqnxvpw3aavq" path="res://asset/background/winter/layer 3 grass.png" id="4_54klg"]
+[ext_resource type="Texture2D" uid="uid://cb6nlag42vng8" path="res://asset/background/winter/layer 2 florest fog.png" id="5_u37f6"]
+[ext_resource type="Texture2D" uid="uid://cvsv31dpchs4k" path="res://asset/background/winter/layer 1 florest.png" id="6_0f3cr"]
+
+[node name="WinterBackground" type="ParallaxBackground"]
+offset = Vector2(0, -300)
+scale = Vector2(1.2, 1)
+transform = Transform2D(1.2, 0, 0, 1, 0, -300)
+scroll_limit_end = Vector2(0, 800)
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1080, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+visible = false
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_sjd6r")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1080, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_0lsm2")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1080, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_ruyte")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1080, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("4_54klg")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1080, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("5_u37f6")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+position = Vector2(-1.5, -4)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1080, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("6_0f3cr")
+centered = false
