@@ -1,0 +1,154 @@
+[gd_scene load_steps=9 format=3 uid="uid://disyyhq2jak5d"]
+
+[ext_resource type="Texture2D" uid="uid://cmxujosqc8pjw" path="res://asset/ui/Icon_ArrowLeft.png" id="1_1fimc"]
+[ext_resource type="Texture2D" uid="uid://cyw41klncw3kg" path="res://asset/ui/Icon_ArrowUp.png" id="2_7r48h"]
+[ext_resource type="Texture2D" uid="uid://dup3f2djbvq54" path="res://asset/ui/gdb-switch-2.png" id="3_tpeh7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn6aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctjjn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxqt5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_illbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_baa1x"]
+
+[node name="MobileControlUi" type="CanvasLayer"]
+layer = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 13.0
+offset_right = 26.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 49.0
+offset_top = -361.0
+offset_right = 49.0
+offset_bottom = -361.0
+grow_vertical = 0
+
+[node name="Left" type="Sprite2D" parent="Control/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(51, 154)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_1fimc")
+
+[node name="Right" type="Sprite2D" parent="Control/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(244, 150)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_1fimc")
+flip_h = true
+
+[node name="Up" type="Sprite2D" parent="Control/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(147, 52)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_7r48h")
+
+[node name="Down" type="Sprite2D" parent="Control/MarginContainer"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(148, 252)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_7r48h")
+flip_v = true
+
+[node name="left" type="TouchScreenButton" parent="Control/MarginContainer"]
+position = Vector2(53, 153)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wn6aa")
+action = "move_left"
+
+[node name="left_down" type="TouchScreenButton" parent="Control/MarginContainer"]
+position = Vector2(53, 250)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wn6aa")
+action = "touch_left_down"
+
+[node name="right_down" type="TouchScreenButton" parent="Control/MarginContainer"]
+position = Vector2(243, 250)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wn6aa")
+action = "touch_right_down"
+
+[node name="right" type="TouchScreenButton" parent="Control/MarginContainer"]
+position = Vector2(243, 153)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_ctjjn")
+action = "move_right"
+
+[node name="up" type="TouchScreenButton" parent="Control/MarginContainer"]
+position = Vector2(149, 54)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_rxqt5")
+action = "move_up"
+
+[node name="left_up" type="TouchScreenButton" parent="Control/MarginContainer"]
+position = Vector2(53, 54)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wn6aa")
+action = "touch_left_up"
+
+[node name="right_up" type="TouchScreenButton" parent="Control/MarginContainer"]
+position = Vector2(243, 54)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_wn6aa")
+action = "touch_right_up"
+
+[node name="down" type="TouchScreenButton" parent="Control/MarginContainer"]
+position = Vector2(149, 250)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_illbp")
+action = "move_down"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -246.0
+offset_top = -294.0
+offset_right = -86.0
+offset_bottom = -134.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control2"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_right = 160.0
+grow_vertical = 0
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control2/MarginContainer2"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("3_tpeh7")
+region_enabled = true
+region_rect = Rect2(400, 224, 16, 16)
+
+[node name="action" type="TouchScreenButton" parent="Control2/MarginContainer2"]
+position = Vector2(82, 83)
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_baa1x")
+action = "ui_accept"
