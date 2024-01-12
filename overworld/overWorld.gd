@@ -22,10 +22,16 @@ extends Node2D
 @onready var obstacle3_1 = $"World3 - Desert/Obstacales/catuse"
 @onready var obstacle3_2 = $"World3 - Desert/Obstacales/BigStoneDesert"
 
+@onready var duckWorld4_1 = $"World4 - Cave/Ducks/Duck1"
+@onready var duckWorld4_2 = $"World4 - Cave/Ducks/Duck2"
+@onready var duckWorld4_3 = $"World4 - Cave/Ducks/Duck3"
+@onready var obstacle4_1 = $"World4 - Cave/Obstacales/GoodsWagon1"
+@onready var obstacle4_2 = $"World4 - Cave/Obstacales/GoodsWagon2"
+@onready var obstacle4_3 = $"World4 - Cave/Obstacales/Crystals"
 
 const CAMERA_VERTICAL = 365
 const CAMERA_HORIZONTAL = 650 
-const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17]
+const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17, 20, 21, 23]
 
 var interactionsList: Array
 var obstaclesList : Array
