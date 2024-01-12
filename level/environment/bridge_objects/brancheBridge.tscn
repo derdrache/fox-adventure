@@ -138,7 +138,7 @@ texture = ExtResource("1_u7knx")
 sources/0 = SubResource("TileSetAtlasSource_qmyo3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g1f1"]
-size = Vector2(94.5, 16)
+size = Vector2(96, 16)
 
 [node name="BrancheBridge" type="StaticBody2D"]
 script = ExtResource("1_v2jp3")
@@ -150,6 +150,6 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-65537, 524288, 5, -131072, 524288, 5, -131071, 524288, 5, -131070, 524288, 5, -131069, 524288, 5, -131068, 589824, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, 0)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_3g1f1")
 disabled = true
