@@ -38,10 +38,10 @@ func _physics_process(delta):
 	if blockMovement: return
 	
 	playerPosition = position
-	var moveUp = Input.is_action_just_pressed("move_up")
-	var moveDown = Input.is_action_just_pressed("move_down")
-	var moveRight = Input.is_action_just_pressed("move_right")
-	var moveLeft = Input.is_action_just_pressed("move_left")
+	var moveUp = Input.is_action_pressed("move_up")
+	var moveDown = Input.is_action_pressed("move_down")
+	var moveRight = Input.is_action_pressed("move_right")
+	var moveLeft = Input.is_action_pressed("move_left")
 
 	if moveUp && moveTileUp && movePathDirection == "":
 		movePathDirection = "up"
