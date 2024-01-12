@@ -45,14 +45,13 @@ var followObjects : int = 0
 var wasOnCLimbingObject = false
 
 func _ready():
-	#$MobileControlUi.visible = true
+	$MobileControlUi.visible = true
 	$LevelUI.visible = true
 
 func _process(_delta):
 	underWater = "water" in get_tile_data()
 
 func _physics_process(delta):
-	
 	if is_on_floor(): doStomp = false
 	
 	_reset_was_on_climbing_object()
@@ -139,7 +138,7 @@ func move_state(delta):
 		if state != CRAWL: state = JUMP
 		velocity.y = JUMP_VELOCITY
 
-	if not is_on_floor() && Input.is_action_pressed("move_down"):
+	if not is_on_floor() && Input.is_action_pressed("move_down") && state != CRAWL:
 		state = STOMP
 	
 	if direction && forceVelocityX == 0:
