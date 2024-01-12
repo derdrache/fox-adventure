@@ -409,3 +409,4 @@ collide_with_areas = true
 visible = false
 
 [node name="MobileControlUi" parent="." instance=ExtResource("8_78nrl")]
+visible = false
