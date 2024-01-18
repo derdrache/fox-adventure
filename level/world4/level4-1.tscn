@@ -48,7 +48,7 @@ size = Vector2(32, 480)
 
 [node name="Level4-1" type="Node2D"]
 
-[node name="CaveBackground2" parent="." instance=ExtResource("1_xg67f")]
+[node name="CaveBackground" parent="." instance=ExtResource("1_xg67f")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_bfeg8")

@@ -47,7 +47,6 @@ point_count = 3
 [node name="Level1-4" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("3_v5c65")]
-scroll_limit_end = Vector2(0, 720)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_gq7xa")

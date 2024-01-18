@@ -368,7 +368,6 @@ position = Vector2(2863.5, 9.5)
 shape = SubResource("RectangleShape2D_ko8k0")
 
 [node name="SwampBackground" parent="." instance=ExtResource("3_gb4p2")]
-scroll_offset = Vector2(558.917, -151.396)
 
 [node name="Player" parent="." instance=ExtResource("4_g8b7m")]
 position = Vector2(310, 249)

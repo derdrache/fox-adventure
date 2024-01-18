@@ -76,9 +76,6 @@ size = Vector2(52.2017, 464)
 [node name="DesertBackground" parent="." instance=ExtResource("1_wswsx")]
 scale = Vector2(0.7, 0.7)
 transform = Transform2D(0.7, 0, 0, 0.7, 0, 0)
-scroll_limit_begin = Vector2(0, -100)
-scroll_limit_end = Vector2(0, 1750)
-scroll_ignore_camera_zoom = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_ma4q1")
@@ -379,7 +376,7 @@ position = Vector2(6315, 424)
 shape = SubResource("RectangleShape2D_lrcjl")
 
 [node name="Player" parent="." instance=ExtResource("4_6yo7s")]
-position = Vector2(39, 511)
+position = Vector2(30, 513)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_fbybh")]
 position = Vector2(1951, 1177)

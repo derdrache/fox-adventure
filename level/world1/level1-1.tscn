@@ -32,12 +32,11 @@ size = Vector2(5999, 42)
 [node name="Level1-1" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_j6sjb")]
-scroll_limit_end = Vector2(0, 720)
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(-46, 386)
+position = Vector2(-47, 417)
 rotation = 3.14159
 scale = Vector2(-38.9317, -124.382)
 shape = SubResource("RectangleShape2D_g1woi")
@@ -261,7 +260,7 @@ position = Vector2(3573, 441)
 target = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(52, 494)
+position = Vector2(143, 101)
 
 [node name="WorldEnd" parent="." instance=ExtResource("16_seo3y")]
 position = Vector2(723, 453)

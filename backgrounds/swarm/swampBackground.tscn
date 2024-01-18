@@ -7,7 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://mhctadliqqs7" path="res://asset/background/swarm/5.png" id="5_5xfky"]
 
 [node name="SwampBackground" type="ParallaxBackground"]
-scroll_limit_end = Vector2(0, 720)
+offset = Vector2(0, -165.465)
+scale = Vector2(2.3, 2.3)
+transform = Transform2D(2.3, 0, 0, 2.3, 0, -165.465)
+scroll_limit_begin = Vector2(0, 680)
+scroll_limit_end = Vector2(0, 1400)
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)
