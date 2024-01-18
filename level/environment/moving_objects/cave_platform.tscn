@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://6efycntwxpm6"]
 
 [ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_gaoac"]
-[ext_resource type="Texture2D" uid="uid://bvl3tyklaox65" path="res://asset/sprites/cave_platform.png" id="2_3tvol"]
+[ext_resource type="Texture2D" uid="uid://bvl3tyklaox65" path="res://asset/sprites/platforms/cave_platform.png" id="2_3tvol"]
 
 [sub_resource type="Curve2D" id="Curve2D_phsli"]
 resource_local_to_scene = true

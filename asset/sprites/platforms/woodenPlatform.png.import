@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvl3tyklaox65"
-path="res://.godot/imported/cave_platform.png-f4b52f3b24980746ff5b412d2ed847f8.ctex"
+uid="uid://bgcdu73c442w3"
+path="res://.godot/imported/woodenPlatform.png-7b843d6b824b3a8df090472a1c6b5117.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprites/cave_platform.png"
-dest_files=["res://.godot/imported/cave_platform.png-f4b52f3b24980746ff5b412d2ed847f8.ctex"]
+source_file="res://asset/sprites/platforms/woodenPlatform.png"
+dest_files=["res://.godot/imported/woodenPlatform.png-7b843d6b824b3a8df090472a1c6b5117.ctex"]
 
 [params]
 

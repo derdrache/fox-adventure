@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0vxd5mtdpqsc"]
 
 [ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_800jl"]
-[ext_resource type="Texture2D" uid="uid://bgcdu73c442w3" path="res://asset/sprites/woodenPlatform.png" id="2_enr41"]
+[ext_resource type="Texture2D" uid="uid://bgcdu73c442w3" path="res://asset/sprites/platforms/woodenPlatform.png" id="2_enr41"]
 
 [sub_resource type="Curve2D" id="Curve2D_phsli"]
 resource_local_to_scene = true

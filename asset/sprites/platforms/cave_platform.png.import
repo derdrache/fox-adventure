@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpv6ocp1aywc4"
-path="res://.godot/imported/desert_platform.png-6c85917331d4a1de23f43df2b871a0eb.ctex"
+uid="uid://bvl3tyklaox65"
+path="res://.godot/imported/cave_platform.png-da38e54119430b58f5a6486ea837128b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprites/desert_platform.png"
-dest_files=["res://.godot/imported/desert_platform.png-6c85917331d4a1de23f43df2b871a0eb.ctex"]
+source_file="res://asset/sprites/platforms/cave_platform.png"
+dest_files=["res://.godot/imported/cave_platform.png-da38e54119430b58f5a6486ea837128b.ctex"]
 
 [params]
 

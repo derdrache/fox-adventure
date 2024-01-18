@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgcdu73c442w3"
-path="res://.godot/imported/woodenPlatform.png-8ad72fd2eb7d22d242cc55920bc219ad.ctex"
+uid="uid://dpv6ocp1aywc4"
+path="res://.godot/imported/desert_platform.png-c8bf46ff8475d4773df197ca92f22d79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprites/woodenPlatform.png"
-dest_files=["res://.godot/imported/woodenPlatform.png-8ad72fd2eb7d22d242cc55920bc219ad.ctex"]
+source_file="res://asset/sprites/platforms/desert_platform.png"
+dest_files=["res://.godot/imported/desert_platform.png-c8bf46ff8475d4773df197ca92f22d79.ctex"]
 
 [params]
 
