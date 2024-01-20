@@ -134,7 +134,7 @@ func move_state(delta):
 	apply_gravity(delta);
 	
 	
-	if Input.is_action_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		if state != CRAWL: state = JUMP
 		velocity.y = JUMP_VELOCITY
 
@@ -165,7 +165,7 @@ func climb_state(delta):
 	
 	if climbSideways: direction.x = 0
 	
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept"):
 		state = JUMP
 		velocity.y = JUMP_VELOCITY
 		
@@ -206,7 +206,7 @@ func slide_state(delta):
 	if get_tile_data("bottom").replace("ramp", "")  == "Left":
 		velocity.x = -velocity.x
 	
-	if Input.is_action_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		state = JUMP
 		velocity.y = JUMP_VELOCITY * 1.5
 	
@@ -364,7 +364,7 @@ func _check_next_climbstep_on_tiles(newPlayerPosition):
 
 func get_tile_data(direction : String = "", 
 	dataType = "customData",  searchPosition = position):
-		
+
 	if levelTileMap == null: return ""
 	
 	var tileDirection = Vector2.ZERO
