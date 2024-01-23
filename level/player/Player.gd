@@ -118,6 +118,8 @@ func move_state(delta):
 		
 	if "ramp" in get_tile_data("bottom") && pressedDown: 
 		state = SLIDE
+	elif Input.is_action_just_pressed("move_down") && not is_on_floor():
+		state = STOMP
 	elif (pressedDown && !digging_object_above_or_below() || state == CRAWL && _cant_stand_up()):
 		state = CRAWL
 	elif _can_climb() || state == JUMP && is_on_climbing_object() && !wasOnCLimbingObject:
