@@ -370,7 +370,7 @@ shape = SubResource("RectangleShape2D_ko8k0")
 [node name="SwampBackground" parent="." instance=ExtResource("3_gb4p2")]
 
 [node name="Player" parent="." instance=ExtResource("4_g8b7m")]
-position = Vector2(310, 249)
+position = Vector2(41, 256)
 
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_wft2y")]
 position = Vector2(3704, 58)
