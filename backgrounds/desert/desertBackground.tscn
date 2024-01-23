@@ -10,7 +10,6 @@ scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
 scroll_limit_begin = Vector2(0, 1000)
 scroll_limit_end = Vector2(0, 1750)
-scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)
