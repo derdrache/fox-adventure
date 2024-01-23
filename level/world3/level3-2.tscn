@@ -63,7 +63,6 @@ size = Vector2(20, 335)
 [node name="Level3-2" type="Node2D"]
 
 [node name="DesertBackground" parent="." instance=ExtResource("1_glji3")]
-scroll_ignore_camera_zoom = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_1poy8")
@@ -356,4 +355,4 @@ position = Vector2(4491.25, 136.931)
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_rv5bl")]
-position = Vector2(2621, 183)
+position = Vector2(50, 256)

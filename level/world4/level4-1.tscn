@@ -143,16 +143,16 @@ position = Vector2(3104, 96)
 position = Vector2(3120, 72)
 
 [node name="GoldCoin14" parent="items/goldCoins" instance=ExtResource("5_04jkx")]
-position = Vector2(3668.64, 35.7768)
+position = Vector2(3665.64, 30.7768)
 
 [node name="GoldCoin15" parent="items/goldCoins" instance=ExtResource("5_04jkx")]
-position = Vector2(3704, 3)
+position = Vector2(3695, -11)
 
 [node name="GoldCoin16" parent="items/goldCoins" instance=ExtResource("5_04jkx")]
-position = Vector2(3736, -20)
+position = Vector2(3736, -57)
 
 [node name="GoldCoin17" parent="items/goldCoins" instance=ExtResource("5_04jkx")]
-position = Vector2(3784, -28)
+position = Vector2(3784, -90)
 
 [node name="GoldCoin18" parent="items/goldCoins" instance=ExtResource("5_04jkx")]
 position = Vector2(4576, 267)
