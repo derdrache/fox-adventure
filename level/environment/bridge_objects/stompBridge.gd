@@ -2,7 +2,7 @@ extends StaticBody2D
 
 @export var switchReverseEffect = false
 
-var showBridge = false
+var showBridge = true
 
 func _process(_delta):
 	var parentIsSwitch = HelperFunctions.is_parent_switch(get_parent())
