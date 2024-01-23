@@ -60,6 +60,7 @@ size = Vector2(1688, 20)
 [node name="Level3-5" type="Node2D"]
 
 [node name="DesertBackground" parent="." instance=ExtResource("1_6arim")]
+scroll_ignore_camera_zoom = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_fliwx")
