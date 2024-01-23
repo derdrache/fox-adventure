@@ -26,6 +26,9 @@ grow_vertical = 2
 script = ExtResource("1_pdll0")
 
 [node name="seaViewBackground" parent="." instance=ExtResource("1_kij0o")]
+scroll_limit_begin = Vector2(0, 0)
+scroll_limit_end = Vector2(0, 0)
+scroll_ignore_camera_zoom = false
 loop = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
