@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dc7wmxkpnjhd2"]
+[gd_scene load_steps=25 format=3 uid="uid://dc7wmxkpnjhd2"]
 
 [ext_resource type="PackedScene" uid="uid://fdca1hmim6d4" path="res://backgrounds/winter/winterBackground.tscn" id="1_1oqkx"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_sgosq"]
@@ -45,6 +45,9 @@ size = Vector2(7438, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md1d6"]
 size = Vector2(1865, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ievim"]
+size = Vector2(43.0253, 538)
 
 [node name="Level5-1" type="Node2D"]
 
@@ -293,3 +296,9 @@ shape = SubResource("RectangleShape2D_pvx06")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(-2513.64, -55.9684)
 shape = SubResource("RectangleShape2D_md1d6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(28.4873, 181)
+shape = SubResource("RectangleShape2D_ievim")
