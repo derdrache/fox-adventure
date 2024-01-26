@@ -29,6 +29,12 @@ extends Node2D
 @onready var obstacle4_2 = $"World4 - Cave/Obstacales/GoodsWagon2"
 @onready var obstacle4_3 = $"World4 - Cave/Obstacales/Crystals"
 
+@onready var duckWorld5_1 = $"World5 - Winter/Ducks/Duck2"
+@onready var duckWorld5_2 = $"World5 - Winter/Ducks/Duck"
+@onready var obstacle5_1 = $"World5 - Winter/Obstacels/brokenBridge"
+@onready var obstacle5_2 = $"World5 - Winter/Obstacels/Iceberg"
+
+
 const CAMERA_VERTICAL = 365
 const CAMERA_HORIZONTAL = 650 
 const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17, 20, 21, 23]
@@ -43,8 +49,8 @@ var cameraOnChange = false
 
 
 func _ready():
-	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2, duckWorld3_1, duckWorld3_2]
-	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2, obstacle3_1, obstacle3_2]
+	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2, duckWorld3_1, duckWorld3_2, duckWorld4_1, duckWorld4_2, duckWorld4_3, duckWorld5_1, duckWorld5_2]
+	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2, obstacle3_1, obstacle3_2, obstacle4_1, obstacle4_2, obstacle4_3, obstacle5_1, obstacle5_2]
 
 	_load_and_update_data()
 	_check_interactions_disables()
@@ -70,12 +76,25 @@ func _load_and_update_data():
 	
 	if savedPlayerPosition != Vector2.ZERO:
 		player.position = savedPlayerPosition
+		
+	update_camera()
 	
 	var levelUis = [uiNodesWorld1, uiNodesWorld2, uiNodesWorld3, uiNodesWorld4]
 	for levelUi in levelUis:
 		var urChildren = levelUi.get_children()
 		for ui in urChildren:
 			ui.update_ui(GameManager.levelDetails)
+
+func update_camera():
+	for mapCamera in $Cameras.get_children():
+		var cameraMinWidth = mapCamera.position.x - CAMERA_HORIZONTAL / 2.0
+		var cameraMaxWidth = mapCamera.position.x + CAMERA_HORIZONTAL / 2.0
+		var cameraMinHeight = mapCamera.position.y - CAMERA_VERTICAL / 2.0
+		var cameraMaxHeight = mapCamera.position.y + CAMERA_VERTICAL / 2.0
+		
+		if (player.position.x > cameraMinWidth && player.position.x < cameraMaxWidth 
+			&& player.position.y >cameraMinHeight && player.position.y < cameraMaxHeight):
+			camera.position = mapCamera.position
 
 func changeCamera():
 	if cameraOnChange: return
