@@ -195,6 +195,7 @@ position = Vector2(3161, 264)
 
 [node name="GoldCoin2" parent="items/redCoins" instance=ExtResource("12_8pde6")]
 position = Vector2(4340, 289)
+hasRedCoin = true
 
 [node name="GoldCoin3" parent="items/redCoins" instance=ExtResource("12_8pde6")]
 position = Vector2(5330, 306)

@@ -21,14 +21,14 @@
 [sub_resource type="Curve2D" id="Curve2D_656y0"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0.743195, -0.0939178, 0, 0, 0, 0, -1.25681, -135.094, 0, 0, 0, 0, 0.743195, -0.0939178)
+"points": PackedVector2Array(0, 0, 0, 0, -3.25699, 2.90601, 0, 0, 0, 0, -1.25681, -135.094, 0, 0, 0, 0, -3.25699, 2.90601)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_2ojt5"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 40, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 4
 
@@ -339,4 +339,4 @@ position = Vector2(1627.81, 505.236)
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_d4jyt")]
-position = Vector2(48, 337)
+position = Vector2(26, 331)

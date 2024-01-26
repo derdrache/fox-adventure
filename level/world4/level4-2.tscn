@@ -20,9 +20,9 @@
 [sub_resource type="Curve2D" id="Curve2D_t4vab"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 131, -67)
+"points": PackedVector2Array(0, 0, 0, 0, 5, 29, 0, 0, 0, 0, 109, -91, 0, 0, 0, 0, 5, 29)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_868dc"]
 resource_local_to_scene = true
@@ -63,11 +63,10 @@ position = Vector2(-114, -76)
 
 [node name="Switch2" parent="environment" instance=ExtResource("4_t3wgr")]
 position = Vector2(268, -146)
-multiUse = true
-used = true
 
 [node name="CaveBridge" parent="environment/Switch2" instance=ExtResource("3_v43ql")]
 position = Vector2(212, -92)
+switchReverseEffect = true
 
 [node name="bigMushroom" parent="environment" instance=ExtResource("5_t1xyn")]
 position = Vector2(862, -256)
