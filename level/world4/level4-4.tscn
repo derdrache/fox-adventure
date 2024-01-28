@@ -50,6 +50,10 @@ layer_1/tile_data = PackedInt32Array(589829, 131078, 6, 589824, 65542, 6, 589825
 
 [node name="environment" type="Node2D" parent="."]
 
+[node name="door3" parent="environment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_br40v")]
+position = Vector2(149, -240)
+conectionDoor = NodePath("../door")
+
 [node name="CavePlatform" parent="environment" instance=ExtResource("4_fmdur")]
 position = Vector2(531, 192)
 curve = SubResource("Curve2D_pwoca")
@@ -61,11 +65,7 @@ flipH = true
 
 [node name="door" parent="environment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_br40v")]
 position = Vector2(195, 288)
-conectionDoor = NodePath("door")
-
-[node name="door" parent="environment/door" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_br40v")]
-position = Vector2(-46, -528)
-conectionDoor = NodePath("..")
+conectionDoor = NodePath("../door3")
 
 [node name="Switch" parent="environment" instance=ExtResource("6_0ehwb")]
 position = Vector2(1195, 94)
@@ -76,11 +76,7 @@ switchReverseEffect = true
 
 [node name="door2" parent="environment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_br40v")]
 position = Vector2(1041, 352)
-conectionDoor = NodePath("door")
-
-[node name="door" parent="environment/door2" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_br40v")]
-position = Vector2(1033, -80)
-conectionDoor = NodePath("..")
+conectionDoor = NodePath("../door4")
 
 [node name="TreeStomp" parent="environment" instance=ExtResource("9_ishna")]
 position = Vector2(1569, 418)
@@ -94,6 +90,10 @@ curve = SubResource("Curve2D_5x7ak")
 
 [node name="Goal" parent="environment" instance=ExtResource("8_j4ayb")]
 position = Vector2(3247, 40)
+
+[node name="door4" parent="environment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("5_br40v")]
+position = Vector2(2074, 272)
+conectionDoor = NodePath("../door2")
 
 [node name="items" type="Node2D" parent="."]
 
