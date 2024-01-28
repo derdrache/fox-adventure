@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dds2wdr6fylu8"]
 
 [ext_resource type="Script" path="res://overworld/environment/palme/palme.gd" id="1_8rd32"]
-[ext_resource type="Texture2D" uid="uid://d1qu2k3lgohyd" path="res://overworld/assets/BeachAssets.png" id="1_dst6x"]
+[ext_resource type="Texture2D" uid="uid://d1qu2k3lgohyd" path="res://overworld/BeachAssets.png" id="1_dst6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqc8i"]
 size = Vector2(18, 18)
