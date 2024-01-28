@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://byuljjkqp1l5u"]
+
+[ext_resource type="Script" path="res://overworld/environment/obstacles/obstacleRemove.gd" id="1_0jry2"]
+[ext_resource type="Texture2D" uid="uid://d1qu2k3lgohyd" path="res://overworld/BeachAssets.png" id="2_2fcgp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s8ar"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc3ff"]
+size = Vector2(16, 16)
+
+[node name="BeachBush" type="StaticBody2D"]
+script = ExtResource("1_0jry2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2fcgp")
+region_enabled = true
+region_rect = Rect2(174, 133, 16, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3s8ar")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xc3ff")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
