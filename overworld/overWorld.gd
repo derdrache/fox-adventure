@@ -25,19 +25,27 @@ extends Node2D
 @onready var duckWorld4_1 = $"World4 - Cave/Ducks/Duck1"
 @onready var duckWorld4_2 = $"World4 - Cave/Ducks/Duck2"
 @onready var duckWorld4_3 = $"World4 - Cave/Ducks/Duck3"
-@onready var obstacle4_1 = $"World4 - Cave/Obstacales/GoodsWagon1"
-@onready var obstacle4_2 = $"World4 - Cave/Obstacales/GoodsWagon2"
+@onready var duckWorld4_4 = $"World4 - Cave/Ducks/Duck4"
+@onready var obstacle4_1 = $"World4 - Cave/Obstacales/GoodsWagon2"
+@onready var obstacle4_2 = $"World4 - Cave/Obstacales/GoodsWagon"
 @onready var obstacle4_3 = $"World4 - Cave/Obstacales/Crystals"
+@onready var obstacle4_4 = $"World4 - Cave/Obstacales/Crystals2"
 
 @onready var duckWorld5_1 = $"World5 - Winter/Ducks/Duck2"
 @onready var duckWorld5_2 = $"World5 - Winter/Ducks/Duck"
 @onready var obstacle5_1 = $"World5 - Winter/Obstacels/brokenBridge"
 @onready var obstacle5_2 = $"World5 - Winter/Obstacels/Iceberg"
 
+@onready var duckWorld6_1 = $"World6 - Beach/Ducks/Duck"
+@onready var duckWorld6_2 = $"World6 - Beach/Ducks/Duck2"
+@onready var duckWorld6_3 = $"World6 - Beach/Ducks/Duck3"
+@onready var obstacle6_1 = $"World6 - Beach/Obstacales/BeachWood"
+@onready var obstacle6_2 = $"World6 - Beach/Obstacales/BeachWood2"
+@onready var obstacle6_3 = $"World6 - Beach/Obstacales/Bushes"
 
 const CAMERA_VERTICAL = 365
 const CAMERA_HORIZONTAL = 650 
-const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17, 20, 21, 23]
+const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17, 20, 21, 22, 23, 27, 29, 32, 34, 35]
 
 var interactionsList: Array
 var obstaclesList : Array
@@ -49,9 +57,13 @@ var cameraOnChange = false
 
 
 func _ready():
-	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2, duckWorld3_1, duckWorld3_2, duckWorld4_1, duckWorld4_2, duckWorld4_3, duckWorld5_1, duckWorld5_2]
-	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2, obstacle3_1, obstacle3_2, obstacle4_1, obstacle4_2, obstacle4_3, obstacle5_1, obstacle5_2]
-
+	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2, 
+		duckWorld3_1, duckWorld3_2, duckWorld4_1, duckWorld4_2, duckWorld4_3, duckWorld4_4, 
+		duckWorld5_1, duckWorld5_2, duckWorld6_1, duckWorld6_2, duckWorld6_3]
+	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2, 
+		obstacle3_1, obstacle3_2, obstacle4_1, obstacle4_2, obstacle4_3, obstacle4_4, 
+		obstacle5_1, obstacle5_2, obstacle6_1, obstacle6_2, obstacle6_3]
+	
 	_load_and_update_data()
 	_check_interactions_disables()
 	_check_start_interactions()
@@ -155,7 +167,7 @@ func _disable_level_interaction(i):
 	interactionsList[i].visible = false
 	var obstacle = obstaclesList[i]
 
-	if obstacle is StaticBody2D:
+	if obstacle is StaticBody2D || obstacle is Path2D:
 		obstacle.done()
 	else: 
 		for child in obstacle.get_children():
