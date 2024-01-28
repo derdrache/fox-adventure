@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1qu2k3lgohyd"
-path="res://.godot/imported/BeachAssets.png-4bd5ba9a4c2e99610e2c3189541c3529.ctex"
+path="res://.godot/imported/BeachAssets.png-197b4df35a937309f89109a5041551d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://overworld/assets/BeachAssets.png"
-dest_files=["res://.godot/imported/BeachAssets.png-4bd5ba9a4c2e99610e2c3189541c3529.ctex"]
+source_file="res://overworld/BeachAssets.png"
+dest_files=["res://.godot/imported/BeachAssets.png-197b4df35a937309f89109a5041551d9.ctex"]
 
 [params]
 
