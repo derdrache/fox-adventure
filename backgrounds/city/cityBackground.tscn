@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0y52ct28jrv1"]
+
+[ext_resource type="Texture2D" uid="uid://d3byhiu5onkwk" path="res://asset/background/city/1/1.png" id="1_w2m3r"]
+[ext_resource type="Texture2D" uid="uid://kmd862xbhbn3" path="res://asset/background/city/1/2.png" id="2_f0nlc"]
+[ext_resource type="Texture2D" uid="uid://dwd22aqe7gndv" path="res://asset/background/city/1/3.png" id="3_265ll"]
+[ext_resource type="Texture2D" uid="uid://dipipu5mjm7sm" path="res://asset/background/city/1/4.png" id="4_b1tx0"]
+[ext_resource type="Texture2D" uid="uid://cr0ewdmbj8u33" path="res://asset/background/city/1/5.png" id="5_vwi8e"]
+
+[node name="CityBackground" type="ParallaxBackground"]
+scale = Vector2(2.5, 2.5)
+transform = Transform2D(2.5, 0, 0, 2.5, 0, 0)
+scroll_limit_end = Vector2(0, 1800)
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_w2m3r")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_f0nlc")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("3_265ll")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+texture = ExtResource("4_b1tx0")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+texture = ExtResource("5_vwi8e")
+centered = false
