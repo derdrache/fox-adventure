@@ -65,7 +65,6 @@ size = Vector2(16.3824, 283.652)
 [node name="Level7-3" type="Node2D"]
 
 [node name="CityBackground" parent="." instance=ExtResource("1_fbt55")]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_fr4s1")
