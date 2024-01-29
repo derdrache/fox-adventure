@@ -15,7 +15,7 @@ func _input(event):
 	if event.is_action_pressed("move_up") && not closed:
 		if playerBody == null: return
 		
-		playerBody.position = conectionDoor.position 
+		playerBody.position = conectionDoor.global_position 
 	
 	
 func _on_body_entered(body):
