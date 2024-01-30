@@ -271,12 +271,6 @@ position = Vector2(4324, 274)
 [node name="GoldCoin21" parent="items/goldCoins" instance=ExtResource("12_lkym2")]
 position = Vector2(4486, -49)
 
-[node name="GoldCoin22" parent="items/goldCoins" instance=ExtResource("12_lkym2")]
-position = Vector2(5181, 368)
-
-[node name="GoldCoin23" parent="items/goldCoins" instance=ExtResource("12_lkym2")]
-position = Vector2(5204, 368)
-
 [node name="GoldCoin24" parent="items/goldCoins" instance=ExtResource("12_lkym2")]
 position = Vector2(5112, 339)
 
@@ -364,6 +358,10 @@ position = Vector2(7130, 266)
 
 [node name="key" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("8_6q2py")]
 position = Vector2(1841, 376)
+target = NodePath("../../Player")
+
+[node name="key2" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("8_6q2py")]
+position = Vector2(5196, 375)
 target = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_fd0a1")]

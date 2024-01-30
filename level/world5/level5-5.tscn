@@ -123,12 +123,14 @@ position = Vector2(270, -66)
 position = Vector2(3736, 249)
 curve = SubResource("Curve2D_mtrhx")
 
-[node name="door2" parent="environment" instance=ExtResource("4_g5lo3")]
+[node name="door2" parent="environment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("4_g5lo3")]
 position = Vector2(4736, 208)
 closed = true
+conectionDoor = NodePath("door")
 
-[node name="door" parent="environment/door2" instance=ExtResource("4_g5lo3")]
+[node name="door" parent="environment/door2" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("4_g5lo3")]
 position = Vector2(2230, 128)
+conectionDoor = NodePath("..")
 
 [node name="WinterPlatform3" parent="environment" instance=ExtResource("6_p0f7k")]
 position = Vector2(4992, 208)

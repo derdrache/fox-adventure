@@ -29,16 +29,16 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_fkp6b"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 278, -5)
+"points": PackedVector2Array(0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 278, -1, 0, 0, 0, 0, -1, -1)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_5l0w2"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -88.584, 26.7947, 0, 0, 0, 0, 141.416, -134.205)
+"points": PackedVector2Array(0, 0, 0, 0, -89, 27, 0, 0, 0, 0, 141.416, -134.205, 0, 0, 0, 0, -89, 27)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvx06"]
 size = Vector2(7438, 58)
@@ -268,8 +268,9 @@ goldCoins = 3
 position = Vector2(968, 360)
 target = NodePath("../../Player")
 
-[node name="key2" parent="items" instance=ExtResource("5_4e8i1")]
+[node name="key2" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("5_4e8i1")]
 position = Vector2(4485, 324)
+target = NodePath("../../Player")
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_6mkfb")]
 position = Vector2(865, 425)

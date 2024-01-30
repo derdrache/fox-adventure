@@ -60,7 +60,6 @@ size = Vector2(18, 188)
 [node name="Level7-4" type="Node2D"]
 
 [node name="CityBackground" parent="." instance=ExtResource("1_g2kjl")]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_2dttb")
