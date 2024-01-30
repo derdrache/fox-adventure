@@ -6,6 +6,9 @@ extends Node2D
 @onready var uiNodesWorld2 = $"World2 - Swamp/ui"
 @onready var uiNodesWorld3 = $"World3 - Desert/ui"
 @onready var uiNodesWorld4 = $"World4 - Cave/ui"
+@onready var uiNodesWorld5 = $"World5 - Winter/ui"
+@onready var uiNodesWorld6 = $"World6 - Beach/ui"
+@onready var uiNodesWorld7 = $"World7 - City/ui"
 
 @onready var duckWorld1_1 = $"World1 - Wood/Ducks/Duck"
 @onready var duckWorld1_2 = $"World1 - Wood/Ducks/Duck2"
@@ -43,9 +46,14 @@ extends Node2D
 @onready var obstacle6_2 = $"World6 - Beach/Obstacales/BeachWood2"
 @onready var obstacle6_3 = $"World6 - Beach/Obstacales/Bushes"
 
+@onready var duckWorld7_1 = $"World7 - City/Ducks/Duck1"
+@onready var duckWorld7_2 = $"World7 - City/Ducks/Duck2"
+@onready var obstacle7_1 = $"World7 - City/Obstacales/RoadBlock"
+@onready var obstacle7_2 = $"World7 - City/Obstacales/CarBlock"
+
 const CAMERA_VERTICAL = 365
 const CAMERA_HORIZONTAL = 650 
-const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17, 20, 21, 22, 23, 27, 29, 32, 34, 35]
+const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17, 20, 21, 22, 23, 27, 29, 32, 34, 35, 40, 41]
 
 var interactionsList: Array
 var obstaclesList : Array
@@ -57,12 +65,15 @@ var cameraOnChange = false
 
 
 func _ready():
+	
 	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2, 
 		duckWorld3_1, duckWorld3_2, duckWorld4_1, duckWorld4_2, duckWorld4_3, duckWorld4_4, 
-		duckWorld5_1, duckWorld5_2, duckWorld6_1, duckWorld6_2, duckWorld6_3]
+		duckWorld5_1, duckWorld5_2, duckWorld6_1, duckWorld6_2, duckWorld6_3, 
+		duckWorld7_1, duckWorld7_2]
 	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2, 
 		obstacle3_1, obstacle3_2, obstacle4_1, obstacle4_2, obstacle4_3, obstacle4_4, 
-		obstacle5_1, obstacle5_2, obstacle6_1, obstacle6_2, obstacle6_3]
+		obstacle5_1, obstacle5_2, obstacle6_1, obstacle6_2, obstacle6_3, obstacle7_1, 
+		obstacle7_2]
 	
 	_load_and_update_data()
 	_check_interactions_disables()
@@ -91,7 +102,8 @@ func _load_and_update_data():
 		
 	update_camera()
 	
-	var levelUis = [uiNodesWorld1, uiNodesWorld2, uiNodesWorld3, uiNodesWorld4]
+	var levelUis = [uiNodesWorld1, uiNodesWorld2, uiNodesWorld3, uiNodesWorld4,
+		uiNodesWorld5, uiNodesWorld6, uiNodesWorld7]
 	for levelUi in levelUis:
 		var urChildren = levelUi.get_children()
 		for ui in urChildren:
