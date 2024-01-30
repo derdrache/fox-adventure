@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd07wuqmps7qw"]
+
+[ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_2vtwn"]
+[ext_resource type="Texture2D" uid="uid://cced8iqk1d8o2" path="res://asset/sprites/platforms/castle_platform.png" id="2_76mmc"]
+
+[sub_resource type="Curve2D" id="Curve2D_phsli"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -7, 0, 0, 0, 0, 0, -147, 0, 0, 0, 0, 0, -7)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmkh2"]
+size = Vector2(96, 16)
+
+[node name="CastlePlatform" type="Path2D"]
+curve = SubResource("Curve2D_phsli")
+script = ExtResource("1_2vtwn")
+
+[node name="CastlePlatformBody" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CastlePlatformBody"]
+position = Vector2(0, -8)
+texture = ExtResource("2_76mmc")
+region_rect = Rect2(0, 128, 96, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CastlePlatformBody"]
+visible = false
+position = Vector2(1, -8)
+shape = SubResource("RectangleShape2D_vmkh2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(0, -7)
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../CastlePlatformBody")
