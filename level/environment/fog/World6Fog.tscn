@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh1q5m53vmffn"]
+
+[ext_resource type="Script" path="res://level/environment/fog/fog.gd" id="1_8yvtk"]
+[ext_resource type="Texture2D" uid="uid://by7yq1pqpax0u" path="res://asset/tileMaps/beach1_test.png" id="2_mt0ji"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02w17"]
+texture = ExtResource("2_mt0ji")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+4:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ucw3t"]
+sources/1 = SubResource("TileSetAtlasSource_02w17")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffi8r"]
+size = Vector2(64, 64)
+
+[node name="Fog" type="Area2D"]
+script = ExtResource("1_8yvtk")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ucw3t")
+format = 2
+layer_0/tile_data = PackedInt32Array(65534, 65537, 1, 65535, 65537, 1, 0, 65537, 1, 1, 65537, 1, 131070, 65537, 1, 196606, 65537, 1, 262142, 65537, 1, 131071, 65537, 1, 196607, 65537, 1, 262143, 65537, 1, 65536, 65537, 1, 131072, 65537, 1, 196608, 65537, 1, 65537, 65537, 1, 131073, 65537, 1, 196609, 65537, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_ffi8r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
