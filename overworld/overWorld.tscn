@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://dvhlbxcaua2bj"]
+[gd_scene load_steps=79 format=3 uid="uid://dvhlbxcaua2bj"]
 
 [ext_resource type="Script" path="res://overworld/overWorld.gd" id="1_q6y0r"]
 [ext_resource type="Texture2D" uid="uid://bxcwefqn4g7xb" path="res://overworld/assets/Nature.png" id="2_xctr4"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://wrhsdn4xi5ya" path="res://overworld/environment/obstacles/crystal.tscn" id="19_3v5jh"]
 [ext_resource type="PackedScene" uid="uid://l88ttp1lstsb" path="res://overworld/environment/obstacles/Iceberg.tscn" id="22_rtmgc"]
 [ext_resource type="PackedScene" uid="uid://bwno4hdx3186r" path="res://overworld/environment/obstacles/bigStoneDesert.tscn" id="24_d8i1p"]
+[ext_resource type="PackedScene" uid="uid://lul6b2ogi6me" path="res://ui/levelDetails/levelDetailsNew.tscn" id="26_nsm6m"]
 [ext_resource type="PackedScene" uid="uid://butbagcupyxhx" path="res://overworld/environment/obstacles/beachWood.tscn" id="31_ykblv"]
 [ext_resource type="PackedScene" uid="uid://byuljjkqp1l5u" path="res://overworld/environment/obstacles/beachBush.tscn" id="32_07hqo"]
 [ext_resource type="PackedScene" uid="uid://dm4yeonfmi3br" path="res://overworld/environment/obstacles/RoadBlock.tscn" id="32_mgx7o"]
@@ -4174,26 +4175,27 @@ position = Vector2(392, 568)
 
 [node name="level1" parent="World1 - Wood/levelTiles" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(296, 536)
-levelDetails = NodePath("../../ui/levelDetails1")
+levelDetails = NodePath("../../ui/LevelDetails1")
 
 [node name="level2" parent="World1 - Wood/levelTiles" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(232, 488)
-levelDetails = NodePath("../../ui/levelDetails2")
+levelDetails = NodePath("../../ui/LevelDetails2")
 
 [node name="level3" parent="World1 - Wood/levelTiles" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(488, 552)
-levelDetails = NodePath("../../ui/levelDetails3")
+levelDetails = NodePath("../../ui/LevelDetails3")
 
 [node name="level4" parent="World1 - Wood/levelTiles" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(680, 520)
-levelDetails = NodePath("../../ui/levelDetails4")
+levelDetails = NodePath("../../ui/LevelDetails4")
 
 [node name="level5" parent="World1 - Wood/levelTiles" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(472, 408)
-levelDetails = NodePath("../../ui/levelDetails5")
+levelDetails = NodePath("../../ui/LevelDetails5")
 
-[node name="level6" parent="World1 - Wood/levelTiles" instance=ExtResource("5_c870u")]
+[node name="level6" parent="World1 - Wood/levelTiles" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(392, 376)
+levelDetails = NodePath("../../ui/LevelDetails6")
 
 [node name="Obstacle" type="Node2D" parent="World1 - Wood"]
 position = Vector2(-143, -272)
@@ -4221,51 +4223,123 @@ flipH = true
 position = Vector2(409, 375)
 flipH = true
 
+[node name="uiOld" type="Control" parent="World1 - Wood"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="levelDetails0" parent="World1 - Wood/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Wood 1"
+level = 1
+levelPath = "res://test/test_room.tscn"
+
+[node name="levelDetails1" parent="World1 - Wood/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Wood 1"
+level = 1
+levelPath = "res://level/world1/level1-1.tscn"
+
+[node name="levelDetails2" parent="World1 - Wood/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Wood 2"
+level = 2
+levelPath = "res://level/world1/level1-2.tscn"
+
+[node name="levelDetails3" parent="World1 - Wood/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Wood 3"
+level = 3
+levelPath = "res://level/world1/level1-3.tscn"
+
+[node name="levelDetails4" parent="World1 - Wood/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Wood 4"
+level = 4
+levelPath = "res://level/world1/level1-4.tscn"
+
+[node name="levelDetails5" parent="World1 - Wood/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Wood 5"
+level = 5
+levelPath = "res://level/world1/level1-5.tscn"
+
+[node name="levelDetails6" parent="World1 - Wood/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Castle 1"
+level = 6
+levelPath = "res://level/world1/level1-6.tscn"
+
 [node name="ui" type="Control" parent="World1 - Wood"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="levelDetails0" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails1" parent="World1 - Wood/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Wood 1"
-level = 1
-levelPath = "res://test/test_room.tscn"
-
-[node name="levelDetails1" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
-visible = false
+layout_mode = 1
+offset_left = 144.0
+offset_top = 115.0
+offset_right = -933.0
+offset_bottom = -338.0
 level_name = "Wood 1"
 level = 1
 levelPath = "res://level/world1/level1-1.tscn"
 
-[node name="levelDetails2" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails2" parent="World1 - Wood/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 96.0
+offset_top = 105.0
+offset_right = -981.0
+offset_bottom = -348.0
 level_name = "Wood 2"
 level = 2
 levelPath = "res://level/world1/level1-2.tscn"
 
-[node name="levelDetails3" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails3" parent="World1 - Wood/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 338.0
+offset_top = 147.0
+offset_right = -739.0
+offset_bottom = -306.0
 level_name = "Wood 3"
 level = 3
 levelPath = "res://level/world1/level1-3.tscn"
 
-[node name="levelDetails4" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails4" parent="World1 - Wood/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 306.0
+offset_top = 117.0
+offset_right = -771.0
+offset_bottom = -336.0
 level_name = "Wood 4"
 level = 4
 levelPath = "res://level/world1/level1-4.tscn"
 
-[node name="levelDetails5" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails5" parent="World1 - Wood/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 323.0
+offset_top = 13.0
+offset_right = -754.0
+offset_bottom = -440.0
 level_name = "Wood 5"
 level = 5
 levelPath = "res://level/world1/level1-5.tscn"
 
-[node name="levelDetails6" parent="World1 - Wood/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails6" parent="World1 - Wood/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Wood 6"
+layout_mode = 1
+offset_left = 258.0
+offset_top = -4.0
+offset_right = -819.0
+offset_bottom = -457.0
+level_name = "Castle 1"
 level = 6
 levelPath = "res://level/world1/level1-6.tscn"
 
@@ -4276,26 +4350,27 @@ position = Vector2(0, 32)
 
 [node name="OW_level_tile1" parent="World2 - Swamp/level" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(152, -120)
-levelDetails = NodePath("../../ui/levelDetails1")
+levelDetails = NodePath("../../ui/LevelDetails1")
 
 [node name="OW_level_tile2" parent="World2 - Swamp/level" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(40, -216)
-levelDetails = NodePath("../../ui/levelDetails2")
+levelDetails = NodePath("../../ui/LevelDetails2")
 
 [node name="OW_level_tile3" parent="World2 - Swamp/level" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(72, -312)
-levelDetails = NodePath("../../ui/levelDetails3")
+levelDetails = NodePath("../../ui/LevelDetails3")
 
 [node name="OW_level_tile4" parent="World2 - Swamp/level" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(376, -216)
-levelDetails = NodePath("../../ui/levelDetails4")
+levelDetails = NodePath("../../ui/LevelDetails4")
 
 [node name="OW_level_tile5" parent="World2 - Swamp/level" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(601, -296)
-levelDetails = NodePath("../../ui/levelDetails5")
+levelDetails = NodePath("../../ui/LevelDetails5")
 
-[node name="OW_level_tile6" parent="World2 - Swamp/level" instance=ExtResource("5_c870u")]
+[node name="OW_level_tile6" parent="World2 - Swamp/level" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(584, -104)
+levelDetails = NodePath("../../ui/LevelDetails6")
 
 [node name="Obstacles" type="Node2D" parent="World2 - Swamp"]
 rotation = 1.5708
@@ -4330,41 +4405,113 @@ curve = SubResource("Curve2D_d6tdg")
 [node name="DuckGirl" parent="World2 - Swamp/Ducks" instance=ExtResource("9_jscls")]
 position = Vector2(614, -90)
 
+[node name="uiOld" type="Control" parent="World2 - Swamp"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="levelDetails1" parent="World2 - Swamp/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Swamp 1"
+level = 7
+levelPath = "res://level/world2/level2-1.tscn"
+
+[node name="levelDetails2" parent="World2 - Swamp/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Swamp 2"
+level = 8
+levelPath = "res://level/world2/level2-2.tscn"
+
+[node name="levelDetails3" parent="World2 - Swamp/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Swamp 3"
+level = 9
+levelPath = "res://level/world2/level2-3.tscn"
+
+[node name="levelDetails4" parent="World2 - Swamp/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Swamp 4"
+level = 10
+levelPath = "res://level/world2/level2-4.tscn"
+
+[node name="levelDetails5" parent="World2 - Swamp/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Swamp 5"
+level = 11
+levelPath = "res://level/world2/level2-5.tscn"
+
 [node name="ui" type="Control" parent="World2 - Swamp"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="levelDetails1" parent="World2 - Swamp/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails1" parent="World2 - Swamp/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 141.0
+offset_top = -227.0
+offset_right = -936.0
+offset_bottom = -680.0
 level_name = "Swamp 1"
 level = 7
 levelPath = "res://level/world2/level2-1.tscn"
 
-[node name="levelDetails2" parent="World2 - Swamp/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails2" parent="World2 - Swamp/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 50.0
+offset_top = -310.0
+offset_right = -1027.0
+offset_bottom = -763.0
 level_name = "Swamp 2"
 level = 8
 levelPath = "res://level/world2/level2-2.tscn"
 
-[node name="levelDetails3" parent="World2 - Swamp/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails3" parent="World2 - Swamp/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = -12.0
+offset_top = -263.0
+offset_right = -1089.0
+offset_bottom = -716.0
 level_name = "Swamp 3"
 level = 9
 levelPath = "res://level/world2/level2-3.tscn"
 
-[node name="levelDetails4" parent="World2 - Swamp/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails4" parent="World2 - Swamp/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 140.0
+offset_top = -315.0
+offset_right = -937.0
+offset_bottom = -768.0
 level_name = "Swamp 4"
 level = 10
 levelPath = "res://level/world2/level2-4.tscn"
 
-[node name="levelDetails5" parent="World2 - Swamp/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails5" parent="World2 - Swamp/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 367.0
+offset_top = -376.0
+offset_right = -710.0
+offset_bottom = -829.0
 level_name = "Swamp 5"
 level = 11
 levelPath = "res://level/world2/level2-5.tscn"
+
+[node name="LevelDetails6" parent="World2 - Swamp/ui" instance=ExtResource("26_nsm6m")]
+visible = false
+layout_mode = 1
+offset_left = 356.0
+offset_top = -201.0
+offset_right = -721.0
+offset_bottom = -654.0
+level_name = "Castle 2"
+level = 12
+levelPath = "res://level/world2/level2-6.tscn"
 
 [node name="World3 - Desert" type="Node2D" parent="."]
 
@@ -4385,26 +4532,27 @@ curve = SubResource("Curve2D_3fq0g")
 
 [node name="OW_level_tile" parent="World3 - Desert/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(760, -72)
-levelDetails = NodePath("../../ui/levelDetails1")
+levelDetails = NodePath("../../ui/LevelDetails1")
 
 [node name="OW_level_tile2" parent="World3 - Desert/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(792, -217)
-levelDetails = NodePath("../../ui/levelDetails2")
+levelDetails = NodePath("../../ui/LevelDetails2")
 
 [node name="OW_level_tile3" parent="World3 - Desert/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(984, -104)
-levelDetails = NodePath("../../ui/levelDetails4")
+levelDetails = NodePath("../../ui/LevelDetails3")
 
 [node name="OW_level_tile4" parent="World3 - Desert/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(888, -280)
-levelDetails = NodePath("../../ui/levelDetails3")
+levelDetails = NodePath("../../ui/LevelDetails4")
 
 [node name="OW_level_tile5" parent="World3 - Desert/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(1192, -40)
-levelDetails = NodePath("../../ui/levelDetails5")
+levelDetails = NodePath("../../ui/LevelDetails5")
 
-[node name="OW_level_tile6" parent="World3 - Desert/Levels" instance=ExtResource("5_c870u")]
+[node name="OW_level_tile6" parent="World3 - Desert/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(1128, -280)
+levelDetails = NodePath("../../ui/LevelDetails6")
 
 [node name="Obstacales" type="Node2D" parent="World3 - Desert"]
 
@@ -4419,45 +4567,117 @@ position = Vector2(1101, -108)
 [node name="Cactus2" parent="World3 - Desert/Obstacales/catuse" instance=ExtResource("34_6sfid")]
 position = Vector2(1117, -108)
 
+[node name="uiOld" type="Control" parent="World3 - Desert"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="levelDetails1" parent="World3 - Desert/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert1"
+level = 13
+levelPath = "res://level/world3/level3-1.tscn"
+
+[node name="levelDetails2" parent="World3 - Desert/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert2"
+level = 14
+levelPath = "res://level/world3/level3-2.tscn"
+
+[node name="levelDetails3" parent="World3 - Desert/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert3"
+level = 15
+levelPath = "res://level/world3/level3-3.tscn"
+
+[node name="levelDetails4" parent="World3 - Desert/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert4"
+level = 16
+levelPath = "res://level/world3/level3-4.tscn"
+
+[node name="levelDetails5" parent="World3 - Desert/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert5"
+level = 17
+levelPath = "res://level/world3/level3-5.tscn"
+
+[node name="levelDetails6" parent="World3 - Desert/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Desert6"
+level = 18
+levelPath = "res://level/world3/level3-6.tscn"
+
 [node name="ui" type="Control" parent="World3 - Desert"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="levelDetails1" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails1" parent="World3 - Desert/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Desert1"
+layout_mode = 1
+offset_left = 755.0
+offset_top = -200.0
+offset_right = -322.0
+offset_bottom = -653.0
+level_name = "Desert 1"
 level = 13
 levelPath = "res://level/world3/level3-1.tscn"
 
-[node name="levelDetails2" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails2" parent="World3 - Desert/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Desert2"
+layout_mode = 1
+offset_left = 788.0
+offset_top = -345.0
+offset_right = -289.0
+offset_bottom = -798.0
+level_name = "Desert 2"
 level = 14
 levelPath = "res://level/world3/level3-2.tscn"
 
-[node name="levelDetails3" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails3" parent="World3 - Desert/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Desert3"
+layout_mode = 1
+offset_left = 888.0
+offset_top = -378.0
+offset_right = -189.0
+offset_bottom = -831.0
+level_name = "Desert 3"
 level = 15
 levelPath = "res://level/world3/level3-3.tscn"
 
-[node name="levelDetails4" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails4" parent="World3 - Desert/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Desert4"
+layout_mode = 1
+offset_left = 754.0
+offset_top = -238.0
+offset_right = -323.0
+offset_bottom = -691.0
+level_name = "Desert 4"
 level = 16
 levelPath = "res://level/world3/level3-4.tscn"
 
-[node name="levelDetails5" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails5" parent="World3 - Desert/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Desert5"
+layout_mode = 1
+offset_left = 953.0
+offset_top = -201.0
+offset_right = -124.0
+offset_bottom = -654.0
+level_name = "Desert 5"
 level = 17
 levelPath = "res://level/world3/level3-5.tscn"
 
-[node name="levelDetails6" parent="World3 - Desert/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails6" parent="World3 - Desert/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Desert6"
+layout_mode = 1
+offset_left = 881.0
+offset_top = -380.0
+offset_right = -196.0
+offset_bottom = -833.0
+level_name = "Castle 3"
 level = 18
 levelPath = "res://level/world3/level3-6.tscn"
 
@@ -4495,26 +4715,27 @@ position = Vector2(1, -6)
 
 [node name="OW_level_tile" parent="World4 - Cave/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(1031, -466)
-levelDetails = NodePath("../../ui/levelDetails1")
+levelDetails = NodePath("../../ui/LevelDetails1")
 
 [node name="OW_level_tile2" parent="World4 - Cave/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(743, -401)
-levelDetails = NodePath("../../ui/levelDetails2")
+levelDetails = NodePath("../../ui/LevelDetails2")
 
 [node name="OW_level_tile3" parent="World4 - Cave/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(1240, -593)
-levelDetails = NodePath("../../ui/levelDetails3")
+levelDetails = NodePath("../../ui/LevelDetails3")
 
 [node name="OW_level_tile4" parent="World4 - Cave/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(695, -577)
-levelDetails = NodePath("../../ui/levelDetails4")
+levelDetails = NodePath("../../ui/LevelDetails4")
 
 [node name="OW_level_tile5" parent="World4 - Cave/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(1095, -657)
-levelDetails = NodePath("../../ui/levelDetails5")
+levelDetails = NodePath("../../ui/LevelDetails5")
 
-[node name="OW_level_tile6" parent="World4 - Cave/Levels" instance=ExtResource("5_c870u")]
+[node name="OW_level_tile6" parent="World4 - Cave/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(727, -625)
+levelDetails = NodePath("../../ui/LevelDetails6")
 
 [node name="Ducks" type="Node2D" parent="World4 - Cave"]
 
@@ -4540,45 +4761,117 @@ flipH = true
 position = Vector2(696, -567)
 curve = SubResource("Curve2D_gngyt")
 
+[node name="uiOld" type="Control" parent="World4 - Cave"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="levelDetails1" parent="World4 - Cave/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Cave1"
+level = 19
+levelPath = "res://level/world4/level4-1.tscn"
+
+[node name="levelDetails2" parent="World4 - Cave/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Cave2"
+level = 20
+levelPath = "res://level/world4/level4-2.tscn"
+
+[node name="levelDetails3" parent="World4 - Cave/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Cave3"
+level = 21
+levelPath = "res://level/world4/level4-3.tscn"
+
+[node name="levelDetails4" parent="World4 - Cave/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Cave4"
+level = 22
+levelPath = "res://level/world4/level4-4.tscn"
+
+[node name="levelDetails5" parent="World4 - Cave/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Cave5"
+level = 23
+levelPath = "res://level/world4/level4-5.tscn"
+
+[node name="levelDetails6" parent="World4 - Cave/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Cave6"
+level = 24
+levelPath = "res://level/world4/level4-6.tscn"
+
 [node name="ui" type="Control" parent="World4 - Cave"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="levelDetails1" parent="World4 - Cave/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails1" parent="World4 - Cave/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Cave1"
+layout_mode = 1
+offset_left = 1029.0
+offset_top = -603.0
+offset_right = -48.0
+offset_bottom = -1056.0
+level_name = "Cave 1"
 level = 19
 levelPath = "res://level/world4/level4-1.tscn"
 
-[node name="levelDetails2" parent="World4 - Cave/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails2" parent="World4 - Cave/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Cave2"
+layout_mode = 1
+offset_left = 732.0
+offset_top = -566.0
+offset_right = -345.0
+offset_bottom = -1019.0
+level_name = "Cave 2"
 level = 20
 levelPath = "res://level/world4/level4-2.tscn"
 
-[node name="levelDetails3" parent="World4 - Cave/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails3" parent="World4 - Cave/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Cave3"
+layout_mode = 1
+offset_left = 1007.0
+offset_top = -716.0
+offset_right = -70.0
+offset_bottom = -1169.0
+level_name = "Cave 3"
 level = 21
 levelPath = "res://level/world4/level4-3.tscn"
 
-[node name="levelDetails4" parent="World4 - Cave/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails4" parent="World4 - Cave/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Cave4"
+layout_mode = 1
+offset_left = 693.0
+offset_top = -721.0
+offset_right = -384.0
+offset_bottom = -1174.0
+level_name = "Cave 4"
 level = 22
 levelPath = "res://level/world4/level4-4.tscn"
 
-[node name="levelDetails5" parent="World4 - Cave/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails5" parent="World4 - Cave/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Cave5"
+layout_mode = 1
+offset_left = 847.0
+offset_top = -750.0
+offset_right = -230.0
+offset_bottom = -1203.0
+level_name = "Cave 5"
 level = 23
 levelPath = "res://level/world4/level4-5.tscn"
 
-[node name="levelDetails6" parent="World4 - Cave/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails6" parent="World4 - Cave/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Cave6"
+layout_mode = 1
+offset_left = 752.0
+offset_top = -755.0
+offset_right = -325.0
+offset_bottom = -1208.0
+level_name = "Castle 4"
 level = 24
 levelPath = "res://level/world4/level4-6.tscn"
 
@@ -4597,27 +4890,27 @@ iceBridge = true
 
 [node name="OW_level_tile" parent="World5 - Winter/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(568, -440)
-levelDetails = NodePath("../../ui/levelDetails1")
+levelDetails = NodePath("../../ui/LevelDetails1")
+
+[node name="OW_level_tile2" parent="World5 - Winter/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
+position = Vector2(232, -440)
+levelDetails = NodePath("../../ui/LevelDetails2")
 
 [node name="OW_level_tile3" parent="World5 - Winter/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
-position = Vector2(232, -440)
-levelDetails = NodePath("../../ui/levelDetails2")
+position = Vector2(56, -407)
+levelDetails = NodePath("../../ui/LevelDetails3")
 
 [node name="OW_level_tile4" parent="World5 - Winter/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
-position = Vector2(56, -407)
-levelDetails = NodePath("../../ui/levelDetails3")
+position = Vector2(232, -632)
+levelDetails = NodePath("../../ui/LevelDetails4")
 
 [node name="OW_level_tile5" parent="World5 - Winter/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
-position = Vector2(232, -632)
-levelDetails = NodePath("../../ui/levelDetails4")
+position = Vector2(72, -648)
+levelDetails = NodePath("../../ui/LevelDetails5")
 
 [node name="OW_level_tile6" parent="World5 - Winter/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
-position = Vector2(72, -648)
-levelDetails = NodePath("../../ui/levelDetails5")
-
-[node name="OW_level_tile7" parent="World5 - Winter/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(456, -664)
-levelDetails = NodePath("../../ui/levelDetails6")
+levelDetails = NodePath("../../ui/LevelDetails6")
 
 [node name="Ducks" type="Node2D" parent="World5 - Winter"]
 
@@ -4633,45 +4926,117 @@ curve = SubResource("Curve2D_htuvw")
 position = Vector2(57, -391)
 curve = SubResource("Curve2D_wjfwi")
 
+[node name="uiOld" type="Control" parent="World5 - Winter"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="levelDetails1" parent="World5 - Winter/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Winter 1"
+level = 25
+levelPath = "res://level/world5/level5-1.tscn"
+
+[node name="levelDetails2" parent="World5 - Winter/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Winter 2"
+level = 26
+levelPath = "res://level/world5/level5-2.tscn"
+
+[node name="levelDetails3" parent="World5 - Winter/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Winter 3"
+level = 27
+levelPath = "res://level/world5/level5-3.tscn"
+
+[node name="levelDetails4" parent="World5 - Winter/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Winter 4"
+level = 28
+levelPath = "res://level/world5/level5-4.tscn"
+
+[node name="levelDetails5" parent="World5 - Winter/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Winter 5"
+level = 29
+levelPath = "res://level/world5/level5-5.tscn"
+
+[node name="levelDetails6" parent="World5 - Winter/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Winter 6"
+level = 30
+levelPath = "res://level/world5/level5-6.tscn"
+
 [node name="ui" type="Control" parent="World5 - Winter"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="levelDetails1" parent="World5 - Winter/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails1" parent="World5 - Winter/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 332.0
+offset_top = -599.0
+offset_right = -745.0
+offset_bottom = -1052.0
 level_name = "Winter 1"
 level = 25
 levelPath = "res://level/world5/level5-1.tscn"
 
-[node name="levelDetails2" parent="World5 - Winter/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails2" parent="World5 - Winter/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 228.0
+offset_top = -597.0
+offset_right = -849.0
+offset_bottom = -1050.0
 level_name = "Winter 2"
 level = 26
 levelPath = "res://level/world5/level5-2.tscn"
 
-[node name="levelDetails3" parent="World5 - Winter/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails3" parent="World5 - Winter/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 48.0
+offset_top = -595.0
+offset_right = -1029.0
+offset_bottom = -1048.0
 level_name = "Winter 3"
 level = 27
 levelPath = "res://level/world5/level5-3.tscn"
 
-[node name="levelDetails4" parent="World5 - Winter/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails4" parent="World5 - Winter/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 229.0
+offset_top = -640.0
+offset_right = -848.0
+offset_bottom = -1093.0
 level_name = "Winter 4"
 level = 28
 levelPath = "res://level/world5/level5-4.tscn"
 
-[node name="levelDetails5" parent="World5 - Winter/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails5" parent="World5 - Winter/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 63.0
+offset_top = -653.0
+offset_right = -1014.0
+offset_bottom = -1106.0
 level_name = "Winter 5"
 level = 29
 levelPath = "res://level/world5/level5-5.tscn"
 
-[node name="levelDetails6" parent="World5 - Winter/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails6" parent="World5 - Winter/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Winter 6"
+layout_mode = 1
+offset_left = 224.0
+offset_top = -673.0
+offset_right = -853.0
+offset_bottom = -1126.0
+level_name = "Castle 5"
 level = 30
 levelPath = "res://level/world5/level5-6.tscn"
 
@@ -4681,27 +5046,27 @@ levelPath = "res://level/world5/level5-6.tscn"
 
 [node name="OW_level_tile" parent="World6 - Beach/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(472, -792)
-levelDetails = NodePath("../../ui/levelDetails")
+levelDetails = NodePath("../../ui/LevelDetails1")
 
 [node name="OW_level_tile2" parent="World6 - Beach/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(520.12, -1016.79)
-levelDetails = NodePath("../../ui/levelDetails2")
+levelDetails = NodePath("../../ui/LevelDetails2")
 
 [node name="OW_level_tile3" parent="World6 - Beach/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(248, -856)
-levelDetails = NodePath("../../ui/levelDetails3")
+levelDetails = NodePath("../../ui/LevelDetails3")
 
 [node name="OW_level_tile4" parent="World6 - Beach/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(184, -1032)
-levelDetails = NodePath("../../ui/levelDetails4")
+levelDetails = NodePath("../../ui/LevelDetails4")
 
 [node name="OW_level_tile5" parent="World6 - Beach/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(40, -872)
-levelDetails = NodePath("../../ui/levelDetails5")
+levelDetails = NodePath("../../ui/LevelDetails5")
 
 [node name="OW_level_tile6" parent="World6 - Beach/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(40, -776)
-levelDetails = NodePath("../../ui/levelDetails6")
+levelDetails = NodePath("../../ui/LevelDetails6")
 
 [node name="Obstacales" type="Node2D" parent="World6 - Beach"]
 
@@ -4745,45 +5110,117 @@ flipH = true
 position = Vector2(56, -947)
 curve = SubResource("Curve2D_2n64h")
 
+[node name="uiOld" type="Control" parent="World6 - Beach"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="levelDetails" parent="World6 - Beach/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Beach 1"
+level = 31
+levelPath = "res://level/world6/level6-1.tscn"
+
+[node name="levelDetails2" parent="World6 - Beach/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Beach 2"
+level = 32
+levelPath = "res://level/world6/level6-2.tscn"
+
+[node name="levelDetails3" parent="World6 - Beach/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Beach 3"
+level = 33
+levelPath = "res://level/world6/level6-3.tscn"
+
+[node name="levelDetails4" parent="World6 - Beach/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Beach 4"
+level = 34
+levelPath = "res://level/world6/level6-4.tscn"
+
+[node name="levelDetails5" parent="World6 - Beach/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Beach 5"
+level = 35
+levelPath = "res://level/world6/level6-5.tscn"
+
+[node name="levelDetails6" parent="World6 - Beach/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "Beach 6"
+level = 36
+levelPath = "res://level/world6/level6-6.tscn"
+
 [node name="ui" type="Control" parent="World6 - Beach"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="levelDetails" parent="World6 - Beach/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails1" parent="World6 - Beach/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 243.0
+offset_top = -946.0
+offset_right = -834.0
+offset_bottom = -1399.0
 level_name = "Beach 1"
 level = 31
 levelPath = "res://level/world6/level6-1.tscn"
 
-[node name="levelDetails2" parent="World6 - Beach/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails2" parent="World6 - Beach/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 276.0
+offset_top = -1106.0
+offset_right = -801.0
+offset_bottom = -1559.0
 level_name = "Beach 2"
 level = 32
 levelPath = "res://level/world6/level6-2.tscn"
 
-[node name="levelDetails3" parent="World6 - Beach/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails3" parent="World6 - Beach/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 244.0
+offset_top = -982.0
+offset_right = -833.0
+offset_bottom = -1435.0
 level_name = "Beach 3"
 level = 33
 levelPath = "res://level/world6/level6-3.tscn"
 
-[node name="levelDetails4" parent="World6 - Beach/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails4" parent="World6 - Beach/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 190.0
+offset_top = -1114.0
+offset_right = -887.0
+offset_bottom = -1567.0
 level_name = "Beach 4"
 level = 34
 levelPath = "res://level/world6/level6-4.tscn"
 
-[node name="levelDetails5" parent="World6 - Beach/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails5" parent="World6 - Beach/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = 56.0
+offset_top = -1004.0
+offset_right = -1021.0
+offset_bottom = -1457.0
 level_name = "Beach 5"
-level = 35
+level = 25
 levelPath = "res://level/world6/level6-5.tscn"
 
-[node name="levelDetails6" parent="World6 - Beach/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails6" parent="World6 - Beach/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "Beach 6"
+layout_mode = 1
+offset_left = 48.0
+offset_top = -900.0
+offset_right = -1029.0
+offset_bottom = -1353.0
+level_name = "Castle 6"
 level = 36
 levelPath = "res://level/world6/level6-6.tscn"
 
@@ -4793,27 +5230,27 @@ levelPath = "res://level/world6/level6-6.tscn"
 
 [node name="OW_level_tile" parent="World7 - City/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(-216, -776)
-levelDetails = NodePath("../../ui/levelDetails")
+levelDetails = NodePath("../../ui/LevelDetails1")
 
 [node name="OW_level_tile2" parent="World7 - City/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(-40, -968)
-levelDetails = NodePath("../../ui/levelDetails2")
+levelDetails = NodePath("../../ui/LevelDetails2")
 
 [node name="OW_level_tile3" parent="World7 - City/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(-248, -1048)
-levelDetails = NodePath("../../ui/levelDetails3")
+levelDetails = NodePath("../../ui/LevelDetails3")
 
 [node name="OW_level_tile4" parent="World7 - City/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(-424, -776)
-levelDetails = NodePath("../../ui/levelDetails4")
+levelDetails = NodePath("../../ui/LevelDetails4")
 
 [node name="OW_level_tile5" parent="World7 - City/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(-584, -808)
-levelDetails = NodePath("../../ui/levelDetails5")
+levelDetails = NodePath("../../ui/LevelDetails5")
 
 [node name="OW_level_tile6" parent="World7 - City/Levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(-584, -1032)
-levelDetails = NodePath("../../ui/levelDetails6")
+levelDetails = NodePath("../../ui/LevelDetails6")
 
 [node name="Ducks" type="Node2D" parent="World7 - City"]
 
@@ -4835,45 +5272,117 @@ position = Vector2(-584, -840)
 position = Vector2(-583, -1014)
 curve = SubResource("Curve2D_etqkf")
 
+[node name="uiOld" type="Control" parent="World7 - City"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="levelDetails" parent="World7 - City/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "City 1"
+level = 37
+levelPath = "res://level/world7/level7-1.tscn"
+
+[node name="levelDetails2" parent="World7 - City/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "City 2"
+level = 38
+levelPath = "res://level/world7/level7-2.tscn"
+
+[node name="levelDetails3" parent="World7 - City/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "City 3"
+level = 39
+levelPath = "res://level/world7/level7-3.tscn"
+
+[node name="levelDetails4" parent="World7 - City/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "City 4"
+level = 40
+levelPath = "res://level/world7/level7-4.tscn"
+
+[node name="levelDetails5" parent="World7 - City/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "City 5"
+level = 41
+levelPath = "res://level/world7/level7-5.tscn"
+
+[node name="levelDetails6" parent="World7 - City/uiOld" instance=ExtResource("13_xrq7s")]
+visible = false
+level_name = "City 6"
+level = 42
+levelPath = "res://level/world7/level7-6.tscn"
+
 [node name="ui" type="Control" parent="World7 - City"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="levelDetails" parent="World7 - City/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails1" parent="World7 - City/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = -228.0
+offset_top = -952.0
+offset_right = -1305.0
+offset_bottom = -1405.0
 level_name = "City 1"
 level = 37
 levelPath = "res://level/world7/level7-1.tscn"
 
-[node name="levelDetails2" parent="World7 - City/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails2" parent="World7 - City/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = -273.0
+offset_top = -1106.0
+offset_right = -1350.0
+offset_bottom = -1559.0
 level_name = "City 2"
 level = 38
 levelPath = "res://level/world7/level7-2.tscn"
 
-[node name="levelDetails3" parent="World7 - City/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails3" parent="World7 - City/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = -241.0
+offset_top = -1113.0
+offset_right = -1318.0
+offset_bottom = -1566.0
 level_name = "City 3"
 level = 39
 levelPath = "res://level/world7/level7-3.tscn"
 
-[node name="levelDetails4" parent="World7 - City/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails4" parent="World7 - City/ui" instance=ExtResource("26_nsm6m")]
 visible = false
+layout_mode = 1
+offset_left = -422.0
+offset_top = -951.0
+offset_right = -1499.0
+offset_bottom = -1404.0
 level_name = "City 4"
 level = 40
 levelPath = "res://level/world7/level7-4.tscn"
 
-[node name="levelDetails5" parent="World7 - City/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails5" parent="World7 - City/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "City 5"
+layout_mode = 1
+offset_left = -581.0
+offset_top = -958.0
+offset_right = -1658.0
+offset_bottom = -1411.0
+level_name = "City 2"
 level = 41
 levelPath = "res://level/world7/level7-5.tscn"
 
-[node name="levelDetails6" parent="World7 - City/ui" instance=ExtResource("13_xrq7s")]
+[node name="LevelDetails6" parent="World7 - City/ui" instance=ExtResource("26_nsm6m")]
 visible = false
-level_name = "City 6"
+layout_mode = 1
+offset_left = -576.0
+offset_top = -1120.0
+offset_right = -1653.0
+offset_bottom = -1573.0
+level_name = "Castle 7"
 level = 42
 levelPath = "res://level/world7/level7-6.tscn"
 
@@ -4920,4 +5429,4 @@ enabled = false
 zoom = Vector2(2, 2)
 
 [node name="playerOverWorld" parent="." instance=ExtResource("4_8spb5")]
-position = Vector2(457, -673)
+position = Vector2(249, 287)
