@@ -65,6 +65,7 @@ func _save_items():
 	newLevelData.redCoins = redCoins
 	newLevelData.gems = gems
 	newLevelData.cats = catArray
+	newLevelData.goldCoins = goldCoins
 	
 	if newLevelData.redCoins < oldLevelData.redCoins:
 		newLevelData.redCoins = oldLevelData.redCoins

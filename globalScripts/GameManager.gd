@@ -15,7 +15,8 @@ func _ready():
 			"isFinished" : false,
 			"redCoins" : 0,
 			"gems": 0,
-			"cats": [false,false,false]
+			"cats": [false,false,false],
+			"goldCoins": 0
 		})
 
 func updateLevelData(levelData : LevelDataClass):
