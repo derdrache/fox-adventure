@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cs1gputatsnv"]
+[gd_scene load_steps=20 format=3 uid="uid://cs1gputatsnv"]
 
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_j6sjb"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_sqo47"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="12_dw686"]
 [ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/moving_objects/eagle.tscn" id="14_5ah3e"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="16_seo3y"]
+[ext_resource type="PackedScene" uid="uid://cy85fq6rvujk1" path="res://level/environment/fog/World1Fog.tscn" id="16_uu3u8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1woi"]
 size = Vector2(2.47261, 730)
@@ -260,7 +261,7 @@ position = Vector2(3573, 441)
 target = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(143, 101)
+position = Vector2(35, 494)
 
 [node name="WorldEnd" parent="." instance=ExtResource("16_seo3y")]
 position = Vector2(723, 453)
@@ -268,3 +269,7 @@ position = Vector2(723, 453)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(2273.5, 372)
 shape = SubResource("RectangleShape2D_ogrf3")
+
+[node name="Fog" parent="." instance=ExtResource("16_uu3u8")]
+position = Vector2(1251, 624)
+scale = Vector2(3, 3)
