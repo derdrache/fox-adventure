@@ -1,7 +1,7 @@
 extends Area2D
 class_name EnterLevelTile
 
-@export var levelDetails : LevelDetailsUI
+@export var levelDetails : Control
 
 
 func _on_body_entered(body):
