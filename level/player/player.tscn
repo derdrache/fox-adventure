@@ -9,21 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://disyyhq2jak5d" path="res://ui/mobileControlUI2old.tscn" id="8_78nrl"]
 [ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://level/player/enemy-deadth.png" id="8_b8dw4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0n7rh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xi5w"]
 atlas = ExtResource("2_g3iq6")
-region = Rect2(0, 64, 33, 32)
+region = Rect2(0, 64, 32, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_734k0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_624l1"]
 atlas = ExtResource("2_g3iq6")
-region = Rect2(33, 64, 33, 32)
+region = Rect2(33, 64, 32, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_63lju"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_08i70"]
 atlas = ExtResource("2_g3iq6")
-region = Rect2(66, 64, 33, 32)
+region = Rect2(66, 64, 32, 31)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4muvj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8m1r"]
 atlas = ExtResource("2_g3iq6")
-region = Rect2(99, 64, 33, 32)
+region = Rect2(99, 64, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i02b5"]
 atlas = ExtResource("3_hauap")
@@ -117,16 +117,16 @@ region = Rect2(32, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0n7rh")
+"texture": SubResource("AtlasTexture_2xi5w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_734k0")
+"texture": SubResource("AtlasTexture_624l1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_63lju")
+"texture": SubResource("AtlasTexture_08i70")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4muvj")
+"texture": SubResource("AtlasTexture_j8m1r")
 }],
 "loop": true,
 "name": &"climb",
@@ -344,8 +344,9 @@ script = ExtResource("1_ii644")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5nbca")
-animation = &"idle"
+animation = &"climb"
 autoplay = "idle"
+frame_progress = 0.0544711
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -25)
