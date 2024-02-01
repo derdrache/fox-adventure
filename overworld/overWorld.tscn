@@ -5210,7 +5210,7 @@ offset_top = -1004.0
 offset_right = -1021.0
 offset_bottom = -1457.0
 level_name = "Beach 5"
-level = 25
+level = 35
 levelPath = "res://level/world6/level6-5.tscn"
 
 [node name="LevelDetails6" parent="World6 - Beach/ui" instance=ExtResource("26_nsm6m")]
