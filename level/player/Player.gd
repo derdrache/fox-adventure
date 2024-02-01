@@ -101,7 +101,7 @@ func is_on_climbing_object():
 	var onClimbingObject = "Climb" in collisionObjectName
 	var onLiane = getShapeCollision() is Liane
 	var onWall = "climb" in get_tile_data("right") || "climb" in get_tile_data("left")
-	
+
 	return onClimbingObject || onLiane || onWall
 
 func digging_object_above_or_below():	
@@ -116,18 +116,19 @@ func move_state(delta):
 	if underWater: moveSpeed = SWIM_SPEED
 	elif state == CRAWL: moveSpeed = moveSpeed / 2
 		
-	if "ramp" in get_tile_data("bottom") && pressedDown: 
+	if in_water() && !is_on_floor():
+		state = SWIM
+	elif "ramp" in get_tile_data("bottom") && pressedDown: 
 		state = SLIDE
 	elif Input.is_action_just_pressed("move_down") && not is_on_floor():
 		state = STOMP
 	elif (pressedDown && !digging_object_above_or_below() || state == CRAWL && _cant_stand_up()):
 		state = CRAWL
-	elif _can_climb() || state == JUMP && is_on_climbing_object() && !wasOnCLimbingObject:
+	elif (_can_climb() && !wasOnCLimbingObject 
+			|| (state == JUMP && is_on_climbing_object() && !wasOnCLimbingObject)):
 		state = CLIMB
 	elif _can_dig()  && is_on_floor() && !doDig:
 		state = DIG
-	elif in_water() && !is_on_floor():
-		state = SWIM
 	elif is_on_floor():
 		state = MOVE
 	elif !is_on_floor():
@@ -153,13 +154,13 @@ func move_state(delta):
 func climb_state(delta):
 	velocity = direction * 50
 	wasOnCLimbingObject = true
-
+	
 	var nextStepIsClimbableOnTree = _check_next_climbstep_on_tree(
 		position+ (velocity*2 * delta))
 	var nextStepIsClimableOnClimgTiles = _check_next_climbstep_on_tiles(
 		position+ (velocity*2 * delta))
 	var canClimb = nextStepIsClimbableOnTree || nextStepIsClimableOnClimgTiles
-	
+
 	if is_on_floor(): 
 		state = MOVE
 		
@@ -344,13 +345,11 @@ func _check_next_climbstep_on_tree(newPlayerPosition):
 	parameters.transform.origin = newPlayerPosition
 	
 	var results = space_state.intersect_shape(parameters, 1)
-
 	return !results.is_empty()	
 
 func _check_next_climbstep_on_tiles(newPlayerPosition):
 	var climbSideway = ("climbSideway" in get_tile_data("left","customData", position) 
 		|| "climbSideway" in get_tile_data("right","customData", position))
-
 	if climbSideway:
 		climbSideways = true
 		var canClimbLeft = "climb" in get_tile_data("left","customData", newPlayerPosition)
