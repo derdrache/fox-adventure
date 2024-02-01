@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var brownCatAnimationsSprite = $brownCat
 @onready var blueCatAnimationsSprite = $blueCat
 @onready var berryCatAnimationsSprite = $berryCat
+@onready var area2D : Area2D = $Area2D
 
 @export var target: Player
 @export var isWaiting = true
@@ -71,6 +72,7 @@ func _on_area_2d_body_entered(body):
 	if body is Player && isWaiting:
 		var catNumber = int(name.replace("Cat", ""))
 		isWaiting = false
+		area2D.set_collision_layer_value(1, false)
 		followPosition = body.followObjects + 1
 		body.followObjects += 1
 		LevelManager.gain_cat(catNumber)
