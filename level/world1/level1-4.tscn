@@ -425,16 +425,19 @@ position = Vector2(5931.29, -252.524)
 curve = SubResource("Curve2D_ocf4m")
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(43, 592)
+position = Vector2(34, 592)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(1529, 601)
 target = NodePath("../Player")
+isWaiting = true
 
 [node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(3332, 585)
 target = NodePath("../Player")
+isWaiting = true
 
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(6155, -247)
 target = NodePath("../Player")
+isWaiting = true
