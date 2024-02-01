@@ -344,9 +344,8 @@ script = ExtResource("1_ii644")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5nbca")
-animation = &"climb"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.0544711
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -25)
