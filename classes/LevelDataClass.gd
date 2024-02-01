@@ -5,3 +5,4 @@ var isFinished : bool
 var redCoins : int
 var gems : int
 var cats: Array
+var goldCoins : int
