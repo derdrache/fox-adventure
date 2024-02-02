@@ -47,7 +47,7 @@ layout_mode = 2
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 222.0
-offset_bottom = 119.0
+offset_bottom = 93.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5o170")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
@@ -70,10 +70,11 @@ theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 0
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "Wood 1"
 
 [node name="TextureButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 8
 
@@ -92,7 +93,7 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "20 %"
 
 [node name="LevelDetails" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -219,12 +220,14 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxFlat_f40j3")
 
 [node name="enterLevel1" type="TouchScreenButton" parent="PanelContainer/MarginContainer"]
-position = Vector2(96, 68)
+position = Vector2(97, 55)
+scale = Vector2(1, 0.6)
 shape = SubResource("RectangleShape2D_wnwoa")
 action = "ui_accept"
 
 [node name="enterLevel2" type="TouchScreenButton" parent="PanelContainer/MarginContainer"]
 position = Vector2(77, 19)
+scale = Vector2(1, 0.88)
 shape = SubResource("RectangleShape2D_svw61")
 action = "ui_accept"
 
