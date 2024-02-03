@@ -77,7 +77,7 @@ curve = SubResource("Curve2D_da5af")
 [node name="door" parent="environment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("4_3ajou")]
 position = Vector2(1432, 240)
 closed = true
-conectionDoor = NodePath(".")
+conectionDoor = NodePath("door")
 
 [node name="door" parent="environment/door" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("4_3ajou")]
 position = Vector2(1110, 96)
