@@ -65,7 +65,6 @@ var cameraOnChange = false
 
 
 func _ready():
-	
 	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2, 
 		duckWorld3_1, duckWorld3_2, duckWorld4_1, duckWorld4_2, duckWorld4_3, duckWorld4_4, 
 		duckWorld5_1, duckWorld5_2, duckWorld6_1, duckWorld6_2, duckWorld6_3, 
