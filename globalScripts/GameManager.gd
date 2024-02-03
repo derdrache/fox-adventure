@@ -24,7 +24,8 @@ func updateLevelData(levelData : LevelDataClass):
 		"isFinished" : levelData.isFinished,
 		"redCoins": levelData.redCoins,
 		"gems": levelData.gems,
-		"cats": levelData.cats
+		"cats": levelData.cats,
+		"goldCoins": levelData.goldCoins
 	}		
 		
 func getLevelStatus(level):
