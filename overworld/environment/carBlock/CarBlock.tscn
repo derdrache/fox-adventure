@@ -7,7 +7,7 @@
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1445q"]
-size = Vector2(14, 20)
+size = Vector2(14, 21)
 
 [node name="CarBlock" type="Path2D"]
 curve = SubResource("Curve2D_aim0u")
@@ -25,7 +25,7 @@ region_enabled = true
 region_rect = Rect2(336, 224, 16, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/CarBlockBody"]
-position = Vector2(0, 6)
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_1445q")
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D/CarBlockBody"]
