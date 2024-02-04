@@ -6,7 +6,6 @@ extends Control
 @export var maxGoldCoins : int = 99
 
 @onready var levelNameLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Label2
-@onready var levelEntry = $PanelContainer/MarginContainer/VBoxContainer/LevelEntry
 @onready var levelDetails = $PanelContainer/MarginContainer/VBoxContainer/LevelDetails
 @onready var gemPath = "PanelContainer/MarginContainer/VBoxContainer/LevelDetails/Gems/gem"
 @onready var redCoinPath = "PanelContainer/MarginContainer/VBoxContainer/LevelDetails/RedCoins/redCoin"
@@ -25,7 +24,7 @@ func _input(event):
 		
 func _enter_level():
 	LevelManager.set_level(level, $"../../../playerOverWorld".position)
-	GameManager.save_player_position($"../../../playerOverWorld".position)
+	GameManager.save_player_position_and_time($"../../../playerOverWorld".position)
 	get_tree().change_scene_to_file(levelPath)
 
 func update_ui(allLevelData):

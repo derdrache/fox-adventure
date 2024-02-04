@@ -47,7 +47,7 @@ func level_done():
 	if !levelFinished: levelNewClear = true
 	
 	GameManager.change_level_status("isFinished", activeLevel, true)
-	GameManager.save_player_position(activeLevelPosition)
+	GameManager.save_player_position_and_time(activeLevelPosition)
 	
 	Utils.save_game()
 
