@@ -57,14 +57,18 @@ const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17, 20, 21, 22, 23, 27, 29, 32, 34,
 
 var interactionsList: Array
 var obstaclesList : Array
+var levelUis : Array
 
 var activeInteraction = false
 var lastLevelUi
-var levelStatusList = []
+var disableInteractions = []
 var cameraOnChange = false
 
 
+
 func _ready():
+	levelUis = [uiNodesWorld1, uiNodesWorld2, uiNodesWorld3, uiNodesWorld4,
+		uiNodesWorld5, uiNodesWorld6, uiNodesWorld7]
 	interactionsList = [duckWorld1_1, duckWorld1_2, duckWorld2_1, duckWorld2_2, 
 		duckWorld3_1, duckWorld3_2, duckWorld4_1, duckWorld4_2, duckWorld4_3, duckWorld4_4, 
 		duckWorld5_1, duckWorld5_2, duckWorld6_1, duckWorld6_2, duckWorld6_3, 
@@ -77,6 +81,8 @@ func _ready():
 	_load_and_update_data()
 	_check_interactions_disables()
 	_check_start_interactions()
+	
+	_level_interaction(13)
 
 
 func _process(_delta):		
@@ -101,8 +107,6 @@ func _load_and_update_data():
 		
 	update_camera()
 	
-	var levelUis = [uiNodesWorld1, uiNodesWorld2, uiNodesWorld3, uiNodesWorld4,
-		uiNodesWorld5, uiNodesWorld6, uiNodesWorld7]
 	for levelUi in levelUis:
 		var urChildren = levelUi.get_children()
 		for ui in urChildren:
@@ -155,8 +159,9 @@ func changeCamera():
 func _check_start_interactions():
 	var startLevelInteraction = LevelManager.activeLevel
 	
-	if !LEVEL_INTERACTIONS.has(startLevelInteraction): return
-	
+	if !LEVEL_INTERACTIONS.has(startLevelInteraction) || disableInteractions.has(startLevelInteraction): 
+		return
+
 	activeInteraction = true
 	
 	var index = LEVEL_INTERACTIONS.find(startLevelInteraction,0)
@@ -167,6 +172,7 @@ func _check_interactions_disables():
 		var level = LEVEL_INTERACTIONS[i]
 		var firstTimeClear = LevelManager.activeLevel == level && LevelManager.levelNewClear
 		if LevelManager.check_level_already_done(level) && !firstTimeClear:
+			disableInteractions.append(level)
 			_disable_level_interaction(i)
 
 
@@ -186,9 +192,7 @@ func _disable_level_interaction(i):
 		
 	
 func _disable_ui():
-	var allUi = $"World1 - Wood/ui".get_children()
-	
-	for ui in allUi:
+	for ui in levelUis:
 		if ui.visible: lastLevelUi = ui
 		ui.visible = false
 
