@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgwo4my704n33"]
 
-[ext_resource type="Script" path="res://ui/mobileControlUI.gd" id="1_t551d"]
+[ext_resource type="Script" path="res://ui/controller/mobileControlUI.gd" id="1_t551d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8e5qr"]
 
