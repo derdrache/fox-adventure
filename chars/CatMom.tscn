@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://cj67y2ry8a34k"]
+
+[ext_resource type="Script" path="res://chars/CatMom.gd" id="1_hcxq7"]
+[ext_resource type="Texture2D" uid="uid://biw2mhoyn7h6c" path="res://asset/sprites/cats/catMom.png" id="2_h0pu3"]
+
+[sub_resource type="Curve2D" id="Curve2D_6w720"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybf7c"]
+size = Vector2(11, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hoks"]
+atlas = ExtResource("2_h0pu3")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpmt6"]
+atlas = ExtResource("2_h0pu3")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x532"]
+atlas = ExtResource("2_h0pu3")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcnln"]
+atlas = ExtResource("2_h0pu3")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7065"]
+atlas = ExtResource("2_h0pu3")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1e0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hoks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpmt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x532")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpmt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hoks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcnln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7065")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcnln")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="CatMom" type="Path2D"]
+curve = SubResource("Curve2D_6w720")
+script = ExtResource("1_hcxq7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+
+[node name="CatMomBody" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatMomBody"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ybf7c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CatMomBody"]
+sprite_frames = SubResource("SpriteFrames_b1e0k")
+autoplay = "default"
+frame = 4
+frame_progress = 0.930907
