@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bvs5wrkorp7v6" path="res://asset/sprites/player/FoxDigging.png" id="4_sc2hi"]
 [ext_resource type="Texture2D" uid="uid://qfdox23ufcsk" path="res://asset/sprites/player/FoxOnDelphine.png" id="4_u5ma8"]
 [ext_resource type="PackedScene" uid="uid://bjibcolu08tat" path="res://ui/LevelUI.tscn" id="7_ag5j1"]
-[ext_resource type="PackedScene" uid="uid://disyyhq2jak5d" path="res://ui/mobileControlUI2old.tscn" id="8_78nrl"]
+[ext_resource type="PackedScene" uid="uid://disyyhq2jak5d" path="res://ui/controller/mobileControlUI2old.tscn" id="8_78nrl"]
 [ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://level/player/enemy-deadth.png" id="8_b8dw4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xi5w"]
