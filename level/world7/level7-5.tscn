@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://jclysa3sirrx"]
+[gd_scene load_steps=24 format=3 uid="uid://jclysa3sirrx"]
 
 [ext_resource type="PackedScene" uid="uid://d0y52ct28jrv1" path="res://backgrounds/city/cityBackground.tscn" id="1_hn1q5"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_iuaut"]
@@ -50,6 +50,15 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -242.953, 0, 0, 0, 0, 0, 0)
 }
 point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pa8v"]
+size = Vector2(3728, 61.4308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rdgh"]
+size = Vector2(3608, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85rqn"]
+size = Vector2(26, 312)
 
 [node name="Level7-5" type="Node2D"]
 
@@ -283,7 +292,19 @@ target = NodePath("../../Player")
 
 [node name="WorldEnd" parent="." instance=ExtResource("3_owils")]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(1920, 838.715)
+shape = SubResource("RectangleShape2D_2pa8v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(5624, 509)
+shape = SubResource("RectangleShape2D_8rdgh")
+
 [node name="WorldBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(83, 468)
+shape = SubResource("RectangleShape2D_85rqn")
 
 [node name="Player" parent="." instance=ExtResource("4_4yis3")]
 position = Vector2(128, 516)

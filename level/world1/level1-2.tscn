@@ -297,4 +297,4 @@ position = Vector2(850, -1479)
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(31.3777, 31.296)
+position = Vector2(27.4813, 32.3742)
