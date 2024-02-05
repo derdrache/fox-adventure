@@ -74,7 +74,6 @@ theme_override_font_sizes/font_size = 20
 text = "Wood 1"
 
 [node name="TextureButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-z_index = 1
 layout_mode = 2
 size_flags_horizontal = 8
 
