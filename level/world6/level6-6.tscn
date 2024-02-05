@@ -400,11 +400,14 @@ position = Vector2(75, 673)
 position = Vector2(392, -8)
 curve = SubResource("Curve2D_u16v7")
 
-[node name="Cat1" parent="." instance=ExtResource("9_8roja")]
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8roja")]
 position = Vector2(1680, 665)
+target = NodePath("../Player")
 
-[node name="Cat2" parent="." instance=ExtResource("9_8roja")]
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8roja")]
 position = Vector2(1576, -135)
+target = NodePath("../Player")
 
-[node name="Cat3" parent="." instance=ExtResource("9_8roja")]
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8roja")]
 position = Vector2(356.659, -647.302)
+target = NodePath("../Player")

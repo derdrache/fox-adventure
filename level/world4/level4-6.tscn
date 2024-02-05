@@ -120,11 +120,13 @@ curve = SubResource("Curve2D_gyhb3")
 position = Vector2(165, 216)
 curve = SubResource("Curve2D_0xqfw")
 
-[node name="door3" parent="Envorionment" instance=ExtResource("4_3i3ok")]
+[node name="door3" parent="Envorionment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("4_3i3ok")]
 position = Vector2(-63, -64)
+conectionDoor = NodePath("door")
 
-[node name="door" parent="Envorionment/door3" instance=ExtResource("4_3i3ok")]
+[node name="door" parent="Envorionment/door3" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("4_3i3ok")]
 position = Vector2(289, -880)
+conectionDoor = NodePath("..")
 
 [node name="CastlePlatform5" parent="Envorionment" instance=ExtResource("3_dirr8")]
 position = Vector2(68, -906)

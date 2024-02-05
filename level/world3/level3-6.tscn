@@ -109,11 +109,13 @@ conectionDoor = NodePath("..")
 position = Vector2(669, 375)
 curve = SubResource("Curve2D_82edf")
 
-[node name="door3" parent="environment" instance=ExtResource("3_rjqgu")]
+[node name="door3" parent="environment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("3_rjqgu")]
 position = Vector2(433, 64)
+conectionDoor = NodePath("door")
 
-[node name="door" parent="environment/door3" instance=ExtResource("3_rjqgu")]
+[node name="door" parent="environment/door3" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("3_rjqgu")]
 position = Vector2(-114, -768)
+conectionDoor = NodePath("..")
 
 [node name="CastlePlatform4" parent="environment" instance=ExtResource("4_hq4ig")]
 position = Vector2(1017, -666)

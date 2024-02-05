@@ -97,10 +97,10 @@ position = Vector2(868.5, 302)
 multiUse = true
 
 [node name="StompBridge" parent="enviroment/Switches/Switch" instance=ExtResource("6_ed51l")]
-position = Vector2(156.5, 211)
+position = Vector2(155.5, 210)
 
 [node name="StompBridge2" parent="enviroment/Switches/Switch" instance=ExtResource("6_ed51l")]
-position = Vector2(219.5, 211)
+position = Vector2(219.5, 210)
 
 [node name="Switch3" parent="enviroment/Switches" instance=ExtResource("6_rulhp")]
 position = Vector2(3925, 238)
@@ -322,4 +322,4 @@ position = Vector2(5290, 585)
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(234, 481)
+position = Vector2(213, 480)

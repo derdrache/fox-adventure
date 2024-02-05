@@ -167,19 +167,19 @@ position = Vector2(1895, 993)
 position = Vector2(1928, 994)
 
 [node name="GoldCoin15" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(2000, 605)
+position = Vector2(2000, 609)
 
 [node name="GoldCoin16" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(2031, 605)
+position = Vector2(2031, 609)
 
 [node name="GoldCoin17" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(2062, 604)
+position = Vector2(2062, 608)
 
 [node name="GoldCoin18" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(2168, 600)
+position = Vector2(2168, 608)
 
 [node name="GoldCoin19" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(2193, 599)
+position = Vector2(2193, 608)
 
 [node name="GoldCoin20" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
 position = Vector2(2263, 596)
@@ -430,14 +430,11 @@ position = Vector2(34, 592)
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(1529, 601)
 target = NodePath("../Player")
-isWaiting = true
 
 [node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(3332, 585)
 target = NodePath("../Player")
-isWaiting = true
 
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(6155, -247)
 target = NodePath("../Player")
-isWaiting = true

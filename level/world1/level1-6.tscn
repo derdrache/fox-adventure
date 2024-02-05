@@ -60,8 +60,6 @@ size = Vector2(18, 232)
 [node name="Level1-6" type="Node2D"]
 
 [node name="CastleBackground" parent="." instance=ExtResource("2_gsp0w")]
-scale = Vector2(0.7, 0.7)
-transform = Transform2D(0.7, 0, 0, 0.7, 0, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_y1eo4")
@@ -298,7 +296,7 @@ position = Vector2(-9, 556)
 shape = SubResource("RectangleShape2D_uo3x1")
 
 [node name="Player" parent="." instance=ExtResource("3_sew3f")]
-position = Vector2(59, 622)
+position = Vector2(40, 640)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_rfckq")]
 position = Vector2(1584, 632)
