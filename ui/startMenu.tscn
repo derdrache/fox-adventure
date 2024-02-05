@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://di50wkx2c3fkj"]
+[gd_scene load_steps=4 format=3 uid="uid://di50wkx2c3fkj"]
 
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_kij0o"]
 [ext_resource type="Script" path="res://ui/startMenu.gd" id="1_pdll0"]
-[ext_resource type="Texture2D" uid="uid://b32ora5nt1ttg" path="res://asset/ui/Icon_LookingGlass.png" id="3_bd53j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01td7"]
 bg_color = Color(0.941176, 0.411765, 0.294118, 1)
@@ -67,31 +66,5 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_01td7")
 theme_override_styles/focus = SubResource("StyleBoxFlat_01td7")
 text = "Quit"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 969.0
-offset_top = 140.0
-offset_right = 1051.0
-offset_bottom = 204.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Spiel startet nicht Button"
-
-[node name="TesterReset" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TesterReset"]
-layout_mode = 2
-offset_right = 82.0
-offset_bottom = 64.0
-texture = ExtResource("3_bd53j")
-expand_mode = 1
-
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/TesterReset" to="." method="_on_tester_reset_pressed"]
