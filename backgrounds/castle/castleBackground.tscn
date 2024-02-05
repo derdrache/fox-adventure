@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cd5nph42o731r" path="res://asset/background/castle/background_1.png" id="5_tphbp"]
 
 [node name="CastleBackground" type="ParallaxBackground"]
-scroll_limit_end = Vector2(0, 1700)
+scale = Vector2(0.95, 0.7)
+transform = Transform2D(0.95, 0, 0, 0.7, 0, 0)
+scroll_limit_begin = Vector2(0, 900)
+scroll_limit_end = Vector2(0, 1000)
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
