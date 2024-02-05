@@ -10,6 +10,7 @@ var redCoins : int
 var goldCoins : int
 var activeLevel : int
 var activeLevelPosition : Vector2
+var levelCleared = false
 var levelNewClear : bool
 var catArray: Array = [false, false, false]
 
@@ -40,7 +41,9 @@ func set_level(level : int, position: Vector2):
 	
 func level_done():
 	if activeLevel < 0: print("error level -1")
+	
 	var levelFinished = GameManager.getLevelStatus(activeLevel)["isFinished"]
+	levelCleared = true
 	
 	_save_items()
 
@@ -80,5 +83,6 @@ func reset_all_stats():
 	redCoins = 0
 	goldCoins = 0
 	activeLevel = 0
+	levelCleared = false
 	levelNewClear = false
 	catArray = [false, false, false]
