@@ -1,7 +1,8 @@
 extends Node2D
 
 @onready var player = $playerOverWorld
-@onready var camera = $Cameras/Camera2D
+@onready var camera : Camera2D = $Cameras/Camera2D
+@onready var screenshotCamera : Camera2D = $ScreenshotCamera
 @onready var uiNodesWorld1 = $"World1 - Wood/ui"
 @onready var uiNodesWorld2 = $"World2 - Swamp/ui"
 @onready var uiNodesWorld3 = $"World3 - Desert/ui"
@@ -77,27 +78,29 @@ func _ready():
 		obstacle3_1, obstacle3_2, obstacle4_1, obstacle4_2, obstacle4_3, obstacle4_4, 
 		obstacle5_1, obstacle5_2, obstacle6_1, obstacle6_2, obstacle6_3, obstacle7_1, 
 		obstacle7_2]
+		
+	
 	
 	_load_and_update_data()
 	_check_interactions_disables()
 	_check_start_interactions()
-	
-	_level_interaction(13)
-
 
 func _process(_delta):		
 	changeCamera()
 	
 	if activeInteraction : 
-		_disable_ui()
+		set_ui_visible(false)
 		player.blockMovement = true
 	
 	if !activeInteraction:
+		set_ui_visible(true)
 		player.blockMovement = false
 		
-		if lastLevelUi != null: 
-			lastLevelUi.visible = true
-			lastLevelUi = null
+		
+			
+
+func _physics_process(delta):
+	if LevelManager.levelCleared: make_save_screenshot()
 		
 func _load_and_update_data():
 	var savedPlayerPosition = GameManager.playerPosition
@@ -190,11 +193,28 @@ func _disable_level_interaction(i):
 		for child in obstacle.get_children():
 			child.done()
 		
-	
-func _disable_ui():
+		
+func set_ui_visible(boolean):
 	for ui in levelUis:
-		if ui.visible: lastLevelUi = ui
-		ui.visible = false
+		if boolean:
+			ui.show()
+		else:
+			ui.hide()
 
 func interaction_done():
 	activeInteraction = false
+
+func make_save_screenshot():
+	LevelManager.levelCleared = false
+	
+	player.set_control_ui(false)
+	screenshotCamera.global_position = player.global_position
+	screenshotCamera.make_current()
+	
+	await get_tree().create_timer(0.1).timeout
+	var image = get_viewport().get_texture().get_image()
+	image.resize(640, 360)
+	image.save_png("user://screenshot"+ str(GameManager.gameNumber) +".png")
+	
+	camera.make_current()
+	player.set_control_ui(true)
