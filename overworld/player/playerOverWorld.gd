@@ -141,7 +141,9 @@ func movePath(_delta):
 			movePathDirection = "right"
 		elif moveTileLeft && oldMoveDirection != "right":
 			movePathDirection = "left"
-		
+
+func set_control_ui(boolean):
+	$MobileControlUi.visible = boolean
 			
 func _unhandled_input(event):
 	return
