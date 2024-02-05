@@ -86,7 +86,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	
-	if is_on_floor():
+	if is_on_floor() || is_on_climbing_object() || in_water():
 		forceVelocityX = 0
 
 
