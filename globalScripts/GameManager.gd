@@ -2,6 +2,9 @@ extends Node
 
 
 const LEVEL_COUNT = 42
+const MAX_SAVE_FILES = 3
+
+var gameNumber = 0
 var levelDetails : Array
 var playerPosition = Vector2.ZERO
 var playTimeSeconds = 0
