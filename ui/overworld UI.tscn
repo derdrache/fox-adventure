@@ -11,11 +11,10 @@ script = ExtResource("1_d4etb")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+size_flags_vertical = 0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 visible = false
@@ -29,16 +28,17 @@ color = Color(0.364706, 0.364706, 0.364706, 0.588235)
 
 [node name="MenuButtonContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 30.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 
 [node name="MenuButton" type="TextureButton" parent="Control/MenuButtonContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="Control/MenuButtonContainer/MenuButton"]
 layout_mode = 1

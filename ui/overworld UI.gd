@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@onready var controlNode : Control = $Control
 @onready var backgroundRect = $Control/ColorRect
 @onready var closeButtonRect = $Control/CloseButtonMenu
 @onready var menuButton = $Control/MenuButtonContainer
@@ -7,6 +8,7 @@ extends CanvasLayer
 
 
 func _on_close_button_pressed():
+	controlNode.anchors_preset = 10
 	menuButton.visible = true
 	backgroundRect.visible = false
 	closeButtonRect.visible = false
@@ -14,10 +16,12 @@ func _on_close_button_pressed():
 
 
 func _on_menu_button_pressed():
+	controlNode.anchors_preset = 15
 	menuButton.visible = false
 	backgroundRect.visible = true
 	closeButtonRect.visible = true
 	menuSelection.visible = true
+	
 
 
 func _on_exit_button_pressed():
