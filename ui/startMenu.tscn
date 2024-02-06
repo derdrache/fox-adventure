@@ -2,18 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_kij0o"]
 [ext_resource type="Script" path="res://ui/startMenu.gd" id="1_pdll0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01td7"]
-bg_color = Color(0.941176, 0.411765, 0.294118, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/ButtonText_Small_ROund.png" id="3_5npxn"]
 
 [node name="startMenu" type="Control"]
 layout_mode = 3
@@ -43,27 +32,61 @@ offset_right = 100.0
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 200
 alignment = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(150, 50)
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_01td7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_01td7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_01td7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_01td7")
-theme_override_styles/focus = SubResource("StyleBoxFlat_01td7")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/StartButton"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_5npxn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/StartButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -11.5
+offset_right = 19.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(150, 50)
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_01td7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_01td7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_01td7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_01td7")
-theme_override_styles/focus = SubResource("StyleBoxFlat_01td7")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/QuitButton"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_5npxn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/QuitButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -11.5
+offset_right = 19.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
