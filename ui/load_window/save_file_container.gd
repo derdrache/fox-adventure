@@ -13,6 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$VBoxContainer/Header/PanelContainer/HBoxContainer/LoadCount/PanelContainer/Label.text = str(gameNumber +1)
 	_set_procent_clear()
 	_set_play_time()
 	_set_load_file_image()
@@ -37,12 +38,12 @@ func _set_load_file_image():
 	loadingTexture.texture = texture  
 
 
-func _on_start_game_touch_button_pressed():
-	GameManager.gameNumber = gameNumber
-	Utils.load_game()
-	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
+func _on_delete_button_pressed():
+	Utils.delete_game(gameNumber)
+	queue_free()
 
 
 func _on_start_game_touch_button_released():
-	Utils.delete_game(gameNumber)
-	queue_free()
+	GameManager.gameNumber = gameNumber
+	Utils.load_game()
+	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
