@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="4_1ctd5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bdfy"]
-bg_color = Color(0.909804, 0.431373, 0, 1)
+bg_color = Color(0.647059, 0.670588, 0.717647, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -21,12 +21,11 @@ corner_radius_bottom_left = 15
 size = Vector2(320, 230)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0t2k"]
-bg_color = Color(0.74902, 0.352941, 0, 1)
+bg_color = Color(0.368627, 0.411765, 0.494118, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p5a5"]
-bg_color = Color(0.74902, 0.352941, 0, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
