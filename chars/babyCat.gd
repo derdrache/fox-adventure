@@ -15,12 +15,20 @@ const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
 var animationSprite : AnimatedSprite2D
-var followPosition = 0
+var followPosition = 0	
+var catColorArray : Array
 
 
 func _ready():
+	catColorArray = [whiteCatAnimationsSprite, yellowCatAnimationsSprite, BlackCatAnimationsSprite, 
+	brownCatAnimationsSprite, blueCatAnimationsSprite, berryCatAnimationsSprite]
+	
+	#Luna spezial
+	if name == "Cat1": catColorArray.remove_at(2) 
+	
 	whiteCatAnimationsSprite.visible = false
-	_selectCatColor()
+	
+	_set_random_cat_color()
 
 func _physics_process(delta):
 	_calculate_velocity()
@@ -59,13 +67,16 @@ func _set_animation():
 		animationSprite.play("walk")
 	else: animationSprite.play("idle")
 
-func _selectCatColor():
-	var catColorArray = [whiteCatAnimationsSprite, yellowCatAnimationsSprite, BlackCatAnimationsSprite, 
-	brownCatAnimationsSprite, blueCatAnimationsSprite, berryCatAnimationsSprite]
+func _set_random_cat_color():
 	var rng = RandomNumberGenerator.new()
-	var randomNumber = rng.randi_range(0, 5)
+	var randomNumber = rng.randi_range(0, len(catColorArray)-1)
 	
 	animationSprite = catColorArray[randomNumber]
+	animationSprite.visible = true
+
+func _set_cat_color(catNumber):
+	animationSprite.visible = false
+	animationSprite = catColorArray[catNumber]
 	animationSprite.visible = true
 
 func _on_area_2d_body_entered(body):
