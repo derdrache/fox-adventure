@@ -32,7 +32,6 @@ func gain_cat(catNumber: int):
 	catArray[catNumber-1] = true
 	emit_signal("gained_cat", catArray)
 
-
 func set_level(level : int, position: Vector2):
 	reset_all_stats()
 	
