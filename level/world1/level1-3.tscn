@@ -334,4 +334,4 @@ position = Vector2(5290, 585)
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(224, 479)
+position = Vector2(228.715, 476.36)

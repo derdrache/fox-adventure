@@ -248,7 +248,7 @@ position = Vector2(3080, 464)
 position = Vector2(2076, 624)
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(38, 495)
+position = Vector2(3678, 587)
 
 [node name="WorldEnd" parent="." instance=ExtResource("16_seo3y")]
 position = Vector2(723, 453)
