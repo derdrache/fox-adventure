@@ -20,8 +20,8 @@ const SWIM_SPEED = 125
 const JUMP_VELOCITY = -310.0
 const TILE_ABOVE_ADJUSTMENT = Vector2(0, 10)	
 const TILE_UNDER_ADJUSTMENT = Vector2(0,-20)
-const TILE_LEFT_ADJUSTMENT = Vector2(8, -2)
-const TILE_RIGHT_ADJUSTMENT = Vector2(-8, -2)
+const TILE_LEFT_ADJUSTMENT = Vector2(7, -2)
+const TILE_RIGHT_ADJUSTMENT = Vector2(-7, -2)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var state = MOVE
@@ -120,7 +120,7 @@ func move_state(delta):
 		state = SWIM
 	elif "ramp" in get_tile_data("bottom") && pressedDown: 
 		state = SLIDE
-	elif Input.is_action_just_pressed("move_down") && not is_on_floor():
+	elif Input.is_action_just_pressed("move_down") && not is_on_floor() && state != CRAWL:
 		state = STOMP
 	elif (pressedDown && !digging_object_above_or_below() || state == CRAWL && _cant_stand_up()):
 		state = CRAWL
@@ -131,7 +131,7 @@ func move_state(delta):
 		state = DIG
 	elif is_on_floor():
 		state = MOVE
-	elif !is_on_floor():
+	elif !is_on_floor() && state != CRAWL:
 		state = JUMP
 	
 	apply_gravity(delta);
