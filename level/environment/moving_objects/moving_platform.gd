@@ -3,6 +3,13 @@ class_name MovingPlatform
 
 @export var moving_speed = 50
 
+var doMove = false
+
 func _physics_process(delta):
-	$PathFollow2D.progress += moving_speed * delta
+	if doMove: $PathFollow2D.progress += moving_speed * delta
 	
+
+
+func _on_area_2d_body_entered(body):
+	if "Player" in body.name:
+		doMove = true
