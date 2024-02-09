@@ -5,6 +5,9 @@ class_name MovingPlatform
 
 var doMove = false
 
+func _ready():
+	doMove = ! has_node("Area2D")
+
 func _physics_process(delta):
 	if doMove: $PathFollow2D.progress += moving_speed * delta
 	
