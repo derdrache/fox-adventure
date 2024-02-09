@@ -121,7 +121,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"destruction",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -146,7 +146,7 @@ script = ExtResource("1_3eh3p")
 
 [node name="boxSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bot7s")
-animation = &"idle"
+animation = &"destruction"
 script = ExtResource("3_342b0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
