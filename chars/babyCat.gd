@@ -31,6 +31,8 @@ func _ready():
 	_set_random_cat_color()
 
 func _physics_process(delta):
+	_catch_up()
+	
 	_calculate_velocity()
 	
 	move_and_slide()
@@ -78,6 +80,13 @@ func _set_cat_color(catNumber):
 	animationSprite.visible = false
 	animationSprite = catColorArray[catNumber]
 	animationSprite.visible = true
+
+func _catch_up():
+	if isWaiting: return
+	var targetPosition = target.global_position - Vector2(0, -9)
+	
+	if global_position.distance_to(targetPosition) > 200:
+		position = targetPosition
 
 func _on_area_2d_body_entered(body):
 	if body is Player && isWaiting:
