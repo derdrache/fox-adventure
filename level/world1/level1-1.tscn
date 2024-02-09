@@ -154,7 +154,7 @@ position = Vector2(598, 498)
 position = Vector2(748, 384)
 
 [node name="GoldCoin9" parent="items/goldCoins" instance=ExtResource("12_dw686")]
-position = Vector2(778, 404)
+position = Vector2(760, 410)
 
 [node name="GoldCoin16" parent="items/goldCoins" instance=ExtResource("12_dw686")]
 position = Vector2(1752, 600)
@@ -220,35 +220,29 @@ position = Vector2(3128, 72)
 position = Vector2(1511, 544)
 goldCoins = 4
 
-[node name="Cat1" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
-position = Vector2(837, 505)
-target = NodePath("../../Player")
-
-[node name="Cat2" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
-position = Vector2(2841, 441)
-target = NodePath("../../Player")
-
-[node name="Cat3" parent="items" node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
-position = Vector2(3573, 441)
-target = NodePath("../../Player")
-
 [node name="fog" type="Node2D" parent="."]
 
 [node name="Fog" parent="fog" instance=ExtResource("16_uu3u8")]
-position = Vector2(1251, 624)
-scale = Vector2(3, 3)
+position = Vector2(1168, 624)
+tilesWith = 11
+tilesHeight = 10
 
 [node name="Fog2" parent="fog" instance=ExtResource("16_uu3u8")]
-position = Vector2(3360, 624)
+position = Vector2(3328, 624)
+tilesHeight = 1
 
 [node name="Fog3" parent="fog" instance=ExtResource("16_uu3u8")]
-position = Vector2(3080, 464)
+position = Vector2(3056, 464)
+tilesWith = 3
+tilesHeight = 1
 
 [node name="Fog4" parent="fog" instance=ExtResource("16_uu3u8")]
-position = Vector2(2076, 624)
+position = Vector2(2048, 624)
+tilesWith = 3
+tilesHeight = 1
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(3678, 587)
+position = Vector2(35.6288, 490.546)
 
 [node name="WorldEnd" parent="." instance=ExtResource("16_seo3y")]
 position = Vector2(723, 453)
@@ -256,3 +250,15 @@ position = Vector2(723, 453)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(2273.5, 372)
 shape = SubResource("RectangleShape2D_ogrf3")
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
+position = Vector2(837, 505)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
+position = Vector2(2841, 441)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
+position = Vector2(3573, 441)
+target = NodePath("../Player")

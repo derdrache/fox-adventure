@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5sebwc4ipfgr"]
+[gd_scene load_steps=26 format=3 uid="uid://c5sebwc4ipfgr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_ca526"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_eedi0"]
@@ -22,6 +22,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_psbly"]
 size = Vector2(10103.5, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4apb"]
+size = Vector2(115.544, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyhfm"]
 size = Vector2(53, 959)
@@ -56,6 +59,10 @@ point_count = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(5056.25, 815)
 shape = SubResource("RectangleShape2D_psbly")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(5520, 226)
+shape = SubResource("RectangleShape2D_y4apb")
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 
@@ -444,21 +451,28 @@ position = Vector2(4202, 401)
 [node name="Fog" type="Node2D" parent="."]
 
 [node name="Fog" parent="Fog" instance=ExtResource("17_b8u34")]
-position = Vector2(5280, 192)
+position = Vector2(5312, 192)
 scale = Vector2(6, 6)
+tilesHeight = 10
 
 [node name="Fog2" parent="Fog" instance=ExtResource("17_b8u34")]
-position = Vector2(6648, -16)
+position = Vector2(6624, -16)
+tilesWith = 3
+tilesHeight = 1
 
 [node name="Fog3" parent="Fog" instance=ExtResource("17_b8u34")]
-position = Vector2(5376, 608)
+position = Vector2(5281, 624)
 scale = Vector2(5, 2)
+tilesWith = 17
+tilesHeight = 5
 
 [node name="Fog4" parent="Fog" instance=ExtResource("17_b8u34")]
-position = Vector2(850, 624)
+position = Vector2(832, 624)
+tilesWith = 3
+tilesHeight = 1
 
 [node name="Player" parent="." instance=ExtResource("2_fhwis")]
-position = Vector2(6042.17, 141.011)
+position = Vector2(-26, 0)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_hsfym")]
 position = Vector2(1060, 441)

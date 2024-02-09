@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dtvcx561whmn2"]
+[gd_scene load_steps=24 format=3 uid="uid://dtvcx561whmn2"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_y1eo4"]
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="2_77t3k"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="7_sfwtj"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="9_pbwqi"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="9_rfckq"]
+[ext_resource type="PackedScene" uid="uid://cfo4o6mqme8l7" path="res://level/environment/fog/CastleFog7.tscn" id="14_gf38y"]
 
 [sub_resource type="Curve2D" id="Curve2D_k8k14"]
 resource_local_to_scene = true
@@ -173,6 +174,9 @@ position = Vector2(624, 512)
 [node name="GoldCoin3" parent="items/goldCoins" instance=ExtResource("7_3o8qc")]
 position = Vector2(1440.5, 421.5)
 
+[node name="GoldCoin26" parent="items/goldCoins" instance=ExtResource("7_3o8qc")]
+position = Vector2(1688, 575)
+
 [node name="GoldCoin4" parent="items/goldCoins" instance=ExtResource("7_3o8qc")]
 position = Vector2(1376, 422)
 
@@ -181,6 +185,18 @@ position = Vector2(1312, 422)
 
 [node name="GoldCoin6" parent="items/goldCoins" instance=ExtResource("7_3o8qc")]
 position = Vector2(1256, 422)
+
+[node name="GoldCoin27" parent="items/goldCoins" instance=ExtResource("7_3o8qc")]
+position = Vector2(1176, 384)
+
+[node name="GoldCoin28" parent="items/goldCoins" instance=ExtResource("7_3o8qc")]
+position = Vector2(1176, 320)
+
+[node name="GoldCoin29" parent="items/goldCoins" instance=ExtResource("7_3o8qc")]
+position = Vector2(1176, 256)
+
+[node name="GoldCoin30" parent="items/goldCoins" instance=ExtResource("7_3o8qc")]
+position = Vector2(1592, -22)
 
 [node name="GoldCoin7" parent="items/goldCoins" instance=ExtResource("7_3o8qc")]
 position = Vector2(1166, 467)
@@ -270,6 +286,11 @@ target = NodePath("../../Player")
 position = Vector2(1357, -56)
 target = NodePath("../../Player")
 
+[node name="Fog" type="Node2D" parent="."]
+
+[node name="Fog" parent="Fog" instance=ExtResource("14_gf38y")]
+position = Vector2(1664, 656)
+
 [node name="WorldEnd" parent="." instance=ExtResource("7_2a0uh")]
 position = Vector2(727.262, 153.761)
 
@@ -296,7 +317,7 @@ position = Vector2(-9, 556)
 shape = SubResource("RectangleShape2D_uo3x1")
 
 [node name="Player" parent="." instance=ExtResource("3_sew3f")]
-position = Vector2(40, 640)
+position = Vector2(36, 619.5)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_rfckq")]
 position = Vector2(1584, 632)
