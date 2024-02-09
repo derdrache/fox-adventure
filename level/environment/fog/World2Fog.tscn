@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://nbvkjncg6oc4"]
+[gd_scene load_steps=5 format=3 uid="uid://nbvkjncg6oc4"]
 
 [ext_resource type="Script" path="res://level/environment/fog/fog.gd" id="1_tbkq2"]
 [ext_resource type="Texture2D" uid="uid://i30qxit6v84x" path="res://asset/tileMaps/Swamp.png" id="2_xkgab"]
@@ -233,19 +233,16 @@ texture = ExtResource("2_xkgab")
 [sub_resource type="TileSet" id="TileSet_ucw3t"]
 sources/1 = SubResource("TileSetAtlasSource_bsh3t")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffi8r"]
-size = Vector2(64, 64)
-
 [node name="Fog" type="Area2D"]
 script = ExtResource("1_tbkq2")
+worldTileSet = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ucw3t")
 format = 2
-layer_0/tile_data = PackedInt32Array(65534, 131073, 2, 65535, 196609, 2, 0, 131073, 2, 1, 196609, 2, 131070, 131073, 3, 196606, 131073, 2, 262142, 131073, 3, 131071, 196609, 3, 196607, 196609, 2, 262143, 196609, 3, 65536, 131073, 3, 131072, 131073, 2, 196608, 131073, 3, 65537, 196609, 3, 131073, 196609, 2, 196609, 196609, 3)
+layer_0/tile_data = PackedInt32Array(0, 65537, 1, 1, 131073, 1, 65536, 65537, 2, 131072, 65537, 3, 196608, 65537, 4, 65537, 131073, 2, 131073, 131073, 3, 196609, 131073, 4, 2, 196609, 1, 65538, 196609, 2, 131074, 196609, 3, 196610, 196609, 4, 3, 262145, 1, 65539, 262145, 2, 131075, 262145, 3, 196611, 262145, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 32)
-shape = SubResource("RectangleShape2D_ffi8r")
+position = Vector2(32, 32)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

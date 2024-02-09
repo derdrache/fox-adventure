@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpbfpd8uik52c"]
+[gd_scene load_steps=5 format=3 uid="uid://bpbfpd8uik52c"]
 
 [ext_resource type="Script" path="res://level/environment/fog/fog.gd" id="1_ot0an"]
 [ext_resource type="Texture2D" uid="uid://bfc4bqv2p4rho" path="res://asset/tileMaps/cave2.png" id="2_5a5vg"]
@@ -275,21 +275,17 @@ texture = ExtResource("2_5a5vg")
 13:21/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ucw3t"]
-sources/2 = SubResource("TileSetAtlasSource_sqh3j")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffi8r"]
-size = Vector2(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_sqh3j")
 
 [node name="Fog" type="Area2D"]
 script = ExtResource("1_ot0an")
+worldTileSet = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ucw3t")
 format = 2
-layer_0/tile_data = PackedInt32Array(65534, 65538, 7, 65535, 65538, 7, 0, 65538, 7, 1, 65538, 7, 131070, 65538, 7, 196606, 65538, 7, 262142, 65538, 7, 131071, 65538, 7, 196607, 65538, 7, 262143, 65538, 7, 65536, 65538, 7, 131072, 65538, 7, 196608, 65538, 7, 65537, 65538, 7, 131073, 65538, 7, 196609, 65538, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 32)
-shape = SubResource("RectangleShape2D_ffi8r")
+position = Vector2(32, 32)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

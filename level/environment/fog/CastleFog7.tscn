@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfo4o6mqme8l7"]
+[gd_scene load_steps=5 format=3 uid="uid://cfo4o6mqme8l7"]
 
 [ext_resource type="Script" path="res://level/environment/fog/fog.gd" id="1_u07p8"]
 [ext_resource type="Texture2D" uid="uid://b6nc0ugyl6tbd" path="res://asset/tileMaps/castle2.png" id="2_5yq7v"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xgxdv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kxbrk"]
 texture = ExtResource("2_5yq7v")
 1:0/0 = 0
 3:0/0 = 0
@@ -136,21 +136,17 @@ texture = ExtResource("2_5yq7v")
 14:11/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ucw3t"]
-sources/0 = SubResource("TileSetAtlasSource_xgxdv")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffi8r"]
-size = Vector2(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_kxbrk")
 
 [node name="Fog" type="Area2D"]
 script = ExtResource("1_u07p8")
+worldTileSet = 7
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ucw3t")
 format = 2
-layer_0/tile_data = PackedInt32Array(65534, 65536, 4, 65535, 65536, 4, 0, 65536, 4, 1, 65536, 4, 131070, 65536, 4, 196606, 65536, 4, 262142, 65536, 4, 131071, 65536, 4, 196607, 65536, 4, 262143, 65536, 4, 65536, 65536, 4, 131072, 65536, 4, 196608, 65536, 4, 65537, 65536, 4, 131073, 65536, 4, 196609, 65536, 4)
+layer_0/tile_data = PackedInt32Array(0, 65536, 4, 1, 65536, 4, 65536, 65536, 4, 131072, 65536, 4, 196608, 65536, 4, 65537, 65536, 4, 131073, 65536, 4, 196609, 65536, 4, 2, 65536, 4, 3, 65536, 4, 65538, 65536, 4, 65539, 65536, 4, 131074, 65536, 4, 131075, 65536, 4, 196610, 65536, 4, 196611, 65536, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 32)
-shape = SubResource("RectangleShape2D_ffi8r")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
