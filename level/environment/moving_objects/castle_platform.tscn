@@ -18,6 +18,7 @@ curve = SubResource("Curve2D_phsli")
 script = ExtResource("1_2vtwn")
 
 [node name="CastlePlatformBody" type="AnimatableBody2D" parent="."]
+position = Vector2(0, -7)
 
 [node name="Sprite2D" type="Sprite2D" parent="CastlePlatformBody"]
 position = Vector2(0, -8)
