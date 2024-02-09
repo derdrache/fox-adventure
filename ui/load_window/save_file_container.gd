@@ -11,7 +11,6 @@ func _ready():
 	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$VBoxContainer/Header/PanelContainer/HBoxContainer/LoadCount/PanelContainer/Label.text = str(gameNumber +1)
 	_set_procent_clear()
@@ -45,5 +44,6 @@ func _on_delete_button_pressed():
 
 func _on_start_game_touch_button_released():
 	GameManager.gameNumber = gameNumber
+	GameManager.gameStart = Time.get_datetime_dict_from_system()
 	Utils.load_game()
 	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")

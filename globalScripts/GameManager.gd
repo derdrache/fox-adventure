@@ -11,9 +11,7 @@ var playTimeSeconds = 0
 var gameStart : Dictionary
 
 
-func _ready():
-	gameStart = Time.get_datetime_dict_from_system()
-	
+func _ready():	
 	if !levelDetails.is_empty(): return
 
 	levelDetails.resize(LEVEL_COUNT)

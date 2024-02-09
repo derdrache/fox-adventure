@@ -37,5 +37,6 @@ func _create_save_file_container():
 func _on_new_game_button_pressed():
 	var savedGamesCount = len(saveFiles)
 	GameManager.gameNumber = savedGamesCount
+	GameManager.gameStart = Time.get_datetime_dict_from_system()
 	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
 
