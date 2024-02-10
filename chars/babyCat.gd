@@ -43,8 +43,7 @@ func _calculate_velocity():
 	if isWaiting: return
 
 	var targetPosition = target.global_position - Vector2(0, -9)
-
-	if global_position.distance_to(targetPosition) > 20 * followPosition:
+	if global_position.distance_to(targetPosition) > 20  * (followPosition +1):
 		var direction = (targetPosition - global_position).normalized()
 		velocity = direction * SPEED
 		velocity.y *= 3
@@ -83,10 +82,9 @@ func _set_cat_color(catNumber):
 
 func _catch_up():
 	if isWaiting: return
-	var targetPosition = target.global_position - Vector2(0, -9)
 	
-	if global_position.distance_to(targetPosition) > 200:
-		position = targetPosition
+	if global_position.distance_to(target.global_position) > 200:
+		global_position = target.global_position
 
 func _on_area_2d_body_entered(body):
 	if body is Player && isWaiting:
