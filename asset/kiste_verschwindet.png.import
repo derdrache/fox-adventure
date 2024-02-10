@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs2du4grvvqkx"
-path="res://.godot/imported/Kiste_verschwinden.png-661cf506eb27c2cc95b378bebc468f62.ctex"
+uid="uid://w51y1esb55hf"
+path="res://.godot/imported/kiste_verschwindet.png-767cdfb5d877282b6881e05fa2191da9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprites/Kiste_verschwinden.png"
-dest_files=["res://.godot/imported/Kiste_verschwinden.png-661cf506eb27c2cc95b378bebc468f62.ctex"]
+source_file="res://asset/kiste_verschwindet.png"
+dest_files=["res://.godot/imported/kiste_verschwindet.png-767cdfb5d877282b6881e05fa2191da9.ctex"]
 
 [params]
 
