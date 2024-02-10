@@ -88,6 +88,8 @@ func _ready():
 func _process(_delta):		
 	changeCamera()
 	
+	if LevelManager.levelCleared: make_save_screenshot()
+	
 	if activeInteraction : 
 		set_ui_visible(false)
 		player.blockMovement = true
@@ -96,11 +98,6 @@ func _process(_delta):
 		set_ui_visible(true)
 		player.blockMovement = false
 		
-		
-			
-
-func _physics_process(delta):
-	if LevelManager.levelCleared: make_save_screenshot()
 		
 func _load_and_update_data():
 	var savedPlayerPosition = GameManager.playerPosition
