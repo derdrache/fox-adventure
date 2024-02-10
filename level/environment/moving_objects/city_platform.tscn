@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw1cbssqg66ma"]
+[gd_scene load_steps=6 format=3 uid="uid://cw1cbssqg66ma"]
 
 [ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_c0tja"]
 [ext_resource type="Texture2D" uid="uid://dmt2omti0uho" path="res://asset/sprites/platforms/cityPlatform.png" id="2_rpr1g"]
@@ -12,6 +12,9 @@ point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmkh2"]
 size = Vector2(96, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i6qt"]
+size = Vector2(642, 480)
 
 [node name="CityPlatform" type="Path2D"]
 curve = SubResource("Curve2D_phsli")
@@ -34,3 +37,9 @@ rotates = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
 remote_path = NodePath("../../CityPlatformBody")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9, 15)
+shape = SubResource("RectangleShape2D_6i6qt")

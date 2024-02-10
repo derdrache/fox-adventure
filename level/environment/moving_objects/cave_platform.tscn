@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://6efycntwxpm6"]
+[gd_scene load_steps=6 format=3 uid="uid://6efycntwxpm6"]
 
 [ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_gaoac"]
 [ext_resource type="Texture2D" uid="uid://bvl3tyklaox65" path="res://asset/sprites/platforms/cave_platform.png" id="2_3tvol"]
@@ -8,6 +8,9 @@ resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmkh2"]
 size = Vector2(96, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6oiw"]
+size = Vector2(642, 480)
 
 [node name="CavePlatform" type="Path2D"]
 curve = SubResource("Curve2D_phsli")
@@ -29,3 +32,9 @@ rotates = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
 remote_path = NodePath("../../CavePlatformBody")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9, 15)
+shape = SubResource("RectangleShape2D_q6oiw")

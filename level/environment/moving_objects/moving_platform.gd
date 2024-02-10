@@ -16,3 +16,4 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if "Player" in body.name:
 		doMove = true
+		$PathFollow2D.progress_ratio = 0.5
