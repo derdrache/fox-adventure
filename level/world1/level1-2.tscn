@@ -347,6 +347,7 @@ position = Vector2(584, -2624)
 position = Vector2(1882, -2760)
 
 [node name="Fog" parent="." instance=ExtResource("11_qgm87")]
+visible = false
 position = Vector2(112, 64)
 tilesWith = 3
 tilesHeight = 1

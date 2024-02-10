@@ -28,7 +28,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogrf3"]
-size = Vector2(5999, 42)
+size = Vector2(2903.5, 99)
 
 [node name="Level1-1" type="Node2D"]
 
@@ -248,7 +248,7 @@ position = Vector2(35.6288, 490.546)
 position = Vector2(723, 453)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(2273.5, 372)
+position = Vector2(3773, 278)
 shape = SubResource("RectangleShape2D_ogrf3")
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
