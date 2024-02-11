@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cuha3s36ovhpy" path="res://asset/background/swarm/1.png" id="1_83rs5"]
 [ext_resource type="Texture2D" uid="uid://dybmxbdxt77ew" path="res://asset/background/swarm/2.png" id="2_mghhu"]
 [ext_resource type="Texture2D" uid="uid://h2tplf1m61el" path="res://asset/background/swarm/3.png" id="3_401gx"]
-[ext_resource type="Texture2D" uid="uid://cyuxnvcuy11bo" path="res://asset/background/swarm/4.png" id="4_duih7"]
+[ext_resource type="Texture2D" uid="uid://bnjkkcsww84dk" path="res://asset/background/swarm/4_green.png" id="4_u2cga"]
 [ext_resource type="Texture2D" uid="uid://mhctadliqqs7" path="res://asset/background/swarm/5.png" id="5_5xfky"]
 
 [node name="SwampBackground" type="ParallaxBackground"]
@@ -48,7 +48,7 @@ motion_mirroring = Vector2(560, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
 position = Vector2(290, 166)
-texture = ExtResource("4_duih7")
+texture = ExtResource("4_u2cga")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)
