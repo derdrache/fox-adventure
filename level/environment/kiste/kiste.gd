@@ -20,9 +20,8 @@ func _process(delta):
 		$CollisionShape2D.set_deferred("disabled", true)
 		animationSprite.play("destruction")
 		isEmpty = false
-
-func _on_bottom_area_body_entered(body):
-	if body is Player:
+		
+func _check_content():
 		if used: return
 	
 		if withGem: await _dropGem()
@@ -32,19 +31,15 @@ func _on_bottom_area_body_entered(body):
 			used = true
 			await animationSprite.hitAnimation()
 			_changeSpawningNodeVisibility(true)
-		else: isEmpty = true
+		else: isEmpty = true	
+
+func _on_bottom_area_body_entered(body):
+	if body is Player: _check_content()
 
 func _on_top_area_body_entered(body):
 	if body is Player:
 		var playerStomps = body.doStomp
-		if playerStomps: 
-			if withGem: _dropGem()
-			elif withRedCoin: _dropRedCoin()
-			elif goldCoins > 0: _dropGoldCoin()
-			
-			if spawningNode != null:
-				used = true
-				spawningNode.visible = true
+		if playerStomps: _check_content()
 
 func _changeSpawningNodeVisibility(show):
 	spawningNode.visible = show
