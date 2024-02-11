@@ -9,6 +9,7 @@ var levelDetails : Array
 var playerPosition = Vector2.ZERO
 var playTimeSeconds = 0
 var gameStart : Dictionary
+var catMomsDone : Array = [false, false, false, false, false, false, false]
 
 
 func _ready():	
@@ -23,6 +24,7 @@ func _ready():
 			"cats": [false,false,false],
 			"goldCoins": 0
 		})
+		
 
 func updateLevelData(levelData : LevelDataClass):
 	levelDetails[levelData["level"] - 1] = {

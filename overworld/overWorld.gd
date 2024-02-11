@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = $playerOverWorld
+@onready var player = $PlayerOverWorld
 @onready var camera : Camera2D = $Cameras/Camera2D
 @onready var screenshotCamera : Camera2D = $ScreenshotCamera
 @onready var uiNodesWorld1 = $"World1 - Wood/ui"
@@ -54,7 +54,7 @@ extends Node2D
 
 const CAMERA_VERTICAL = 365
 const CAMERA_HORIZONTAL = 650 
-const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17, 20, 21, 22, 23, 27, 29, 32, 34, 35, 40, 41]
+const LEVEL_INTERACTIONS = [2, 4, 9, 11, 16, 17, 20, 21, 22, 23, 27, 29, 32, 34, 35, 40, 41]
 
 var interactionsList: Array
 var obstaclesList : Array
@@ -82,6 +82,7 @@ func _ready():
 	
 	
 	_load_and_update_data()
+	_check_cat_mom_done()
 	_check_interactions_disables()
 	_check_start_interactions()
 
@@ -105,14 +106,23 @@ func _load_and_update_data():
 	if savedPlayerPosition != Vector2.ZERO:
 		player.position = savedPlayerPosition
 		
-	update_camera()
+	_update_camera()
+	
+	#_update_cat_moms()
 	
 	for levelUi in levelUis:
 		var urChildren = levelUi.get_children()
 		for ui in urChildren:
 			ui.update_ui(GameManager.levelDetails)
 
-func update_camera():
+func _check_cat_mom_done():
+	var allCatMoms = get_tree().get_nodes_in_group("catMoms")
+	
+	for catMom in allCatMoms:
+		if catMom.catsFounded == 18:
+			if false: catMom.queue_free()
+
+func _update_camera():
 	for mapCamera in $Cameras.get_children():
 		var cameraMinWidth = mapCamera.position.x - CAMERA_HORIZONTAL / 2.0
 		var cameraMaxWidth = mapCamera.position.x + CAMERA_HORIZONTAL / 2.0
@@ -122,6 +132,20 @@ func update_camera():
 		if (player.position.x > cameraMinWidth && player.position.x < cameraMaxWidth 
 			&& player.position.y >cameraMinHeight && player.position.y < cameraMaxHeight):
 			camera.position = mapCamera.position
+
+func _update_cat_moms():
+	var allCatMoms = get_tree().get_nodes_in_group("catMoms")
+	
+	for i in len(allCatMoms):
+		var levelData = GameManager.levelDetails.slice(i, i +5)
+		var foundedCats = 0
+		
+		for level in levelData:
+			for cat in level["cats"]:
+				if cat: foundedCats += 1
+		
+		allCatMoms[i].catsFounded = foundedCats
+		
 
 func changeCamera():
 	if cameraOnChange: return
@@ -208,7 +232,7 @@ func make_save_screenshot():
 	screenshotCamera.global_position = player.global_position
 	screenshotCamera.make_current()
 	
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.15).timeout
 	var image = get_viewport().get_texture().get_image()
 	image.resize(640, 360)
 	image.save_png("user://screenshot"+ str(GameManager.gameNumber) +".png")

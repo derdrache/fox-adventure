@@ -6,7 +6,8 @@ func save_game():
 	var data : Dictionary = {
 		"levelDetails": GameManager.levelDetails,
 		"playerPosition": var_to_str(GameManager.playerPosition),
-		"playTimeSeconds": GameManager.playTimeSeconds
+		"playTimeSeconds": GameManager.playTimeSeconds,
+		"catMomsDone" : GameManager.catMomsDone
 	}
 	var jsonString = JSON.stringify(data)
 	file.store_line(jsonString)
@@ -20,6 +21,7 @@ func load_game():
 		GameManager.levelDetails = data["levelDetails"]
 		GameManager.playerPosition = str_to_var(data["playerPosition"])
 		GameManager.playTimeSeconds = data["playTimeSeconds"] if data.has("playTimeSeconds") else 0
+		if data.has("catMomsDone"): GameManager.catMomsDone = data["catMomsDone"]
 
 func delete_game(gameNumber):
 	var save_path = "user://savegame"+ str(gameNumber) +".bin"
