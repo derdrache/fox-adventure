@@ -95,13 +95,18 @@ func apply_gravity(delta):
 			velocity.y += gravity * delta
 
 func is_on_climbing_object():
-	var collisionObjectName = ""
-	if getShapeCollision() != null: collisionObjectName = getShapeCollision().name
-
-	var onClimbingObject = "Climb" in collisionObjectName
+	var onClimbingObject
+	var onLian
+	
+	for collision in getShapeCollision():
+		if collision is Liane: onLian = true
+		if "Climb" in collision.name: onClimbingObject = true
+		
 	var onLiane = getShapeCollision() is Liane
 	var onWall = "climb" in get_tile_data("right") || "climb" in get_tile_data("left")
 
+	if pressedUp && pressedRight: return false
+	
 	return onClimbingObject || onLiane || onWall
 
 func digging_object_above_or_below():	
@@ -125,7 +130,8 @@ func move_state(delta):
 	elif (pressedDown && !digging_object_above_or_below() || state == CRAWL && _cant_stand_up()):
 		state = CRAWL
 	elif (_can_climb() && !wasOnCLimbingObject 
-			|| (state == JUMP && is_on_climbing_object() && !wasOnCLimbingObject)):
+			|| (state == JUMP && is_on_climbing_object() && !wasOnCLimbingObject) 
+			|| (_can_climb() || is_on_climbing_object()) && pressedUp):
 		state = CLIMB
 	elif _can_dig()  && is_on_floor() && !doDig:
 		state = DIG
@@ -159,11 +165,12 @@ func climb_state(delta):
 		position+ (velocity*2 * delta))
 	var nextStepIsClimableOnClimgTiles = _check_next_climbstep_on_tiles(
 		position+ (velocity*2 * delta))
+	
 	var canClimb = nextStepIsClimbableOnTree || nextStepIsClimableOnClimgTiles
 
 	if is_on_floor(): 
 		state = MOVE
-		
+
 	if !canClimb: velocity = Vector2.ZERO
 	
 	if climbSideways: direction.x = 0
@@ -171,9 +178,6 @@ func climb_state(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		state = JUMP
 		velocity.y = JUMP_VELOCITY
-		
-	if _can_dig():
-		state = DIG
 		
 func stomp_state(delta):
 	doStomp = true
@@ -263,11 +267,11 @@ func animation_state():
 			if direction.x == 0: playerAnimation.play("idle")
 			else: playerAnimation.play("run")	
 		CLIMB:
-			if not climbSideways: playerAnimation.play("climb")
-			if direction == Vector2.ZERO: 
-				playerAnimation.stop()
-			elif climbSideways: playerAnimation.play("climbSideways")
+			if climbSideways: 
+				playerAnimation.play("climbSideways")
 			else: playerAnimation.play("climb")
+			
+			if direction == Vector2.ZERO: playerAnimation.stop()
 		DIG: playerAnimation.play("dig")
 		CRAWL: playerAnimation.play("crawl")
 		JUMP: 
@@ -282,8 +286,15 @@ func stompAnimation():
 	$stompSprite.visible = false	
 
 func getShapeCollision():
-	if !collision_check.is_colliding(): return null
-	return collision_check.get_collider(0)
+	var allCollisions = []
+	
+	if !collision_check.is_colliding(): return []
+	
+	if collision_check.get_collision_count():
+		for i in collision_check.get_collision_count():
+			if collision_check.get_collider(i) != null:
+				allCollisions.append(collision_check.get_collider(i))
+	return allCollisions
 
 func getSideRayCollision():
 	if collision_check_right.is_colliding() && pressedRight: 
@@ -340,12 +351,13 @@ func _check_next_climbstep_on_tree(newPlayerPosition):
 
 	parameters.collide_with_areas = true
 	parameters.collide_with_bodies = false
-	parameters.collision_mask = 1
+	parameters.collision_mask = 2
 	parameters.shape_rid = shape_rid.get_rid()
 	parameters.transform.origin = newPlayerPosition
 	
 	var results = space_state.intersect_shape(parameters, 1)
-	return !results.is_empty()	
+
+	return !results.is_empty()
 
 func _check_next_climbstep_on_tiles(newPlayerPosition):
 	var climbSideway = ("climbSideway" in get_tile_data("left","customData", position) 
@@ -438,7 +450,12 @@ func _check_last_floor_position():
 	var isOnDigTile = "dig" == get_tile_data("bottom", "customData",position)
 
 	if is_on_floor() && !isOnDigTile && not state == DIG:
-		if getShapeCollision() != null && "Platform" in getShapeCollision().name: 
+		var onPlatform = false
+		
+		for collision in getShapeCollision():
+			if "Platform" in collision.name: onPlatform = true
+		
+		if len(getShapeCollision()) != 0 && onPlatform: 
 			lastMovableObject = getShapeCollision()
 			
 		else:
