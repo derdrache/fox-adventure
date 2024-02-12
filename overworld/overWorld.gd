@@ -108,7 +108,7 @@ func _load_and_update_data():
 		
 	_update_camera()
 	
-	#_update_cat_moms()
+	_update_cat_moms()
 	
 	for levelUi in levelUis:
 		var urChildren = levelUi.get_children()
@@ -135,15 +135,16 @@ func _update_camera():
 
 func _update_cat_moms():
 	var allCatMoms = get_tree().get_nodes_in_group("catMoms")
-	
+
 	for i in len(allCatMoms):
-		var levelData = GameManager.levelDetails.slice(i, i +5)
+		var levelData = GameManager.levelDetails.slice(i + i*5, i + 6 + i*5)
+		
 		var foundedCats = 0
 		
 		for level in levelData:
 			for cat in level["cats"]:
 				if cat: foundedCats += 1
-		
+				
 		allCatMoms[i].catsFounded = foundedCats
 		
 
@@ -228,14 +229,17 @@ func interaction_done():
 func make_save_screenshot():
 	LevelManager.levelCleared = false
 	
+	activeInteraction = true
 	player.set_control_ui(false)
 	screenshotCamera.global_position = player.global_position
 	screenshotCamera.make_current()
 	
 	await get_tree().create_timer(0.15).timeout
+	
 	var image = get_viewport().get_texture().get_image()
 	image.resize(640, 360)
 	image.save_png("user://screenshot"+ str(GameManager.gameNumber) +".png")
 	
 	camera.make_current()
+	activeInteraction = false
 	player.set_control_ui(true)
