@@ -1,6 +1,8 @@
 extends Node
 
 func save_game():
+	if GameManager.gameNumber < 0: return
+	
 	var save_path = "user://savegame"+ str(GameManager.gameNumber)  +".bin"
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	var data : Dictionary = {
