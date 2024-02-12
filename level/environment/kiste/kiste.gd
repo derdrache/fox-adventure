@@ -23,14 +23,15 @@ func _process(delta):
 		
 func _check_content():
 		if used: return
-	
+		
+		
 		if withGem: await _dropGem()
 		elif withRedCoin: _dropRedCoin()
-		elif goldCoins > 0: _dropGoldCoin()
 		elif spawningNode != null:
 			used = true
 			await animationSprite.hitAnimation()
 			_changeSpawningNodeVisibility(true)
+		elif goldCoins > 0: _dropGoldCoin()
 		else: isEmpty = true	
 
 func _on_bottom_area_body_entered(body):
