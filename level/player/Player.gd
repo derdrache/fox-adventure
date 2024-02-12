@@ -11,11 +11,12 @@ class_name Player
 @onready var crawlCollider = $crawlCollision
 @onready var climbCollider = $climbCollision
 @onready var levelTileMap : TileMap = get_node("../TileMap")
+@onready var fadeAnimation = $Camera2D/FadeAnimation
 
 
 enum { MOVE , CLIMB , JUMP, STOMP, DIG, HANG, SLIDE, CRAWL, SWIM}
 
-const SPEED = 100.0
+const MOVE_SPEED = 100.0
 const SWIM_SPEED = 125
 const JUMP_VELOCITY = -310.0
 const TILE_ABOVE_ADJUSTMENT = Vector2(0, 10)	
@@ -24,6 +25,7 @@ const TILE_LEFT_ADJUSTMENT = Vector2(7, -2)
 const TILE_RIGHT_ADJUSTMENT = Vector2(-7, -2)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var speed = MOVE_SPEED
 var state = MOVE
 var hasKey = false
 var direction = Vector2.ZERO
@@ -96,17 +98,17 @@ func apply_gravity(delta):
 
 func is_on_climbing_object():
 	var onClimbingObject
-	var onLian
+	var onLiane
 	
 	for collision in getShapeCollision():
-		if collision is Liane: onLian = true
+		if collision is Liane: 
+			onLiane = true
 		if "Climb" in collision.name: onClimbingObject = true
 		
-	var onLiane = getShapeCollision() is Liane
 	var onWall = "climb" in get_tile_data("right") || "climb" in get_tile_data("left")
 
 	if pressedUp && pressedRight: return false
-	
+
 	return onClimbingObject || onLiane || onWall
 
 func digging_object_above_or_below():	
@@ -116,10 +118,10 @@ func digging_object_left_or_right():
 	return "dig" in get_tile_data("left")|| "dig" in get_tile_data("right")
 		
 func move_state(delta):
-	var moveSpeed = SPEED
+	speed = MOVE_SPEED
 	
-	if underWater: moveSpeed = SWIM_SPEED
-	elif state == CRAWL: moveSpeed = moveSpeed / 2
+	if underWater: speed = SWIM_SPEED
+	elif state == CRAWL: speed = speed / 2
 		
 	if in_water() && !is_on_floor():
 		state = SWIM
@@ -151,11 +153,11 @@ func move_state(delta):
 		state = STOMP
 	
 	if direction && forceVelocityX == 0:
-		velocity.x = direction.x * moveSpeed
+		velocity.x = direction.x * speed
 	elif forceVelocityX != 0:
 		velocity.x = forceVelocityX
 	else:
-		velocity.x = move_toward(velocity.x, 0, moveSpeed)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 func climb_state(delta):
 	velocity = direction * 50
@@ -456,7 +458,9 @@ func _check_last_floor_position():
 			if "Platform" in collision.name: onPlatform = true
 		
 		if len(getShapeCollision()) != 0 && onPlatform: 
-			lastMovableObject = getShapeCollision()
+			for collision in getShapeCollision():
+				if "Platform" in collision.name:
+					lastMovableObject = collision
 			
 		else:
 			lastFloorFlipH = sprite.flip_h
@@ -465,3 +469,7 @@ func _check_last_floor_position():
 	
 func _reset_was_on_climbing_object():
 	if !is_on_climbing_object() || is_on_floor(): wasOnCLimbingObject = false
+
+func start_fade_animation(animation : String):
+	if animation == "in": fadeAnimation.fade_in()
+	elif animation == "out": fadeAnimation.fade_out()
