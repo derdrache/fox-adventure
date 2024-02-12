@@ -12,7 +12,6 @@ extends CharacterBody2D
 @export var isWaiting = true
 
 var speed = 100
-const JUMP_VELOCITY = -400.0
 
 var animationSprite : AnimatedSprite2D
 var followPosition = 0	
@@ -31,6 +30,8 @@ func _ready():
 	_set_random_cat_color()
 
 func _physics_process(delta):
+	speed = target.speed
+	
 	_catch_up()
 	
 	_calculate_velocity()

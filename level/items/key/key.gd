@@ -3,11 +3,10 @@ extends CharacterBody2D
 @export var isWaiting = true
 @export var target: Player
 
-const SPEED = 100.0
-const JUMP_VELOCITY = -400.0
-
+var speed = 100
 
 func _physics_process(delta):
+	speed = target.speed
 	if !isWaiting && !target.hasKey: queue_free()
 	
 	_calculate_velocity()
@@ -23,7 +22,7 @@ func _calculate_velocity():
 
 	if global_position.distance_to(targetPosition) > 20 * followPosition:
 		var direction = (targetPosition - global_position).normalized()
-		velocity = direction * SPEED
+		velocity = direction * speed
 		velocity.y *= 3
 	elif (global_position.y - targetPosition.y) < -2 || (global_position.y - targetPosition.y) > 2:
 		velocity.x = 0
