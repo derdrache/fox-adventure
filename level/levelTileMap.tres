@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=37 format=3 uid="uid://dp11l4l72jfor"]
+[gd_resource type="TileSet" load_steps=39 format=3 uid="uid://dp11l4l72jfor"]
 
 [ext_resource type="Texture2D" uid="uid://uloa0egqd72y" path="res://asset/tileMaps/tileset.png" id="1_4mmnl"]
 [ext_resource type="Texture2D" uid="uid://bvspkui71n2td" path="res://asset/tileMaps/mountains.png" id="2_vvjue"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://l70sx4i2fm6" path="res://asset/tileMaps/castle.png" id="6_upkm0"]
 [ext_resource type="Texture2D" uid="uid://bf2hsqwli6s15" path="res://asset/tileMaps/cave1.png" id="7_ik1dc"]
 [ext_resource type="Texture2D" uid="uid://b1jwnw6mqmsg8" path="res://asset/tileMaps/Snow platform tileset.png" id="7_lespq"]
+[ext_resource type="Texture2D" uid="uid://bmvx7yqc63qi1" path="res://asset/tileMaps/ground stones.png" id="7_wof55"]
 [ext_resource type="Texture2D" uid="uid://l0s6pv0od2al" path="res://asset/tileMaps/city1.png" id="10_h84fw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4dgsd"]
@@ -2784,6 +2785,15 @@ texture_region_size = Vector2i(18, 18)
 21:14/0 = 0
 21:14/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 21:14/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pcob8"]
+texture = ExtResource("7_wof55")
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjcnd"]
 texture = ExtResource("3_1ndu7")
@@ -7629,6 +7639,7 @@ sources/9 = SubResource("TileSetAtlasSource_36d3h")
 sources/10 = SubResource("TileSetAtlasSource_1dj8c")
 sources/12 = SubResource("TileSetAtlasSource_o5cw7")
 sources/13 = SubResource("TileSetAtlasSource_afam6")
+sources/14 = SubResource("TileSetAtlasSource_pcob8")
 pattern_0 = SubResource("TileMapPattern_4dgsd")
 pattern_1 = SubResource("TileMapPattern_gpg6w")
 pattern_2 = SubResource("TileMapPattern_or1wn")
