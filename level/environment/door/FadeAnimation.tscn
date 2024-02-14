@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3atm3a43lgqh"]
+[gd_scene load_steps=6 format=3 uid="uid://c3atm3a43lgqh"]
 
 [ext_resource type="Script" path="res://level/environment/door/FadeAnimation.gd" id="1_uv8rh"]
 
@@ -19,7 +19,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_27uvb"]
 resource_name = "fade"
-length = 0.6
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,19 +27,25 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_q83wv"]
+resource_name = "idle"
+loop_mode = 1
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_12r7q"]
 _data = {
 "RESET": SubResource("Animation_2tn4b"),
-"fade": SubResource("Animation_27uvb")
+"fade": SubResource("Animation_27uvb"),
+"idle": SubResource("Animation_q83wv")
 }
 
 [node name="FadeAnimation" type="CanvasLayer"]
+layer = -1
 script = ExtResource("1_uv8rh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -54,3 +60,6 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_12r7q")
 }
+autoplay = "idle"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
