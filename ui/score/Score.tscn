@@ -1,0 +1,262 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwfstsjel40f"]
+
+[ext_resource type="Script" path="res://ui/score/Score.gd" id="1_1s5tf"]
+[ext_resource type="Texture2D" uid="uid://cl24lyhupr7hc" path="res://asset/ui/Box_WhiteOutline_Rounded.png" id="1_ul12k"]
+[ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="2_g7sop"]
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="2_nr0ys"]
+[ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="3_tvvff"]
+[ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_0hb7g"]
+[ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="5_ts5cl"]
+[ext_resource type="FontFile" uid="uid://dn01r48g8bq3y" path="res://asset/fonts/ProtestRevolution-Regular.ttf" id="7_yovmr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26cix"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54c8k"]
+size = Vector2(900, 600)
+
+[node name="Score" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_1s5tf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_nr0ys")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ScoreBoard" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(900, 600)
+layout_mode = 2
+offset_left = 190.0
+offset_top = 60.0
+offset_right = 1090.0
+offset_bottom = 660.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_ul12k")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScoreBoard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScoreBoard/MarginContainer"]
+layout_mode = 2
+
+[node name="totalProcent" type="HBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/totalProcent"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = "SCORE: "
+
+[node name="Score" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/totalProcent"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = "0 %"
+
+[node name="HSeparator" type="HSeparator" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_26cix")
+
+[node name="goldCoinScore" type="HBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/goldCoinScore"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_g7sop")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/goldCoinScore"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 40
+text = "GOLD COINS"
+
+[node name="Score" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/goldCoinScore"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = "0/ 99 = 0%"
+
+[node name="redCoinScore" type="HBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/redCoinScore"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_tvvff")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/redCoinScore"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = "RED COINS"
+
+[node name="Score" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/redCoinScore"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = "0 / 5 = 0%"
+
+[node name="gemScore" type="HBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/gemScore"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_0hb7g")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/gemScore"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = "GEMS"
+
+[node name="Score" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/gemScore"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = "0 / 5 = 0%"
+
+[node name="catScore" type="HBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="cat1" type="TextureRect" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/catScore"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("5_ts5cl")
+expand_mode = 1
+
+[node name="cat2" type="TextureRect" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/catScore"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("5_ts5cl")
+expand_mode = 1
+
+[node name="cat3" type="TextureRect" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/catScore"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("5_ts5cl")
+expand_mode = 1
+
+[node name="Score" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/catScore"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = " = 0%"
+
+[node name="HSeparator2" type="HSeparator" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxFlat_26cix")
+
+[node name="totalScore" type="HBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/totalScore"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = "TOTAL SCORE"
+
+[node name="Label2" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/totalScore"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 40
+text = "0%"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(642, 359)
+shape = SubResource("RectangleShape2D_54c8k")
+action = "ui_accept"
