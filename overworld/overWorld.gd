@@ -3,6 +3,7 @@ extends Node2D
 @onready var player = $PlayerOverWorld
 @onready var camera : Camera2D = $Cameras/Camera2D
 @onready var screenshotCamera : Camera2D = $ScreenshotCamera
+
 @onready var uiNodesWorld1 = $"World1 - Wood/ui"
 @onready var uiNodesWorld2 = $"World2 - Swamp/ui"
 @onready var uiNodesWorld3 = $"World3 - Desert/ui"
@@ -66,7 +67,6 @@ var disableInteractions = []
 var cameraOnChange = false
 
 
-
 func _ready():
 	levelUis = [uiNodesWorld1, uiNodesWorld2, uiNodesWorld3, uiNodesWorld4,
 		uiNodesWorld5, uiNodesWorld6, uiNodesWorld7]
@@ -79,17 +79,16 @@ func _ready():
 		obstacle5_1, obstacle5_2, obstacle6_1, obstacle6_2, obstacle6_3, obstacle7_1, 
 		obstacle7_2]
 		
-	
-	
 	_load_and_update_data()
 	_check_cat_mom_done()
 	_check_interactions_disables()
 	_check_start_interactions()
 
-func _process(_delta):		
+func _process(_delta):	
 	changeCamera()
 	
-	if LevelManager.levelCleared: make_save_screenshot()
+	if LevelManager.levelCleared: 
+		make_save_screenshot()
 	
 	if activeInteraction : 
 		set_ui_visible(false)
@@ -186,7 +185,7 @@ func _check_start_interactions():
 	
 	if !LEVEL_INTERACTIONS.has(startLevelInteraction) || disableInteractions.has(startLevelInteraction): 
 		return
-
+	
 	activeInteraction = true
 	
 	var index = LEVEL_INTERACTIONS.find(startLevelInteraction,0)
@@ -226,6 +225,7 @@ func set_ui_visible(boolean):
 func interaction_done():
 	activeInteraction = false
 
+
 func make_save_screenshot():
 	LevelManager.levelCleared = false
 	
@@ -233,6 +233,7 @@ func make_save_screenshot():
 	player.set_control_ui(false)
 	screenshotCamera.global_position = player.global_position
 	screenshotCamera.make_current()
+	screenshotCamera.zoom = Vector2(7.5, 7.5)
 	
 	await get_tree().create_timer(0.15).timeout
 	
@@ -240,6 +241,21 @@ func make_save_screenshot():
 	image.resize(640, 360)
 	image.save_png("user://screenshot"+ str(GameManager.gameNumber) +".png")
 	
+	var tween = get_tree().create_tween()
+	var tween2 = get_tree().create_tween()
+	
+	tween.tween_property(screenshotCamera, "zoom", Vector2(2,2), 1)
+	tween2.tween_property(screenshotCamera, "global_position", camera.global_position, 1)
+	
+	await get_tree().create_timer(1).timeout
+	
 	camera.make_current()
-	activeInteraction = false
 	player.set_control_ui(true)
+	
+	if !LEVEL_INTERACTIONS.has(LevelManager.activeLevel): 	activeInteraction = false
+
+func zoom_out(camera):
+	camera.zoom = Vector2(7.5, 7.5)
+	var tween = get_tree().create_tween()
+	
+	tween.tween_property(camera, "zoom", Vector2(2,2), 1)
