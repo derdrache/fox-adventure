@@ -6,11 +6,11 @@ var showBridge = false
 
 func _process(_delta):
 	var parentIsSwitch = HelperFunctions.is_parent_switch(get_parent())
-	
+
 	if parentIsSwitch:
 		if switchReverseEffect: showBridge = !get_parent().used
 		else: showBridge = get_parent().used
-	
+	else: showBridge = true
 	_changeBridge()
 
 
