@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://qm8i1koeqvw2"]
+[gd_scene load_steps=5 format=3 uid="uid://qm8i1koeqvw2"]
 
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="1_3vp2k"]
 [ext_resource type="Script" path="res://ui/load_window/SelectLoadData.gd" id="1_vqjba"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_xfssn"]
 [ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/ButtonText_Small_ROund.png" id="3_c532r"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3vp2k")
 script = ExtResource("1_vqjba")
 
 [node name="Background" parent="." instance=ExtResource("1_xfssn")]
@@ -46,9 +48,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -25.0
-offset_right = 100.0
-offset_bottom = 25.0
+offset_top = -53.0
+offset_right = 157.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_c532r")
@@ -70,7 +72,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 40
 text = "NEW GAME"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
