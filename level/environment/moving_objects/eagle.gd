@@ -60,6 +60,7 @@ func _release():
 func _on_area_top_body_entered(body):
 	if body is Player && isActive:
 		playerBody = body
+		body.movingObjectSpeed = MOVE_SPEED
 		move = true
 		enteredBottom = false
 
@@ -67,10 +68,12 @@ func _on_area_top_body_exited(body):
 	if body is Player && isActive:
 		move = false
 		playerBody = null
+		body.movingObjectSpeed = null
 
 func _on_area_bottom_body_entered(body):
 	if body is Player && isActive:
 		playerBody = body
+		body.movingObjectSpeed = MOVE_SPEED
 		move = true
 		enteredBottom = true
 
@@ -78,5 +81,6 @@ func _on_area_bottom_body_exited(body):
 	if body is Player && isActive: 
 		move = false
 		playerBody = null
+		body.movingObjectSpeed = null
 
 
