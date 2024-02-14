@@ -10,8 +10,10 @@ class_name Player
 @onready var normalCollider = $normalCollision
 @onready var crawlCollider = $crawlCollision
 @onready var climbCollider = $climbCollision
+@onready var swimCollider = $swimCollision
 @onready var levelTileMap : TileMap = get_node("../TileMap")
 @onready var fadeAnimation = $Camera2D/FadeAnimation
+@onready var audioPlayer : AudioStreamPlayer = $AudioStreamPlayer
 
 
 enum { MOVE , CLIMB , JUMP, STOMP, DIG, HANG, SLIDE, CRAWL, SWIM}
@@ -45,15 +47,19 @@ var doStomp = false
 var lastMovableObject
 var followObjects : int = 0
 var wasOnCLimbingObject = false
+var movingObjectSpeed
 
 func _ready():
 	$MobileControlUi.visible = true
 	$LevelUI.visible = true
+	audioPlayer.play()
 
 func _process(_delta):
 	underWater = "water" in get_tile_data()
 
 func _physics_process(delta):
+	_get_moving_object_speed()
+	
 	if is_on_floor(): doStomp = false
 	
 	_reset_was_on_climbing_object()
@@ -435,19 +441,27 @@ func _cant_stand_up():
 
 func _change_collider():
 	match state:
-		MOVE, JUMP, SWIM: 
+		MOVE, JUMP: 
 			normalCollider.disabled = false
 			crawlCollider.disabled = true
 			climbCollider.disabled = true
+			swimCollider.disabled = true
 		CRAWL:
 			normalCollider.disabled = true
 			crawlCollider.disabled = false
 			climbCollider.disabled = true
+			swimCollider.disabled = true
 		CLIMB:
 			normalCollider.disabled = true
 			crawlCollider.disabled = true
 			climbCollider.disabled = false
-
+			swimCollider.disabled = true
+		SWIM:
+			swimCollider.disabled = false
+			normalCollider.disabled = true
+			climbCollider.disabled = true
+			crawlCollider.disabled = true
+			
 func _check_last_floor_position():
 	var isOnDigTile = "dig" == get_tile_data("bottom", "customData",position)
 
@@ -473,3 +487,15 @@ func _reset_was_on_climbing_object():
 func start_fade_animation(animation : String):
 	if animation == "in": fadeAnimation.fade_in()
 	elif animation == "out": fadeAnimation.fade_out()
+
+func _get_moving_object_speed():
+	var onPlatform = false
+	
+	for i in collision_check.get_collision_count():
+		var colliderName = collision_check.get_collider(i).name if collision_check.get_collider(i) != null else ""
+		
+		if "Platform" in colliderName:
+			onPlatform = true
+			movingObjectSpeed = collision_check.get_collider(i).get_parent().moving_speed
+	
+	if !onPlatform: movingObjectSpeed = null
