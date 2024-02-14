@@ -16,7 +16,7 @@ func _input(event):
 		if playerBody == null: return
 		playerBody.start_fade_animation("out")
 		await get_tree().create_timer(0.6).timeout
-		playerBody.position = conectionDoor.global_position 
+		playerBody.global_position = conectionDoor.global_position 
 		playerBody.start_fade_animation("in")
 	
 func _on_body_entered(body):
