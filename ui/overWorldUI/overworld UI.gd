@@ -26,4 +26,15 @@ func _on_menu_button_pressed():
 
 func _on_exit_button_pressed():
 	GameManager.gameNumber = 0
-	get_tree().change_scene_to_file("res://ui/startMenu.tscn")
+	get_tree().change_scene_to_file("res://ui/startMenu/startMenu.tscn")
+
+func _on_setting_button_pressed():
+	$Control/SettingMenu.visible = true
+	menuSelection.visible = false
+	menuSelection.visible = false
+	closeButtonRect.visible = false
+	menuButton.visible = true
+
+
+func _on_setting_menu_close_window():
+	backgroundRect.visible = false
