@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjibcolu08tat"]
+[gd_scene load_steps=9 format=3 uid="uid://bjibcolu08tat"]
 
-[ext_resource type="Script" path="res://ui/LevelUI.gd" id="1_tddkm"]
+[ext_resource type="Script" path="res://ui/levelUI/LevelUI.gd" id="1_tddkm"]
 [ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="2_20pnj"]
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="2_e3uep"]
 [ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_rosf4"]
 [ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="5_drr2r"]
 [ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="6_d1kwq"]
@@ -22,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_e3uep")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -59,6 +61,7 @@ texture = ExtResource("2_20pnj")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GoldContainer"]
+custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "x 0"
 label_settings = SubResource("LabelSettings_ooens")
