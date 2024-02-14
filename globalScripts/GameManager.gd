@@ -10,7 +10,8 @@ var playerPosition = Vector2.ZERO
 var playTimeSeconds = 0
 var gameStart : Dictionary
 var catMomsDone : Array = [false, false, false, false, false, false, false]
-
+var backgroundMusicVolumen : int
+var soundEffectsVolumen : int
 
 func _ready():	
 	if !levelDetails.is_empty(): return
@@ -46,7 +47,7 @@ func save_player_position_and_time(position):
 	
 	var now = Time.get_datetime_dict_from_system()
 	var nowSeconds = Time.get_unix_time_from_datetime_dict(now)
-	var gameStartSeconds = Time.get_unix_time_from_datetime_dict(gameStart)
+	var gameStartSeconds = Time.get_unix_time_from_datetime_dict(gameStart) if !gameStart.is_empty() else 0
 	var playedSeconds = nowSeconds - gameStartSeconds
 	
 	playTimeSeconds += playedSeconds
