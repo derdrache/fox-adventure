@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://wuh44imlcxym"]
+[gd_scene load_steps=11 format=3 uid="uid://wuh44imlcxym"]
 
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="1_c7sre"]
 [ext_resource type="Shader" path="res://ui/load_window/SelectLoadData.gdshader" id="1_hivab"]
 [ext_resource type="Script" path="res://ui/load_window/save_file_container.gd" id="1_ttjgs"]
 [ext_resource type="Texture2D" uid="uid://d05im41paldql" path="res://asset/icon.svg" id="2_ydkpp"]
@@ -48,6 +49,7 @@ shader_parameter/bottomLeftCorner = true
 custom_minimum_size = Vector2(200, 200)
 offset_right = 316.0
 offset_bottom = 229.0
+theme = ExtResource("1_c7sre")
 theme_override_styles/panel = SubResource("StyleBoxFlat_6bdfy")
 script = ExtResource("1_ttjgs")
 loadingTexture = NodePath("VBoxContainer/LoadImageContainer/LoadingScreen1")
