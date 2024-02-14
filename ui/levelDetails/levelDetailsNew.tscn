@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://lul6b2ogi6me"]
+[gd_scene load_steps=12 format=3 uid="uid://lul6b2ogi6me"]
 
 [ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="1_67pyt"]
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="1_gcs0h"]
 [ext_resource type="Script" path="res://ui/levelDetails/levelDetailsNew.gd" id="1_oxweo"]
 [ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="2_341hl"]
 [ext_resource type="Texture2D" uid="uid://ck0do3yvu5m6h" path="res://asset/ui/Icon_Stats.png" id="2_ts1r7"]
@@ -40,6 +41,7 @@ offset_right = -611.0
 offset_bottom = -186.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_gcs0h")
 script = ExtResource("1_oxweo")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
