@@ -40,7 +40,6 @@ func _ready():
 	add_to_group(\"catMoms\")
 
 func _process(delta):
-	
 	_set_founded_cats_label()
 	
 func _physics_process(delta):
@@ -416,6 +415,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="DoneMessageBox" type="NinePatchRect" parent="PathFollow2D/CatMomBody/DoneMessage"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = -32.0
 offset_right = 15.0
@@ -460,6 +460,7 @@ offset_right = 37.0
 offset_bottom = -10.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MessageBox"]
+layout_mode = 0
 offset_left = -5.0
 offset_top = -8.0
 offset_right = 59.0
