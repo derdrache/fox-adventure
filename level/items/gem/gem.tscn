@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7a5eebnq58g"]
+[gd_scene load_steps=11 format=3 uid="uid://b7a5eebnq58g"]
 
 [ext_resource type="Script" path="res://level/items/gem/Gem.gd" id="1_v0c4s"]
 [ext_resource type="Texture2D" uid="uid://eww3kmm3hmlo" path="res://asset/sprites/gem.png" id="2_f84ma"]
+[ext_resource type="AudioStream" uid="uid://d24vgrq6j2nud" path="res://asset/sound/item collect.mp3" id="3_m44q2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4m70"]
 atlas = ExtResource("2_f84ma")
@@ -71,4 +72,9 @@ autoplay = "idle"
 position = Vector2(-2.06015e-07, 2.3939e-07)
 shape = SubResource("RectangleShape2D_e2f5b")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m44q2")
+bus = &"SoundEffect"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
