@@ -8,6 +8,7 @@ signal gained_cat(Array)
 var gems : int
 var redCoins : int
 var goldCoins : int
+var maxGoldCoins : int
 var activeLevel : int
 var activeLevelPosition : Vector2
 var levelCleared = false
