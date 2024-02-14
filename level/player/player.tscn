@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://hsjuocp3ilb4"]
+[gd_scene load_steps=56 format=3 uid="uid://hsjuocp3ilb4"]
 
 [ext_resource type="Script" path="res://level/player/Player.gd" id="1_ii644"]
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player/player.png" id="2_g3iq6"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bvs5wrkorp7v6" path="res://asset/sprites/player/FoxDigging.png" id="4_sc2hi"]
 [ext_resource type="Texture2D" uid="uid://qfdox23ufcsk" path="res://asset/sprites/player/FoxOnDelphine.png" id="4_u5ma8"]
 [ext_resource type="PackedScene" uid="uid://c3atm3a43lgqh" path="res://level/environment/door/FadeAnimation.tscn" id="6_blwnw"]
-[ext_resource type="PackedScene" uid="uid://bjibcolu08tat" path="res://ui/LevelUI.tscn" id="7_ag5j1"]
+[ext_resource type="PackedScene" uid="uid://bjibcolu08tat" path="res://ui/levelUI/LevelUI.tscn" id="7_ag5j1"]
 [ext_resource type="PackedScene" uid="uid://disyyhq2jak5d" path="res://ui/controller/mobileControlUI2old.tscn" id="8_78nrl"]
 [ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://level/player/enemy-deadth.png" id="8_b8dw4"]
+[ext_resource type="AudioStream" uid="uid://c7sk5x7msjncw" path="res://asset/sound/Background1.mp3" id="10_ksxp3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xi5w"]
 atlas = ExtResource("2_g3iq6")
@@ -249,6 +250,9 @@ size = Vector2(13, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wxj5"]
 size = Vector2(12, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qppnu"]
+size = Vector2(13, 23)
+
 [sub_resource type="Animation" id="Animation_ipp55"]
 length = 0.001
 
@@ -345,7 +349,7 @@ script = ExtResource("1_ii644")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5nbca")
-animation = &"idle"
+animation = &"swim"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -355,21 +359,22 @@ zoom = Vector2(3.5, 3.5)
 [node name="FadeAnimation" parent="Camera2D" instance=ExtResource("6_blwnw")]
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 6.25)
 shape = SubResource("RectangleShape2D_5v1rr")
 
 [node name="crawlCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0.5, 12)
 shape = SubResource("RectangleShape2D_wmf5s")
 disabled = true
 
 [node name="climbCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_4wxj5")
 disabled = true
+
+[node name="swimCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_qppnu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -414,3 +419,8 @@ visible = false
 
 [node name="MobileControlUi" parent="." instance=ExtResource("8_78nrl")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ksxp3")
+autoplay = true
+bus = &"BackgroundMusic"
