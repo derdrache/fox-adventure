@@ -7,16 +7,22 @@ extends CharacterBody2D
 @onready var blueCatAnimationsSprite = $blueCat
 @onready var berryCatAnimationsSprite = $berryCat
 @onready var area2D : Area2D = $Area2D
+@onready var pickUpMessage = $PickupMessage
+@onready var meowMessage = $MeowMessage
+@onready var audioPlayer = $AudioStreamPlayer2D
+@onready var rayCast = $RayCast2D
 
 @export var target: Player
 @export var isWaiting = true
+
+const MAX_SPEED = 100
 
 var speed = 100
 
 var animationSprite : AnimatedSprite2D
 var followPosition = 0	
 var catColorArray : Array
-
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	catColorArray = [whiteCatAnimationsSprite, yellowCatAnimationsSprite, BlackCatAnimationsSprite, 
@@ -29,13 +35,18 @@ func _ready():
 	
 	_set_random_cat_color()
 
+func _process(delta):
+	if !isWaiting: _random_meow()
+
 func _physics_process(delta):
 	speed = target.speed
+
+	_get_moving_object_speed()
 	
 	_catch_up()
 	
 	_calculate_velocity()
-	
+
 	move_and_slide()
 	
 	_set_animation()
@@ -43,15 +54,19 @@ func _physics_process(delta):
 func _calculate_velocity():
 	if isWaiting: return
 
-	var targetPosition = target.global_position - Vector2(0, -9)
-	if global_position.distance_to(targetPosition) > 20  * followPosition:
+	var targetPosition = target.global_position - Vector2(0, -8)
+	
+	if global_position.distance_to(targetPosition) > 40  * followPosition:
+		var direction = (targetPosition - global_position).normalized()
+		velocity = direction * (MAX_SPEED + speed)
+		velocity.y *= 3		
+	elif global_position.distance_to(targetPosition) > 20  * followPosition:
 		var direction = (targetPosition - global_position).normalized()
 		velocity = direction * speed
 		velocity.y *= 3
 	elif (global_position.y - targetPosition.y) < -2 || (global_position.y - targetPosition.y) > 2:
 		velocity.x = 0
-	else: 
-		velocity = Vector2.ZERO
+	else: velocity = Vector2.ZERO
 	
 func _set_animation():
 	if isWaiting || target.velocity == Vector2.ZERO: 
@@ -85,12 +100,29 @@ func _set_cat_color(catNumber):
 	animationSprite.visible = true
 
 func _catch_up():
-	var catchUpRange = 200
+	var catchUpRange = 300
 	
 	if isWaiting: return
 	
 	if global_position.distance_to(target.global_position) > catchUpRange:
-		global_position = target.global_position - Vector2(0, -9)
+		global_position = target.global_position - Vector2(0, -8)
+
+func _show_pick_up_message():
+	pickUpMessage.visible = true
+	await get_tree().create_timer(2).timeout
+	pickUpMessage.visible = false
+
+func _random_meow():
+	var randomNumber = rng.randi_range(0, 10000.0)
+	if randomNumber == 1:
+		meowMessage.visible = true
+		audioPlayer.play()
+		await get_tree().create_timer(2).timeout
+		meowMessage.visible = false
+
+func _get_moving_object_speed():
+	if target.movingObjectSpeed:
+		speed = target.movingObjectSpeed
 
 func _on_area_2d_body_entered(body):
 	if body is Player && isWaiting:
@@ -100,3 +132,4 @@ func _on_area_2d_body_entered(body):
 		followPosition = body.followObjects + 1
 		body.followObjects += 1
 		LevelManager.gain_cat(catNumber)
+		_show_pick_up_message()

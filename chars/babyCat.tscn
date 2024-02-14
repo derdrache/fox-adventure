@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://bk2g3c83ik1k6"]
+[gd_scene load_steps=108 format=3 uid="uid://bk2g3c83ik1k6"]
 
 [ext_resource type="Texture2D" uid="uid://bkuqefp6aneos" path="res://asset/sprites/cats/WhiteCatIdle.png" id="1_k8r08"]
 [ext_resource type="Script" path="res://chars/babyCat.gd" id="1_ll2a6"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://00wl6o2vtyi5" path="res://asset/sprites/cats/CatLightbrownRun.png" id="9_76me7"]
 [ext_resource type="Texture2D" uid="uid://didvr5u8cjq87" path="res://asset/sprites/cats/CatBlueRun.png" id="11_hknoi"]
 [ext_resource type="Texture2D" uid="uid://c65cr1koxceo8" path="res://asset/sprites/cats/CatBerryRun.png" id="13_dk88w"]
+[ext_resource type="Texture2D" uid="uid://dts8bcbtpoav0" path="res://asset/ui/Box.png" id="14_72wyp"]
+[ext_resource type="Texture2D" uid="uid://betdxkfpo1313" path="res://asset/ui/Icon_Large_HeartFull_WhiteOutline.png" id="15_7jfmc"]
+[ext_resource type="AudioStream" uid="uid://qhoy1jcwqwa8" path="res://asset/sound/cat-meow.mp3" id="16_8nfxu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8nt5"]
 atlas = ExtResource("1_k8r08")
@@ -794,5 +797,95 @@ autoplay = "idle"
 visible = false
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_xhd50")
+
+[node name="PickupMessage" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DoneMessageBox" type="NinePatchRect" parent="PickupMessage"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = -2.0
+texture = ExtResource("14_72wyp")
+region_rect = Rect2(0, 0, 880, 624)
+
+[node name="MarginContainer" type="MarginContainer" parent="PickupMessage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -25.0
+offset_right = -20.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PickupMessage/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="PickupMessage/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_7jfmc")
+expand_mode = 1
+
+[node name="MeowMessage" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DoneMessageBox" type="NinePatchRect" parent="MeowMessage"]
+layout_mode = 0
+offset_top = -21.0
+offset_right = 29.0
+offset_bottom = -2.0
+texture = ExtResource("14_72wyp")
+region_rect = Rect2(0, 0, 880, 624)
+
+[node name="MarginContainer" type="MarginContainer" parent="MeowMessage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -19.0
+offset_right = -12.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MeowMessage/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MeowMessage/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "MEOW"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_8nfxu")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 7)
+target_position = Vector2(0, 8)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
