@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Fox Adventure"
-run/main_scene="res://ui/startMenu.tscn"
+run/main_scene="res://ui/startMenu/startMenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://asset/icon.svg"
+
+[audio]
+
+buses/default_bus_layout=""
 
 [autoload]
 
