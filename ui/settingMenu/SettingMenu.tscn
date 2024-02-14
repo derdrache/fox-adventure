@@ -1,0 +1,160 @@
+[gd_scene load_steps=7 format=3 uid="uid://ug6dcwplmet0"]
+
+[ext_resource type="Texture2D" uid="uid://cl24lyhupr7hc" path="res://asset/ui/Box_WhiteOutline_Rounded.png" id="1_lipvg"]
+[ext_resource type="Script" path="res://ui/settingMenu/SettingMenu.gd" id="1_nxojf"]
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="1_xnspw"]
+[ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="2_tk30n"]
+[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/ButtonText_Small_ROund.png" id="3_0hdp0"]
+[ext_resource type="AudioStream" uid="uid://qhoy1jcwqwa8" path="res://asset/sound/cat-meow.mp3" id="5_vh17k"]
+
+[node name="SettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xnspw")
+script = ExtResource("1_nxojf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lipvg")
+expand_mode = 1
+
+[node name="CloseButtonMenu" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_bottom = 30.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="CloseButton" type="TextureButton" parent="TextureRect/CloseButtonMenu"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/CloseButtonMenu/CloseButton"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_right = 145.0
+offset_bottom = 157.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_tk30n")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -33.0
+offset_right = 186.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Background Music" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/Background Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 25
+text = "Background Music"
+
+[node name="BackgroundMusicSlider" type="HSlider" parent="TextureRect/VBoxContainer/Background Music"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 49.0
+value = 49.0
+
+[node name="Sound Effects" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/Sound Effects"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 25
+text = "Sound Effects"
+
+[node name="SoundEffectSlider" type="HSlider" parent="TextureRect/VBoxContainer/Sound Effects"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 48.0
+value = 25.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_top = 50
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/MarginContainer/TextureButton"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0hdp0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/MarginContainer/TextureButton/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "CREDITS"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vh17k")
+bus = &"BackgroundMusic"
+
+[connection signal="pressed" from="TextureRect/CloseButtonMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="value_changed" from="TextureRect/VBoxContainer/Background Music/BackgroundMusicSlider" to="." method="_on_background_music_slider_value_changed"]
+[connection signal="value_changed" from="TextureRect/VBoxContainer/Sound Effects/SoundEffectSlider" to="." method="_on_sound_effect_slider_value_changed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
