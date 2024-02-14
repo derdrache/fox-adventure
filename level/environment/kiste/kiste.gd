@@ -50,6 +50,7 @@ func _changeSpawningNodeVisibility(show):
 
 func _dropGem():
 	isEmpty = true
+	$specialItemCollect.play()
 	$CollisionShape2D.set_deferred("disabled", true)
 	$gemSprite.visible = true
 	await get_tree().create_timer(0.5).timeout
@@ -59,6 +60,7 @@ func _dropGem():
 
 func _dropRedCoin():
 	isEmpty = true
+	$specialItemCollect.play()
 	$CollisionShape2D.set_deferred("disabled", true)
 	$redCoinSprite.visible = true
 	await get_tree().create_timer(0.5).timeout
@@ -67,6 +69,7 @@ func _dropRedCoin():
 	
 
 func _dropGoldCoin():
+	$normalItemCollect.play()
 	goldCoins -= 1
 	gain_gold_coin()
 	

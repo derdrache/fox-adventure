@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://3ptydmvhu3vd"]
+[gd_scene load_steps=26 format=3 uid="uid://3ptydmvhu3vd"]
 
 [ext_resource type="Script" path="res://level/environment/kiste/kiste.gd" id="1_3eh3p"]
 [ext_resource type="Texture2D" uid="uid://b8baombe7jl1q" path="res://asset/sprites/Kiste_verschwindet.png" id="2_ecfkb"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://eww3kmm3hmlo" path="res://asset/sprites/gem.png" id="3_yvb1y"]
 [ext_resource type="Texture2D" uid="uid://balmo2vy1ff4p" path="res://asset/sprites/MonedaR.png" id="5_yitdu"]
 [ext_resource type="Texture2D" uid="uid://dunabe5nw4n12" path="res://asset/sprites/MonedaD.png" id="6_b2qqr"]
+[ext_resource type="AudioStream" uid="uid://ct8kbkfwlxpiy" path="res://asset/sound/item collect short.mp3" id="7_ptahv"]
+[ext_resource type="AudioStream" uid="uid://d24vgrq6j2nud" path="res://asset/sound/item collect.mp3" id="8_4t86q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7fgs"]
 atlas = ExtResource("2_ecfkb")
@@ -165,6 +167,13 @@ visible = false
 position = Vector2(0, -21)
 texture = ExtResource("6_b2qqr")
 hframes = 5
+
+[node name="normalItemCollect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ptahv")
+bus = &"SoundEffect"
+
+[node name="specialItemCollect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4t86q")
 
 [connection signal="animation_finished" from="boxSprite" to="." method="_on_box_sprite_animation_finished"]
 [connection signal="body_entered" from="bottomArea" to="." method="_on_bottom_area_body_entered"]
