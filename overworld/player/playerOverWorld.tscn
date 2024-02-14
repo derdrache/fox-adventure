@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player/player.png" id="1_bsx8j"]
 [ext_resource type="Script" path="res://overworld/player/playerOverWorld.gd" id="1_o7vvp"]
 [ext_resource type="PackedScene" uid="uid://disyyhq2jak5d" path="res://ui/controller/mobileControlUI2old.tscn" id="3_wfb0j"]
-[ext_resource type="PackedScene" uid="uid://bxec7dx2y5mlt" path="res://ui/overworld UI.tscn" id="4_gthq3"]
+[ext_resource type="PackedScene" uid="uid://bxec7dx2y5mlt" path="res://ui/overWorldUI/overworld UI.tscn" id="4_gthq3"]
 
 [sub_resource type="Animation" id="Animation_pbn7e"]
 length = 0.001
