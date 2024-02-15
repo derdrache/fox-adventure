@@ -130,6 +130,7 @@ position = Vector2(192, 30)
 [node name="SwampPlatform" parent="environment" instance=ExtResource("10_luiak")]
 position = Vector2(1522, 51)
 curve = SubResource("Curve2D_r8r2l")
+moving_speed = 60
 
 [node name="SwampPlatform3" parent="environment" instance=ExtResource("10_luiak")]
 position = Vector2(3148, 122)
@@ -316,7 +317,7 @@ tilesHeight = 11
 position = Vector2(2592, 272)
 
 [node name="Player" parent="." instance=ExtResource("2_tmuyh")]
-position = Vector2(88, 289)
+position = Vector2(91, 288)
 
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_rotkb")]
 position = Vector2(3991, 169)

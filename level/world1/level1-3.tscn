@@ -315,13 +315,11 @@ spawningNode = NodePath("../../../enviroment/lianes/lianes2")
 
 [node name="Fog" parent="fog" instance=ExtResource("15_n2t8m")]
 position = Vector2(192, 608)
-scale = Vector2(3, 3)
 tilesWith = 10
 tilesHeight = 8
 
 [node name="Fog2" parent="fog" instance=ExtResource("15_n2t8m")]
 position = Vector2(5584, 384)
-scale = Vector2(3, 3)
 tilesWith = 12
 tilesHeight = 9
 
@@ -340,7 +338,7 @@ position = Vector2(2120, 728)
 shape = SubResource("RectangleShape2D_o2gci")
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(224, 480)
+position = Vector2(224, 481)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("21_rkeg2")]
 position = Vector2(1162, 489)
