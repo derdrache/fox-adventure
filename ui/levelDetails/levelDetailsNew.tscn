@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="3_dmx8g"]
 [ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="4_cy2sh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5o170"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i26iq"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 5
 border_width_top = 5
@@ -50,12 +50,14 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 222.0
 offset_bottom = 93.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5o170")
+theme_override_styles/panel = SubResource("StyleBoxFlat_i26iq")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -78,14 +80,18 @@ text = "Wood 1"
 [node name="TextureButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureButton"]
 custom_minimum_size = Vector2(10, 10)
-layout_mode = 0
-offset_left = -15.0
-offset_top = 7.0
-offset_right = 25.0
-offset_bottom = 47.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_ts1r7")
 expand_mode = 1
