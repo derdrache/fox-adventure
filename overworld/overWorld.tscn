@@ -5200,7 +5200,7 @@ enabled = false
 zoom = Vector2(2, 2)
 
 [node name="PlayerOverWorld" parent="." instance=ExtResource("4_8spb5")]
-position = Vector2(249, 287)
+position = Vector2(249, 286)
 
 [node name="ScreenshotCamera" type="Camera2D" parent="."]
 position = Vector2(243, 272)
