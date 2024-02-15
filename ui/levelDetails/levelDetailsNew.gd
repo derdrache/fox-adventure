@@ -13,6 +13,7 @@ extends Control
 @onready var goldCoinLabel = $PanelContainer/MarginContainer/VBoxContainer/LevelDetails/HBoxContainer2/Label
 @onready var percentDoneLabel = $PanelContainer/MarginContainer/VBoxContainer/Label
 
+
 var showDetails = false
 
 func _ready():
@@ -66,6 +67,6 @@ func _on_texture_button_pressed():
 		levelDetails.visible = false
 	else:
 		levelDetails.visible = true		
-		
+
 	showDetails = !showDetails
 
