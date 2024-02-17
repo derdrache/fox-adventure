@@ -22,3 +22,7 @@ func _on_body_entered(body):
 
 func _on_audio_stream_player_2d_finished():
 	queue_free()
+
+
+func _on_special_item_collect_finished():
+	queue_free()

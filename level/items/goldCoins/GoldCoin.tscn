@@ -77,3 +77,4 @@ stream = ExtResource("4_jqg70")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="normalItemCollect" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="finished" from="specialItemCollect" to="." method="_on_special_item_collect_finished"]
