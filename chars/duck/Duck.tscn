@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cce1ci32bqmph"]
+[gd_scene load_steps=23 format=3 uid="uid://cce1ci32bqmph"]
 
 [ext_resource type="Script" path="res://chars/duck/Duck.gd" id="1_l21ul"]
 [ext_resource type="Texture2D" uid="uid://b43iwic6xrpnf" path="res://asset/sprites/DuckAnimation.png" id="2_2u3yj"]
+[ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://asset/effects/enemy-deadth.png" id="3_actwc"]
+[ext_resource type="PackedScene" uid="uid://cg0wi1yv88l" path="res://ui/short_message_box.tscn" id="4_lbran"]
+[ext_resource type="Texture2D" uid="uid://2oymhobpvlfy" path="res://asset/emotes/pipo-popupemotes017.png" id="5_tg2sl"]
+[ext_resource type="Texture2D" uid="uid://27385joxucu4" path="res://asset/emotes/pipo-popupemotes050.png" id="6_87xp3"]
 
 [sub_resource type="Curve2D" id="Curve2D_hyirh"]
 resource_local_to_scene = true
@@ -41,11 +45,107 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_mtum8"]
+resource_name = "remove_obstacle"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_70eoq"]
 _data = {
 "RESET": SubResource("Animation_5fdyt"),
-"fly": SubResource("Animation_2vexl")
+"fly": SubResource("Animation_2vexl"),
+"remove_obstacle": SubResource("Animation_mtum8")
 }
+
+[sub_resource type="Animation" id="Animation_wm62d"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_x28t1"]
+resource_name = "work"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorkDust:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 2, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorkDust:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y6x8o"]
+_data = {
+"RESET": SubResource("Animation_wm62d"),
+"work": SubResource("Animation_x28t1")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htw2c"]
+atlas = ExtResource("5_tg2sl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd4o8"]
+atlas = ExtResource("5_tg2sl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l60f4"]
+atlas = ExtResource("5_tg2sl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doa6c"]
+atlas = ExtResource("6_87xp3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msdxp"]
+atlas = ExtResource("6_87xp3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfuna"]
+atlas = ExtResource("6_87xp3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iv2v4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htw2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd4o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l60f4")
+}],
+"loop": true,
+"name": &"idea",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doa6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msdxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfuna")
+}],
+"loop": true,
+"name": &"notes",
+"speed": 5.0
+}]
 
 [node name="Duck" type="Path2D"]
 curve = SubResource("Curve2D_hyirh")
@@ -69,3 +169,31 @@ shape = SubResource("RectangleShape2D_4de3o")
 libraries = {
 "": SubResource("AnimationLibrary_70eoq")
 }
+
+[node name="effectAnimations" type="AnimationPlayer" parent="PathFollow2D/DuckBody"]
+libraries = {
+"": SubResource("AnimationLibrary_y6x8o")
+}
+
+[node name="WorkDust" type="Sprite2D" parent="PathFollow2D/DuckBody"]
+visible = false
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_actwc")
+hframes = 6
+frame = 5
+
+[node name="ShortMessageBox" parent="PathFollow2D/DuckBody" instance=ExtResource("4_lbran")]
+visible = false
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 39.0
+offset_bottom = 42.0
+
+[node name="AnimationsSprite" type="AnimatedSprite2D" parent="PathFollow2D/DuckBody"]
+visible = false
+position = Vector2(2, -15)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_iv2v4")
+animation = &"idea"
+frame_progress = 0.784191
