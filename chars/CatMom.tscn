@@ -1,8 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://cj67y2ry8a34k"]
+[gd_scene load_steps=51 format=3 uid="uid://cj67y2ry8a34k"]
 
+[ext_resource type="Texture2D" uid="uid://fng6d3sua41g" path="res://asset/emotes/pipo-popupemotes009.png" id="2_3sw2f"]
 [ext_resource type="Texture2D" uid="uid://biw2mhoyn7h6c" path="res://asset/sprites/cats/catMom.png" id="2_h0pu3"]
 [ext_resource type="Texture2D" uid="uid://dts8bcbtpoav0" path="res://asset/ui/Box.png" id="3_0615a"]
-[ext_resource type="Texture2D" uid="uid://betdxkfpo1313" path="res://asset/ui/Icon_Large_HeartFull_WhiteOutline.png" id="3_qktvq"]
 [ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="4_aeupn"]
 
 [sub_resource type="Curve2D" id="Curve2D_s7rgu"]
@@ -13,7 +13,7 @@ script/source = "extends Path2D
 
 @onready var foundedCatsLabel = $MessageBox/MarginContainer/VBoxContainer/HBoxContainer/Label
 @onready var messageBox = $MessageBox
-@onready var doneMessageBox = $PathFollow2D/CatMomBody/DoneMessage
+@onready var doneMessageBox = $PathFollow2D/CatMomBody/HeartAnimation
 @onready var animationSprite = $PathFollow2D/CatMomBody/AnimatedSprite2D
 @onready var pathFollow = $PathFollow2D
 
@@ -22,21 +22,12 @@ script/source = "extends Path2D
 @export var flipMessageBox = false
 
 const maxCats = 18
-const MOVESPEED = 1.5
+const MOVESPEED = 1
 
 var done = false
 var direction = Vector2.ZERO
 
 func _ready():
-	if flipMessageBox:
-		$MessageBox/NinePatchRect.scale.x *= -1
-		$MessageBox/NinePatchRect.position.x = 10
-		$MessageBox/MarginContainer.position.x = -45
-		
-		$PathFollow2D/CatMomBody/DoneMessage.scale.x *= -1
-		
-		
-	
 	add_to_group(\"catMoms\")
 
 func _process(delta):
@@ -76,6 +67,7 @@ func _on_area_2d_body_entered(body):
 			_clear_away()
 			messageBox.visible = false
 			doneMessageBox.visible = true
+			doneMessageBox.play(\"heart\")
 			
 
 
@@ -383,6 +375,35 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwk8k"]
+atlas = ExtResource("2_3sw2f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ik61"]
+atlas = ExtResource("2_3sw2f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prmfd"]
+atlas = ExtResource("2_3sw2f")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bktr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwk8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ik61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prmfd")
+}],
+"loop": true,
+"name": &"heart",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gak7w"]
 size = Vector2(28, 10)
 
@@ -407,48 +428,12 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.750323
 
-[node name="DoneMessage" type="Control" parent="PathFollow2D/CatMomBody"]
+[node name="HeartAnimation" type="AnimatedSprite2D" parent="PathFollow2D/CatMomBody"]
 visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="DoneMessageBox" type="NinePatchRect" parent="PathFollow2D/CatMomBody/DoneMessage"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = -32.0
-offset_right = 15.0
-offset_bottom = -9.0
-texture = ExtResource("3_0615a")
-region_rect = Rect2(0, 0, 880, 624)
-
-[node name="MarginContainer" type="MarginContainer" parent="PathFollow2D/CatMomBody/DoneMessage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -32.0
-offset_right = -25.0
-offset_bottom = -54.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_bottom = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PathFollow2D/CatMomBody/DoneMessage/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 0
-
-[node name="TextureRect" type="TextureRect" parent="PathFollow2D/CatMomBody/DoneMessage/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(10, 10)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("3_qktvq")
-expand_mode = 1
+position = Vector2(0, -14)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_bktr7")
+animation = &"heart"
 
 [node name="MessageBox" type="Control" parent="."]
 visible = false

@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var blueCatAnimationsSprite = $blueCat
 @onready var berryCatAnimationsSprite = $berryCat
 @onready var area2D : Area2D = $Area2D
-@onready var pickUpMessage = $PickupMessage
+@onready var pickUpMessage = $HeartAnimation
 @onready var meowMessage = $MeowMessage
 @onready var audioPlayer = $AudioStreamPlayer2D
 @onready var rayCast = $RayCast2D
@@ -52,6 +52,7 @@ func _physics_process(delta):
 	_set_animation()
 	
 func _calculate_velocity():
+	
 	if isWaiting: return
 
 	var targetPosition = target.global_position - Vector2(0, -8)
@@ -62,7 +63,7 @@ func _calculate_velocity():
 		velocity.y *= 3		
 	elif global_position.distance_to(targetPosition) > 20  * followPosition:
 		var direction = (targetPosition - global_position).normalized()
-		velocity = direction * speed
+		velocity = direction * (speed)
 		velocity.y *= 3
 	elif (global_position.y - targetPosition.y) < -2 || (global_position.y - targetPosition.y) > 2:
 		velocity.x = 0
@@ -109,6 +110,7 @@ func _catch_up():
 
 func _show_pick_up_message():
 	pickUpMessage.visible = true
+	pickUpMessage.play("heart")
 	await get_tree().create_timer(2).timeout
 	pickUpMessage.visible = false
 

@@ -3,9 +3,9 @@ extends Path2D
 @onready var foundedCatsLabel = $MessageBox/MarginContainer/VBoxContainer/HBoxContainer/Label
 @onready var messageBox = $MessageBox
 
-@export var catsFounded = 0
+@export var catsFounded = 18
 
-const maxCats = 16
+const maxCats = 18
 const MOVESPEED = 100
 
 func _ready():
@@ -15,11 +15,10 @@ func _process(delta):
 	_set_founded_cats_label()
 	
 func _physics_process(delta):
-	$PathFollow2D.progress += MOVESPEED * delta	
+	_clear_away()
 
 func _clear_away():
 	if catsFounded == maxCats: 
-		print(catsFounded)
 		$PathFollow2D.progress += MOVESPEED
 	
 func _set_founded_cats_label():
