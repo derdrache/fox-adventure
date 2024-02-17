@@ -14,10 +14,12 @@ func set_background_color(color):
 	coloRect.color = color
 
 func fade_out():
+	layer = 10
 	animationsPlayer.play("fade")
 	changeColor = Color(0,0,0,1)
 	
 func fade_in():
+	layer = 10
 	animationsPlayer.play_backwards("fade")
 	changeColor = Color(0,0,0,0)
 
