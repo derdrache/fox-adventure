@@ -7,9 +7,13 @@ extends CanvasLayer
 @onready var catLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/catScore/Score
 @onready var totalScoreEndLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/totalScore/Label2
 @onready var catRect = "Control/ScoreBoard/MarginContainer/VBoxContainer/catScore/cat"
+@onready var circleTransitionRect = $Control/CircleTransition
 
 
 func _ready():
+	circleTransitionRect.transition("in", 2)
+	await get_tree().create_timer(2).timeout
+	
 	_show_score_board()
 
 func _show_score_board():
@@ -40,9 +44,15 @@ func _show_score_board():
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"): 
+		var circleTransitionShader: ShaderMaterial = circleTransitionRect.get_material()
+		var tween = get_tree().create_tween()
+		
+		tween.tween_property(circleTransitionShader, "shader_parameter/circle_size", 0, 2)
+		await get_tree().create_timer(2.1).timeout
+		
 		get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
 		queue_free()
-
+		
 func _number_animation(label, number, totalScore):
 	for i in number:
 		var procent = i *10 * 100 / totalScore

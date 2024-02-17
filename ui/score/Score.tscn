@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwfstsjel40f"]
+[gd_scene load_steps=14 format=3 uid="uid://dwfstsjel40f"]
 
 [ext_resource type="Script" path="res://ui/score/Score.gd" id="1_1s5tf"]
 [ext_resource type="Texture2D" uid="uid://cl24lyhupr7hc" path="res://asset/ui/Box_WhiteOutline_Rounded.png" id="1_ul12k"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_0hb7g"]
 [ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="5_ts5cl"]
 [ext_resource type="FontFile" uid="uid://dn01r48g8bq3y" path="res://asset/fonts/ProtestRevolution-Regular.ttf" id="7_yovmr"]
+[ext_resource type="PackedScene" uid="uid://bboy0mjj6f48i" path="res://ui/CircleTransition.tscn" id="9_wfxj7"]
+[ext_resource type="Shader" path="res://asset/shader/circleTransition.gdshader" id="10_wruhh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26cix"]
 bg_color = Color(0, 0, 0, 1)
@@ -16,6 +18,10 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_utp2o"]
+shader = ExtResource("10_wruhh")
+shader_parameter/circle_size = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54c8k"]
 size = Vector2(900, 600)
@@ -255,6 +261,10 @@ theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_font_sizes/font_size = 40
 text = "0%"
+
+[node name="CircleTransition" parent="Control" instance=ExtResource("9_wfxj7")]
+material = SubResource("ShaderMaterial_utp2o")
+layout_mode = 1
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
 position = Vector2(642, 359)
