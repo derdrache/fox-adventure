@@ -31,7 +31,7 @@ func _ready():
 	var rect = RectangleShape2D.new()
 	$CollisionShape2D.shape = rect	
 	collisionShape.shape.size = Vector2(width, height)
-	collisionShape.position = Vector2(width / 2, height / 2)
+	collisionShape.position = Vector2(width / 2.0, height / 2.0)
 
 
 func _on_body_entered(body):
