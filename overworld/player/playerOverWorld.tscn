@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://daovkwmm1ii6n"]
+[gd_scene load_steps=11 format=3 uid="uid://daovkwmm1ii6n"]
 
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player/player.png" id="1_bsx8j"]
 [ext_resource type="Script" path="res://overworld/player/playerOverWorld.gd" id="1_o7vvp"]
 [ext_resource type="PackedScene" uid="uid://disyyhq2jak5d" path="res://ui/controller/mobileControlUI2old.tscn" id="3_wfb0j"]
 [ext_resource type="PackedScene" uid="uid://bxec7dx2y5mlt" path="res://ui/overWorldUI/overworld UI.tscn" id="4_gthq3"]
+[ext_resource type="AudioStream" uid="uid://d0k6xopveuf6w" path="res://asset/sound/overworldMusic.mp3" id="5_174ts"]
 
 [sub_resource type="Animation" id="Animation_pbn7e"]
 length = 0.001
@@ -86,3 +87,7 @@ shape = SubResource("RectangleShape2D_q55v2")
 [node name="MobileControlUi" parent="." instance=ExtResource("3_wfb0j")]
 
 [node name="OverworldUI" parent="." instance=ExtResource("4_gthq3")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_174ts")
+bus = &"BackgroundMusic"
