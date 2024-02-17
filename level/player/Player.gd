@@ -13,7 +13,7 @@ class_name Player
 @onready var swimCollider = $swimCollision
 @onready var levelTileMap : TileMap = get_node("../TileMap")
 @onready var fadeAnimation = $Camera2D/FadeAnimation
-@onready var audioPlayer : AudioStreamPlayer = $AudioStreamPlayer
+@onready var circleTransitionRect = $Camera2D/CanvasLayer/CircleTransition
 
 
 enum { MOVE , CLIMB , JUMP, STOMP, DIG, HANG, SLIDE, CRAWL, SWIM}
@@ -26,6 +26,8 @@ const TILE_UNDER_ADJUSTMENT = Vector2(0,-20)
 const TILE_LEFT_ADJUSTMENT = Vector2(7, -2)
 const TILE_RIGHT_ADJUSTMENT = Vector2(-7, -2)
 
+var birdRessource = preload("res://level/decoration/bird/bird.tscn")
+var waterSplashRessource = preload("res://level/effects/water_splash.tscn")
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed = MOVE_SPEED
 var state = MOVE
@@ -52,12 +54,15 @@ var movingObjectSpeed
 func _ready():
 	$MobileControlUi.visible = true
 	$LevelUI.visible = true
-	audioPlayer.play()
+	if "-6" in get_parent().name: $SoundEffects/BackGroundCastleMusic.play()
+	else: $SoundEffects/BackgroundMusic.play()
 
 func _process(_delta):
+	if !underWater && "water" in get_tile_data(): 
+		$SoundEffects/WaterSplash.play()
 	underWater = "water" in get_tile_data()
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	_get_moving_object_speed()
 	
 	if is_on_floor(): doStomp = false
@@ -130,6 +135,7 @@ func move_state(delta):
 	elif state == CRAWL: speed = speed / 2
 		
 	if in_water() && !is_on_floor():
+		if state != SWIM: _spawn_water_splash()
 		state = SWIM
 	elif "ramp" in get_tile_data("bottom") && pressedDown: 
 		state = SLIDE
@@ -280,7 +286,9 @@ func animation_state():
 			else: playerAnimation.play("climb")
 			
 			if direction == Vector2.ZERO: playerAnimation.stop()
-		DIG: playerAnimation.play("dig")
+		DIG: 
+			$SoundEffects/DigSound.play()
+			playerAnimation.play("dig")
 		CRAWL: playerAnimation.play("crawl")
 		JUMP: 
 			if velocity.y <= 0: playerAnimation.play("jumpUp")
@@ -499,3 +507,23 @@ func _get_moving_object_speed():
 			movingObjectSpeed = collision_check.get_collider(i).get_parent().moving_speed
 	
 	if !onPlatform: movingObjectSpeed = null
+
+func _spawn_birds():
+	var birdInstance = birdRessource.instantiate()
+	birdInstance.set_spawn_position(global_position, get_viewport().size)
+	get_parent().add_child(birdInstance)
+
+
+func _on_bird_spawn_timer_timeout():
+	_spawn_birds()
+
+func _spawn_water_splash():
+	var waterSplash = waterSplashRessource.instantiate()
+	waterSplash.global_position = global_position - Vector2(0,8)
+	get_parent().add_child(waterSplash)
+	
+func circle_transition(direction, duration):
+	circleTransitionRect.transition(direction, duration)
+	$Camera2D/CanvasLayer.layer = 10
+
+

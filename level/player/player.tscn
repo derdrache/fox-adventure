@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://hsjuocp3ilb4"]
+[gd_scene load_steps=61 format=3 uid="uid://hsjuocp3ilb4"]
 
 [ext_resource type="Script" path="res://level/player/Player.gd" id="1_ii644"]
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player/player.png" id="2_g3iq6"]
@@ -6,10 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://bvs5wrkorp7v6" path="res://asset/sprites/player/FoxDigging.png" id="4_sc2hi"]
 [ext_resource type="Texture2D" uid="uid://qfdox23ufcsk" path="res://asset/sprites/player/FoxOnDelphine.png" id="4_u5ma8"]
 [ext_resource type="PackedScene" uid="uid://c3atm3a43lgqh" path="res://level/environment/door/FadeAnimation.tscn" id="6_blwnw"]
+[ext_resource type="PackedScene" uid="uid://bboy0mjj6f48i" path="res://ui/CircleTransition.tscn" id="7_8ajcu"]
 [ext_resource type="PackedScene" uid="uid://bjibcolu08tat" path="res://ui/levelUI/LevelUI.tscn" id="7_ag5j1"]
 [ext_resource type="PackedScene" uid="uid://disyyhq2jak5d" path="res://ui/controller/mobileControlUI2old.tscn" id="8_78nrl"]
-[ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://level/player/enemy-deadth.png" id="8_b8dw4"]
+[ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://asset/effects/enemy-deadth.png" id="8_b8dw4"]
+[ext_resource type="Shader" path="res://asset/shader/circleTransition.gdshader" id="8_bype2"]
 [ext_resource type="AudioStream" uid="uid://c7sk5x7msjncw" path="res://asset/sound/Background1.mp3" id="10_ksxp3"]
+[ext_resource type="AudioStream" uid="uid://ogw6hauv84ul" path="res://asset/sound/digging.mp3" id="11_ejjfl"]
+[ext_resource type="AudioStream" uid="uid://cninvstlg6qpn" path="res://asset/sound/water-splash.mp3" id="11_llhyn"]
+[ext_resource type="AudioStream" uid="uid://gf327a4qtt0v" path="res://asset/sound/castleMusic.mp3" id="13_5rvpj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xi5w"]
 atlas = ExtResource("2_g3iq6")
@@ -241,6 +246,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kx1s4"]
+shader = ExtResource("8_bype2")
+shader_parameter/circle_size = 1.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1rr"]
 size = Vector2(10, 17.5)
 
@@ -315,10 +324,6 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_biknn"]
-resource_name = "door"
-length = 0.6
-
 [sub_resource type="Animation" id="Animation_4fhvk"]
 resource_name = "stomp"
 length = 0.5
@@ -338,18 +343,18 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q156b"]
 _data = {
 "RESET": SubResource("Animation_cromc"),
-"door": SubResource("Animation_biknn"),
 "stomp": SubResource("Animation_4fhvk")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpooe"]
 
 [node name="Player" type="CharacterBody2D"]
+floor_stop_on_slope = false
 script = ExtResource("1_ii644")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5nbca")
-animation = &"swim"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -357,22 +362,33 @@ offset = Vector2(0, -25)
 zoom = Vector2(3.5, 3.5)
 
 [node name="FadeAnimation" parent="Camera2D" instance=ExtResource("6_blwnw")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = -1
+
+[node name="CircleTransition" parent="Camera2D/CanvasLayer" instance=ExtResource("7_8ajcu")]
+material = SubResource("ShaderMaterial_kx1s4")
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 6.25)
 shape = SubResource("RectangleShape2D_5v1rr")
 
 [node name="crawlCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, 12)
 shape = SubResource("RectangleShape2D_wmf5s")
 disabled = true
 
 [node name="climbCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_4wxj5")
 disabled = true
 
 [node name="swimCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_qppnu")
 
@@ -420,7 +436,27 @@ visible = false
 [node name="MobileControlUi" parent="." instance=ExtResource("8_78nrl")]
 visible = false
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SoundEffects" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("10_ksxp3")
 autoplay = true
 bus = &"BackgroundMusic"
+
+[node name="WaterSplash" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("11_llhyn")
+bus = &"SoundEffect"
+
+[node name="DigSound" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("11_ejjfl")
+bus = &"SoundEffect"
+
+[node name="BackGroundCastleMusic" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource("13_5rvpj")
+bus = &"BackgroundMusic"
+
+[node name="BirdSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="BirdSpawnTimer" to="." method="_on_bird_spawn_timer_timeout"]
