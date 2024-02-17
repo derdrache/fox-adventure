@@ -87,8 +87,7 @@ func _ready():
 func _process(_delta):	
 	changeCamera()
 	
-	if LevelManager.levelCleared: 
-		make_save_screenshot()
+	if LevelManager.levelCleared: make_save_screenshot()
 	
 	if activeInteraction : 
 		set_ui_visible(false)
@@ -253,9 +252,3 @@ func make_save_screenshot():
 	player.set_control_ui(true)
 	
 	if !LEVEL_INTERACTIONS.has(LevelManager.activeLevel): 	activeInteraction = false
-
-func zoom_out(camera):
-	camera.zoom = Vector2(7.5, 7.5)
-	var tween = get_tree().create_tween()
-	
-	tween.tween_property(camera, "zoom", Vector2(2,2), 1)
