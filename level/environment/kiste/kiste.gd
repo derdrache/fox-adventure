@@ -18,7 +18,9 @@ func _ready():
 func _process(delta):
 	if isEmpty:	
 		$CollisionShape2D.set_deferred("disabled", true)
+		await get_tree().create_timer(0.1).timeout
 		animationSprite.play("destruction")
+		$BoxDestruction.play()
 		isEmpty = false
 		
 func _check_content():
@@ -35,12 +37,17 @@ func _check_content():
 		else: isEmpty = true	
 
 func _on_bottom_area_body_entered(body):
-	if body is Player: _check_content()
+	if body is Player: 
+		$HittingWood.play()
+		_check_content()
 
 func _on_top_area_body_entered(body):
 	if body is Player:
 		var playerStomps = body.doStomp
-		if playerStomps: _check_content()
+		if playerStomps: 
+			$HittingWood.play()
+			_check_content()
+			
 
 func _changeSpawningNodeVisibility(show):
 	spawningNode.visible = show
