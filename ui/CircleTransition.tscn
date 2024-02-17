@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bboy0mjj6f48i"]
+
+[ext_resource type="Shader" path="res://asset/shader/circleTransition.gdshader" id="1_s8t2j"]
+[ext_resource type="Script" path="res://ui/CircleTransition.gd" id="2_15n5r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gho1d"]
+shader = ExtResource("1_s8t2j")
+shader_parameter/circle_size = 0.29
+
+[node name="CircleTransition" type="ColorRect"]
+material = SubResource("ShaderMaterial_gho1d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_15n5r")
