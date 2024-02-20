@@ -9,12 +9,7 @@ func _ready():
 	
 	_create_save_file_container()
 
-func _process(delta):
-	pass
-
 func _get_save_files():
-	var saveFiles :Array
-	
 	for i in GameManager.MAX_SAVE_FILES:
 		var savePath = "user://savegame"+ str(i) +".bin"
 	
