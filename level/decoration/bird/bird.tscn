@@ -324,5 +324,5 @@ script = ExtResource("1_fqrd1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bte26")
-animation = &"white_dove"
+animation = &"hummingbird"
 autoplay = "fly"

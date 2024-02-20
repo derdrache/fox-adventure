@@ -4,8 +4,8 @@ extends CharacterBody2D
 
 const MOVE_SPEED = 60
 
-var minY : int
-var maxY : int
+var minY : float
+var maxY : float
 var otherSide = false
 
 func _ready():
@@ -14,7 +14,7 @@ func _ready():
 	
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if velocity == Vector2.ZERO: 
 		velocity = Vector2(-MOVE_SPEED if !otherSide else MOVE_SPEED, MOVE_SPEED)
 
@@ -42,7 +42,7 @@ func _set_bird():
 	if "-6" in parentName: 
 		animationSprite.scale = Vector2(0.5, 0.5)
 		animationSprite.play("bat")
-	elif "1-" in parentName: pass
+	elif "1-" in parentName: animationSprite.play("hummingbird")
 	elif "2-" in parentName: animationSprite.play("crow")
 	elif "3-" in parentName: animationSprite.play("cedar_waxwing")
 	elif "4-" in parentName: 
