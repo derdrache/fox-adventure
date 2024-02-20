@@ -115,7 +115,7 @@ func _show_pick_up_message():
 	pickUpMessage.visible = false
 
 func _random_meow():
-	var randomNumber = rng.randi_range(0, 10000.0)
+	var randomNumber = rng.randi_range(0.0, 10000.0)
 	if randomNumber == 1:
 		meowMessage.visible = true
 		audioPlayer.play()
@@ -130,6 +130,7 @@ func _on_area_2d_body_entered(body):
 	if body is Player && isWaiting:
 		var catNumber = int(name.replace("Cat", ""))
 		isWaiting = false
+		$AudioStreamPlayer2D.play()
 		area2D.set_collision_layer_value(1, false)
 		followPosition = body.followObjects + 1
 		body.followObjects += 1
