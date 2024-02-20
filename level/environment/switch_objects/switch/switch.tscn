@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://373m5mauronn"]
+[gd_scene load_steps=5 format=3 uid="uid://373m5mauronn"]
 
 [ext_resource type="Script" path="res://level/environment/switch_objects/switch/switch.gd" id="1_thd2n"]
 [ext_resource type="Texture2D" uid="uid://c63r2qcoogs4i" path="res://asset/tileMaps/props.png" id="2_hs5e0"]
+[ext_resource type="AudioStream" uid="uid://00mswcpwjnpv" path="res://asset/sound/switch.mp3" id="3_cwm88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1etpt"]
 size = Vector2(16, 16)
@@ -19,5 +20,9 @@ region_rect = Rect2(328, 160, 32, 32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(17, 10)
 shape = SubResource("RectangleShape2D_1etpt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cwm88")
+bus = &"SoundEffect"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

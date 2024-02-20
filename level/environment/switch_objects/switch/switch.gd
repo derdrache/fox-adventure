@@ -13,9 +13,10 @@ func _process(_delta):
 	else: $Sprite2D.frame = 0
 
 func _on_body_entered(body):
-	if body is Player:
+	if body is Player && not used:
 		$Sprite2D.frame = 1
 		
+		$AudioStreamPlayer.play()
 		if multiUse: used = !used
 		else: used = true
 		
