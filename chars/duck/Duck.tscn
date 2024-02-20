@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cce1ci32bqmph"]
+[gd_scene load_steps=22 format=3 uid="uid://cce1ci32bqmph"]
 
 [ext_resource type="Script" path="res://chars/duck/Duck.gd" id="1_l21ul"]
 [ext_resource type="Texture2D" uid="uid://b43iwic6xrpnf" path="res://asset/sprites/DuckAnimation.png" id="2_2u3yj"]
 [ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://asset/effects/enemy-deadth.png" id="3_actwc"]
-[ext_resource type="PackedScene" uid="uid://cg0wi1yv88l" path="res://ui/short_message_box.tscn" id="4_lbran"]
 [ext_resource type="Texture2D" uid="uid://2oymhobpvlfy" path="res://asset/emotes/pipo-popupemotes017.png" id="5_tg2sl"]
 [ext_resource type="Texture2D" uid="uid://27385joxucu4" path="res://asset/emotes/pipo-popupemotes050.png" id="6_87xp3"]
 
@@ -183,17 +182,9 @@ texture = ExtResource("3_actwc")
 hframes = 6
 frame = 5
 
-[node name="ShortMessageBox" parent="PathFollow2D/DuckBody" instance=ExtResource("4_lbran")]
-visible = false
-offset_left = -1.0
-offset_top = 2.0
-offset_right = 39.0
-offset_bottom = 42.0
-
 [node name="AnimationsSprite" type="AnimatedSprite2D" parent="PathFollow2D/DuckBody"]
 visible = false
 position = Vector2(2, -15)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_iv2v4")
-animation = &"idea"
-frame_progress = 0.784191
+animation = &"notes"
