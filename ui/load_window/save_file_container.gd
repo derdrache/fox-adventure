@@ -11,7 +11,7 @@ func _ready():
 	pass
 
 
-func _process(delta):
+func _process(_delta):
 	$VBoxContainer/Header/PanelContainer/HBoxContainer/LoadCount/PanelContainer/Label.text = str(gameNumber +1)
 	_set_procent_clear()
 	_set_play_time()
@@ -46,4 +46,5 @@ func _on_start_game_touch_button_released():
 	GameManager.gameNumber = gameNumber
 	GameManager.gameStart = Time.get_datetime_dict_from_system()
 	Utils.load_game()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
