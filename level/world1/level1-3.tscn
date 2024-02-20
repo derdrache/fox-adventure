@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://qnwou1ycotof"]
+[gd_scene load_steps=30 format=3 uid="uid://qnwou1ycotof"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_3wr8p"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_krlhy"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_nqhp1"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="2_dbmni"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="2_nvtlw"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="3_4iplu"]
@@ -52,6 +53,7 @@ size = Vector2(1872, 32)
 size = Vector2(1872, 20)
 
 [node name="Level1-2" type="Node2D"]
+script = ExtResource("1_nqhp1")
 
 [node name="Background" parent="." instance=ExtResource("1_krlhy")]
 
@@ -338,7 +340,8 @@ position = Vector2(2120, 728)
 shape = SubResource("RectangleShape2D_o2gci")
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(224, 481)
+position = Vector2(225, 479)
+floor_stop_on_slope = true
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("21_rkeg2")]
 position = Vector2(1162, 489)

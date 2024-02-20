@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://cx2064asos07c"]
+[gd_scene load_steps=28 format=3 uid="uid://cx2064asos07c"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_hmxu7"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_5dy3f"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_dbuas"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="4_b2wqj"]
@@ -56,6 +57,7 @@ _data = {
 point_count = 2
 
 [node name="Level1-3" type="Node2D"]
+script = ExtResource("1_hmxu7")
 
 [node name="Background" parent="." instance=ExtResource("4_bibng")]
 
@@ -351,6 +353,9 @@ position = Vector2(112, 64)
 tilesWith = 3
 tilesHeight = 1
 
+[node name="Player" parent="." instance=ExtResource("3_dbuas")]
+position = Vector2(37, 32)
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
 position = Vector2(431, -567)
 target = NodePath("../Player")
@@ -362,6 +367,3 @@ target = NodePath("../Player")
 [node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
 position = Vector2(850, -1479)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(21, 35)

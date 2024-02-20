@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://j1j3kjcuoi88"]
+[gd_scene load_steps=26 format=3 uid="uid://j1j3kjcuoi88"]
 
 [ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swampBackground.tscn" id="1_3nqpj"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="1_4fhsq"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_lsjre"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="3_t42i7"]
 [ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switch_objects/switch/switch.tscn" id="4_brv26"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="6_a28hw"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="13_36t3s"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="14_egqua"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="15_ebayw"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="15_xxl22"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="16_8f6d3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g371c"]
@@ -30,7 +32,32 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_b3xtd"]
+vertices = PackedVector2Array(822, 410, 1014, 410, 1014, 426, 122, 486, 1030, 426, 1030, 442, 1382, 442, 1382, 486, 122, 410, 522, 410, 822, 394, 522, 394)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3), PackedInt32Array(5, 6, 7, 3), PackedInt32Array(3, 8, 9), PackedInt32Array(0, 3, 9, 10), PackedInt32Array(10, 9, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(512, 384, 832, 384, 832, 400, 1024, 400, 1024, 416, 1040, 416, 1040, 432, 1392, 432, 1392, 496, 112, 496, 112, 400, 512, 400)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5b0ml"]
+vertices = PackedVector2Array(2742, 502, 1434, 502, 1434, 410, 2742, 410)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1424, 400, 2752, 400, 2752, 512, 1424, 512)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_16cjn"]
+vertices = PackedVector2Array(4182, 502, 3034, 502, 3034, 458, 4182, 458)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(3024, 448, 4192, 448, 4192, 512, 3024, 512)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_25asr"]
+vertices = PackedVector2Array(6426, 570, 6426, 442, 6758, 442, 6758, 538, 7066, 538, 7066, 522, 7094, 522, 7094, 582, 6010, 582, 6010, 442, 6374, 442, 6374, 570)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(7, 8, 11, 0), PackedInt32Array(7, 0, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(6000, 432, 6384, 432, 6384, 560, 6416, 560, 6416, 432, 6768, 432, 6768, 528, 7056, 528, 7056, 512, 7104, 512, 7104, 592, 6000, 592)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="Level2-1" type="Node2D"]
+script = ExtResource("1_lsjre")
 
 [node name="SwampBackground" parent="." instance=ExtResource("1_3nqpj")]
 
@@ -302,7 +329,6 @@ conectionDoor = NodePath("../door2")
 
 [node name="door2" parent="environment/doorSets/doorSet1" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("10_04kae")]
 position = Vector2(4785, 352)
-closed = false
 conectionDoor = NodePath("../door")
 
 [node name="bigMushroom2" parent="environment" instance=ExtResource("7_gf8o2")]
@@ -325,6 +351,21 @@ flipH = true
 [node name="Goal" parent="environment" instance=ExtResource("12_w6581")]
 position = Vector2(6857, 488)
 
+[node name="WaterWorld" parent="environment" instance=ExtResource("15_xxl22")]
+navigation_polygon = SubResource("NavigationPolygon_b3xtd")
+
+[node name="WaterWorld2" parent="environment" instance=ExtResource("15_xxl22")]
+navigation_polygon = SubResource("NavigationPolygon_5b0ml")
+
+[node name="WaterWorld3" parent="environment" instance=ExtResource("15_xxl22")]
+navigation_polygon = SubResource("NavigationPolygon_16cjn")
+
+[node name="WaterWorld4" parent="environment" instance=ExtResource("15_xxl22")]
+navigation_polygon = SubResource("NavigationPolygon_25asr")
+
+[node name="Player" parent="." instance=ExtResource("1_4fhsq")]
+position = Vector2(113, 353)
+
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_8f6d3")]
 position = Vector2(5062, 553)
 target = NodePath("../Player")
@@ -336,6 +377,3 @@ target = NodePath("../Player")
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_8f6d3")]
 position = Vector2(1004, 377)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("1_4fhsq")]
-position = Vector2(113, 353)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://cm54mkqejj646"]
+[gd_scene load_steps=33 format=3 uid="uid://cm54mkqejj646"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_8aku6"]
 [ext_resource type="PackedScene" uid="uid://fdca1hmim6d4" path="res://backgrounds/winter/winterBackground.tscn" id="1_ul2in"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_aht18"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_ejin5"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://sdf3ivtdspav" path="res://level/environment/switch_objects/treeStomp/TreeStomp.tscn" id="7_je7vn"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="8_g4wnx"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="9_0ax1o"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="9_q1j1c"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="10_0i7st"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="10_c50ne"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="11_7p6u8"]
@@ -60,6 +62,30 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jdj0o"]
+vertices = PackedVector2Array(550, 406, 138, 406, 138, 282, 550, 282)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(128, 272, 560, 272, 560, 416, 128, 416)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_sllfk"]
+vertices = PackedVector2Array(2374, 394, 2438, 394, 2438, 422, 2378, 406, 2378, 422, 2010, 406, 2010, 390, 2374, 282, 2010, 362, 1946, 390, 1946, 362, 2010, 282)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 3), PackedInt32Array(0, 3, 5, 6), PackedInt32Array(7, 0, 6, 8), PackedInt32Array(6, 9, 10, 8), PackedInt32Array(7, 8, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2000, 272, 2384, 272, 2384, 384, 2448, 384, 2448, 432, 2368, 432, 2368, 416, 2000, 416, 2000, 400, 1936, 400, 1936, 352, 2000, 352)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8kfq4"]
+vertices = PackedVector2Array(2934, 330, 2934, 454, 2762, 454, 2762, 422, 2698, 422, 2698, 394, 2762, 394, 2762, 330)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(0, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2752, 320, 2944, 320, 2944, 464, 2752, 464, 2752, 432, 2688, 432, 2688, 384, 2752, 384)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_us1qx"]
+vertices = PackedVector2Array(6614, 550, 6346, 550, 6346, 442, 6614, 442)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(6336, 432, 6624, 432, 6624, 560, 6336, 560)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_re4yt"]
 size = Vector2(6042, 49)
 
@@ -70,6 +96,7 @@ size = Vector2(2400, 71.5591)
 size = Vector2(37.8504, 695)
 
 [node name="Level5-5" type="Node2D"]
+script = ExtResource("1_8aku6")
 
 [node name="WinterBackground" parent="." instance=ExtResource("1_ul2in")]
 
@@ -153,6 +180,18 @@ position = Vector2(8028, 249)
 [node name="WinterPlatform6" parent="environment" instance=ExtResource("6_p0f7k")]
 position = Vector2(6410, 429)
 curve = SubResource("Curve2D_qjj5t")
+
+[node name="WaterWorld" parent="environment" instance=ExtResource("9_q1j1c")]
+navigation_polygon = SubResource("NavigationPolygon_jdj0o")
+
+[node name="WaterWorld2" parent="environment" instance=ExtResource("9_q1j1c")]
+navigation_polygon = SubResource("NavigationPolygon_sllfk")
+
+[node name="WaterWorld3" parent="environment" instance=ExtResource("9_q1j1c")]
+navigation_polygon = SubResource("NavigationPolygon_8kfq4")
+
+[node name="WaterWorld4" parent="environment" instance=ExtResource("9_q1j1c")]
+navigation_polygon = SubResource("NavigationPolygon_us1qx")
 
 [node name="items" type="Node2D" parent="."]
 

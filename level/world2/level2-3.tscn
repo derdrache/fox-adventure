@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddrgtknhwlsiq"]
+[gd_scene load_steps=28 format=3 uid="uid://ddrgtknhwlsiq"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_f12q2"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_teiji"]
 [ext_resource type="PackedScene" uid="uid://373m5mauronn" path="res://level/environment/switch_objects/switch/switch.tscn" id="2_2sjyx"]
 [ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridge_objects/stompBridge.tscn" id="2_tc46a"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="8_os5f8"]
 [ext_resource type="PackedScene" uid="uid://sdf3ivtdspav" path="res://level/environment/switch_objects/treeStomp/TreeStomp.tscn" id="9_bkxw7"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="9_hf2jj"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="9_l4gmf"]
 [ext_resource type="PackedScene" uid="uid://dyapx4t30r7dt" path="res://level/environment/moving_objects/swamp_platform.tscn" id="10_fhl3e"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="10_s0xn1"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="11_xq3se"]
@@ -46,6 +48,18 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2vpog"]
+vertices = PackedVector2Array(1478, 470, 874, 470, 874, 314, 1478, 314)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(864, 304, 1488, 304, 1488, 480, 864, 480)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_01tx3"]
+vertices = PackedVector2Array(2554, 410, 2554, 314, 2598, 314, 2598, 422, 2282, 422, 2454, 410, 2282, 250, 2454, 250)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 4, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2272, 240, 2464, 240, 2464, 400, 2544, 400, 2544, 304, 2608, 304, 2608, 432, 2272, 432)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nuuu"]
 size = Vector2(10, 572)
 
@@ -53,6 +67,7 @@ size = Vector2(10, 572)
 size = Vector2(1264, 39)
 
 [node name="Level2-3" type="Node2D"]
+script = ExtResource("1_f12q2")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_teiji")
@@ -146,6 +161,12 @@ position = Vector2(4399, 47)
 
 [node name="Goal" parent="environment" instance=ExtResource("8_os5f8")]
 position = Vector2(4537, 42)
+
+[node name="WaterWorld" parent="environment" instance=ExtResource("9_l4gmf")]
+navigation_polygon = SubResource("NavigationPolygon_2vpog")
+
+[node name="WaterWorld2" parent="environment" instance=ExtResource("9_l4gmf")]
+navigation_polygon = SubResource("NavigationPolygon_01tx3")
 
 [node name="items" type="Node2D" parent="."]
 

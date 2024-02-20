@@ -202,6 +202,7 @@ position = Vector2(3721, 569)
 position = Vector2(3721, 505)
 
 [node name="GoldCoin39" parent="items/goldCoins" instance=ExtResource("12_dw686")]
+visible = false
 position = Vector2(3721, 440)
 
 [node name="GoldCoin43" parent="items/goldCoins" instance=ExtResource("12_dw686")]
@@ -214,6 +215,7 @@ position = Vector2(3056, 184)
 position = Vector2(3088, 128)
 
 [node name="GoldCoin42" parent="items/goldCoins" instance=ExtResource("12_dw686")]
+visible = false
 position = Vector2(3128, 72)
 
 [node name="kiste" parent="items/goldCoins" instance=ExtResource("9_a3e5t")]
@@ -248,6 +250,9 @@ position = Vector2(723, 453)
 position = Vector2(3773, 278)
 shape = SubResource("RectangleShape2D_ogrf3")
 
+[node name="Player" parent="." instance=ExtResource("3_dbuas")]
+position = Vector2(4612.81, 188.306)
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
 position = Vector2(837, 505)
 target = NodePath("../Player")
@@ -259,6 +264,3 @@ target = NodePath("../Player")
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_6lr25")]
 position = Vector2(3573, 441)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(48, 496)

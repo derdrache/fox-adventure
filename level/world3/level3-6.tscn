@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://b1abjfs8psddj"]
+[gd_scene load_steps=26 format=3 uid="uid://b1abjfs8psddj"]
 
 [ext_resource type="PackedScene" uid="uid://rbyw7sl3iomo" path="res://backgrounds/castle/castleBackground.tscn" id="1_o3wge"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_v6mlq"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_fgiqu"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="3_5m6il"]
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="3_rjqgu"]
@@ -66,6 +67,7 @@ size = Vector2(2976, 57.4172)
 size = Vector2(32, 249)
 
 [node name="Level3-6" type="Node2D"]
+script = ExtResource("1_v6mlq")
 
 [node name="CastleBackground" parent="." instance=ExtResource("1_o3wge")]
 
@@ -347,21 +349,6 @@ shape = SubResource("RectangleShape2D_lduxv")
 position = Vector2(49, 871.5)
 shape = SubResource("RectangleShape2D_56bny")
 
-[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8sxpb")]
-position = Vector2(2020, 969)
-target = NodePath("../Player")
-
-[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8sxpb")]
-position = Vector2(2582, 201)
-target = NodePath("../Player")
-
-[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8sxpb")]
-position = Vector2(536, -727)
-target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("4_mhh2j")]
-position = Vector2(120, 897)
-
 [node name="Fogs" type="Node2D" parent="."]
 
 [node name="Fog" parent="Fogs" instance=ExtResource("14_8eb3n")]
@@ -382,3 +369,18 @@ position = Vector2(480, -704)
 [node name="Fog5" parent="Fogs" instance=ExtResource("14_8eb3n")]
 position = Vector2(544, -704)
 tilesWith = 3
+
+[node name="Player" parent="." instance=ExtResource("4_mhh2j")]
+position = Vector2(120, 897)
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8sxpb")]
+position = Vector2(2020, 969)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8sxpb")]
+position = Vector2(2582, 201)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_8sxpb")]
+position = Vector2(536, -727)
+target = NodePath("../Player")

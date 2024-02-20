@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6w3decyhh2tv"]
+[gd_scene load_steps=32 format=3 uid="uid://b6w3decyhh2tv"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_2mg4t"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_feejb"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="2_uaevd"]
 [ext_resource type="PackedScene" uid="uid://b8uku6hxgf7b4" path="res://level/environment/climbingTrees/ClimbingPalm.tscn" id="3_03t16"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_d4jyt"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="7_to3g0"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="8_cnsc2"]
 [ext_resource type="PackedScene" uid="uid://sdf3ivtdspav" path="res://level/environment/switch_objects/treeStomp/TreeStomp.tscn" id="9_v2y24"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="10_leq86"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="11_s3rs5"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="12_fojk7"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="12_gehwq"]
@@ -61,6 +63,24 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8cw3k"]
+vertices = PackedVector2Array(4070, 650, 4118, 650, 4118, 662, 4070, 662, 4070, 678, 3850, 678, 3850, 570, 4070, 570)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(7, 0, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(3840, 560, 4080, 560, 4080, 640, 4128, 640, 4128, 672, 4080, 672, 4080, 688, 3840, 688)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ccsf0"]
+vertices = PackedVector2Array(2582, 630, 2298, 630, 2298, 538, 2582, 538)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2288, 528, 2592, 528, 2592, 640, 2288, 640)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c87mc"]
+vertices = PackedVector2Array(534, 470, 362, 470, 362, 362, 534, 362)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(352, 352, 544, 352, 544, 480, 352, 480)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4blre"]
 size = Vector2(6133.93, 191.636)
 
@@ -68,6 +88,7 @@ size = Vector2(6133.93, 191.636)
 size = Vector2(20, 351)
 
 [node name="Level3-4" type="Node2D"]
+script = ExtResource("1_feejb")
 
 [node name="DesertBackground" parent="." instance=ExtResource("4_5amdg")]
 
@@ -157,6 +178,15 @@ position = Vector2(15, -67)
 
 [node name="StompBridge4" parent="environment/TreeStomp" instance=ExtResource("5_v053e")]
 position = Vector2(207, -99)
+
+[node name="WaterWorld" parent="environment" instance=ExtResource("10_leq86")]
+navigation_polygon = SubResource("NavigationPolygon_8cw3k")
+
+[node name="WaterWorld2" parent="environment" instance=ExtResource("10_leq86")]
+navigation_polygon = SubResource("NavigationPolygon_ccsf0")
+
+[node name="WaterWorld3" parent="environment" instance=ExtResource("10_leq86")]
+navigation_polygon = SubResource("NavigationPolygon_c87mc")
 
 [node name="items" type="Node2D" parent="."]
 
@@ -313,6 +343,9 @@ shape = SubResource("RectangleShape2D_4blre")
 position = Vector2(-11.1329, 206.5)
 shape = SubResource("RectangleShape2D_v26m3")
 
+[node name="Player" parent="." instance=ExtResource("3_d4jyt")]
+position = Vector2(26, 331)
+
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
 position = Vector2(5376.08, 665.185)
 target = NodePath("../Player")
@@ -324,6 +357,3 @@ target = NodePath("../Player")
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
 position = Vector2(1627.81, 505.236)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_d4jyt")]
-position = Vector2(26, 331)

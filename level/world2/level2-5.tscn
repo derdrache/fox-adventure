@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://b84vaqn3xgv3e"]
+[gd_scene load_steps=30 format=3 uid="uid://b84vaqn3xgv3e"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_8c3qh"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_kndd8"]
 [ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swampBackground.tscn" id="1_r7chp"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="2_37nhb"]
 [ext_resource type="PackedScene" uid="uid://3u8gexpj31rv" path="res://level/environment/climbingTrees/ClimbingWillow.tscn" id="4_5f2ko"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="8_5ajd8"]
 [ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridge_objects/stompBridge.tscn" id="9_4mf8g"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="10_lkc21"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="11_flt0r"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="12_a384l"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="12_l45kv"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="14_qc1jx"]
@@ -34,6 +36,24 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ek4t7"]
+vertices = PackedVector2Array(630, 342, 410, 342, 410, 250, 630, 250)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(400, 240, 640, 240, 640, 352, 400, 352)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_a4y6x"]
+vertices = PackedVector2Array(1926, 390, 1418, 390, 1418, 298, 1926, 298)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1408, 288, 1936, 288, 1936, 400, 1408, 400)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5udka"]
+vertices = PackedVector2Array(4246, 262, 3770, 262, 3770, 170, 4246, 170)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(3760, 160, 4256, 160, 4256, 272, 3760, 272)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42fid"]
 size = Vector2(5258, 20)
 
@@ -44,6 +64,7 @@ size = Vector2(20, 526)
 size = Vector2(24, 435)
 
 [node name="Level2-5" type="Node2D"]
+script = ExtResource("1_kndd8")
 
 [node name="SwampBackground" parent="." instance=ExtResource("1_r7chp")]
 
@@ -180,6 +201,15 @@ position = Vector2(4290, -91)
 
 [node name="Goal" parent="environment" instance=ExtResource("10_lkc21")]
 position = Vector2(5090, 40)
+
+[node name="WaterWorld" parent="environment" instance=ExtResource("11_flt0r")]
+navigation_polygon = SubResource("NavigationPolygon_ek4t7")
+
+[node name="WaterWorld2" parent="environment" instance=ExtResource("11_flt0r")]
+navigation_polygon = SubResource("NavigationPolygon_a4y6x")
+
+[node name="WaterWorld3" parent="environment" instance=ExtResource("11_flt0r")]
+navigation_polygon = SubResource("NavigationPolygon_5udka")
 
 [node name="items" type="Node2D" parent="."]
 
@@ -395,6 +425,9 @@ shape = SubResource("RectangleShape2D_radmx")
 position = Vector2(-11, 180.5)
 shape = SubResource("RectangleShape2D_b16i7")
 
+[node name="Player" parent="." instance=ExtResource("2_37nhb")]
+position = Vector2(91, 224)
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_co4gg")]
 position = Vector2(718, 103)
 target = NodePath("../Player")
@@ -406,6 +439,3 @@ target = NodePath("../Player")
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_co4gg")]
 position = Vector2(3400.28, -134.674)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("2_37nhb")]
-position = Vector2(91, 224)

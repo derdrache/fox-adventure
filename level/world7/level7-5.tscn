@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://jclysa3sirrx"]
+[gd_scene load_steps=26 format=3 uid="uid://jclysa3sirrx"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_4lakb"]
 [ext_resource type="PackedScene" uid="uid://d0y52ct28jrv1" path="res://backgrounds/city/cityBackground.tscn" id="1_hn1q5"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_iuaut"]
 [ext_resource type="PackedScene" uid="uid://cw1cbssqg66ma" path="res://level/environment/moving_objects/city_platform.tscn" id="3_4esc1"]
@@ -14,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="9_qqoyp"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="9_ur8io"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="10_o5486"]
-[ext_resource type="PackedScene" uid="uid://drfyqgayf8cyu" path="res://level/environment/fog/World7Fog.tscn" id="13_4mnfl"]
+[ext_resource type="PackedScene" uid="uid://dvx3wycu158g8" path="res://level/environment/fog/World7Fog.tscn" id="13_4mnfl"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="13_pwfvk"]
 
 [sub_resource type="Curve2D" id="Curve2D_ufxth"]
@@ -62,6 +63,7 @@ size = Vector2(3608, 53)
 size = Vector2(26, 312)
 
 [node name="Level7-5" type="Node2D"]
+script = ExtResource("1_4lakb")
 
 [node name="CityBackground" parent="." instance=ExtResource("1_hn1q5")]
 
@@ -300,18 +302,18 @@ position = Vector2(656, 624)
 position = Vector2(1296, 656)
 
 [node name="Fog3" parent="Fogs" instance=ExtResource("13_4mnfl")]
+position = Vector2(1904, 640)
+
+[node name="Fog4" parent="Fogs" instance=ExtResource("13_4mnfl")]
+position = Vector2(2448, 656)
+
+[node name="Fog5" parent="Fogs" instance=ExtResource("13_4mnfl")]
+position = Vector2(2688, 704)
+
+[node name="Fog6" parent="Fogs" instance=ExtResource("13_4mnfl")]
 position = Vector2(1536, 640)
 tilesWith = 5
 tilesHeight = 5
-
-[node name="Fog4" parent="Fogs" instance=ExtResource("13_4mnfl")]
-position = Vector2(1904, 640)
-
-[node name="Fog5" parent="Fogs" instance=ExtResource("13_4mnfl")]
-position = Vector2(2448, 656)
-
-[node name="Fog6" parent="Fogs" instance=ExtResource("13_4mnfl")]
-position = Vector2(2696, 704)
 
 [node name="WorldEnd" parent="." instance=ExtResource("3_owils")]
 

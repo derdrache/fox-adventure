@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://bwqep3egktxy0"]
+[gd_scene load_steps=26 format=3 uid="uid://bwqep3egktxy0"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_0vw6m"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_bfeg8"]
 [ext_resource type="PackedScene" uid="uid://3i47rat1kqdr" path="res://backgrounds/cave/caveBackground.tscn" id="1_xg67f"]
 [ext_resource type="PackedScene" uid="uid://6efycntwxpm6" path="res://level/environment/moving_objects/cave_platform.tscn" id="3_a3hf3"]
@@ -48,6 +49,7 @@ size = Vector2(5729.95, 32)
 size = Vector2(32, 480)
 
 [node name="Level4-1" type="Node2D"]
+script = ExtResource("1_0vw6m")
 
 [node name="CaveBackground" parent="." instance=ExtResource("1_xg67f")]
 
@@ -338,6 +340,9 @@ shape = SubResource("RectangleShape2D_f0t2q")
 position = Vector2(-32, 216)
 shape = SubResource("RectangleShape2D_2wxfl")
 
+[node name="Player" parent="." instance=ExtResource("3_ck4k0")]
+position = Vector2(26, 256)
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_hh08c")]
 position = Vector2(327, 169)
 target = NodePath("../Player")
@@ -349,6 +354,3 @@ target = NodePath("../Player")
 [node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_hh08c")]
 position = Vector2(2981, -87)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_ck4k0")]
-position = Vector2(26, 256)

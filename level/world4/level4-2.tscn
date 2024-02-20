@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://dm22oble4adtw"]
+[gd_scene load_steps=23 format=3 uid="uid://dm22oble4adtw"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_1gei7"]
 [ext_resource type="PackedScene" uid="uid://3i47rat1kqdr" path="res://backgrounds/cave/caveBackground.tscn" id="1_1j57u"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_1mufq"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_s74we"]
@@ -44,6 +45,7 @@ size = Vector2(584.786, 203.127)
 
 [node name="Level4-2" type="Node2D"]
 position = Vector2(-40, 520)
+script = ExtResource("1_1gei7")
 
 [node name="CaveBackground" parent="." instance=ExtResource("1_1j57u")]
 
@@ -95,7 +97,6 @@ conectionDoor = NodePath("../door2")
 
 [node name="door2" parent="environment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("7_aw38a")]
 position = Vector2(2510, -464)
-closed = false
 conectionDoor = NodePath("../door")
 
 [node name="items" type="Node2D" parent="."]
@@ -244,6 +245,10 @@ position = Vector2(20, -292)
 position = Vector2(1116, 333)
 shape = SubResource("RectangleShape2D_cabhp")
 
+[node name="Player" parent="." instance=ExtResource("3_s74we")]
+position = Vector2(66, 80)
+rotation = -0.00442657
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_1hgjy")]
 position = Vector2(744, -7)
 target = NodePath("../Player")
@@ -255,7 +260,3 @@ target = NodePath("../Player")
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_1hgjy")]
 position = Vector2(2313, -183)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_s74we")]
-position = Vector2(66, 80)
-rotation = -0.00442657

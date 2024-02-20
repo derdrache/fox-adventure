@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://c5sebwc4ipfgr"]
+[gd_scene load_steps=31 format=3 uid="uid://c5sebwc4ipfgr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_ca526"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_eedi0"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_l1t86"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="2_fhwis"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="2_o748a"]
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="3_tuu28"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="10_4dui3"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="11_0eylj"]
 [ext_resource type="PackedScene" uid="uid://e36x4eic5jxs" path="res://level/environment/climbingTrees/ClimbingTree1.tscn" id="12_n6orh"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="13_h07dn"]
 [ext_resource type="PackedScene" uid="uid://bofjp331ba6v3" path="res://level/environment/moving_objects/eagle.tscn" id="13_mkncg"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="14_4uplx"]
 [ext_resource type="PackedScene" uid="uid://xi7o83rjmb0g" path="res://level/environment/liane/liane.tscn" id="14_nokws"]
@@ -56,7 +58,14 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2dv0q"]
+vertices = PackedVector2Array(456, 106, -68, 106, -68, -34, 456, -34)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-77.7004, -43.685, 466.3, -43.685, 466.3, 116.315, -77.7004, 116.315)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [node name="Level1-5" type="Node2D"]
+script = ExtResource("1_l1t86")
 
 [node name="Background" parent="." instance=ExtResource("1_eedi0")]
 
@@ -216,6 +225,10 @@ position = Vector2(9268, -24)
 [node name="eagle3" parent="environment" instance=ExtResource("13_mkncg")]
 position = Vector2(9083, 42)
 curve = SubResource("Curve2D_iohrh")
+
+[node name="WaterWorld" parent="environment" instance=ExtResource("13_h07dn")]
+position = Vector2(3981.7, 347.685)
+navigation_polygon = SubResource("NavigationPolygon_2dv0q")
 
 [node name="items" type="Node2D" parent="."]
 
@@ -486,6 +499,9 @@ position = Vector2(832, 624)
 tilesWith = 3
 tilesHeight = 1
 
+[node name="Player" parent="." instance=ExtResource("2_fhwis")]
+position = Vector2(-18, -2)
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_hsfym")]
 position = Vector2(1060, 441)
 target = NodePath("../Player")
@@ -497,6 +513,3 @@ target = NodePath("../Player")
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_hsfym")]
 position = Vector2(5852, 169)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("2_fhwis")]
-position = Vector2(-18, -2)

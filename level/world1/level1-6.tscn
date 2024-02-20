@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dtvcx561whmn2"]
+[gd_scene load_steps=25 format=3 uid="uid://dtvcx561whmn2"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_48min"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_y1eo4"]
 [ext_resource type="PackedScene" uid="uid://2mpyv1vhe38p" path="res://level/environment/door/door.tscn" id="2_77t3k"]
 [ext_resource type="PackedScene" uid="uid://rbyw7sl3iomo" path="res://backgrounds/castle/castleBackground.tscn" id="2_gsp0w"]
@@ -59,6 +60,7 @@ size = Vector2(1328, 20)
 size = Vector2(18, 232)
 
 [node name="Level1-6" type="Node2D"]
+script = ExtResource("1_48min")
 
 [node name="CastleBackground" parent="." instance=ExtResource("2_gsp0w")]
 
@@ -317,7 +319,7 @@ position = Vector2(-9, 556)
 shape = SubResource("RectangleShape2D_uo3x1")
 
 [node name="Player" parent="." instance=ExtResource("3_sew3f")]
-position = Vector2(36, 619.5)
+position = Vector2(40, 633)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("9_rfckq")]
 position = Vector2(1584, 632)

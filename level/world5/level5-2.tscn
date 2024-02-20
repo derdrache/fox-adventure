@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://dk35i64qyf0tr"]
+[gd_scene load_steps=30 format=3 uid="uid://dk35i64qyf0tr"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_32m51"]
 [ext_resource type="PackedScene" uid="uid://fdca1hmim6d4" path="res://backgrounds/winter/winterBackground.tscn" id="1_a2vmo"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_get58"]
 [ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridge_objects/stompBridge.tscn" id="3_ajlld"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_jaa8p"]
 [ext_resource type="PackedScene" uid="uid://crywreyta303i" path="res://level/environment/moving_objects/winter_platform.tscn" id="4_lgg8s"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c80b6wwgokyuh" path="res://level/items/key/key.tscn" id="7_eqc2x"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="8_diiv6"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="9_4y6jf"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="9_s5rtg"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="10_2oinb"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="10_wteu7"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="11_dhyx0"]
@@ -46,6 +48,18 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_g145e"]
+vertices = PackedVector2Array(470, 502, 314, 502, 314, 426, 470, 426)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(304, 416, 480, 416, 480, 512, 304, 512)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f78dl"]
+vertices = PackedVector2Array(1270, 486, 938, 486, 938, 378, 1270, 378)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(928, 368, 1280, 368, 1280, 496, 928, 496)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqnei"]
 size = Vector2(27.3139, 519)
 
@@ -59,6 +73,7 @@ size = Vector2(1898, 54.0236)
 size = Vector2(1989, 54.9704)
 
 [node name="Level5-2" type="Node2D"]
+script = ExtResource("1_get58")
 
 [node name="WinterBackground" parent="." instance=ExtResource("1_a2vmo")]
 
@@ -132,6 +147,12 @@ curve = SubResource("Curve2D_15go8")
 
 [node name="Goal" parent="environment" instance=ExtResource("8_diiv6")]
 position = Vector2(6152, -136)
+
+[node name="WaterWorld" parent="environment" instance=ExtResource("9_s5rtg")]
+navigation_polygon = SubResource("NavigationPolygon_g145e")
+
+[node name="WaterWorld2" parent="environment" instance=ExtResource("9_s5rtg")]
+navigation_polygon = SubResource("NavigationPolygon_f78dl")
 
 [node name="items" type="Node2D" parent="."]
 
@@ -334,21 +355,6 @@ position = Vector2(5920, 368)
 position = Vector2(6144, 384)
 tilesWith = 9
 
-[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_wteu7")]
-position = Vector2(968, 313)
-target = NodePath("../Player")
-
-[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_wteu7")]
-position = Vector2(3679, -167)
-target = NodePath("../Player")
-
-[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_wteu7")]
-position = Vector2(5712, 297)
-target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_jaa8p")]
-position = Vector2(104, 400)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -369,3 +375,18 @@ shape = SubResource("RectangleShape2D_bl271")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(5893.81, 327.388)
 shape = SubResource("RectangleShape2D_2f45r")
+
+[node name="Player" parent="." instance=ExtResource("3_jaa8p")]
+position = Vector2(104, 400)
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_wteu7")]
+position = Vector2(968, 313)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_wteu7")]
+position = Vector2(3679, -167)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_wteu7")]
+position = Vector2(5712, 297)
+target = NodePath("../Player")

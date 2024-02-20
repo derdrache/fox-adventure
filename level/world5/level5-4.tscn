@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://coo4qu5xmevmv"]
+[gd_scene load_steps=32 format=3 uid="uid://coo4qu5xmevmv"]
 
 [ext_resource type="PackedScene" uid="uid://fdca1hmim6d4" path="res://backgrounds/winter/winterBackground.tscn" id="1_coi35"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_e74hu"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_taqlb"]
 [ext_resource type="PackedScene" uid="uid://crywreyta303i" path="res://level/environment/moving_objects/winter_platform.tscn" id="3_07fx0"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_ta4kd"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c80b6wwgokyuh" path="res://level/items/key/key.tscn" id="8_rqeme"]
 [ext_resource type="PackedScene" uid="uid://cbie5ng2hscv1" path="res://level/environment/bigMushroom/bigMushroom.tscn" id="9_i1dt5"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="10_0r56b"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="11_vwbhd"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="11_xvetp"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="12_jvpv0"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="12_pwb77"]
@@ -51,9 +53,21 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_42beo"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1, -2, 0, 0, 0, 0, -2, -170, 0, 0, 0, 0, -2, -4)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -24, 0, 0, 0, 0, 0, -176, 0, 0, 0, 0, 0, -24)
 }
 point_count = 3
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3y6k6"]
+vertices = PackedVector2Array(6182, 266, 6182, 374, 6010, 374, 6010, 358, 5946, 358, 5946, 330, 6010, 330, 6010, 266)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(0, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(6000, 256, 6192, 256, 6192, 384, 6000, 384, 6000, 368, 5936, 368, 5936, 320, 6000, 320)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wlht0"]
+vertices = PackedVector2Array(5542, 202, 5542, 342, 5478, 342, 5370, 202, 5478, 394, 5542, 394, 5542, 406, 5434, 406, 5434, 342, 5370, 342)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 2), PackedInt32Array(3, 2, 8), PackedInt32Array(3, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(5360, 192, 5552, 192, 5552, 352, 5488, 352, 5488, 384, 5552, 384, 5552, 416, 5424, 416, 5424, 352, 5360, 352)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmiub"]
 size = Vector2(20, 376.16)
@@ -65,6 +79,7 @@ size = Vector2(3485, 59.1382)
 size = Vector2(3725, 78.3751)
 
 [node name="Level5-4" type="Node2D"]
+script = ExtResource("1_e74hu")
 
 [node name="WinterBackground" parent="." instance=ExtResource("1_coi35")]
 
@@ -129,6 +144,12 @@ position = Vector2(573, -158)
 
 [node name="Goal" parent="environment" instance=ExtResource("10_0r56b")]
 position = Vector2(6561, 167)
+
+[node name="WaterWorld" parent="environment" instance=ExtResource("11_vwbhd")]
+navigation_polygon = SubResource("NavigationPolygon_3y6k6")
+
+[node name="WaterWorld2" parent="environment" instance=ExtResource("11_vwbhd")]
+navigation_polygon = SubResource("NavigationPolygon_wlht0")
 
 [node name="items" type="Node2D" parent="."]
 
@@ -207,7 +228,7 @@ position = Vector2(1673, 227)
 position = Vector2(2489, 65)
 
 [node name="GoldCoin10" parent="items/goldCoins" instance=ExtResource("14_qwy8d")]
-position = Vector2(2649, 52)
+position = Vector2(2744, 6)
 
 [node name="GoldCoin11" parent="items/goldCoins" instance=ExtResource("14_qwy8d")]
 position = Vector2(2844, -146)
@@ -325,7 +346,6 @@ tilesHeight = 10
 
 [node name="Fog4" parent="Fogs" instance=ExtResource("16_huomj")]
 position = Vector2(4160, 384)
-tilesWith = 7
 tilesHeight = 10
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]

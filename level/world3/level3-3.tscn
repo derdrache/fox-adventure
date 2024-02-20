@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://dnqn1smy7okd8"]
+[gd_scene load_steps=30 format=3 uid="uid://dnqn1smy7okd8"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_juh37"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_ootcn"]
 [ext_resource type="PackedScene" uid="uid://3jqlknpvgshn" path="res://backgrounds/desert/desertBackground.tscn" id="1_t5yk1"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_wfh4r"]
@@ -60,6 +61,7 @@ size = Vector2(20, 341)
 size = Vector2(20, 285)
 
 [node name="Level3-3" type="Node2D"]
+script = ExtResource("1_juh37")
 
 [node name="DesertBackground" parent="." instance=ExtResource("1_t5yk1")]
 scroll_offset = Vector2(601.94, -60.0618)
@@ -322,6 +324,9 @@ shape = SubResource("RectangleShape2D_36psy")
 position = Vector2(4122, 279.5)
 shape = SubResource("RectangleShape2D_7kvnq")
 
+[node name="Player" parent="." instance=ExtResource("3_wfh4r")]
+position = Vector2(69.296, 172.567)
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("20_xbqcy")]
 position = Vector2(1073, 441)
 target = NodePath("../Player")
@@ -333,6 +338,3 @@ target = NodePath("../Player")
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("20_xbqcy")]
 position = Vector2(3234.67, 169.646)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_wfh4r")]
-position = Vector2(69.296, 172.567)

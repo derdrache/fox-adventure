@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://pfec73y6qnpm"]
+[gd_scene load_steps=27 format=3 uid="uid://pfec73y6qnpm"]
 
 [ext_resource type="PackedScene" uid="uid://d0y52ct28jrv1" path="res://backgrounds/city/cityBackground.tscn" id="1_g2kjl"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_kkw1y"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_2dttb"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="3_cd1rs"]
 [ext_resource type="PackedScene" uid="uid://cw1cbssqg66ma" path="res://level/environment/moving_objects/city_platform.tscn" id="3_w1epp"]
@@ -16,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="10_i20s8"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="12_m75ot"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="14_4km0s"]
-[ext_resource type="PackedScene" uid="uid://drfyqgayf8cyu" path="res://level/environment/fog/World7Fog.tscn" id="14_ufjm3"]
+[ext_resource type="PackedScene" uid="uid://dvx3wycu158g8" path="res://level/environment/fog/World7Fog.tscn" id="14_ufjm3"]
 
 [sub_resource type="Curve2D" id="Curve2D_da5af"]
 resource_local_to_scene = true
@@ -59,6 +60,7 @@ size = Vector2(20, 208)
 size = Vector2(18, 188)
 
 [node name="Level7-4" type="Node2D"]
+script = ExtResource("1_kkw1y")
 
 [node name="CityBackground" parent="." instance=ExtResource("1_g2kjl")]
 
@@ -287,34 +289,33 @@ target = NodePath("../../Player")
 [node name="Fogs" type="Node2D" parent="."]
 
 [node name="Fog" parent="Fogs" instance=ExtResource("14_ufjm3")]
-position = Vector2(3104, 656)
+position = Vector2(5728, 656)
 
 [node name="Fog2" parent="Fogs" instance=ExtResource("14_ufjm3")]
-position = Vector2(3408, 656)
+position = Vector2(5280, 656)
+tilesHeight = 7
 
 [node name="Fog3" parent="Fogs" instance=ExtResource("14_ufjm3")]
-position = Vector2(3768, 624)
-
-[node name="Fog4" parent="Fogs" instance=ExtResource("14_ufjm3")]
-position = Vector2(4464, 688)
-tilesWith = 6
-
-[node name="Fog5" parent="Fogs" instance=ExtResource("14_ufjm3")]
 position = Vector2(4880, 656)
-tilesWith = 3
 tilesHeight = 1
 
-[node name="Fog6" parent="Fogs" instance=ExtResource("14_ufjm3")]
+[node name="Fog4" parent="Fogs" instance=ExtResource("14_ufjm3")]
 position = Vector2(4880, 672)
 tilesWith = 10
 tilesHeight = 10
 
+[node name="Fog5" parent="Fogs" instance=ExtResource("14_ufjm3")]
+position = Vector2(4464, 688)
+tilesWith = 6
+
+[node name="Fog6" parent="Fogs" instance=ExtResource("14_ufjm3")]
+position = Vector2(3776, 624)
+
 [node name="Fog7" parent="Fogs" instance=ExtResource("14_ufjm3")]
-position = Vector2(5280, 656)
-tilesHeight = 7
+position = Vector2(3408, 656)
 
 [node name="Fog8" parent="Fogs" instance=ExtResource("14_ufjm3")]
-position = Vector2(5728, 656)
+position = Vector2(3104, 664)
 
 [node name="WorldEnd" parent="." instance=ExtResource("3_cd1rs")]
 
@@ -336,6 +337,9 @@ shape = SubResource("RectangleShape2D_f6j7l")
 position = Vector2(6249, 616)
 shape = SubResource("RectangleShape2D_0s5b2")
 
+[node name="Player" parent="." instance=ExtResource("4_bkce7")]
+position = Vector2(92.5664, 32.6379)
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("14_4km0s")]
 position = Vector2(557, 217)
 target = NodePath("../Player")
@@ -347,6 +351,3 @@ target = NodePath("../Player")
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("14_4km0s")]
 position = Vector2(4467, 665)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("4_bkce7")]
-position = Vector2(92.5664, 32.6379)

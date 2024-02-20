@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://cuyk1s6m6eekk"]
+[gd_scene load_steps=26 format=3 uid="uid://cuyk1s6m6eekk"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_i8mki"]
 [ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swampBackground.tscn" id="1_sv2ka"]
 [ext_resource type="PackedScene" uid="uid://3u8gexpj31rv" path="res://level/environment/climbingTrees/ClimbingWillow.tscn" id="2_8r8u5"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="2_tmuyh"]
@@ -48,6 +49,7 @@ _data = {
 point_count = 2
 
 [node name="Level2-2" type="Node2D"]
+script = ExtResource("1_i8mki")
 
 [node name="SwampBackground" parent="." instance=ExtResource("1_sv2ka")]
 

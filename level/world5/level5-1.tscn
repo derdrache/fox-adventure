@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://dc7wmxkpnjhd2"]
+[gd_scene load_steps=29 format=3 uid="uid://dc7wmxkpnjhd2"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_0la77"]
 [ext_resource type="PackedScene" uid="uid://fdca1hmim6d4" path="res://backgrounds/winter/winterBackground.tscn" id="1_1oqkx"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_sgosq"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_66tec"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridge_objects/stompBridge.tscn" id="9_x7gvm"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="10_k381v"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="11_7jkpq"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="11_eed0c"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="12_2s8a8"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="12_6mkfb"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="12_p31jh"]
@@ -41,6 +43,12 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7xnrm"]
+vertices = PackedVector2Array(4886, 218, 4886, 278, 4502, 278, 4570, 266, 4502, 326, 4474, 326, 4474, 266, 4570, 218)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(2, 6, 3), PackedInt32Array(0, 3, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4560, 208, 4896, 208, 4896, 288, 4512, 288, 4512, 336, 4464, 336, 4464, 256, 4560, 256)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvx06"]
 size = Vector2(7438, 58)
 
@@ -51,6 +59,7 @@ size = Vector2(1865, 20)
 size = Vector2(43.0253, 538)
 
 [node name="Level5-1" type="Node2D"]
+script = ExtResource("1_0la77")
 
 [node name="WinterBackground" parent="." instance=ExtResource("1_1oqkx")]
 
@@ -122,6 +131,9 @@ position = Vector2(6700, 354)
 [node name="StompBridge" parent="environment/TreeStomp2" instance=ExtResource("9_x7gvm")]
 position = Vector2(-820, -162)
 
+[node name="WaterWorld" parent="environment" instance=ExtResource("11_eed0c")]
+navigation_polygon = SubResource("NavigationPolygon_7xnrm")
+
 [node name="items" type="Node2D" parent="."]
 
 [node name="gems" type="Node2D" parent="items"]
@@ -167,6 +179,33 @@ hasRedCoin = true
 
 [node name="GoldCoin" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
 position = Vector2(847, 370)
+
+[node name="GoldCoin31" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
+position = Vector2(2813, -91)
+
+[node name="GoldCoin32" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
+position = Vector2(2880, -91)
+
+[node name="GoldCoin33" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
+position = Vector2(2944, -91)
+
+[node name="GoldCoin34" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
+position = Vector2(3008, -91)
+
+[node name="GoldCoin35" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
+position = Vector2(3072, -91)
+
+[node name="GoldCoin36" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
+position = Vector2(3240, -81)
+
+[node name="GoldCoin37" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
+position = Vector2(3288, -113)
+
+[node name="GoldCoin38" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
+position = Vector2(3360, -160)
+
+[node name="GoldCoin39" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
+position = Vector2(3432, -216)
 
 [node name="GoldCoin24" parent="items/goldCoins" instance=ExtResource("12_2s8a8")]
 position = Vector2(6449.13, 318.811)
@@ -328,21 +367,6 @@ tilesWith = 6
 position = Vector2(6160, 368)
 tilesWith = 5
 
-[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_6mkfb")]
-position = Vector2(865, 425)
-target = NodePath("../Player")
-
-[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_6mkfb")]
-position = Vector2(3918, -87)
-target = NodePath("../Player")
-
-[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_6mkfb")]
-position = Vector2(6550, 201)
-target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_66tec")]
-position = Vector2(96, 271)
-
 [node name="WorldEnd" parent="." instance=ExtResource("18_41v3a")]
 position = Vector2(5975.14, 173.417)
 
@@ -359,3 +383,18 @@ shape = SubResource("RectangleShape2D_md1d6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(26.4873, 181)
 shape = SubResource("RectangleShape2D_ievim")
+
+[node name="Player" parent="." instance=ExtResource("3_66tec")]
+position = Vector2(96, 271)
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_6mkfb")]
+position = Vector2(865, 425)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_6mkfb")]
+position = Vector2(3918, -87)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_6mkfb")]
+position = Vector2(6550, 201)
+target = NodePath("../Player")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1ynh6l24x472"]
+[gd_scene load_steps=28 format=3 uid="uid://d1ynh6l24x472"]
 
+[ext_resource type="Script" path="res://level/levels.gd" id="1_2s3ea"]
 [ext_resource type="PackedScene" uid="uid://d0y52ct28jrv1" path="res://backgrounds/city/cityBackground.tscn" id="1_fbt55"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_fr4s1"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="3_074ts"]
@@ -15,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="10_1v0al"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="11_aabf5"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="12_vcvdh"]
-[ext_resource type="PackedScene" uid="uid://drfyqgayf8cyu" path="res://level/environment/fog/World7Fog.tscn" id="13_b1o5r"]
+[ext_resource type="PackedScene" uid="uid://dvx3wycu158g8" path="res://level/environment/fog/World7Fog.tscn" id="13_b1o5r"]
 
 [sub_resource type="Curve2D" id="Curve2D_n00ua"]
 resource_local_to_scene = true
@@ -64,6 +65,7 @@ size = Vector2(26, 256)
 size = Vector2(16.3824, 283.652)
 
 [node name="Level7-3" type="Node2D"]
+script = ExtResource("1_2s3ea")
 
 [node name="CityBackground" parent="." instance=ExtResource("1_fbt55")]
 
@@ -366,19 +368,15 @@ position = Vector2(2448, 560)
 tilesWith = 5
 
 [node name="Fog5" parent="Fogs" instance=ExtResource("13_b1o5r")]
-position = Vector2(2640, 528)
-tilesWith = 8
-
-[node name="Fog6" parent="Fogs" instance=ExtResource("13_b1o5r")]
 position = Vector2(3120, 544)
 
-[node name="Fog7" parent="Fogs" instance=ExtResource("13_b1o5r")]
+[node name="Fog6" parent="Fogs" instance=ExtResource("13_b1o5r")]
 position = Vector2(3392, 608)
 
-[node name="Fog8" parent="Fogs" instance=ExtResource("13_b1o5r")]
+[node name="Fog7" parent="Fogs" instance=ExtResource("13_b1o5r")]
 position = Vector2(4432, 592)
 
-[node name="Fog9" parent="Fogs" instance=ExtResource("13_b1o5r")]
+[node name="Fog8" parent="Fogs" instance=ExtResource("13_b1o5r")]
 position = Vector2(5056, 576)
 tilesWith = 5
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://vsyi20ijqcc0"]
+[gd_scene load_steps=25 format=3 uid="uid://vsyi20ijqcc0"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_fhb7j"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_hw8ro"]
 [ext_resource type="PackedScene" uid="uid://d0y52ct28jrv1" path="res://backgrounds/city/cityBackground.tscn" id="1_q0mxc"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="3_5cvj4"]
 [ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridge_objects/stompBridge.tscn" id="3_jq2tt"]
@@ -16,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="11_rfqql"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="12_644l1"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="12_bhrq0"]
-[ext_resource type="PackedScene" uid="uid://drfyqgayf8cyu" path="res://level/environment/fog/World7Fog.tscn" id="14_nr77l"]
+[ext_resource type="PackedScene" uid="uid://dvx3wycu158g8" path="res://level/environment/fog/World7Fog.tscn" id="16_bp8p3"]
 
 [sub_resource type="Curve2D" id="Curve2D_005tj"]
 resource_local_to_scene = true
@@ -28,7 +29,7 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_vh3ou"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 0, -187, 0, 0, 0, 0, 0, -32)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -24, 0, 0, 0, 0, 0, -187, 0, 0, 0, 0, 0, -24)
 }
 point_count = 3
 
@@ -53,6 +54,7 @@ size = Vector2(6173, 40.3594)
 size = Vector2(20, 238)
 
 [node name="Level7-1" type="Node2D"]
+script = ExtResource("1_hw8ro")
 
 [node name="CityBackground" parent="." instance=ExtResource("1_q0mxc")]
 
@@ -231,7 +233,7 @@ position = Vector2(4014, 325)
 position = Vector2(5303.92, 454.371)
 
 [node name="GoldCoin22" parent="items/goldCoins" instance=ExtResource("12_644l1")]
-position = Vector2(5535, 519)
+position = Vector2(5535, 520)
 
 [node name="GoldCoin23" parent="items/goldCoins" instance=ExtResource("12_644l1")]
 position = Vector2(5476, 296)
@@ -280,34 +282,34 @@ target = NodePath("../../Player")
 
 [node name="Fogs" type="Node2D" parent="."]
 
-[node name="Fog" parent="Fogs" instance=ExtResource("14_nr77l")]
+[node name="Fog" parent="Fogs" instance=ExtResource("16_bp8p3")]
 position = Vector2(176, 464)
 
-[node name="Fog2" parent="Fogs" instance=ExtResource("14_nr77l")]
-position = Vector2(488, 494)
+[node name="Fog2" parent="Fogs" instance=ExtResource("16_bp8p3")]
+position = Vector2(488, 496)
 
-[node name="Fog3" parent="Fogs" instance=ExtResource("14_nr77l")]
+[node name="Fog4" parent="Fogs" instance=ExtResource("16_bp8p3")]
+position = Vector2(3248, 512)
+
+[node name="Fog5" parent="Fogs" instance=ExtResource("16_bp8p3")]
+position = Vector2(3568, 496)
+
+[node name="Fog6" parent="Fogs" instance=ExtResource("16_bp8p3")]
+position = Vector2(4176, 464)
+
+[node name="Fog7" parent="Fogs" instance=ExtResource("16_bp8p3")]
+position = Vector2(4368, 368)
+
+[node name="Fog8" parent="Fogs" instance=ExtResource("16_bp8p3")]
+position = Vector2(5248, 432)
+
+[node name="Fog9" parent="Fogs" instance=ExtResource("16_bp8p3")]
+position = Vector2(5504, 512)
+
+[node name="Fog3" parent="Fogs" instance=ExtResource("16_bp8p3")]
 position = Vector2(1440, 400)
 tilesWith = 9
 tilesHeight = 11
-
-[node name="Fog4" parent="Fogs" instance=ExtResource("14_nr77l")]
-position = Vector2(3247, 512)
-
-[node name="Fog5" parent="Fogs" instance=ExtResource("14_nr77l")]
-position = Vector2(3568, 496)
-
-[node name="Fog6" parent="Fogs" instance=ExtResource("14_nr77l")]
-position = Vector2(4176, 464)
-
-[node name="Fog7" parent="Fogs" instance=ExtResource("14_nr77l")]
-position = Vector2(4368, 368)
-
-[node name="Fog8" parent="Fogs" instance=ExtResource("14_nr77l")]
-position = Vector2(5248, 432)
-
-[node name="Fog9" parent="Fogs" instance=ExtResource("14_nr77l")]
-position = Vector2(5504, 504)
 
 [node name="WorldEnd" parent="." instance=ExtResource("3_5cvj4")]
 position = Vector2(426.553, 373.132)
@@ -323,7 +325,7 @@ position = Vector2(6, 420)
 shape = SubResource("RectangleShape2D_wyb60")
 
 [node name="Player" parent="." instance=ExtResource("3_u0bos")]
-position = Vector2(89, 426)
+position = Vector2(88, 432)
 floor_max_angle = 1.22173
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_bhrq0")]

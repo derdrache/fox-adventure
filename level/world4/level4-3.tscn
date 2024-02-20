@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://djr7dah23v8di"]
+[gd_scene load_steps=28 format=3 uid="uid://djr7dah23v8di"]
 
 [ext_resource type="PackedScene" uid="uid://3i47rat1kqdr" path="res://backgrounds/cave/caveBackground.tscn" id="1_5fe0m"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_iikq6"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_8sv2b"]
 [ext_resource type="PackedScene" uid="uid://6efycntwxpm6" path="res://level/environment/moving_objects/cave_platform.tscn" id="3_0bdgi"]
 [ext_resource type="PackedScene" uid="uid://hsjuocp3ilb4" path="res://level/player/player.tscn" id="3_no2du"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c80b6wwgokyuh" path="res://level/items/key/key.tscn" id="7_irlcr"]
 [ext_resource type="PackedScene" uid="uid://sdf3ivtdspav" path="res://level/environment/switch_objects/treeStomp/TreeStomp.tscn" id="8_hlxm1"]
 [ext_resource type="PackedScene" uid="uid://q7e2ahrq0vsa" path="res://level/environment/goal/Goal.tscn" id="9_veabb"]
+[ext_resource type="PackedScene" uid="uid://b3vbtvbwnhfq0" path="res://level/decoration/sea/waterWorld.tscn" id="10_061p3"]
 [ext_resource type="PackedScene" uid="uid://b7a5eebnq58g" path="res://level/items/gem/gem.tscn" id="10_gfw6y"]
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="11_n20hy"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="12_5o84a"]
@@ -25,6 +27,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 168, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 3
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_b6io2"]
+vertices = PackedVector2Array(390, 518, 250, 518, 250, 458, 390, 458)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(240, 448, 400, 448, 400, 528, 240, 528)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gv7we"]
 size = Vector2(3122.8, 48)
@@ -42,6 +50,7 @@ size = Vector2(18, 224)
 size = Vector2(18, 224)
 
 [node name="Level4-3" type="Node2D"]
+script = ExtResource("1_iikq6")
 
 [node name="CaveBackground" parent="." instance=ExtResource("1_5fe0m")]
 
@@ -106,6 +115,9 @@ conectionDoor = NodePath("../door")
 [node name="door4" parent="environment" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("6_wmg5f")]
 position = Vector2(4528, 752)
 conectionDoor = NodePath("../door2")
+
+[node name="WaterWorld" parent="environment" instance=ExtResource("10_061p3")]
+navigation_polygon = SubResource("NavigationPolygon_b6io2")
 
 [node name="items" type="Node2D" parent="."]
 
@@ -265,21 +277,6 @@ shape = SubResource("RectangleShape2D_rn1y2")
 position = Vector2(5256, 1)
 shape = SubResource("RectangleShape2D_l2lig")
 
-[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_dwsbg")]
-position = Vector2(944, 105)
-target = NodePath("../Player")
-
-[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_dwsbg")]
-position = Vector2(2520, 457)
-target = NodePath("../Player")
-
-[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_dwsbg")]
-position = Vector2(3546, 121)
-target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("3_no2du")]
-position = Vector2(80, 400)
-
 [node name="Fogs" type="Node2D" parent="."]
 
 [node name="Fog" parent="Fogs" instance=ExtResource("18_5y2fd")]
@@ -298,3 +295,18 @@ tilesHeight = 15
 position = Vector2(2544, 464)
 tilesWith = 10
 tilesHeight = 8
+
+[node name="Player" parent="." instance=ExtResource("3_no2du")]
+position = Vector2(75.1422, 397.567)
+
+[node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_dwsbg")]
+position = Vector2(944, 105)
+target = NodePath("../Player")
+
+[node name="Cat2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_dwsbg")]
+position = Vector2(2520, 457)
+target = NodePath("../Player")
+
+[node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_dwsbg")]
+position = Vector2(3546, 121)
+target = NodePath("../Player")

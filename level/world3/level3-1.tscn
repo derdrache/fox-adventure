@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://cqo5rsy683uri"]
+[gd_scene load_steps=31 format=3 uid="uid://cqo5rsy683uri"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_ma4q1"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_w5qtl"]
 [ext_resource type="PackedScene" uid="uid://3jqlknpvgshn" path="res://backgrounds/desert/desertBackground.tscn" id="1_wswsx"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="2_0ba68"]
 [ext_resource type="PackedScene" uid="uid://dgndd8xxy3owe" path="res://level/environment/bridge_objects/stompBridge.tscn" id="3_l6alu"]
@@ -73,6 +74,7 @@ size = Vector2(26, 686)
 size = Vector2(52.2017, 464)
 
 [node name="Level3-1" type="Node2D"]
+script = ExtResource("1_w5qtl")
 
 [node name="DesertBackground" parent="." instance=ExtResource("1_wswsx")]
 scale = Vector2(0.7, 0.7)
@@ -126,7 +128,6 @@ position = Vector2(497, -66)
 
 [node name="door" parent="environment/doorSets/doorSet1" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("8_6jx1f")]
 position = Vector2(1942, 352)
-closed = false
 conectionDoor = NodePath("../door2")
 
 [node name="door2" parent="environment/doorSets/doorSet1" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("8_6jx1f")]
@@ -386,6 +387,9 @@ shape = SubResource("RectangleShape2D_ixswn")
 position = Vector2(6315, 424)
 shape = SubResource("RectangleShape2D_lrcjl")
 
+[node name="Player" parent="." instance=ExtResource("4_6yo7s")]
+position = Vector2(23, 513)
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_fbybh")]
 position = Vector2(1951, 1177)
 target = NodePath("../Player")
@@ -397,6 +401,3 @@ target = NodePath("../Player")
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_fbybh")]
 position = Vector2(5137, 633)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("4_6yo7s")]
-position = Vector2(23, 513)

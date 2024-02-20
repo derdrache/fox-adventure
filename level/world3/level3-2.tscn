@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://cd1sxqyo4afpc"]
+[gd_scene load_steps=33 format=3 uid="uid://cd1sxqyo4afpc"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_1poy8"]
+[ext_resource type="Script" path="res://level/levels.gd" id="1_8xsia"]
 [ext_resource type="PackedScene" uid="uid://3jqlknpvgshn" path="res://backgrounds/desert/desertBackground.tscn" id="1_glji3"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="1_n3xqo"]
 [ext_resource type="PackedScene" uid="uid://c5fod1dhvmiep" path="res://level/environment/moving_objects/desert_platform.tscn" id="3_xlbtd"]
@@ -405,6 +406,7 @@ size = Vector2(5790.78, 51)
 size = Vector2(20, 335)
 
 [node name="Level3-2" type="Node2D"]
+script = ExtResource("1_8xsia")
 
 [node name="DesertBackground" parent="." instance=ExtResource("1_glji3")]
 
@@ -712,6 +714,9 @@ shape = SubResource("RectangleShape2D_71nj2")
 position = Vector2(5, 166)
 shape = SubResource("RectangleShape2D_dkbmn")
 
+[node name="Player" parent="." instance=ExtResource("4_rv5bl")]
+position = Vector2(58.9438, 254.271)
+
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_wg7e2")]
 position = Vector2(597, 137)
 target = NodePath("../Player")
@@ -723,8 +728,5 @@ target = NodePath("../Player")
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_wg7e2")]
 position = Vector2(4491.25, 136.931)
 target = NodePath("../Player")
-
-[node name="Player" parent="." instance=ExtResource("4_rv5bl")]
-position = Vector2(58.9438, 254.271)
 
 [connection signal="body_entered" from="Fog/SpezialFog" to="Fog/SpezialFog" method="_on_body_entered"]
