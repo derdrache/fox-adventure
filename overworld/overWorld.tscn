@@ -5171,7 +5171,7 @@ zoom = Vector2(2, 2)
 
 [node name="DesertWorld" type="Camera2D" parent="Cameras"]
 visible = false
-position = Vector2(976, -180)
+position = Vector2(976, -179)
 enabled = false
 zoom = Vector2(2, 2)
 
@@ -5189,7 +5189,7 @@ zoom = Vector2(2, 2)
 
 [node name="Beach" type="Camera2D" parent="Cameras"]
 visible = false
-position = Vector2(330, -916)
+position = Vector2(329, -918)
 enabled = false
 zoom = Vector2(2, 2)
 
@@ -5200,7 +5200,7 @@ enabled = false
 zoom = Vector2(2, 2)
 
 [node name="PlayerOverWorld" parent="." instance=ExtResource("4_8spb5")]
-position = Vector2(249, 288)
+position = Vector2(249, 287)
 
 [node name="ScreenshotCamera" type="Camera2D" parent="."]
 position = Vector2(243, 272)

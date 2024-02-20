@@ -78,7 +78,7 @@ func _ready():
 		obstacle3_1, obstacle3_2, obstacle4_1, obstacle4_2, obstacle4_3, obstacle4_4, 
 		obstacle5_1, obstacle5_2, obstacle6_1, obstacle6_2, obstacle6_3, obstacle7_1, 
 		obstacle7_2]
-		
+	
 	_load_and_update_data()
 	_check_cat_mom_done()
 	_check_interactions_disables()
