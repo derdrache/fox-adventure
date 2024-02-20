@@ -13,9 +13,12 @@ script = ExtResource("1_d4etb")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -672.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 0
 theme = ExtResource("2_5apwg")
 
