@@ -30,6 +30,7 @@ func _on_exit_button_pressed():
 
 func _on_setting_button_pressed():
 	$Control/SettingMenu.visible = true
+	layer = 10
 	menuSelection.visible = false
 	menuSelection.visible = false
 	closeButtonRect.visible = false
@@ -38,3 +39,4 @@ func _on_setting_button_pressed():
 
 func _on_setting_menu_close_window():
 	backgroundRect.visible = false
+	layer = -1
