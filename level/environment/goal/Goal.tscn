@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://q7e2ahrq0vsa"]
 
 [ext_resource type="Script" path="res://level/environment/goal/Goal.gd" id="1_yxub4"]
-[ext_resource type="AudioStream" uid="uid://d1killwssr28a" path="res://asset/sound/levelDone.mp3" id="3_1h4e0"]
 [ext_resource type="Texture2D" uid="uid://bpeher11xe6ic" path="res://asset/sprites/flag animation.png" id="3_c4i6s"]
+[ext_resource type="AudioStream" uid="uid://bwbamvblm27yb" path="res://asset/sound/level done.mp3" id="3_rw62l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4lm2v"]
 atlas = ExtResource("3_c4i6s")
@@ -64,7 +64,8 @@ position = Vector2(21, 0.75)
 shape = SubResource("RectangleShape2D_6mjol")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_1h4e0")
+stream = ExtResource("3_rw62l")
+volume_db = -5.0
 bus = &"SoundEffect"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
