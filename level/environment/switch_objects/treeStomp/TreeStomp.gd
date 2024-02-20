@@ -13,5 +13,6 @@ func _process(_delta):
 func _on_area_2d_body_entered(body):
 	if body is Player:
 		var stompedState = 7
-		if body.state == stompedState: 
+		if body.state == stompedState && !used: 
+			$AudioStreamPlayer.play()
 			used = true

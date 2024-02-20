@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://sdf3ivtdspav"]
+[gd_scene load_steps=6 format=3 uid="uid://sdf3ivtdspav"]
 
 [ext_resource type="Texture2D" uid="uid://cb6pkg80f062k" path="res://level/environment/switch_objects/treeStomp/Baumstamm.png" id="1_3q1vj"]
 [ext_resource type="Script" path="res://level/environment/switch_objects/treeStomp/TreeStomp.gd" id="1_milin"]
+[ext_resource type="AudioStream" uid="uid://00mswcpwjnpv" path="res://asset/sound/switch.mp3" id="3_a5hyo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3bot"]
 size = Vector2(14, 16)
@@ -27,5 +28,9 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_lue21")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a5hyo")
+bus = &"SoundEffect"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
