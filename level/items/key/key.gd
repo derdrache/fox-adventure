@@ -31,6 +31,7 @@ func _calculate_velocity():
 
 func _on_key_body_entered(body):
 	if body is Player && isWaiting: 
+		$AudioStreamPlayer.play()
 		body.hasKey = true
 		isWaiting = false
 		
