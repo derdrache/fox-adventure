@@ -9,8 +9,10 @@ extends CanvasLayer
 @onready var catRect = "Control/ScoreBoard/MarginContainer/VBoxContainer/catScore/cat"
 @onready var circleTransitionRect = $Control/CircleTransition
 
+var goldCoinsMax = LevelManager.maxGoldCoins
 
 func _ready():
+	goldCoinLabel.text = "0 / " + str(goldCoinsMax) +"%"
 	circleTransitionRect.transition("in", 2)
 	await get_tree().create_timer(2).timeout
 	
@@ -48,13 +50,12 @@ func _input(event):
 		var tween = get_tree().create_tween()
 		
 		tween.tween_property(circleTransitionShader, "shader_parameter/circle_size", 0, 2)
-		await get_tree().create_timer(2.1).timeout
+		await get_tree().create_timer(2).timeout
 		
 		get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
-		queue_free()
 		
 func _number_animation(label, number, totalScore):
-	for i in number:
+	for i in number +1:
 		var procent = i *10 * 100 / totalScore
 		label.text = str(i) + "/ 5" + " = " + str(procent) + "%"
 		await get_tree().create_timer(0.1).timeout

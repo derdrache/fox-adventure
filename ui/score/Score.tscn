@@ -96,7 +96,7 @@ theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_fonts/font = ExtResource("7_yovmr")
 theme_override_font_sizes/font_size = 40
-text = "0 %"
+text = "0%"
 
 [node name="HSeparator" type="HSeparator" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
 layout_mode = 2
