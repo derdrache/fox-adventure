@@ -440,7 +440,6 @@ visible = false
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("10_ksxp3")
-autoplay = true
 bus = &"BackgroundMusic"
 
 [node name="WaterSplash" type="AudioStreamPlayer" parent="SoundEffects"]
@@ -453,10 +452,11 @@ bus = &"SoundEffect"
 
 [node name="BackGroundCastleMusic" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("13_5rvpj")
+volume_db = -20.0
 bus = &"BackgroundMusic"
 
 [node name="BirdSpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 8.0
 autostart = true
 
 [connection signal="timeout" from="BirdSpawnTimer" to="." method="_on_bird_spawn_timer_timeout"]
