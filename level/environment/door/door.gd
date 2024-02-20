@@ -14,10 +14,11 @@ func _process(_delta):
 func _input(event):	
 	if event.is_action_pressed("move_up") && not closed:
 		if playerBody == null: return
-		playerBody.start_fade_animation("out")
-		await get_tree().create_timer(0.6).timeout
+		print("test")
+		playerBody.circle_transition("out", 1)
+		await get_tree().create_timer(1).timeout
 		playerBody.global_position = conectionDoor.global_position 
-		playerBody.start_fade_animation("in")
+		playerBody.circle_transition("in", 1)
 	
 func _on_body_entered(body):
 	if body is Player:
