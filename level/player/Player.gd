@@ -58,11 +58,12 @@ func _ready():
 	else: $SoundEffects/BackgroundMusic.play()
 
 func _process(_delta):
+	if !is_physics_processing(): sprite.play("idle")
 	if !underWater && "water" in get_tile_data(): 
 		$SoundEffects/WaterSplash.play()
 	underWater = "water" in get_tile_data()
 
-func _physics_process(delta):	
+func _physics_process(delta):
 	_get_moving_object_speed()
 	
 	if is_on_floor(): doStomp = false
@@ -258,8 +259,6 @@ func swim_state(_delta):
 func animation_state():
 	var move_right = direction.x == 1
 	var move_left = direction.x == -1
-	var move_up = direction.y == -1
-	var move_down = direction.y == 1
 
 	if doDig: return
 	
@@ -492,10 +491,6 @@ func _check_last_floor_position():
 func _reset_was_on_climbing_object():
 	if !is_on_climbing_object() || is_on_floor(): wasOnCLimbingObject = false
 
-func start_fade_animation(animation : String):
-	if animation == "in": fadeAnimation.fade_in()
-	elif animation == "out": fadeAnimation.fade_out()
-
 func _get_moving_object_speed():
 	var onPlatform = false
 	
@@ -515,6 +510,8 @@ func _spawn_birds():
 
 
 func _on_bird_spawn_timer_timeout():
+	if in_water(): return  
+	
 	_spawn_birds()
 
 func _spawn_water_splash():
@@ -525,5 +522,7 @@ func _spawn_water_splash():
 func circle_transition(direction, duration):
 	circleTransitionRect.transition(direction, duration)
 	$Camera2D/CanvasLayer.layer = 10
+	await get_tree().create_timer(duration).timeout
+	$Camera2D/CanvasLayer.layer = -1
 
 
