@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drfyqgayf8cyu"]
+[gd_scene load_steps=6 format=3 uid="uid://dvx3wycu158g8"]
 
-[ext_resource type="Script" path="res://level/environment/fog/fog.gd" id="1_qruj8"]
-[ext_resource type="Texture2D" uid="uid://l0s6pv0od2al" path="res://asset/tileMaps/city1.png" id="2_0u5yv"]
+[ext_resource type="Script" path="res://level/environment/fog/fog.gd" id="1_6sivn"]
+[ext_resource type="Texture2D" uid="uid://l0s6pv0od2al" path="res://asset/tileMaps/city1.png" id="2_pjf8b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gb3uq"]
-texture = ExtResource("2_0u5yv")
+texture = ExtResource("2_pjf8b")
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -175,18 +175,22 @@ texture = ExtResource("2_0u5yv")
 7:22/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ucw3t"]
-sources/1 = SubResource("TileSetAtlasSource_gb3uq")
+sources/0 = SubResource("TileSetAtlasSource_gb3uq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s70ou"]
+size = Vector2(64, 64)
 
 [node name="Fog" type="Area2D"]
-script = ExtResource("1_qruj8")
+script = ExtResource("1_6sivn")
 worldTileSet = 6
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ucw3t")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 458753, 2, 1, 458753, 2, 65536, 458753, 2, 131072, 458753, 2, 196608, 458753, 2, 65537, 458753, 2, 131073, 458753, 2, 196609, 458753, 2, 2, 458753, 2, 65538, 458753, 2, 131074, 458753, 2, 196610, 458753, 2, 3, 458753, 2, 65539, 458753, 2, 131075, 458753, 2, 196611, 458753, 2)
+layer_0/tile_data = PackedInt32Array(0, 458752, 2, 1, 458752, 2, 65536, 458752, 2, 131072, 458752, 2, 196608, 458752, 2, 65537, 458752, 2, 131073, 458752, 2, 196609, 458752, 2, 2, 458752, 2, 65538, 458752, 2, 131074, 458752, 2, 196610, 458752, 2, 3, 458752, 2, 65539, 458752, 2, 131075, 458752, 2, 196611, 458752, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_s70ou")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
