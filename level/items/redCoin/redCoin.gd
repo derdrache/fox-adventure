@@ -1,9 +1,13 @@
 extends Area2D
 
+var collected = false
 
 func _on_body_entered(body):
-	if body is Player:
+	if body is Player && !collected:
 		LevelManager.gain_red_coin(1)
 		$AudioStreamPlayer2D.play()
-		await get_tree().create_timer(0.1).timeout
-		queue_free()
+		
+
+
+func _on_audio_stream_player_2d_finished():
+	queue_free()
