@@ -3,7 +3,7 @@ extends Path2D
 @onready var foundedCatsLabel = $MessageBox/MarginContainer/VBoxContainer/HBoxContainer/Label
 @onready var messageBox = $MessageBox
 
-@export var catsFounded = 18
+@export var catsFounded = 0
 
 const maxCats = 18
 const MOVESPEED = 100
