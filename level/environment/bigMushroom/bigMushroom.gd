@@ -29,3 +29,4 @@ func _on_area_2d_body_entered(body):
 		var direction = "right"
 		if sprite.flip_h: direction = "left"
 		body.mushroomJump(direction)
+		$AudioStreamPlayer.play()

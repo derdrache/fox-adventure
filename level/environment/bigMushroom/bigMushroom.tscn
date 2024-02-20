@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbie5ng2hscv1"]
+[gd_scene load_steps=7 format=3 uid="uid://cbie5ng2hscv1"]
 
 [ext_resource type="Script" path="res://level/environment/bigMushroom/bigMushroom.gd" id="1_cusda"]
 [ext_resource type="Texture2D" uid="uid://d31qlaye758d5" path="res://asset/tileMaps/jungle decoration.png" id="2_klbea"]
+[ext_resource type="AudioStream" uid="uid://cgi1k3ufv2s0m" path="res://asset/sound/cartoon-jump-6462.mp3" id="3_uiyi8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g0xnd"]
 radius = 10.9991
@@ -45,5 +46,9 @@ curve = SubResource("Curve2D_u0by2")
 position = Vector2(2, 1)
 scale = Vector2(-1, 1)
 curve = SubResource("Curve2D_u0by2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uiyi8")
+bus = &"SoundEffect"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
