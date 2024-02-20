@@ -15,17 +15,9 @@ var isEmpty = false
 func _ready():
 	if spawningNode != null: _changeSpawningNodeVisibility(false)
 
-func _process(delta):
-	if isEmpty:	
-		$CollisionShape2D.set_deferred("disabled", true)
-		await get_tree().create_timer(0.1).timeout
-		animationSprite.play("destruction")
-		$BoxDestruction.play()
-		isEmpty = false
 		
 func _check_content():
 		if used: return
-		
 		
 		if withGem: await _dropGem()
 		elif withRedCoin: _dropRedCoin()
@@ -35,14 +27,22 @@ func _check_content():
 			_changeSpawningNodeVisibility(true)
 		elif goldCoins > 0: _dropGoldCoin()
 		else: isEmpty = true	
+		
+		if isEmpty:	_box_destruction()
+
+func _box_destruction():
+	$CollisionShape2D.set_deferred("disabled", true)
+	await get_tree().create_timer(0.2).timeout
+	animationSprite.play("destruction")
+	$BoxDestruction.play()	
 
 func _on_bottom_area_body_entered(body):
-	if body is Player: 
+	if body is Player && !isEmpty: 
 		$HittingWood.play()
 		_check_content()
 
 func _on_top_area_body_entered(body):
-	if body is Player:
+	if body is Player && !isEmpty:
 		var playerStomps = body.doStomp
 		if playerStomps: 
 			$HittingWood.play()
