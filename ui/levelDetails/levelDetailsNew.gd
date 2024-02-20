@@ -18,6 +18,7 @@ var showDetails = false
 
 func _ready():
 	levelNameLabel.text = level_name
+	maxGoldCoins = GameManager.levelMaxGoldCoins[str(level)]
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") && visible:
