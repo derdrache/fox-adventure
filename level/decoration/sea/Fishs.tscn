@@ -1,0 +1,177 @@
+[gd_scene load_steps=26 format=3 uid="uid://j33pa5ovupux"]
+
+[ext_resource type="Texture2D" uid="uid://btdv765tiv7x5" path="res://asset/sprites/JellyFish.png" id="1_bu2fj"]
+[ext_resource type="Script" path="res://level/decoration/sea/Fishs.gd" id="1_v7450"]
+[ext_resource type="Texture2D" uid="uid://bjgg8wsf2mwh7" path="res://asset/sprites/orange_fish.png" id="2_mm2b0"]
+[ext_resource type="Texture2D" uid="uid://8t0k73paaxs4" path="res://asset/sprites/fish_purple.png" id="3_k7mpd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqyu5"]
+atlas = ExtResource("1_bu2fj")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfhom"]
+atlas = ExtResource("1_bu2fj")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxin0"]
+atlas = ExtResource("1_bu2fj")
+region = Rect2(64, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaxat"]
+atlas = ExtResource("1_bu2fj")
+region = Rect2(96, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt75j"]
+atlas = ExtResource("2_mm2b0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaasj"]
+atlas = ExtResource("2_mm2b0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cylh"]
+atlas = ExtResource("2_mm2b0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffh5r"]
+atlas = ExtResource("2_mm2b0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5njli"]
+atlas = ExtResource("2_mm2b0")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkiiw"]
+atlas = ExtResource("2_mm2b0")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uclco"]
+atlas = ExtResource("2_mm2b0")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n05aw"]
+atlas = ExtResource("2_mm2b0")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snts2"]
+atlas = ExtResource("3_k7mpd")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pmnk"]
+atlas = ExtResource("3_k7mpd")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeb1u"]
+atlas = ExtResource("3_k7mpd")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3vow"]
+atlas = ExtResource("3_k7mpd")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xgla"]
+atlas = ExtResource("3_k7mpd")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i1bn"]
+atlas = ExtResource("3_k7mpd")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2l6u"]
+atlas = ExtResource("3_k7mpd")
+region = Rect2(192, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esngi"]
+atlas = ExtResource("3_k7mpd")
+region = Rect2(224, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_psxlv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqyu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfhom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxin0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaxat")
+}],
+"loop": true,
+"name": &"jellyFish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt75j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaasj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cylh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffh5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5njli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkiiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uclco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n05aw")
+}],
+"loop": true,
+"name": &"orange_fish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snts2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pmnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeb1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3vow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xgla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0i1bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2l6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esngi")
+}],
+"loop": true,
+"name": &"purple_fish",
+"speed": 5.0
+}]
+
+[node name="Fishs" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_v7450")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_psxlv")
+animation = &"jellyFish"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
