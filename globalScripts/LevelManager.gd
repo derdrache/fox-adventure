@@ -36,6 +36,8 @@ func gain_cat(catNumber: int):
 func set_level(level : int, position: Vector2):
 	reset_all_stats()
 	
+	maxGoldCoins = GameManager.levelMaxGoldCoins[str(level)]
+	print(GameManager.levelMaxGoldCoins[str(level)])
 	activeLevel = level
 	activeLevelPosition = position
 	
