@@ -24,7 +24,9 @@ func _physics_process(delta):
 	if doMove: 
 		animation.play("fly")
 		pathFollow.progress += moveSpeed * delta
-	else: animation.stop()
+	else: 
+		if is_instance_valid(animation):
+			animation.stop()
 
 	if pathFollow.progress_ratio == 1 && doMove: 
 		doMove = false
@@ -43,6 +45,7 @@ func _remove_obstacle_animation():
 	animationsSprite.visible = false
 	$PathFollow2D/DuckBody/effectAnimations.play("work")
 	await get_tree().create_timer(1.8).timeout
-	animationsSprite.visible = true
-	animationsSprite.play("notes")
-	await get_tree().create_timer(1).timeout
+	if is_instance_valid(animationsSprite):
+		animationsSprite.visible = true
+		animationsSprite.play("notes")
+		await get_tree().create_timer(1).timeout
