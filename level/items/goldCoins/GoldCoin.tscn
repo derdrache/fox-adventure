@@ -74,6 +74,7 @@ bus = &"SoundEffect"
 
 [node name="specialItemCollect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_jqg70")
+bus = &"BackgroundMusic"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="normalItemCollect" to="." method="_on_audio_stream_player_2d_finished"]
