@@ -26,8 +26,12 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func set_spawn_position(playerPosition, viewPortSize):
-	position.x = playerPosition.x + (viewPortSize.x / 3.5)
-	position.y = playerPosition.y - (viewPortSize.y / 3.5 / 2)
+	var rng = RandomNumberGenerator.new()
+	var randomYPosition = rng.randi_range(0, 20.0)
+	position.x = playerPosition.x + (viewPortSize.x / 3.5 / 2)
+	position.y = playerPosition.y + randomYPosition - (viewPortSize.y / 3.5 / 2)
+	
+	
 	minY = position.y - 15
 	maxY = position.y + 50
 	
