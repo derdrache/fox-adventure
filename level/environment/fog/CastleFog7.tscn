@@ -145,7 +145,6 @@ worldTileSet = 7
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ucw3t")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 65536, 4, 1, 65536, 4, 65536, 65536, 4, 131072, 65536, 4, 196608, 65536, 4, 65537, 65536, 4, 131073, 65536, 4, 196609, 65536, 4, 2, 65536, 4, 3, 65536, 4, 65538, 65536, 4, 65539, 65536, 4, 131074, 65536, 4, 131075, 65536, 4, 196610, 65536, 4, 196611, 65536, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
