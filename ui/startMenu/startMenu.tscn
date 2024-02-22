@@ -28,27 +28,49 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -62.5
-offset_right = 100.0
-offset_bottom = 62.5
+offset_left = -310.0
+offset_top = -229.5
+offset_right = 310.0
+offset_bottom = 229.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 200
+theme_override_constants/separation = 150
 alignment = 1
 
-[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.647059, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 90
+text = "FOX ADVENTURE"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="StartButton" type="TextureButton" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/StartButton"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/StartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_5npxn")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/StartButton/TextureRect"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/StartButton/TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,18 +86,26 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Start"
 
-[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/QuitButton"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_5npxn")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/QuitButton/TextureRect"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/QuitButton/TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -91,5 +121,5 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
