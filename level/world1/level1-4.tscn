@@ -46,12 +46,6 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_7l3e0"]
-vertices = PackedVector2Array(822, 618, 822, 758, 314, 758, 314, 742, 86, 842, 118, 842, 118, 854, 74, 854, 74, 730, 86, 742, 314, 730, 314, 618)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(9, 8, 10, 3), PackedInt32Array(0, 3, 10), PackedInt32Array(0, 10, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(304, 608, 832, 608, 832, 768, 304, 768, 304, 752, 96, 752, 96, 832, 128, 832, 128, 864, 64, 864, 64, 720, 304, 720)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5m5kp"]
 vertices = PackedVector2Array(2230, 618, 2230, 806, 2054, 806, 1642, 618, 2362, 986, 2362, 938, 2374, 938, 2374, 998, 1834, 998, 2054, 986, 1834, 986, 2042, 986, 2042, 806, 1642, 806)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(8, 10, 11), PackedInt32Array(9, 8, 11), PackedInt32Array(2, 9, 11, 12), PackedInt32Array(3, 2, 12), PackedInt32Array(3, 12, 13)])
@@ -72,6 +66,12 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 vertices = PackedVector2Array(4726, 1274, 4902, 1274, 4902, 1286, 4726, 1286, 4726, 1718, 4522, 1718, 4522, 1574, 4362, 1574, 4362, 1450, 4374, 1450, 4374, 1562, 4522, 1562, 4522, 1382, 4250, 1382, 4250, 1210, 4726, 1210)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(6, 7, 10, 11), PackedInt32Array(3, 6, 11), PackedInt32Array(3, 11, 12, 0), PackedInt32Array(12, 13, 14, 15, 0)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(4240, 1200, 4736, 1200, 4736, 1264, 4912, 1264, 4912, 1296, 4736, 1296, 4736, 1728, 4512, 1728, 4512, 1584, 4352, 1584, 4352, 1440, 4384, 1440, 4384, 1552, 4512, 1552, 4512, 1392, 4240, 1392)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2ws6n"]
+vertices = PackedVector2Array(822, 618, 822, 758, 314, 758, 314, 742, 86, 842, 118, 842, 118, 854, 74, 854, 74, 730, 86, 742, 314, 730, 314, 618)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(9, 8, 10, 3), PackedInt32Array(0, 3, 10), PackedInt32Array(0, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(304, 608, 832, 608, 832, 768, 304, 768, 304, 752, 96, 752, 96, 832, 128, 832, 128, 864, 64, 864, 64, 720, 304, 720)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level1-4" type="Node2D"]
@@ -414,11 +414,10 @@ position = Vector2(1165, 574)
 
 [node name="Switch2" parent="envoirnment" instance=ExtResource("6_gbwl1")]
 position = Vector2(3422, 798)
-multiUse = true
-used = true
 
 [node name="BrancheBridge" parent="envoirnment/Switch2" instance=ExtResource("7_kiyv7")]
 position = Vector2(849, -86)
+switchReverseEffect = true
 
 [node name="Switch3" parent="envoirnment" instance=ExtResource("6_gbwl1")]
 position = Vector2(6543, -434)
@@ -441,16 +440,11 @@ position = Vector2(7293, -136)
 position = Vector2(5931.29, -252.524)
 curve = SubResource("Curve2D_ocf4m")
 
-[node name="WaterWorld" parent="envoirnment" instance=ExtResource("16_c2iio")]
-navigation_polygon = SubResource("NavigationPolygon_7l3e0")
-enabled = false
-
 [node name="WaterWorld2" parent="envoirnment" instance=ExtResource("16_c2iio")]
 navigation_polygon = SubResource("NavigationPolygon_5m5kp")
 
 [node name="WaterWorld3" parent="envoirnment" instance=ExtResource("16_c2iio")]
 navigation_polygon = SubResource("NavigationPolygon_ys3uq")
-enabled = false
 
 [node name="WaterWorld4" parent="envoirnment" instance=ExtResource("16_c2iio")]
 navigation_polygon = SubResource("NavigationPolygon_vhxs1")
@@ -458,10 +452,12 @@ enabled = false
 
 [node name="WaterWorld5" parent="envoirnment" instance=ExtResource("16_c2iio")]
 navigation_polygon = SubResource("NavigationPolygon_nwv23")
-enabled = false
+
+[node name="WaterWorld" parent="envoirnment" instance=ExtResource("16_c2iio")]
+navigation_polygon = SubResource("NavigationPolygon_2ws6n")
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(64, 591)
+position = Vector2(48, 592)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(1529, 601)

@@ -211,6 +211,7 @@ position = Vector2(4106, 655)
 
 [node name="Gem4" parent="items/gems" instance=ExtResource("11_s3rs5")]
 position = Vector2(5304, 664)
+scale = Vector2(1.25, 1.25)
 
 [node name="redcoins" type="Node2D" parent="items"]
 
@@ -319,7 +320,7 @@ position = Vector2(3119.74, 409.946)
 [node name="Fog" type="Node2D" parent="."]
 
 [node name="Fog" parent="Fog" instance=ExtResource("15_j8x6q")]
-position = Vector2(5295, 655)
+position = Vector2(5296, 656)
 tilesWith = 1
 tilesHeight = 1
 
@@ -344,7 +345,7 @@ position = Vector2(-11.1329, 206.5)
 shape = SubResource("RectangleShape2D_v26m3")
 
 [node name="Player" parent="." instance=ExtResource("3_d4jyt")]
-position = Vector2(26, 331)
+position = Vector2(31, 336)
 
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_e882l")]
 position = Vector2(5376.08, 665.185)
