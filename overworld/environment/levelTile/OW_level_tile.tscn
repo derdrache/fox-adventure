@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://fjlusgxeyiih"]
+[gd_scene load_steps=4 format=3 uid="uid://fjlusgxeyiih"]
 
 [ext_resource type="Script" path="res://overworld/environment/levelTile/OW_level_tile.gd" id="1_8prjg"]
+[ext_resource type="Texture2D" uid="uid://bgwiohrf2hn1t" path="res://asset/ui/Icon_Large_Star_SeethroughOutline.png" id="2_va050"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gtqd"]
 size = Vector2(16, 16)
@@ -10,6 +11,12 @@ script = ExtResource("1_8prjg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5gtqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(6, -8)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_va050")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
