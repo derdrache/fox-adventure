@@ -19,7 +19,7 @@ func _ready():
 func _check_content():
 		if used: return
 		
-		if withGem: await _dropGem()
+		if withGem: _dropGem()
 		elif withRedCoin: _dropRedCoin()
 		elif spawningNode != null:
 			used = true
@@ -32,8 +32,8 @@ func _check_content():
 
 func _box_destruction():
 	$CollisionShape2D.set_deferred("disabled", true)
-	await get_tree().create_timer(0.2).timeout
 	animationSprite.play("destruction")
+	await get_tree().create_timer(0.2).timeout
 	$BoxDestruction.play()	
 
 func _on_bottom_area_body_entered(body):
