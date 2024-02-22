@@ -25,7 +25,8 @@ var moveTileUp = false
 var moveTileDown = false
 var multiPath = false
 
-	
+func _ready():
+	$BackgroundMusic.play()
 
 func _physics_process(delta):
 	moveTileRight = "move" in get_tile_data("right")
