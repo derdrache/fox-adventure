@@ -4,7 +4,6 @@ extends CanvasLayer
 @onready var goldCoinLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/goldCoinScore/Score
 @onready var redCoinLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/redCoinScore/Score
 @onready var gemLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/gemScore/Score
-@onready var catLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/catScore/Score
 @onready var totalScoreEndLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/totalScore/Label2
 @onready var catRect = "Control/ScoreBoard/MarginContainer/VBoxContainer/catScore/cat"
 @onready var circleTransitionRect = $Control/CircleTransition
@@ -12,7 +11,7 @@ extends CanvasLayer
 var goldCoinsMax = LevelManager.maxGoldCoins
 
 func _ready():
-	goldCoinLabel.text = "0 / " + str(goldCoinsMax) +"%"
+	goldCoinLabel.text = "0 / " + str(goldCoinsMax)
 	circleTransitionRect.transition("in", 2)
 	await get_tree().create_timer(2).timeout
 	
@@ -21,7 +20,7 @@ func _ready():
 func _show_score_board():
 	var goldCoins = LevelManager.goldCoins
 	var goldCoinsMax = LevelManager.maxGoldCoins
-	var redCoins =LevelManager.redCoins
+	var redCoins = LevelManager.redCoins
 	var gems = LevelManager.gems
 	var cats = LevelManager.catArray
 	var catCount = len(cats.filter(func(boolean): return boolean != false))
@@ -33,10 +32,10 @@ func _show_score_board():
 	var gemsProcent = gems * 100 / totalMaxScore
 	var catsProcent = catCount * 100 / totalMaxScore
 	
-	await _gold_coin_animation(goldCoins,  goldCoinsMax, totalMaxScore)
+	await _gold_coin_animation(goldCoins,  goldCoinsMax)
 	await _number_animation(redCoinLabel, redCoins, totalMaxScore)
 	await _number_animation(gemLabel, gems, totalMaxScore)
-	await _cat_animation(cats, totalMaxScore)
+	await _cat_animation(cats)
 
 	totalScoreEndLabel.text = str(totalScore * 100 / totalMaxScore) + "%" 
 	
@@ -56,25 +55,20 @@ func _input(event):
 		
 func _number_animation(label, number, totalScore):
 	for i in number +1:
-		var procent = i *10 * 100 / totalScore
-		label.text = str(i) + "/ 5" + " = " + str(procent) + "%"
+		label.text = str(i) + " / 5"
 		await get_tree().create_timer(0.1).timeout
 
-func _gold_coin_animation(number, maxCoins, totalScore):
-	for i in number:
-		var procent = i * 100 / totalScore
-		goldCoinLabel.text = str(i) + "/" + str(maxCoins) + " = " + str(procent) + "%"
+func _gold_coin_animation(number, maxCoins):
+	for i in number +1:
+		goldCoinLabel.text = str(i) + " / " + str(maxCoins)
 		await get_tree().create_timer(0.025).timeout	
 
-func _cat_animation(cats, totalScore):
+func _cat_animation(cats):
 	var catCounter = 0
 	
 	for i in len(cats):
 		if cats[i]:
 			catCounter += 1
-			var procent = catCounter * 10 * 100 / totalScore
-			catLabel.text = " = " + str(procent) + "%"
-			
 			var path = catRect + str(i+1)
 			var catRect = get_node(path)		
 			catRect.set_modulate(Color(1,1,1))
