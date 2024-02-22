@@ -10,11 +10,11 @@ func transition(direction, duration):
 	
 	if direction == "in":
 		startValue = 0.0
-		targetValue = 1.0
+		targetValue = 0.75
 	elif direction == "out": 
-		startValue = 1.0
+		startValue = 0.75
 		targetValue = 0.0
-	
+			
 	circleTransitionShader.set_shader_parameter("circle_size", startValue)
 	
 	
