@@ -4,7 +4,9 @@ var collected = false
 
 func _on_body_entered(body):
 	if body is Player && !collected:
+		collected = true
 		LevelManager.gain_red_coin(1)
+		hide()
 		$AudioStreamPlayer2D.play()
 		
 
