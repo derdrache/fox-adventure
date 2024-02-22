@@ -47,9 +47,14 @@ func load_game(loadFile = "game"):
 		elif loadFile == "settings":
 			GameManager.backgroundMusicVolumen = data["backgroundMusicVolumen"]
 			GameManager.soundEffectsVolumen = data["soundEffectsVolumen"]
-			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BackgroundMusic"), GameManager.backgroundMusicVolumen)	
-			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SoundEffect"), GameManager.soundEffectsVolumen)	
-
+			
+			var backgroundBus = AudioServer.get_bus_index("BackgroundMusic")
+			AudioServer.set_bus_volume_db(backgroundBus, GameManager.backgroundMusicVolumen)
+			if GameManager.backgroundMusicVolumen == -25: AudioServer.set_bus_mute(backgroundBus, true)
+			
+			var soundEffectBus = AudioServer.get_bus_index("SoundEffect")
+			AudioServer.set_bus_volume_db(soundEffectBus, GameManager.soundEffectsVolumen)
+			if GameManager.soundEffectsVolumen == -25: AudioServer.set_bus_mute(soundEffectBus, true)
 func delete_game(gameNumber):
 	var save_path = "user://savegame"+ str(gameNumber) +".bin"
 	DirAccess.remove_absolute(save_path)
