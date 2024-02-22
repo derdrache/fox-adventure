@@ -371,12 +371,10 @@ layer = -1
 material = SubResource("ShaderMaterial_kx1s4")
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 6.25)
 shape = SubResource("RectangleShape2D_5v1rr")
 
 [node name="crawlCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0.5, 12)
 shape = SubResource("RectangleShape2D_wmf5s")
 disabled = true
@@ -456,7 +454,7 @@ volume_db = -20.0
 bus = &"BackgroundMusic"
 
 [node name="BirdSpawnTimer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="timeout" from="BirdSpawnTimer" to="." method="_on_bird_spawn_timer_timeout"]
