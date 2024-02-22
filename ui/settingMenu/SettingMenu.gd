@@ -8,9 +8,12 @@ var soundMinValue : int
 signal close_window()
 
 func _ready():
+	backgroundMusicSlider.value = GameManager.backgroundMusicVolumen
+	soundEffectSlider.value = GameManager.soundEffectsVolumen
 	soundMinValue = soundEffectSlider.min_value
 
 func _on_close_button_pressed():
+	Utils.save_game("settings")
 	emit_signal("close_window")
 	visible = false
 
@@ -33,9 +36,10 @@ func _change_volume(value, bus):
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus), valueInDB)	
 		
 	
-	if bus == "BackgroundMusic": GameManager.backgroundMusicVolumen = valueInDB
-	elif bus == "SoundEffect": GameManager.soundEffectsVolumen = valueInDB
-
+	if bus == "BackgroundMusic": 
+		GameManager.backgroundMusicVolumen = valueInDB if not backgroundMusicSlider.min_value else -25
+	elif bus == "SoundEffect": 
+		GameManager.soundEffectsVolumen = valueInDB if not soundEffectSlider.min_value else -25
 
 func _on_texture_button_pressed():
 	$AudioStreamPlayer2D.play()
