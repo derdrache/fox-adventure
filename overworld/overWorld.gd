@@ -78,9 +78,11 @@ func _ready():
 		obstacle3_1, obstacle3_2, obstacle4_1, obstacle4_2, obstacle4_3, obstacle4_4, 
 		obstacle5_1, obstacle5_2, obstacle6_1, obstacle6_2, obstacle6_3, obstacle7_1, 
 		obstacle7_2]
-	
+
 	_load_and_update_data()
+	Utils.load_game("settings")
 	_check_cat_mom_done()
+	_set_full_complete()
 	_check_interactions_disables()
 	_check_start_interactions()
 
@@ -119,6 +121,27 @@ func _check_cat_mom_done():
 	for catMom in allCatMoms:
 		if catMom.catsFounded == 18:
 			if false: catMom.queue_free()
+
+func _set_full_complete():
+	var allLevelTiles = []
+	var allLevelDetails = GameManager.levelDetails
+	
+	for node in get_children():
+		if "World" in node.name:
+			for worldNodes in node.get_children():
+				if "levels" in worldNodes.name:
+					for levelNode in worldNodes.get_children():
+						if not "start" in levelNode.name:
+							allLevelTiles.append(levelNode)
+	
+	for i in len(allLevelTiles):
+		var allRedCoins = allLevelDetails[i].redCoins >= 5
+		var allGems = allLevelDetails[i].gems >= 5
+		var allCats = len(allLevelDetails[i].cats.filter(func(boolean): return boolean != false)) >= 3
+		var allGoldCoins = allLevelDetails[i].goldCoins >= allLevelDetails[i].maxGoldCoins
+		
+		if allRedCoins && allGems && allCats && allGoldCoins:
+			allLevelTiles[i].set_level_full_done()
 
 func _update_camera():
 	for mapCamera in $Cameras.get_children():
