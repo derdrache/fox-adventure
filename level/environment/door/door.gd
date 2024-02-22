@@ -14,7 +14,6 @@ func _process(_delta):
 func _input(event):	
 	if event.is_action_pressed("move_up") && not closed:
 		if playerBody == null: return
-		print("test")
 		playerBody.circle_transition("out", 1)
 		await get_tree().create_timer(1).timeout
 		playerBody.global_position = conectionDoor.global_position 
@@ -27,6 +26,7 @@ func _on_body_entered(body):
 		if closed && body.hasKey: 
 			closed = false
 			body.hasKey = false	
+			$AudioStreamPlayer.play()
 			
 func _on_body_exited(body):
 	playerBody = null
