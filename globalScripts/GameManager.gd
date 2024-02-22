@@ -13,8 +13,8 @@ var catMomsDone : Array = [false, false, false, false, false, false, false]
 var backgroundMusicVolumen : int
 var soundEffectsVolumen : int
 var levelMaxGoldCoins = {
-	"1": 34, "2": 58, "3": 31, "4": 76, "5": 79, "6": 51, "7": 68, "8": 42, 
-	"9": 67, "10": 41, "11": 45, "12": 57, "13": 49, "14": 49, "15": 49, 
+	"1": 40, "2": 58, "3": 31, "4": 76, "5": 79, "6": 51, "7": 68, "8": 42, 
+	"9": 67, "10": 41, "11": 49, "12": 57, "13": 49, "14": 49, "15": 49, 
 	"16": 35, "17": 39, "18": 56, "19": 45, "20": 27, "21": 43, "22": 42, 
 	"23": 48, "24": 73, "25": 55, "26": 48, "27": 67, "28": 52, "29": 48, 
 	"30": 57, "31": 55, "32": 65, "33": 56, "34": 50, "35": 47, "36": 75, 
@@ -24,17 +24,16 @@ var levelMaxGoldCoins = {
 func _ready():	
 	if !levelDetails.is_empty(): return
 
-	levelDetails.resize(LEVEL_COUNT)
-	for i in range(LEVEL_COUNT):
-		levelDetails.fill({
+	for i in LEVEL_COUNT:
+		var levelData = {
 			"isFinished" : false,
 			"redCoins" : 0,
 			"gems": 0,
 			"cats": [false,false,false],
 			"maxGoldCoins": levelMaxGoldCoins[str(i + 1)],
 			"goldCoins": 0
-		})
-		
+		}
+		levelDetails.append(levelData)
 
 func updateLevelData(levelData : LevelDataClass):
 	levelDetails[levelData["level"] - 1] = {
@@ -43,7 +42,7 @@ func updateLevelData(levelData : LevelDataClass):
 		"gems": levelData.gems,
 		"cats": levelData.cats,
 		"goldCoins": levelData.goldCoins,
-		"maxGoldCoins": levelMaxGoldCoins[str(levelData["level"] + 1)]
+		"maxGoldCoins": levelMaxGoldCoins[str(levelData["level"])]
 	}	
 		
 func getLevelStatus(level):
@@ -58,7 +57,7 @@ func save_player_position_and_time(position):
 	var now = Time.get_datetime_dict_from_system()
 	var nowSeconds = Time.get_unix_time_from_datetime_dict(now)
 	var gameStartSeconds = Time.get_unix_time_from_datetime_dict(gameStart) if !gameStart.is_empty() else 0
+	gameStart = now
 	var playedSeconds = nowSeconds - gameStartSeconds
-	
 	playTimeSeconds += playedSeconds
 	
