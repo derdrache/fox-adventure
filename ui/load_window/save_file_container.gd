@@ -7,10 +7,6 @@ extends PanelContainer
 @export var gameDoneProcentLabel : Label
 
 
-func _ready(): 
-	pass
-
-
 func _process(_delta):
 	$VBoxContainer/Header/PanelContainer/HBoxContainer/LoadCount/PanelContainer/Label.text = str(gameNumber +1)
 	_set_procent_clear()
