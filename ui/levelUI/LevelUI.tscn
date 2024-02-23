@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://p1of5lj6w0tl" path="res://asset/ui/Icon_Menu.png" id="6_57vlx"]
 [ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="6_d1kwq"]
 [ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="7_2cbvi"]
-[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/ButtonText_Small_ROund.png" id="8_3f0j3"]
+[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/Button_normal.png" id="8_3f0j3"]
 [ext_resource type="PackedScene" uid="uid://ug6dcwplmet0" path="res://ui/settingMenu/SettingMenu.tscn" id="8_vejx6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ooens"]
