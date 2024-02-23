@@ -9,13 +9,16 @@ extends CanvasLayer
 @onready var circleTransitionRect = $Control/CircleTransition
 
 var goldCoinsMax = LevelManager.maxGoldCoins
+var isLoaded = false
 
 func _ready():
 	goldCoinLabel.text = "0 / " + str(goldCoinsMax)
 	circleTransitionRect.transition("in", 2)
 	await get_tree().create_timer(2).timeout
 	
-	_show_score_board()
+	await _show_score_board()
+	
+	isLoaded = true
 
 func _show_score_board():
 	var goldCoins = LevelManager.goldCoins
@@ -44,11 +47,11 @@ func _show_score_board():
 	titleScoreLabel.text = totalScoreEndLabel.text
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"): 
+	if event.is_action_pressed("ui_accept") && isLoaded: 
 		var circleTransitionShader: ShaderMaterial = circleTransitionRect.get_material()
 		var tween = get_tree().create_tween()
 		
-		tween.tween_property(circleTransitionShader, "shader_parameter/circle_size", 0, 2)
+		tween.tween_property(circleTransitionShader, "shader_parameter/circle_size", 0, 1.9)
 		await get_tree().create_timer(2).timeout
 		
 		get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
