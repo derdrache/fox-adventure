@@ -1,12 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://wuh44imlcxym"]
+[gd_scene load_steps=14 format=3 uid="uid://wuh44imlcxym"]
 
-[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="1_c7sre"]
+[ext_resource type="FontFile" uid="uid://dn01r48g8bq3y" path="res://asset/fonts/ProtestRevolution-Regular.ttf" id="1_71gyj"]
 [ext_resource type="Shader" path="res://ui/load_window/SelectLoadData.gdshader" id="1_hivab"]
-[ext_resource type="Script" path="res://ui/load_window/save_file_container.gd" id="1_ttjgs"]
 [ext_resource type="Texture2D" uid="uid://d05im41paldql" path="res://asset/icon.svg" id="2_ydkpp"]
 [ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="4_1ctd5"]
+[ext_resource type="Texture2D" uid="uid://dunudmcl51vxs" path="res://asset/ui/Icon_Trash.png" id="6_43alo"]
+[ext_resource type="Texture2D" uid="uid://dewanqyare4x" path="res://asset/ui/Icon_Small_WhiteOutline_Check.png" id="7_7mcvf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bdfy"]
+[sub_resource type="Theme" id="Theme_w5j34"]
+default_font = ExtResource("1_71gyj")
+Label/fonts/font = ExtResource("1_71gyj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcg07"]
 bg_color = Color(0.647059, 0.670588, 0.717647, 1)
 border_width_left = 3
 border_width_top = 3
@@ -17,6 +22,88 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="GDScript" id="GDScript_eunxd"]
+script/source = "extends PanelContainer
+
+@export var gameNumber : int
+@export var saveData : Dictionary
+@export var loadingTexture : TextureRect
+@export var playTimeLabel :Label
+@export var gameDoneProcentLabel : Label
+
+var touchCanFire = true
+
+func _process(_delta):
+	if has_focus():
+		var styleBox : StyleBoxFlat = get_theme_stylebox(\"panel\").duplicate()
+		styleBox.border_color = Color(1,0,0)
+		add_theme_stylebox_override(\"panel\", styleBox)
+	else:
+		var styleBox : StyleBoxFlat = get_theme_stylebox(\"panel\").duplicate()
+		styleBox.border_color = Color(0.647, 0.671, 0.718)
+		add_theme_stylebox_override(\"panel\", styleBox)	
+	$VBoxContainer/Header/PanelContainer/HBoxContainer/LoadCount/PanelContainer/Label.text = str(gameNumber +1)
+	_set_procent_clear()
+	_set_play_time()
+	_set_load_file_image()
+
+func _set_procent_clear():
+	var allLevel : Array = saveData[\"levelDetails\"]
+	var levelDone = 0
+	
+	for level in allLevel:
+		if level[\"isFinished\"]: levelDone += 1
+	
+	var procentDone = levelDone * 100 / GameManager.LEVEL_COUNT
+	gameDoneProcentLabel.text = str(procentDone) + \" %\"
+
+func _set_play_time():
+	var playTimeSeconds : int = saveData[\"playTimeSeconds\"]
+	playTimeLabel.text =  HelperFunctions.time_convert(playTimeSeconds)
+
+func _set_load_file_image():  	
+	var image = Image.load_from_file(\"user://screenshot\"+ str(gameNumber) +\".png\")
+	var texture = ImageTexture.create_from_image(image)
+	loadingTexture.texture = texture  
+
+func _start_game():
+	if !touchCanFire: return
+	
+	GameManager.gameNumber = gameNumber
+	GameManager.gameStart = Time.get_datetime_dict_from_system()
+	Utils.load_game()
+	await get_tree().create_timer(0.1).timeout
+	get_tree().change_scene_to_file(\"res://overworld/overWorld.tscn\")
+
+func _input(event):
+	if event.is_action_pressed(\"ui_accept\") && has_focus():
+		_start_game()
+
+func _on_delete_button_pressed():
+	$reallyDeleteContainer.visible = true
+		
+	touchCanFire = false
+	$VBoxContainer.visible = false
+	$deleteButton.visible = false
+
+
+func _on_start_game_touch_button_released():
+	_start_game()
+
+
+func _on_yes_button_pressed():
+	Utils.delete_game(gameNumber)
+	queue_free()
+
+
+func _on_no_button_pressed():
+	$reallyDeleteContainer.visible = false
+		
+	touchCanFire = true
+	$VBoxContainer.visible = true
+	$deleteButton.visible = true
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ca2b"]
 size = Vector2(320, 230)
@@ -46,18 +133,19 @@ shader_parameter/bottomRightCorner = true
 shader_parameter/bottomLeftCorner = true
 
 [node name="SaveFileContainer" type="PanelContainer" node_paths=PackedStringArray("loadingTexture", "playTimeLabel", "gameDoneProcentLabel")]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(315, 200)
 offset_right = 316.0
 offset_bottom = 229.0
-theme = ExtResource("1_c7sre")
-theme_override_styles/panel = SubResource("StyleBoxFlat_6bdfy")
-script = ExtResource("1_ttjgs")
+focus_mode = 2
+theme = SubResource("Theme_w5j34")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lcg07")
+script = SubResource("GDScript_eunxd")
 loadingTexture = NodePath("VBoxContainer/LoadImageContainer/LoadingScreen1")
 playTimeLabel = NodePath("VBoxContainer/Header/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/playtimeLabel")
 gameDoneProcentLabel = NodePath("VBoxContainer/Header/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/completedLabel")
 
 [node name="StartGameTouchButton" type="TouchScreenButton" parent="."]
-position = Vector2(161, 116)
+position = Vector2(159, 114)
 shape = SubResource("RectangleShape2D_2ca2b")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -146,5 +234,54 @@ offset_bottom = 28.0
 texture = ExtResource("4_1ctd5")
 expand_mode = 1
 
+[node name="reallyDeleteContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="reallyDeleteContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="reallyDeleteContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_43alo")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="reallyDeleteContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="yesButton" type="TextureButton" parent="reallyDeleteContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture_normal = ExtResource("7_7mcvf")
+texture_pressed = ExtResource("7_7mcvf")
+texture_hover = ExtResource("7_7mcvf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="noButton" type="TextureButton" parent="reallyDeleteContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_1ctd5")
+texture_pressed = ExtResource("4_1ctd5")
+texture_hover = ExtResource("4_1ctd5")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="released" from="StartGameTouchButton" to="." method="_on_start_game_touch_button_released"]
 [connection signal="pressed" from="deleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="reallyDeleteContainer/VBoxContainer/HBoxContainer/yesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="reallyDeleteContainer/VBoxContainer/HBoxContainer/noButton" to="." method="_on_no_button_pressed"]
