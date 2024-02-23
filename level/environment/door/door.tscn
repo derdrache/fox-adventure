@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://2mpyv1vhe38p"]
+[gd_scene load_steps=7 format=3 uid="uid://2mpyv1vhe38p"]
 
 [ext_resource type="Script" path="res://level/environment/door/door.gd" id="1_wb6ly"]
 [ext_resource type="Texture2D" uid="uid://b30akycc02nk8" path="res://level/environment/door/Door (32x32).png" id="2_rf5f0"]
 [ext_resource type="AudioStream" uid="uid://dhpwj4rsxcpob" path="res://asset/sound/open-doors.mp3" id="3_ibya8"]
+[ext_resource type="PackedScene" uid="uid://cg0wi1yv88l" path="res://ui/short_message_box.tscn" id="4_uyumd"]
+[ext_resource type="Texture2D" uid="uid://bpk2yd0mqywfr" path="res://asset/sprites/Key.png" id="5_wgs3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv6j"]
 size = Vector2(23, 25)
@@ -22,6 +24,10 @@ shape = SubResource("RectangleShape2D_7xv6j")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ibya8")
 bus = &"SoundEffect"
+
+[node name="ShortMessageBox" parent="." instance=ExtResource("4_uyumd")]
+visible = false
+messageTexture = ExtResource("5_wgs3p")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

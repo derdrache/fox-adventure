@@ -27,9 +27,12 @@ func _on_body_entered(body):
 			closed = false
 			body.hasKey = false	
 			$AudioStreamPlayer.play()
+		elif closed: $ShortMessageBox.visible = true
 			
 func _on_body_exited(body):
-	playerBody = null
+	if body is Player:
+		playerBody = null
+		$ShortMessageBox.visible = false
 
 
 
