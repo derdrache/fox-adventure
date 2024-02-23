@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://di50wkx2c3fkj"]
+[gd_scene load_steps=6 format=3 uid="uid://di50wkx2c3fkj"]
 
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="1_kij0o"]
 [ext_resource type="Script" path="res://ui/startMenu/startMenu.gd" id="1_pdll0"]
 [ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="1_qu13k"]
-[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/ButtonText_Small_ROund.png" id="3_5npxn"]
+[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/Button_normal.png" id="3_5npxn"]
+[ext_resource type="Texture2D" uid="uid://do43xfipjh5bc" path="res://asset/ui/Button_focus.png" id="5_q17y1"]
 
 [node name="startMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_qu13k")
 script = ExtResource("1_pdll0")
 
@@ -23,18 +26,12 @@ loop = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -310.0
-offset_top = -229.5
-offset_right = 310.0
-offset_bottom = 229.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 150
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
@@ -49,77 +46,67 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 200
+theme_override_constants/separation = 100
 
 [node name="StartButton" type="TextureButton" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath("../QuitButton")
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../QuitButton")
+texture_normal = ExtResource("3_5npxn")
+texture_pressed = ExtResource("3_5npxn")
+texture_hover = ExtResource("3_5npxn")
+texture_focused = ExtResource("5_q17y1")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/StartButton"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/StartButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -50.0
-offset_right = 100.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_5npxn")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/StartButton/TextureRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.0
-offset_top = -11.5
-offset_right = 19.0
-offset_bottom = 11.5
+offset_left = -53.0
+offset_top = -24.5
+offset_right = 53.0
+offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "Start"
+text = "START"
 
 [node name="QuitButton" type="TextureButton" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath("../StartButton")
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_right = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../StartButton")
+focus_next = NodePath("../StartButton")
+focus_previous = NodePath("../StartButton")
+texture_normal = ExtResource("3_5npxn")
+texture_pressed = ExtResource("3_5npxn")
+texture_hover = ExtResource("3_5npxn")
+texture_focused = ExtResource("5_q17y1")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/QuitButton"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/QuitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -50.0
-offset_right = 100.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_5npxn")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/QuitButton/TextureRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.0
-offset_top = -11.5
-offset_right = 19.0
-offset_bottom = 11.5
+offset_left = -53.0
+offset_top = -24.5
+offset_right = 53.0
+offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "Quit"
+text = "QUIT"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
