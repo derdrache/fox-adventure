@@ -1,8 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://q7e2ahrq0vsa"]
+[gd_scene load_steps=13 format=3 uid="uid://q7e2ahrq0vsa"]
 
 [ext_resource type="Script" path="res://level/environment/goal/Goal.gd" id="1_yxub4"]
+[ext_resource type="Shader" path="res://asset/shader/outline.gdshader" id="2_pjy3a"]
 [ext_resource type="Texture2D" uid="uid://bpeher11xe6ic" path="res://asset/sprites/flag animation.png" id="3_c4i6s"]
 [ext_resource type="AudioStream" uid="uid://bwbamvblm27yb" path="res://asset/sound/level done.mp3" id="3_rw62l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1xqtr"]
+shader = ExtResource("2_pjy3a")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4lm2v"]
 atlas = ExtResource("3_c4i6s")
@@ -54,7 +63,8 @@ size = Vector2(34, 49.5)
 script = ExtResource("1_yxub4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(32, -3)
+material = SubResource("ShaderMaterial_1xqtr")
+position = Vector2(32, -4)
 sprite_frames = SubResource("SpriteFrames_fl7aq")
 animation = &"new"
 autoplay = "new"
