@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg0wi1yv88l"]
+[gd_scene load_steps=5 format=3 uid="uid://cg0wi1yv88l"]
 
 [ext_resource type="Texture2D" uid="uid://dts8bcbtpoav0" path="res://asset/ui/Box.png" id="1_7qxtj"]
 [ext_resource type="Script" path="res://ui/short_message_box.gd" id="1_8c746"]
 [ext_resource type="Texture2D" uid="uid://betdxkfpo1313" path="res://asset/ui/Icon_Large_HeartFull_WhiteOutline.png" id="2_v8u7u"]
+[ext_resource type="Texture2D" uid="uid://cay8euckcq4uk" path="res://asset/guide/fox_dig.png" id="4_h0qdf"]
 
 [node name="ShortMessageBox" type="Control"]
 layout_mode = 3
@@ -13,9 +14,18 @@ script = ExtResource("1_8c746")
 
 [node name="MessageContainer" type="NinePatchRect" parent="."]
 layout_mode = 0
+offset_top = -30.0
+offset_right = 18.0
+offset_bottom = -7.0
+texture = ExtResource("1_7qxtj")
+region_rect = Rect2(0, 0, 880, 624)
+
+[node name="MessageContainer2" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
 offset_top = -29.0
 offset_right = 18.0
-offset_bottom = -6.0
+offset_bottom = -3.0
 texture = ExtResource("1_7qxtj")
 region_rect = Rect2(0, 0, 880, 624)
 
@@ -24,7 +34,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -29.0
+offset_top = -31.0
 offset_right = -22.0
 offset_bottom = -51.0
 grow_horizontal = 2
@@ -43,4 +53,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_v8u7u")
+expand_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_h0qdf")
 expand_mode = 1
