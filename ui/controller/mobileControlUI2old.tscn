@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://disyyhq2jak5d"]
+[gd_scene load_steps=10 format=3 uid="uid://disyyhq2jak5d"]
 
 [ext_resource type="Texture2D" uid="uid://cmxujosqc8pjw" path="res://asset/ui/Icon_ArrowLeft.png" id="1_1fimc"]
+[ext_resource type="Script" path="res://ui/controller/mobileControlUI2old.gd" id="1_dqhyl"]
 [ext_resource type="Texture2D" uid="uid://cyw41klncw3kg" path="res://asset/ui/Icon_ArrowUp.png" id="2_7r48h"]
 [ext_resource type="Texture2D" uid="uid://dup3f2djbvq54" path="res://asset/ui/gdb-switch-2.png" id="3_tpeh7"]
 
@@ -16,6 +17,7 @@
 
 [node name="MobileControlUi" type="CanvasLayer"]
 layer = 0
+script = ExtResource("1_dqhyl")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -140,6 +142,13 @@ offset_top = -160.0
 offset_right = 160.0
 grow_vertical = 0
 
+[node name="action" type="TouchScreenButton" parent="Control2/MarginContainer2"]
+position = Vector2(82, 83)
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_baa1x")
+action = "ui_accept"
+visibility_mode = 1
+
 [node name="Sprite2D2" type="Sprite2D" parent="Control2/MarginContainer2"]
 modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(80, 80)
@@ -147,9 +156,3 @@ scale = Vector2(10, 10)
 texture = ExtResource("3_tpeh7")
 region_enabled = true
 region_rect = Rect2(400, 224, 16, 16)
-
-[node name="action" type="TouchScreenButton" parent="Control2/MarginContainer2"]
-position = Vector2(82, 83)
-scale = Vector2(8, 8)
-shape = SubResource("RectangleShape2D_baa1x")
-action = "ui_accept"
