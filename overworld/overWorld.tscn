@@ -4510,11 +4510,11 @@ levelDetails = NodePath("../../ui/LevelDetails2")
 
 [node name="OW_level_tile3" parent="World3 - Desert/levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(984, -104)
-levelDetails = NodePath("../../ui/LevelDetails3")
+levelDetails = NodePath("../../ui/LevelDetails4")
 
 [node name="OW_level_tile4" parent="World3 - Desert/levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(888, -280)
-levelDetails = NodePath("../../ui/LevelDetails4")
+levelDetails = NodePath("../../ui/LevelDetails3")
 
 [node name="OW_level_tile5" parent="World3 - Desert/levels" node_paths=PackedStringArray("levelDetails") instance=ExtResource("5_c870u")]
 position = Vector2(1192, -40)
@@ -4583,7 +4583,7 @@ offset_left = 888.0
 offset_top = -378.0
 offset_right = -189.0
 offset_bottom = -831.0
-level_name = "Desert 4"
+level_name = "Desert 3"
 level = 15
 levelPath = "res://level/world3/level3-3.tscn"
 
@@ -4594,7 +4594,7 @@ offset_left = 738.0
 offset_top = -288.0
 offset_right = -339.0
 offset_bottom = -741.0
-level_name = "Desert 3"
+level_name = "Desert 4"
 level = 16
 levelPath = "res://level/world3/level3-4.tscn"
 
