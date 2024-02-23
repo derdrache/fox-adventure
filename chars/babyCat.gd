@@ -28,8 +28,8 @@ func _ready():
 	catColorArray = [whiteCatAnimationsSprite, yellowCatAnimationsSprite, BlackCatAnimationsSprite, 
 	brownCatAnimationsSprite, blueCatAnimationsSprite, berryCatAnimationsSprite]
 	
-	#Luna spezial
-	if name == "Cat1": catColorArray.remove_at(2) 
+	#Luna & Stella spezial
+	if name == "Cat1" || name == "Cat2": catColorArray.remove_at(2) 
 	
 	whiteCatAnimationsSprite.visible = false
 	

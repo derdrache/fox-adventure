@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://bk2g3c83ik1k6"]
+[gd_scene load_steps=113 format=3 uid="uid://bk2g3c83ik1k6"]
 
 [ext_resource type="Texture2D" uid="uid://bkuqefp6aneos" path="res://asset/sprites/cats/WhiteCatIdle.png" id="1_k8r08"]
 [ext_resource type="Script" path="res://chars/babyCat.gd" id="1_ll2a6"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c65cr1koxceo8" path="res://asset/sprites/cats/CatBerryRun.png" id="13_dk88w"]
 [ext_resource type="Texture2D" uid="uid://dts8bcbtpoav0" path="res://asset/ui/Box.png" id="14_72wyp"]
 [ext_resource type="Texture2D" uid="uid://fng6d3sua41g" path="res://asset/emotes/pipo-popupemotes009.png" id="14_qnvjn"]
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="15_xcrgx"]
 [ext_resource type="AudioStream" uid="uid://qhoy1jcwqwa8" path="res://asset/sound/cat-meow.mp3" id="16_8nfxu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8nt5"]
@@ -841,6 +842,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("15_xcrgx")
 
 [node name="DoneMessageBox" type="NinePatchRect" parent="MeowMessage"]
 layout_mode = 0
