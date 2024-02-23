@@ -7,6 +7,7 @@ extends Path2D
 var doMove = false
 var moveSpeed = 50
 
+
 func _physics_process(delta):
 	if doMove: pathFollow.progress += moveSpeed * delta
 

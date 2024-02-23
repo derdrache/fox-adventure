@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://w47lyofbgr58"]
+[gd_scene load_steps=8 format=3 uid="uid://w47lyofbgr58"]
 
 [ext_resource type="Script" path="res://overworld/environment/carBlock/CarBlock.gd" id="1_c6tnb"]
 [ext_resource type="Texture2D" uid="uid://pv0w6gakjk7b" path="res://overworld/assets/city.png" id="1_htexj"]
-[ext_resource type="Texture2D" uid="uid://cg5y6ynl1fisp" path="res://asset/sprites/DuckInCarFront.png" id="3_v0wgq"]
-[ext_resource type="Texture2D" uid="uid://dhj3tvl7mu15r" path="res://asset/sprites/DuckInCarSide.png" id="4_mrlak"]
+[ext_resource type="Texture2D" uid="uid://cg5y6ynl1fisp" path="res://asset/sprites/DuckInCarFront.png" id="4_mrlak"]
 
 [sub_resource type="Curve2D" id="Curve2D_aim0u"]
 resource_local_to_scene = true
@@ -12,10 +11,6 @@ resource_local_to_scene = true
 size = Vector2(14, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4pt3n"]
-atlas = ExtResource("3_v0wgq")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n1asb"]
 atlas = ExtResource("4_mrlak")
 region = Rect2(0, 0, 32, 32)
 
@@ -27,14 +22,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"front",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n1asb")
-}],
-"loop": true,
-"name": &"side",
 "speed": 5.0
 }]
 
