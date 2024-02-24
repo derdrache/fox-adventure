@@ -143,7 +143,7 @@ position = Vector2(1166, 523)
 position = Vector2(3734, 871)
 
 [node name="GoldCoin2" parent="items/redCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(4372, 1278)
+position = Vector2(4372, 1272)
 hasRedCoin = true
 
 [node name="GoldCoin3" parent="items/redCoins" instance=ExtResource("9_srtwj")]
@@ -285,13 +285,13 @@ position = Vector2(2762, 400)
 position = Vector2(4127, 664)
 
 [node name="GoldCoin45" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(4370, 1310)
+position = Vector2(4372, 1304)
 
 [node name="GoldCoin46" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(4338, 1274)
+position = Vector2(4330, 1272)
 
 [node name="GoldCoin47" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
-position = Vector2(4337, 1308)
+position = Vector2(4330, 1304)
 
 [node name="GoldCoin48" parent="items/goldCoins" instance=ExtResource("9_srtwj")]
 position = Vector2(4697, 1276)
@@ -457,7 +457,7 @@ navigation_polygon = SubResource("NavigationPolygon_nwv23")
 navigation_polygon = SubResource("NavigationPolygon_2ws6n")
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(48, 592)
+position = Vector2(64, 592)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(1529, 601)
