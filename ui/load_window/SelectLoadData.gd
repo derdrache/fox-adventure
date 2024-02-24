@@ -46,7 +46,3 @@ func _set_focus():
 		saveFileParent.get_children()[0].grab_focus()
 	else:
 		$VBoxContainer/NewGameButton.grab_focus()
-
-
-	#$VBoxContainer/NewGameButton.focus_neighbour_top = get_path_to(saveFileParent.get_children()[0])
-	#set_focus_neighbour(MARGIN_LEFT, NodePath("../../../LeftMenu/01Item"))
