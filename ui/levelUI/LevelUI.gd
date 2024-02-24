@@ -14,6 +14,19 @@ func _ready():
 	LevelManager.gained_gold_coin.connect(update_gold_coin_display)
 	LevelManager.gained_cat.connect(update_cat_display)
 
+func _input(event):
+	if event.is_action_pressed("open_menu"):
+		if menuButton.visible: 
+			get_tree().paused = true
+			_on_menu_button_pressed()
+			$Control/MenuContainer/SettingButton.grab_focus()
+		else: 
+			if settingMenu.visible: _on_setting_menu_close_window()
+			else: 
+				get_tree().paused = false
+				_on_menu_close_button_pressed()
+			
+
 func update_gem_display(gems):
 	for i in range(gems):
 		var path = "Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer/Gem" + str(i+1)
