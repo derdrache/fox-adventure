@@ -11,7 +11,6 @@ func _count_gold_coins():
 		if "GoldCoin" in object.name:
 			maxGoldCoins += 1
 		if "kiste" in object.name:
-			maxGoldCoins += object.goldCoins
-	print(maxGoldCoins)	
+			maxGoldCoins += object.goldCoins	
 	
 	
