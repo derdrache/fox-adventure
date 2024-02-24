@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-@onready var titleScoreLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/totalProcent/Score
 @onready var goldCoinLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/goldCoinScore/Score
 @onready var redCoinLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/redCoinScore/Score
 @onready var gemLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/gemScore/Score
@@ -42,9 +41,6 @@ func _show_score_board():
 
 	totalScoreEndLabel.text = str(totalScore * 100 / totalMaxScore) + "%" 
 	
-	await get_tree().create_timer(1).timeout	
-	
-	titleScoreLabel.text = totalScoreEndLabel.text
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") && isLoaded: 
