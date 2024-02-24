@@ -275,3 +275,11 @@ func make_save_screenshot():
 	player.set_control_ui(true)
 	
 	if !LEVEL_INTERACTIONS.has(LevelManager.activeLevel): 	activeInteraction = false
+
+
+func _on_overworld_ui_close_menu():
+	activeInteraction = false
+
+
+func _on_overworld_ui_open_menu():
+	activeInteraction = true	

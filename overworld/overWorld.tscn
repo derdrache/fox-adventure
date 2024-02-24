@@ -5227,6 +5227,10 @@ position = Vector2(249, 288)
 position = Vector2(243, 272)
 zoom = Vector2(7.5, 7.5)
 
+[connection signal="closeMenu" from="PlayerOverWorld/OverworldUI" to="." method="_on_overworld_ui_close_menu"]
+[connection signal="openMenu" from="PlayerOverWorld/OverworldUI" to="." method="_on_overworld_ui_open_menu"]
+
 [editable path="World1 - Wood/Ducks/Duck"]
 [editable path="World2 - Swamp/CatMom"]
 [editable path="World7 - City/Obstacales/CarBlock"]
+[editable path="PlayerOverWorld"]
