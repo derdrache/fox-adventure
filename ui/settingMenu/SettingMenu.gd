@@ -4,6 +4,7 @@ extends Control
 @onready var backgroundMusicSlider = $"TextureRect/VBoxContainer/Background Music/BackgroundMusicSlider"
 
 var soundMinValue : int
+var focusIsSet = false
 
 signal close_window()
 
@@ -11,6 +12,12 @@ func _ready():
 	backgroundMusicSlider.value = GameManager.backgroundMusicVolumen
 	soundEffectSlider.value = GameManager.soundEffectsVolumen
 	soundMinValue = soundEffectSlider.min_value
+
+func _process(delta):
+	if visible && !focusIsSet: 
+		focusIsSet = true
+		$"TextureRect/VBoxContainer/Background Music/BackgroundMusicSlider".grab_focus()
+	elif !visible: focusIsSet = false
 
 func _on_close_button_pressed():
 	Utils.save_game("settings")
@@ -32,14 +39,12 @@ func _change_volume(value, bus):
 	else:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index(bus), false)
 		
-		valueInDB = value
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus), valueInDB)	
-		
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus), value)	
 	
 	if bus == "BackgroundMusic": 
-		GameManager.backgroundMusicVolumen = valueInDB if not backgroundMusicSlider.min_value else -25
+		GameManager.backgroundMusicVolumen = value if not value == backgroundMusicSlider.min_value else -25
 	elif bus == "SoundEffect": 
-		GameManager.soundEffectsVolumen = valueInDB if not soundEffectSlider.min_value else -25
+		GameManager.soundEffectsVolumen = value if not value == soundEffectSlider.min_value else -25
 
 func _on_texture_button_pressed():
 	$AudioStreamPlayer2D.play()
