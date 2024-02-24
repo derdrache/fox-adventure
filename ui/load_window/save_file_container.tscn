@@ -13,10 +13,10 @@ Label/fonts/font = ExtResource("1_71gyj")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcg07"]
 bg_color = Color(0.647059, 0.670588, 0.717647, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 4
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
@@ -37,7 +37,7 @@ var touchCanFire = true
 func _process(_delta):
 	if has_focus():
 		var styleBox : StyleBoxFlat = get_theme_stylebox(\"panel\").duplicate()
-		styleBox.border_color = Color(1,0,0)
+		styleBox.border_color = Color(1,1,1)
 		add_theme_stylebox_override(\"panel\", styleBox)
 	else:
 		var styleBox : StyleBoxFlat = get_theme_stylebox(\"panel\").duplicate()

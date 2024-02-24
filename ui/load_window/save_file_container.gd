@@ -11,10 +11,10 @@ var touchCanFire = true
 func _process(_delta):
 	print(has_focus())
 	if has_focus():
-		print()
-		var styleBox : StyleBoxFlat = get_theme_stylebox("panel")
-		styleBox.border_color = Color(1,0,0)
-		add_theme_stylebox_override("panel", styleBox)
+		print("test")
+		#var styleBox : StyleBoxFlat = get_theme_stylebox("panel")
+		#styleBox.border_color = Color(1,1,1)
+		#add_theme_stylebox_override("panel", styleBox)
 	$VBoxContainer/Header/PanelContainer/HBoxContainer/LoadCount/PanelContainer/Label.text = str(gameNumber +1)
 	_set_procent_clear()
 	_set_play_time()
