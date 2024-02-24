@@ -54,6 +54,7 @@ var movingObjectSpeed
 func _ready():
 	$MobileControlUi.visible = true
 	$LevelUI.visible = true
+	
 	if "-6" in get_parent().name: $SoundEffects/BackGroundCastleMusic.play()
 	else: $SoundEffects/BackgroundMusic.play()
 
@@ -262,10 +263,11 @@ func animation_state():
 
 	if doDig: return
 	
-	if state != DIG && state != SWIM: 
+	if state != DIG && state != SWIM && state != SLIDE: 
 		sprite.flip_v = false
 		sprite.position.y = 0
 		sprite.position.x = 0
+		rotation = 0
 		if digRotation != 0:
 			sprite.rotate(-digRotation)
 			digRotation = 0
@@ -293,6 +295,7 @@ func animation_state():
 			if velocity.y <= 0: playerAnimation.play("jumpUp")
 			else: playerAnimation.play("jumpDown")
 		SWIM: playerAnimation.play("swim")
+		SLIDE: rotation_degrees = -30
 
 func stompAnimation():
 	$stompSprite.visible = true
