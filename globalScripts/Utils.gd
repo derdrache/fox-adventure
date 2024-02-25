@@ -1,12 +1,14 @@
 extends Node
 
 func save_game(saveFile = "game"):
+	
 	if GameManager.gameNumber < 0: return
 	
 	var save_path : String
 	var data : Dictionary
 	
 	if saveFile == "game": 
+		
 		save_path = "user://savegame"+ str(GameManager.gameNumber)  +".bin"
 		data = {
 			"levelDetails": GameManager.levelDetails,
@@ -20,7 +22,7 @@ func save_game(saveFile = "game"):
 			"backgroundMusicVolumen" : GameManager.backgroundMusicVolumen,
 			"soundEffectsVolumen" : GameManager.soundEffectsVolumen
 		}
-
+		
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	var jsonString = JSON.stringify(data)
 	file.store_line(jsonString)
