@@ -42,6 +42,8 @@ func _on_new_game_button_pressed():
 	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
 
 func _set_focus():
+	if DisplayServer.is_touchscreen_available(): return
+
 	if saveFileParent.get_child_count() > 0:
 		saveFileParent.get_children()[0].grab_focus()
 	else:

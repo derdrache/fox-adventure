@@ -16,7 +16,8 @@ func _ready():
 func _process(delta):
 	if visible && !focusIsSet: 
 		focusIsSet = true
-		$"TextureRect/VBoxContainer/Background Music/BackgroundMusicSlider".grab_focus()
+		if !DisplayServer.is_touchscreen_available():
+			$"TextureRect/VBoxContainer/Background Music/BackgroundMusicSlider".grab_focus()
 	elif !visible: focusIsSet = false
 
 func _on_close_button_pressed():
@@ -40,11 +41,11 @@ func _change_volume(value, bus):
 		AudioServer.set_bus_mute(AudioServer.get_bus_index(bus), false)
 		
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus), value)	
-	
+
 	if bus == "BackgroundMusic": 
 		GameManager.backgroundMusicVolumen = value if not value == backgroundMusicSlider.min_value else -25
 	elif bus == "SoundEffect": 
 		GameManager.soundEffectsVolumen = value if not value == soundEffectSlider.min_value else -25
-
+	
 func _on_texture_button_pressed():
 	$AudioStreamPlayer2D.play()

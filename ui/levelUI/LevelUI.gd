@@ -19,7 +19,8 @@ func _input(event):
 		if menuButton.visible: 
 			get_tree().paused = true
 			_on_menu_button_pressed()
-			$Control/MenuContainer/SettingButton.grab_focus()
+			if !DisplayServer.is_touchscreen_available(): 
+				$Control/MenuContainer/SettingButton.grab_focus()
 		else: 
 			if settingMenu.visible: _on_setting_menu_close_window()
 			else: 

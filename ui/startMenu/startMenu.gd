@@ -2,7 +2,8 @@ extends Control
 
 
 func _ready():
-	$VBoxContainer/VBoxContainer/StartButton.grab_focus()
+	if !DisplayServer.is_touchscreen_available():
+		$VBoxContainer/VBoxContainer/StartButton.grab_focus()
 
 func _on_start_button_pressed():
 	Utils.load_game("settings")
