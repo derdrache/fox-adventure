@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy5jjw0aaa4l"]
+[gd_scene load_steps=7 format=3 uid="uid://dy5jjw0aaa4l"]
 
 [ext_resource type="Texture2D" uid="uid://cuha3s36ovhpy" path="res://asset/background/swarm/1.png" id="1_83rs5"]
+[ext_resource type="Script" path="res://backgrounds/backgroundMoving.gd" id="1_rt7jb"]
 [ext_resource type="Texture2D" uid="uid://dybmxbdxt77ew" path="res://asset/background/swarm/2.png" id="2_mghhu"]
 [ext_resource type="Texture2D" uid="uid://h2tplf1m61el" path="res://asset/background/swarm/3.png" id="3_401gx"]
 [ext_resource type="Texture2D" uid="uid://bnjkkcsww84dk" path="res://asset/background/swarm/4_green.png" id="4_u2cga"]
@@ -13,6 +14,7 @@ transform = Transform2D(2.3, 0, 0, 2.3, 0, -165.465)
 scroll_limit_begin = Vector2(0, 680)
 scroll_limit_end = Vector2(0, 1400)
 scroll_ignore_camera_zoom = true
+script = ExtResource("1_rt7jb")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)

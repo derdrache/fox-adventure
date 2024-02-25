@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://3t0e30rxcjos"]
+[gd_scene load_steps=8 format=3 uid="uid://3t0e30rxcjos"]
 
 [ext_resource type="Texture2D" uid="uid://cgc65cq23lef8" path="res://asset/background/beach/background_sky.png" id="1_caybq"]
+[ext_resource type="Script" path="res://backgrounds/backgroundMoving.gd" id="1_k2iss"]
 [ext_resource type="Texture2D" uid="uid://de5mli86yo1qt" path="res://asset/background/beach/background_sand.png" id="2_bodb1"]
 [ext_resource type="Texture2D" uid="uid://gekgw7lckk4p" path="res://asset/background/beach/background_ocean.png" id="3_tg7to"]
 [ext_resource type="Texture2D" uid="uid://f7oe7eej0pou" path="res://asset/background/beach/background_clouds_small.png" id="4_7herv"]
@@ -13,6 +14,7 @@ transform = Transform2D(4, 0, 0, 4, 0, 0)
 scroll_limit_begin = Vector2(0, 900)
 scroll_limit_end = Vector2(0, 1620)
 scroll_ignore_camera_zoom = true
+script = ExtResource("1_k2iss")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2(320, 0)

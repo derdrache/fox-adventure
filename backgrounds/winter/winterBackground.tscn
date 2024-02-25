@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://fdca1hmim6d4"]
+[gd_scene load_steps=8 format=3 uid="uid://fdca1hmim6d4"]
 
+[ext_resource type="Script" path="res://backgrounds/backgroundMoving.gd" id="1_fvdjc"]
 [ext_resource type="Texture2D" uid="uid://drk0ksershtim" path="res://asset/background/winter/sky up.png" id="1_sjd6r"]
 [ext_resource type="Texture2D" uid="uid://cd1uvr5eji2h1" path="res://asset/background/winter/layer 5 mountain and sky.png" id="2_0lsm2"]
 [ext_resource type="Texture2D" uid="uid://b4j67gnan8l2u" path="res://asset/background/winter/layer 4 mountain.png" id="3_ruyte"]
@@ -13,6 +14,7 @@ scale = Vector2(1.2, 1)
 transform = Transform2D(1.2, 0, 0, 1, 0, -300)
 scroll_limit_end = Vector2(0, 800)
 scroll_ignore_camera_zoom = true
+script = ExtResource("1_fvdjc")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)

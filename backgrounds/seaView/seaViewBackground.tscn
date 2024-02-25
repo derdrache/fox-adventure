@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bujsyis77mpb0"]
 
 [ext_resource type="Texture2D" uid="uid://c6pygme3vcx1" path="res://asset/background/back.png" id="1_7l6jk"]
-[ext_resource type="Script" path="res://backgrounds/seaView/seaViewBackground.gd" id="1_d3ax7"]
+[ext_resource type="Script" path="res://backgrounds/backgroundMoving.gd" id="1_k1jmx"]
 [ext_resource type="Texture2D" uid="uid://i0d1rh65mgk2" path="res://asset/background/middle.png" id="2_5vlwr"]
 
 [node name="Background" type="ParallaxBackground"]
 scroll_limit_begin = Vector2(0, 950)
 scroll_limit_end = Vector2(0, 1700)
 scroll_ignore_camera_zoom = true
-script = ExtResource("1_d3ax7")
+script = ExtResource("1_k1jmx")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.2, 0.7)

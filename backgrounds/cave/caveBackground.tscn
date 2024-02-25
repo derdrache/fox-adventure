@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://3i47rat1kqdr"]
+[gd_scene load_steps=11 format=3 uid="uid://3i47rat1kqdr"]
 
+[ext_resource type="Script" path="res://backgrounds/backgroundMoving.gd" id="1_dxgvc"]
 [ext_resource type="Texture2D" uid="uid://bh3uhwsbnj0dq" path="res://asset/background/cave/1.png" id="1_nf0e2"]
 [ext_resource type="Texture2D" uid="uid://n18slkvnyrkq" path="res://asset/background/cave/2.png" id="2_ou7tw"]
 [ext_resource type="Texture2D" uid="uid://dm0ylm7u3g218" path="res://asset/background/cave/3fx.png" id="3_8oinf"]
@@ -17,6 +18,7 @@ transform = Transform2D(0.8, 0, 0, 0.8, 0, -300)
 scroll_limit_begin = Vector2(0, 90)
 scroll_limit_end = Vector2(0, 800)
 scroll_ignore_camera_zoom = true
+script = ExtResource("1_dxgvc")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(-1.5, -4)
