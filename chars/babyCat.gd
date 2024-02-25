@@ -57,17 +57,22 @@ func _calculate_velocity():
 
 	var targetPosition = target.global_position - Vector2(0, -8)
 	
+
 	if global_position.distance_to(targetPosition) > 40  * followPosition:
 		var direction = (targetPosition - global_position).normalized()
 		velocity = direction * (MAX_SPEED + speed)
-		velocity.y *= 3		
+		if !target.onEagle: velocity.y *= 3		
 	elif global_position.distance_to(targetPosition) > 20  * followPosition:
 		var direction = (targetPosition - global_position).normalized()
 		velocity = direction * (speed)
-		velocity.y *= 3
+		if !target.onEagle: velocity.y *= 3
 	elif (global_position.y - targetPosition.y) < -2 || (global_position.y - targetPosition.y) > 2:
 		velocity.x = 0
 	else: velocity = Vector2.ZERO
+	
+	if target.rampType != null:
+		if target.rampType == "rampLeft" && target.velocity.x > 0: velocity *= 0.9
+		elif target.rampType == "rampRight" && target.velocity.x < 0: velocity *= 0.9
 	
 func _set_animation():
 	if isWaiting || target.velocity == Vector2.ZERO: 
