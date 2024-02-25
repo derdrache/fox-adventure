@@ -89,7 +89,11 @@ func _ready():
 func _process(_delta):	
 	changeCamera()
 	
-	if LevelManager.levelCleared: make_save_screenshot()
+	_all_cats_founded()
+	
+	if LevelManager.levelCleared: 
+		make_save_screenshot()
+		_show_credits()
 	
 	if activeInteraction : 
 		set_ui_visible(false)
@@ -98,7 +102,12 @@ func _process(_delta):
 	if !activeInteraction:
 		set_ui_visible(true)
 		player.blockMovement = false
-		
+
+func _all_cats_founded():
+	var allCatMoms = get_tree().get_nodes_in_group("catMoms")
+	
+	if allCatMoms.is_empty(): 
+		get_tree().change_scene_to_file("res://ui/credits/Credits.tscn")
 		
 func _load_and_update_data():
 	var savedPlayerPosition = GameManager.playerPosition
@@ -276,6 +285,15 @@ func make_save_screenshot():
 	
 	if !LEVEL_INTERACTIONS.has(LevelManager.activeLevel): 	activeInteraction = false
 
+func _show_credits(showCredits = false):
+	var gameFullDone = GameManager.full_done_check()
+	
+	if gameFullDone || showCredits:
+		await get_tree().create_timer(1).timeout
+		$Cameras/Camera2D/CanvasLayer.layer = 15
+		$Cameras/Camera2D/CanvasLayer/CircleTransition.transition("out", 2)
+		await get_tree().create_timer(2).timeout
+		get_tree().change_scene_to_file("res://ui/credits/Credits.tscn")
 
 func _on_overworld_ui_close_menu():
 	activeInteraction = false
@@ -283,3 +301,8 @@ func _on_overworld_ui_close_menu():
 
 func _on_overworld_ui_open_menu():
 	activeInteraction = true	
+
+
+
+func _on_cat_mom_game_done():
+	_show_credits(true)

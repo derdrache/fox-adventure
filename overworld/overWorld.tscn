@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dvhlbxcaua2bj"]
+[gd_scene load_steps=90 format=3 uid="uid://dvhlbxcaua2bj"]
 
 [ext_resource type="Script" path="res://overworld/overWorld.gd" id="1_q6y0r"]
 [ext_resource type="Texture2D" uid="uid://bxcwefqn4g7xb" path="res://overworld/assets/Nature.png" id="2_xctr4"]
@@ -35,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://dm4yeonfmi3br" path="res://overworld/environment/obstacles/RoadBlock.tscn" id="32_mgx7o"]
 [ext_resource type="PackedScene" uid="uid://w47lyofbgr58" path="res://overworld/environment/carBlock/CarBlock.tscn" id="33_pfea0"]
 [ext_resource type="PackedScene" uid="uid://ymc6euyccb1v" path="res://overworld/environment/obstacles/cactus.tscn" id="34_6sfid"]
+[ext_resource type="PackedScene" uid="uid://bboy0mjj6f48i" path="res://ui/CircleTransition.tscn" id="35_8o4no"]
+[ext_resource type="Shader" path="res://asset/shader/circleTransition.gdshader" id="36_pnx30"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x3i1i"]
 
@@ -4184,10 +4186,35 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_n85r5"]
 resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 1, 0, 0, 0, 0, 17, -88)
-}
-point_count = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ahhq1"]
+shader = ExtResource("36_pnx30")
+shader_parameter/circle_size = 0.75
+
+[sub_resource type="GDScript" id="GDScript_tbjva"]
+script/source = "extends ColorRect
+
+
+
+
+func transition(direction, duration):
+	var circleTransitionShader: ShaderMaterial = get_material()
+	var startValue
+	var targetValue
+	
+	if direction == \"in\":
+		startValue = 0.0
+		targetValue = 0.75
+	elif direction == \"out\": 
+		startValue = 0.75
+		targetValue = 0.0
+			
+	circleTransitionShader.set_shader_parameter(\"circle_size\", startValue)
+	
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(circleTransitionShader, \"shader_parameter/circle_size\", targetValue, duration)
+"
 
 [node name="overWorld" type="Node2D"]
 script = ExtResource("1_q6y0r")
@@ -5173,8 +5200,8 @@ level_name = "Castle 7"
 level = 42
 levelPath = "res://level/world7/level7-6.tscn"
 
-[node name="CatMom" parent="World7 - City" instance=ExtResource("9_jscls")]
-position = Vector2(-563, -1035)
+[node name="LastCatMom" parent="World7 - City" instance=ExtResource("9_jscls")]
+position = Vector2(-344, -877)
 curve = SubResource("Curve2D_n85r5")
 world = 7
 
@@ -5183,6 +5210,13 @@ world = 7
 [node name="Camera2D" type="Camera2D" parent="Cameras"]
 position = Vector2(330, 180)
 zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Cameras/Camera2D"]
+layer = -5
+
+[node name="CircleTransition" parent="Cameras/Camera2D/CanvasLayer" instance=ExtResource("35_8o4no")]
+material = SubResource("ShaderMaterial_ahhq1")
+script = SubResource("GDScript_tbjva")
 
 [node name="SwampWorld" type="Camera2D" parent="Cameras"]
 visible = false
@@ -5227,6 +5261,7 @@ position = Vector2(249, 288)
 position = Vector2(243, 272)
 zoom = Vector2(7.5, 7.5)
 
+[connection signal="game_done" from="World7 - City/LastCatMom" to="." method="_on_cat_mom_game_done"]
 [connection signal="closeMenu" from="PlayerOverWorld/OverworldUI" to="." method="_on_overworld_ui_close_menu"]
 [connection signal="openMenu" from="PlayerOverWorld/OverworldUI" to="." method="_on_overworld_ui_open_menu"]
 
