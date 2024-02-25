@@ -50,11 +50,13 @@ var lastMovableObject
 var followObjects : int = 0
 var wasOnCLimbingObject = false
 var movingObjectSpeed
+var onEagle = false
+var rampType
 
 func _ready():
 	$MobileControlUi.visible = true
 	$LevelUI.visible = true
-	
+	Utils.load_game("settings")
 	if "-6" in get_parent().name: $SoundEffects/BackGroundCastleMusic.play()
 	else: $SoundEffects/BackgroundMusic.play()
 
@@ -63,6 +65,9 @@ func _process(_delta):
 	if !underWater && "water" in get_tile_data(): 
 		$SoundEffects/WaterSplash.play()
 	underWater = "water" in get_tile_data()
+	
+	if "ramp" in get_tile_data("bottom"):
+		rampType = get_tile_data("bottom")
 
 func _physics_process(delta):
 	_get_moving_object_speed()
@@ -120,7 +125,7 @@ func is_on_climbing_object():
 		
 	var onWall = "climb" in get_tile_data("right") || "climb" in get_tile_data("left")
 
-	if pressedUp && pressedRight: return false
+	if pressedUp && (pressedRight || pressedLeft) : return false
 
 	return onClimbingObject || onLiane || onWall
 
@@ -440,9 +445,7 @@ func return_last_position():
 	position = lastPosition
 
 func _can_climb():
-	return (is_on_climbing_object() 
-	&& (pressedUp || 
-	(pressedDown && not is_on_floor())))
+	return is_on_climbing_object() && pressedUp
 
 func _cant_stand_up():
 	return state == CRAWL && (get_tile_data("top", "collision") == 1 
@@ -495,22 +498,20 @@ func _reset_was_on_climbing_object():
 	if !is_on_climbing_object() || is_on_floor(): wasOnCLimbingObject = false
 
 func _get_moving_object_speed():
-	var onPlatform = false
+	var onMovingObject = false
 	
 	for i in collision_check.get_collision_count():
 		var colliderName = collision_check.get_collider(i).name if collision_check.get_collider(i) != null else ""
-		
 		if "Platform" in colliderName:
-			onPlatform = true
+			onMovingObject = true
 			movingObjectSpeed = collision_check.get_collider(i).get_parent().moving_speed
-	
-	if !onPlatform: movingObjectSpeed = null
+
+	if !onMovingObject: movingObjectSpeed = null
 
 func _spawn_birds():
 	var birdInstance = birdRessource.instantiate()
-	birdInstance.set_spawn_position(global_position, get_viewport().size)
 	get_parent().add_child(birdInstance)
-
+	birdInstance.set_spawn_position(global_position, get_viewport().size)
 
 func _on_bird_spawn_timer_timeout():
 	if in_water(): return  
