@@ -450,7 +450,6 @@ bus = &"SoundEffect"
 
 [node name="BackGroundCastleMusic" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("13_5rvpj")
-volume_db = -20.0
 bus = &"BackgroundMusic"
 
 [node name="BirdSpawnTimer" type="Timer" parent="."]
