@@ -25,7 +25,7 @@ func _input(event):
 		_enter_level()
 		
 func _enter_level():
-	LevelManager.set_level(level, $"../../../PlayerOverWorld".position)
+	LevelManager.set_level(level, $"../../../PlayerOverWorld".position, level_name)
 	GameManager.save_player_position_and_time($"../../../PlayerOverWorld".position)
 	get_tree().change_scene_to_file(levelPath)
 

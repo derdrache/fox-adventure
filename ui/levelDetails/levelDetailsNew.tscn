@@ -43,6 +43,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_gcs0h")
 script = ExtResource("1_oxweo")
+level_name = null
+level = null
+levelPath = null
+maxGoldCoins = null
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
