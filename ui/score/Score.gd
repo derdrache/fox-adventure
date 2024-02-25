@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+
+@onready var titleLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/totalProcent/Label
 @onready var goldCoinLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/goldCoinScore/Score
 @onready var redCoinLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/redCoinScore/Score
 @onready var gemLabel = $Control/ScoreBoard/MarginContainer/VBoxContainer/gemScore/Score
@@ -7,12 +9,17 @@ extends CanvasLayer
 @onready var catRect = "Control/ScoreBoard/MarginContainer/VBoxContainer/catScore/cat"
 @onready var circleTransitionRect = $Control/CircleTransition
 
+var levelName = LevelManager.activeLevelName
 var goldCoinsMax = LevelManager.maxGoldCoins
 var isLoaded = false
 
 func _ready():
+	titleLabel.text = levelName
 	goldCoinLabel.text = "0 / " + str(goldCoinsMax)
 	circleTransitionRect.transition("in", 2)
+	
+	
+	
 	await get_tree().create_timer(2).timeout
 	
 	await _show_score_board()
