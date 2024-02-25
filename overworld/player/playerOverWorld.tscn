@@ -90,5 +90,4 @@ shape = SubResource("RectangleShape2D_q55v2")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_174ts")
-volume_db = -20.0
 bus = &"BackgroundMusic"
