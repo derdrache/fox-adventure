@@ -14,7 +14,8 @@ func _input(event):
 	if event.is_action_released("open_menu"):
 		if menuButton.visible: 
 			_on_menu_button_pressed()
-			$Control/VBoxContainer/SettingButton.grab_focus()
+			if !DisplayServer.is_touchscreen_available(): 
+				$Control/VBoxContainer/SettingButton.grab_focus()
 		else: 
 			if $Control/SettingMenu.visible: _on_setting_menu_close_window()
 			else: _on_close_button_pressed()
