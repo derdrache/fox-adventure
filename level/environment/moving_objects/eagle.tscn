@@ -7,7 +7,7 @@
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bppc"]
-size = Vector2(28, 11)
+size = Vector2(28, 12)
 
 [sub_resource type="Animation" id="Animation_jp7wj"]
 length = 0.001
@@ -72,7 +72,7 @@ texture = ExtResource("1_cakic")
 hframes = 4
 
 [node name="CollisionMain" type="CollisionShape2D" parent="PathFollow2D/eagleBody"]
-position = Vector2(-3, 5.5)
+position = Vector2(-3, 6)
 shape = SubResource("RectangleShape2D_0bppc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D/eagleBody"]
@@ -92,6 +92,7 @@ text = "zzZZ"
 [node name="AreaTop" type="Area2D" parent="PathFollow2D/eagleBody"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/eagleBody/AreaTop"]
+visible = false
 position = Vector2(-3, -9)
 shape = SubResource("RectangleShape2D_l0dt2")
 
@@ -99,6 +100,7 @@ shape = SubResource("RectangleShape2D_l0dt2")
 position = Vector2(0, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/eagleBody/AreaBottom"]
+visible = false
 position = Vector2(-3, -2)
 shape = SubResource("RectangleShape2D_yklep")
 
