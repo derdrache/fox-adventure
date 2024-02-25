@@ -11,6 +11,8 @@ var moveSpeed = 50
 func _physics_process(delta):
 	if doMove: pathFollow.progress += moveSpeed * delta
 
+func done():
+	queue_free()
 
 func _on_area_2d_body_entered(body):
 	if "Duck" in body.name:
