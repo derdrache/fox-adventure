@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ug6dcwplmet0"]
+[gd_scene load_steps=6 format=3 uid="uid://ug6dcwplmet0"]
 
 [ext_resource type="Texture2D" uid="uid://cl24lyhupr7hc" path="res://asset/ui/Box_WhiteOutline_Rounded.png" id="1_lipvg"]
 [ext_resource type="Script" path="res://ui/settingMenu/SettingMenu.gd" id="1_nxojf"]
 [ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="1_xnspw"]
 [ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="2_tk30n"]
-[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/Button_normal.png" id="3_0hdp0"]
-[ext_resource type="Texture2D" uid="uid://do43xfipjh5bc" path="res://asset/ui/Button_focus.png" id="5_qjhp6"]
 [ext_resource type="AudioStream" uid="uid://qhoy1jcwqwa8" path="res://asset/sound/cat-meow.mp3" id="5_vh17k"]
 
 [node name="SettingMenu" type="Control"]
@@ -19,7 +17,7 @@ theme = ExtResource("1_xnspw")
 script = ExtResource("1_nxojf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(600, 400)
+custom_minimum_size = Vector2(600, 250)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,8 +64,12 @@ text = "Background Music"
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../../MarginContainer/TextureButton")
+focus_neighbor_left = NodePath("../../Sound Effects/SoundEffectSlider")
+focus_neighbor_top = NodePath("../../Sound Effects/SoundEffectSlider")
+focus_neighbor_right = NodePath("../../Sound Effects/SoundEffectSlider")
 focus_neighbor_bottom = NodePath("../../Sound Effects/SoundEffectSlider")
+focus_next = NodePath("../../Sound Effects/SoundEffectSlider")
+focus_previous = NodePath("../../Sound Effects/SoundEffectSlider")
 min_value = -25.0
 max_value = 25.0
 
@@ -89,41 +91,12 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../../Background Music/BackgroundMusicSlider")
-focus_neighbor_bottom = NodePath("../../MarginContainer/TextureButton")
+focus_neighbor_right = NodePath("../../Background Music/BackgroundMusicSlider")
+focus_neighbor_bottom = NodePath("../../Background Music/BackgroundMusicSlider")
+focus_next = NodePath("../../Background Music/BackgroundMusicSlider")
+focus_previous = NodePath("../../Background Music/BackgroundMusicSlider")
 min_value = -25.0
 max_value = 25.0
-
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/margin_top = 20
-
-[node name="TextureButton" type="TextureButton" parent="TextureRect/VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_neighbor_top = NodePath("../../Sound Effects/SoundEffectSlider")
-focus_neighbor_bottom = NodePath("../../Background Music/BackgroundMusicSlider")
-texture_normal = ExtResource("3_0hdp0")
-texture_pressed = ExtResource("3_0hdp0")
-texture_hover = ExtResource("3_0hdp0")
-texture_focused = ExtResource("5_qjhp6")
-
-[node name="Label" type="Label" parent="TextureRect/VBoxContainer/MarginContainer/TextureButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.5
-offset_top = -24.5
-offset_right = 69.5
-offset_bottom = 24.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 40
-text = "CREDITS"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_vh17k")
@@ -133,10 +106,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -389.0
-offset_top = 160.0
-offset_right = -340.0
-offset_bottom = 207.0
+offset_left = -406.0
+offset_top = 235.0
+offset_right = -357.0
+offset_bottom = 282.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
@@ -159,5 +132,4 @@ expand_mode = 1
 
 [connection signal="value_changed" from="TextureRect/VBoxContainer/Background Music/BackgroundMusicSlider" to="." method="_on_background_music_slider_value_changed"]
 [connection signal="value_changed" from="TextureRect/VBoxContainer/Sound Effects/SoundEffectSlider" to="." method="_on_sound_effect_slider_value_changed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="CloseButtonMenu/CloseButton" to="." method="_on_close_button_pressed"]
