@@ -10,6 +10,7 @@ var redCoins : int
 var goldCoins : int
 var maxGoldCoins : int
 var activeLevel : int
+var activeLevelName: String
 var activeLevelPosition : Vector2
 var levelCleared = false
 var levelNewClear : bool
@@ -33,10 +34,11 @@ func gain_cat(catNumber: int):
 	catArray[catNumber-1] = true
 	emit_signal("gained_cat", catArray)
 
-func set_level(level : int, position: Vector2):
+func set_level(level : int, position: Vector2, levelName):
 	reset_all_stats()
-	
+
 	maxGoldCoins = GameManager.levelMaxGoldCoins[str(level)]
+	activeLevelName = levelName
 	activeLevel = level
 	activeLevelPosition = position
 	
@@ -84,6 +86,7 @@ func reset_all_stats():
 	redCoins = 0
 	goldCoins = 0
 	activeLevel = 0
+	activeLevelName = ""
 	levelCleared = false
 	levelNewClear = false
 	catArray = [false, false, false]
