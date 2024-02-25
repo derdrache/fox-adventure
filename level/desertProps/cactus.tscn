@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwv6mqhiqnqor"]
+
+[ext_resource type="Texture2D" uid="uid://coxfo7tk0m1g5" path="res://asset/desert props/Cactus (1).png" id="1_oiivj"]
+
+[node name="Cactus" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_oiivj")
