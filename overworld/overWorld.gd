@@ -127,9 +127,10 @@ func _load_and_update_data():
 func _check_cat_mom_done():
 	var allCatMoms = get_tree().get_nodes_in_group("catMoms")
 	
-	for catMom in allCatMoms:
-		if catMom.catsFounded == 18:
-			if false: catMom.queue_free()
+	for i in len(GameManager.catMomsDone):
+		if i == 6: return
+		if GameManager.catMomsDone[i]:
+			allCatMoms[i].queue_free()
 
 func _set_full_complete():
 	var allLevelTiles = []
@@ -232,6 +233,7 @@ func _check_interactions_disables():
 
 
 func _level_interaction(i):
+	await get_tree().create_timer(1)
 	interactionsList[i].move()
 	interactionsList[i].connect("interactionDone", interaction_done)
 
@@ -301,8 +303,6 @@ func _on_overworld_ui_close_menu():
 
 func _on_overworld_ui_open_menu():
 	activeInteraction = true	
-
-
 
 func _on_cat_mom_game_done():
 	_show_credits(true)
