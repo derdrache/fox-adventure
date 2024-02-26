@@ -50,12 +50,7 @@ func _moving(delta):
 		playerBody.position = newPosition
 
 func _release():
-	var pressRealseButtons = (Input.is_action_pressed("ui_accept") 
-		|| Input.is_action_pressed("move_down"))
-	var pathAllowed = path_follow.progress_ratio > 0.2	
-	
-	if enteredBottom && pressRealseButtons && pathAllowed: move = false
-	elif !enteredBottom && path_follow.progress_ratio == 1: move = false
+	if path_follow.progress_ratio == 1: move = false
 		
 func _on_area_top_body_entered(body):
 	if body is Player && isActive:
