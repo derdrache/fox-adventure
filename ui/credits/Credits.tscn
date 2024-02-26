@@ -1,16 +1,21 @@
-[gd_scene load_steps=19 format=3 uid="uid://ciaakrk6cy3yu"]
+[gd_scene load_steps=26 format=3 uid="uid://ciaakrk6cy3yu"]
 
 [ext_resource type="Script" path="res://ui/credits/Credits.gd" id="1_30teg"]
 [ext_resource type="PackedScene" uid="uid://d0y52ct28jrv1" path="res://backgrounds/city/cityBackground.tscn" id="1_oelah"]
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player/player.png" id="2_0h2dw"]
+[ext_resource type="Texture2D" uid="uid://dts8bcbtpoav0" path="res://asset/ui/Box.png" id="3_5sys0"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="3_cf4o6"]
+[ext_resource type="PackedScene" uid="uid://cg0wi1yv88l" path="res://ui/short_message_box.tscn" id="3_d606b"]
 [ext_resource type="PackedScene" uid="uid://3jqlknpvgshn" path="res://backgrounds/desert/desertBackground.tscn" id="5_21j8n"]
 [ext_resource type="PackedScene" uid="uid://3t0e30rxcjos" path="res://backgrounds/beach/beachBackground.tscn" id="5_cbvtk"]
+[ext_resource type="PackedScene" uid="uid://bboy0mjj6f48i" path="res://ui/CircleTransition.tscn" id="5_kk8i1"]
 [ext_resource type="PackedScene" uid="uid://fdca1hmim6d4" path="res://backgrounds/winter/winterBackground.tscn" id="6_3np6q"]
+[ext_resource type="Shader" path="res://asset/shader/circleTransition.gdshader" id="6_dj8dp"]
 [ext_resource type="Script" path="res://backgrounds/backgroundMoving.gd" id="6_v2vj2"]
 [ext_resource type="PackedScene" uid="uid://3i47rat1kqdr" path="res://backgrounds/cave/caveBackground.tscn" id="7_yx1n0"]
 [ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swampBackground.tscn" id="10_gpodl"]
 [ext_resource type="PackedScene" uid="uid://bujsyis77mpb0" path="res://backgrounds/seaView/seaViewBackground.tscn" id="11_n6b1y"]
+[ext_resource type="AudioStream" uid="uid://d0k6xopveuf6w" path="res://asset/sound/creditBackground.mp3" id="14_p8y2p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdydv"]
 atlas = ExtResource("2_0h2dw")
@@ -61,6 +66,35 @@ animations = [{
 "name": &"run",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_owdh4"]
+shader = ExtResource("6_dj8dp")
+shader_parameter/circle_size = 0.967
+
+[sub_resource type="GDScript" id="GDScript_4v1gu"]
+script/source = "extends ColorRect
+
+
+
+
+func transition(direction, duration):
+	var circleTransitionShader: ShaderMaterial = get_material()
+	var startValue
+	var targetValue
+	
+	if direction == \"in\":
+		startValue = 0.0
+		targetValue = 0.75
+	elif direction == \"out\": 
+		startValue = 0.75
+		targetValue = 0.0
+			
+	circleTransitionShader.set_shader_parameter(\"circle_size\", startValue)
+	
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(circleTransitionShader, \"shader_parameter/circle_size\", targetValue, duration)
+"
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_30teg")
@@ -113,31 +147,79 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 631)
+position = Vector2(-23, 631)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_m2ehj")
 animation = &"run"
 autoplay = "run"
 frame_progress = 0.451295
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="ProcentMessageBox" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -0.666667
+offset_top = -9.33333
+offset_right = 39.3333
+offset_bottom = 30.6667
+scale = Vector2(0.6, 0.6)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/ProcentMessageBox"]
+layout_mode = 0
+offset_left = -1.66667
+offset_top = -33.0
+offset_right = 38.3333
+offset_bottom = 7.0
+texture = ExtResource("3_5sys0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/ProcentMessageBox/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.8889
+offset_top = -16.4444
+offset_right = 63.1111
+offset_bottom = 48.5556
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.45)
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Player/ProcentMessageBox/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "98%"
+
+[node name="ShortMessageBox" parent="Player" instance=ExtResource("3_d606b")]
+visible = false
+
+[node name="TileMaps" type="Node2D" parent="."]
+
+[node name="CityTileMap" type="TileMap" parent="TileMaps"]
 scale = Vector2(3, 3)
 tile_set = ExtResource("3_cf4o6")
 format = 2
 layer_0/tile_data = PackedInt32Array(917504, 458761, 1, 917505, 458761, 1, 917506, 458761, 1, 917507, 458761, 1, 917508, 458761, 1, 917509, 458761, 1, 917510, 458761, 1, 917511, 458761, 1, 917512, 458761, 1, 917513, 458761, 1, 917514, 458761, 1, 917515, 458761, 1, 917516, 458761, 1, 917517, 458761, 1, 917518, 458761, 1, 917519, 458761, 1, 917520, 458761, 1, 917521, 458761, 1, 917522, 458761, 1, 917523, 458761, 1, 917524, 458761, 1, 917525, 458761, 1, 917526, 458761, 1, 917527, 458761, 1, 917528, 458761, 1, 917529, 458761, 1, 917530, 458761, 1, 917531, 458761, 1)
 
-[node name="CityBackground" parent="." instance=ExtResource("1_oelah")]
+[node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="CityBackground" parent="Backgrounds" instance=ExtResource("1_oelah")]
 scale = Vector2(2.15, 2.15)
 transform = Transform2D(2.15, 0, 0, 2.15, 0, 0)
 loop = true
 
-[node name="BeachBackground" parent="." instance=ExtResource("5_cbvtk")]
+[node name="BeachBackground" parent="Backgrounds" instance=ExtResource("5_cbvtk")]
 visible = false
 scroll_limit_begin = Vector2(0, 0)
 scroll_limit_end = Vector2(0, 0)
 loop = true
 
-[node name="WinterBackground" parent="." instance=ExtResource("6_3np6q")]
+[node name="WinterBackground" parent="Backgrounds" instance=ExtResource("6_3np6q")]
 visible = false
 offset = Vector2(0, 0)
 scale = Vector2(1.2, 0.85)
@@ -145,7 +227,7 @@ transform = Transform2D(1.2, 0, 0, 0.85, 0, 0)
 scroll_limit_end = Vector2(0, 0)
 loop = true
 
-[node name="CaveBackground" parent="." instance=ExtResource("7_yx1n0")]
+[node name="CaveBackground" parent="Backgrounds" instance=ExtResource("7_yx1n0")]
 visible = false
 offset = Vector2(0, 0)
 scale = Vector2(0.65, 0.65)
@@ -154,7 +236,7 @@ scroll_limit_begin = Vector2(0, 0)
 scroll_limit_end = Vector2(0, 0)
 loop = true
 
-[node name="DesertBackground" parent="." instance=ExtResource("5_21j8n")]
+[node name="DesertBackground" parent="Backgrounds" instance=ExtResource("5_21j8n")]
 visible = false
 scale = Vector2(0.66, 0.66)
 transform = Transform2D(0.66, 0, 0, 0.66, 0, 0)
@@ -163,7 +245,7 @@ scroll_limit_end = Vector2(0, 0)
 script = ExtResource("6_v2vj2")
 loop = true
 
-[node name="SwampBackground" parent="." instance=ExtResource("10_gpodl")]
+[node name="SwampBackground" parent="Backgrounds" instance=ExtResource("10_gpodl")]
 visible = false
 offset = Vector2(0, 0)
 scale = Vector2(2.11, 2.11)
@@ -172,14 +254,30 @@ scroll_limit_begin = Vector2(0, 0)
 scroll_limit_end = Vector2(0, 0)
 loop = true
 
-[node name="Background" parent="." instance=ExtResource("11_n6b1y")]
+[node name="Background" parent="Backgrounds" instance=ExtResource("11_n6b1y")]
 visible = false
 scroll_limit_begin = Vector2(0, 0)
 scroll_limit_end = Vector2(0, 0)
 loop = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="BackgroundTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CircleTransition" parent="CanvasLayer" instance=ExtResource("5_kk8i1")]
+material = SubResource("ShaderMaterial_owdh4")
+script = SubResource("GDScript_4v1gu")
+
+[node name="SpawnCats" type="Timer" parent="."]
+
+[node name="cats" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_p8y2p")
+autoplay = true
+bus = &"BackgroundMusic"
+
+[connection signal="timeout" from="BackgroundTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnCats" to="." method="_on_spawn_cats_timeout"]
