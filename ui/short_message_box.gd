@@ -6,6 +6,7 @@ extends Control
 @export var messageTexture : Texture
 @export var messageTexture2 : Texture
 
+
 func _process(delta):
 	if messageTexture: $MarginContainer/VBoxContainer/TextureRect.texture = messageTexture
 	if messageTexture2:
