@@ -24,6 +24,7 @@ var followPosition = 0
 var catColorArray : Array
 var rng = RandomNumberGenerator.new()
 
+
 func _ready():
 	catColorArray = [whiteCatAnimationsSprite, yellowCatAnimationsSprite, BlackCatAnimationsSprite, 
 	brownCatAnimationsSprite, blueCatAnimationsSprite, berryCatAnimationsSprite]
@@ -39,6 +40,11 @@ func _process(delta):
 	if !isWaiting: _random_meow()
 
 func _physics_process(delta):
+	if target == null: 
+		animationSprite.play("walk")
+		isWaiting = false
+		return
+	
 	speed = target.speed
 
 	_get_moving_object_speed()
