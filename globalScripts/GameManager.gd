@@ -67,7 +67,8 @@ func full_done_check():
 		var fullGoldCoins = level["goldCoins"] == level["maxGoldCoins"]
 		var fullRedCoins = level["redCoins"] == 5
 		var fullGems = level["gems"] == 5
-		var fullCats = level["cats"] == 3
+		var catCount = len(level["cats"].filter(func(boolean): return boolean != false))
+		var fullCats = catCount == 3
 		
 		if fullGoldCoins && fullRedCoins && fullGems && fullCats:
 			levelsFullDone += 1
