@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjibcolu08tat"]
+[gd_scene load_steps=12 format=3 uid="uid://bjibcolu08tat"]
 
 [ext_resource type="Script" path="res://ui/levelUI/LevelUI.gd" id="1_tddkm"]
 [ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="2_20pnj"]
@@ -11,10 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/Button_normal.png" id="8_3f0j3"]
 [ext_resource type="PackedScene" uid="uid://ug6dcwplmet0" path="res://ui/settingMenu/SettingMenu.tscn" id="8_vejx6"]
 [ext_resource type="Texture2D" uid="uid://do43xfipjh5bc" path="res://asset/ui/Button_focus.png" id="10_t6esn"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ooens"]
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 1)
 
 [node name="LevelUI" type="CanvasLayer"]
 process_mode = 3
@@ -52,9 +48,9 @@ offset_bottom = -635.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-theme_override_constants/margin_left = 30
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
@@ -76,10 +72,14 @@ texture = ExtResource("2_20pnj")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GoldContainer"]
-custom_minimum_size = Vector2(35, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 25
 text = "x 0"
-label_settings = SubResource("LabelSettings_ooens")
+visible_ratio = -0.333333
 
 [node name="GemContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -211,7 +211,7 @@ offset_top = -100.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 200
+theme_override_constants/separation = 100
 
 [node name="SettingButton" type="TextureButton" parent="Control/MenuContainer"]
 layout_mode = 2
