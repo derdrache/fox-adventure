@@ -53,11 +53,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -48.0
-offset_right = 145.0
-offset_bottom = 157.0
+offset_left = -129.0
+offset_top = 21.0
+offset_right = 64.0
+offset_bottom = 178.0
 grow_horizontal = 0
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ntu1n")
 expand_mode = 1
 
@@ -102,7 +103,7 @@ offset_right = 15.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 200
+theme_override_constants/separation = 100
 
 [node name="SettingButton" type="TextureButton" parent="Control/VBoxContainer"]
 layout_mode = 2
