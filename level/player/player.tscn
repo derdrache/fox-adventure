@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://disyyhq2jak5d" path="res://ui/controller/mobileControlUI2old.tscn" id="8_78nrl"]
 [ext_resource type="Texture2D" uid="uid://csdinvljutfqi" path="res://asset/effects/enemy-deadth.png" id="8_b8dw4"]
 [ext_resource type="Shader" path="res://asset/shader/circleTransition.gdshader" id="8_bype2"]
-[ext_resource type="AudioStream" uid="uid://c7sk5x7msjncw" path="res://asset/sound/Background1.mp3" id="10_ksxp3"]
 [ext_resource type="AudioStream" uid="uid://ogw6hauv84ul" path="res://asset/sound/digging.mp3" id="11_ejjfl"]
 [ext_resource type="AudioStream" uid="uid://cninvstlg6qpn" path="res://asset/sound/water-splash.mp3" id="11_llhyn"]
+[ext_resource type="AudioStream" uid="uid://bsut1ew25s0bk" path="res://asset/sound/levelBackground.mp3" id="12_54odv"]
 [ext_resource type="AudioStream" uid="uid://gf327a4qtt0v" path="res://asset/sound/castleMusic.mp3" id="13_5rvpj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xi5w"]
@@ -437,7 +437,7 @@ visible = false
 [node name="SoundEffects" type="Node" parent="."]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundEffects"]
-stream = ExtResource("10_ksxp3")
+stream = ExtResource("12_54odv")
 bus = &"BackgroundMusic"
 
 [node name="WaterSplash" type="AudioStreamPlayer" parent="SoundEffects"]
