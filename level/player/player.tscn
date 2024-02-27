@@ -371,10 +371,12 @@ layer = -1
 material = SubResource("ShaderMaterial_kx1s4")
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 6.25)
 shape = SubResource("RectangleShape2D_5v1rr")
 
 [node name="crawlCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, 12)
 shape = SubResource("RectangleShape2D_wmf5s")
 disabled = true
