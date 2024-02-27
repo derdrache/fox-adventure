@@ -4,6 +4,7 @@ class_name Door
 @export var closed = false
 @export var conectionDoor : Area2D
 @onready var doorSprite = $Sprite2D
+var playerIn = false
 
 var playerBody: Player
 
@@ -12,7 +13,7 @@ func _process(_delta):
 	elif not closed: doorSprite.frame = 1
 	
 func _input(event):	
-	if event.is_action_pressed("move_up") && not closed:
+	if event.is_action_pressed("move_up") && not closed && playerIn:
 		if !playerBody.is_physics_processing(): return
 		
 		playerBody.circle_transition("out", 1)
@@ -26,7 +27,7 @@ func _input(event):
 func _on_body_entered(body):
 	if body is Player:
 		playerBody = body
-		
+		playerIn = true
 		if closed && body.hasKey: 
 			closed = false
 			body.hasKey = false	
@@ -35,6 +36,7 @@ func _on_body_entered(body):
 			
 func _on_body_exited(body):
 	if body is Player:
+		playerIn = false
 		$ShortMessageBox.visible = false
 
 
