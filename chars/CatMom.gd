@@ -58,6 +58,9 @@ func _on_area_2d_body_entered(body):
 		messageBox.visible = true
 		
 		if catsFounded == 18:
+			GameManager.catMomsDone[world -1] = true
+			Utils.save_game()
+			
 			await get_tree().create_timer(0.5).timeout
 			body.set_physics_process(false)
 			messageBox.visible = false
