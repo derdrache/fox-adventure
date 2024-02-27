@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cd1sxqyo4afpc"]
+[gd_scene load_steps=36 format=3 uid="uid://cd1sxqyo4afpc"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_1poy8"]
 [ext_resource type="Script" path="res://level/levels.gd" id="1_8xsia"]
@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://dkgjqda0pkshw" path="res://asset/tileMaps/desert.png" id="19_rkgjr"]
 [ext_resource type="PackedScene" uid="uid://bmguo8a44jygp" path="res://level/environment/fog/World3Fog.tscn" id="19_sxe0o"]
 [ext_resource type="Script" path="res://level/environment/fog/fog.gd" id="19_uu2up"]
+[ext_resource type="PackedScene" uid="uid://dwv6mqhiqnqor" path="res://level/desertProps/cactus.tscn" id="21_r0k34"]
+[ext_resource type="PackedScene" uid="uid://xduq37rq448p" path="res://level/desertProps/deathGras.tscn" id="23_5vw0p"]
+[ext_resource type="PackedScene" uid="uid://nrq5scrulmta" path="res://level/desertProps/deathBush.tscn" id="24_ylghw"]
 
 [sub_resource type="Curve2D" id="Curve2D_8robn"]
 resource_local_to_scene = true
@@ -701,6 +704,38 @@ tilesHeight = 7
 position = Vector2(5056, 304)
 tilesWith = 8
 tilesHeight = 8
+
+[node name="deco" type="Node2D" parent="."]
+
+[node name="DeathGras" parent="deco" instance=ExtResource("23_5vw0p")]
+position = Vector2(256, 144)
+
+[node name="DeathGras2" parent="deco" instance=ExtResource("23_5vw0p")]
+position = Vector2(600, 144)
+
+[node name="DeathGras3" parent="deco" instance=ExtResource("23_5vw0p")]
+position = Vector2(1401, 48)
+
+[node name="DeathGras5" parent="deco" instance=ExtResource("23_5vw0p")]
+position = Vector2(4495, 144)
+
+[node name="DeathGras4" parent="deco" instance=ExtResource("23_5vw0p")]
+position = Vector2(1928, 16)
+
+[node name="Cactus" parent="deco/DeathGras4" instance=ExtResource("21_r0k34")]
+position = Vector2(384, 80)
+
+[node name="Cactus2" parent="deco/DeathGras4" instance=ExtResource("21_r0k34")]
+position = Vector2(3544, 304)
+
+[node name="DeathBush" parent="deco" instance=ExtResource("24_ylghw")]
+position = Vector2(59, 272)
+
+[node name="DeathBush3" parent="deco" instance=ExtResource("24_ylghw")]
+position = Vector2(4976, 256)
+
+[node name="DeathBush2" parent="deco" instance=ExtResource("24_ylghw")]
+position = Vector2(2856, 288)
 
 [node name="WorldEnd" parent="." instance=ExtResource("1_n3xqo")]
 

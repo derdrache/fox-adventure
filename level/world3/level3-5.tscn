@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dq2w8k0v2v0xg"]
+[gd_scene load_steps=32 format=3 uid="uid://dq2w8k0v2v0xg"]
 
 [ext_resource type="PackedScene" uid="uid://3jqlknpvgshn" path="res://backgrounds/desert/desertBackground.tscn" id="1_6arim"]
 [ext_resource type="Script" path="res://level/levels.gd" id="1_cedki"]
@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://bmguo8a44jygp" path="res://level/environment/fog/World3Fog.tscn" id="17_3ui5e"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="18_0jmyx"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="19_5jocn"]
+[ext_resource type="PackedScene" uid="uid://dwv6mqhiqnqor" path="res://level/desertProps/cactus.tscn" id="19_kl6db"]
+[ext_resource type="PackedScene" uid="uid://xduq37rq448p" path="res://level/desertProps/deathGras.tscn" id="20_jdovl"]
+[ext_resource type="PackedScene" uid="uid://nrq5scrulmta" path="res://level/desertProps/deathBush.tscn" id="21_btqbu"]
 
 [sub_resource type="Curve2D" id="Curve2D_a7hct"]
 resource_local_to_scene = true
@@ -307,6 +310,32 @@ tilesWith = 5
 
 [node name="Fog3" parent="Fogs" instance=ExtResource("17_3ui5e")]
 position = Vector2(4072, 161)
+
+[node name="Deco" type="Node2D" parent="."]
+
+[node name="Cactus" parent="Deco" instance=ExtResource("19_kl6db")]
+position = Vector2(131, 161)
+
+[node name="Cactus2" parent="Deco" instance=ExtResource("19_kl6db")]
+position = Vector2(3368, 144)
+
+[node name="DeathGras" parent="Deco" instance=ExtResource("20_jdovl")]
+position = Vector2(1384, 176)
+
+[node name="DeathGras2" parent="Deco" instance=ExtResource("20_jdovl")]
+position = Vector2(3744, -48)
+
+[node name="DeathGras3" parent="Deco" instance=ExtResource("20_jdovl")]
+position = Vector2(4444, -80)
+
+[node name="DeathGras4" parent="Deco" instance=ExtResource("20_jdovl")]
+position = Vector2(4832, -336)
+
+[node name="DeathGras5" parent="Deco" instance=ExtResource("20_jdovl")]
+position = Vector2(5251, -224)
+
+[node name="DeathBush" parent="Deco" instance=ExtResource("21_btqbu")]
+position = Vector2(2280, 80)
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 

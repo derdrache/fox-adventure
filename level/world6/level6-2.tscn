@@ -362,7 +362,6 @@ position = Vector2(3993, 375)
 target = NodePath("../../Player")
 
 [node name="Fogs" type="Node2D" parent="."]
-visible = false
 
 [node name="Fog" parent="Fogs" instance=ExtResource("14_gs4op")]
 position = Vector2(416, 480)

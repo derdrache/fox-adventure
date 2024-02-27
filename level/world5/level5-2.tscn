@@ -282,11 +282,9 @@ position = Vector2(2391.68, 157.546)
 
 [node name="GoldCoin30" parent="items/goldCoins" instance=ExtResource("11_dhyx0")]
 position = Vector2(2568, 322)
-rotation = -0.242311
 
 [node name="GoldCoin31" parent="items/goldCoins" instance=ExtResource("11_dhyx0")]
 position = Vector2(2568, 256)
-rotation = -0.242311
 
 [node name="GoldCoin25" parent="items/goldCoins" instance=ExtResource("11_dhyx0")]
 position = Vector2(2391, 107)

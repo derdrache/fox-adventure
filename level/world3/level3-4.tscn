@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b6w3decyhh2tv"]
+[gd_scene load_steps=34 format=3 uid="uid://b6w3decyhh2tv"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_2mg4t"]
 [ext_resource type="Script" path="res://level/levels.gd" id="1_feejb"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="14_km8x1"]
 [ext_resource type="PackedScene" uid="uid://bmguo8a44jygp" path="res://level/environment/fog/World3Fog.tscn" id="15_j8x6q"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="17_e882l"]
+[ext_resource type="PackedScene" uid="uid://xduq37rq448p" path="res://level/desertProps/deathGras.tscn" id="18_pkigh"]
+[ext_resource type="PackedScene" uid="uid://dwv6mqhiqnqor" path="res://level/desertProps/cactus.tscn" id="19_62uii"]
+[ext_resource type="PackedScene" uid="uid://nrq5scrulmta" path="res://level/desertProps/deathBush.tscn" id="20_jhk0g"]
 
 [sub_resource type="Curve2D" id="Curve2D_656y0"]
 resource_local_to_scene = true
@@ -320,6 +323,20 @@ tilesHeight = 1
 
 [node name="Fog3" parent="Fog" instance=ExtResource("15_j8x6q")]
 position = Vector2(3440, 512)
+
+[node name="Deco" type="Node2D" parent="."]
+
+[node name="DeathGras" parent="Deco" instance=ExtResource("18_pkigh")]
+position = Vector2(1628, 512)
+
+[node name="DeathGras2" parent="Deco" instance=ExtResource("18_pkigh")]
+position = Vector2(3693, 560)
+
+[node name="Cactus" parent="Deco" instance=ExtResource("19_62uii")]
+position = Vector2(1104, 416)
+
+[node name="DeathBush" parent="Deco" instance=ExtResource("20_jhk0g")]
+position = Vector2(4416, 496)
 
 [node name="WorldEnd" parent="." instance=ExtResource("2_uaevd")]
 

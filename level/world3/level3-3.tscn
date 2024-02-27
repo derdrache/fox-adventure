@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dnqn1smy7okd8"]
+[gd_scene load_steps=33 format=3 uid="uid://dnqn1smy7okd8"]
 
 [ext_resource type="Script" path="res://level/levels.gd" id="1_juh37"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_ootcn"]
@@ -20,8 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://3ptydmvhu3vd" path="res://level/environment/kiste/kiste.tscn" id="15_v6f5f"]
 [ext_resource type="PackedScene" uid="uid://dtmb0lrmramkl" path="res://level/items/redCoin/redCoin.tscn" id="16_ydm6p"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="19_f12qw"]
+[ext_resource type="PackedScene" uid="uid://dwv6mqhiqnqor" path="res://level/desertProps/cactus.tscn" id="20_81wyg"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="20_xbqcy"]
+[ext_resource type="PackedScene" uid="uid://xduq37rq448p" path="res://level/desertProps/deathGras.tscn" id="21_2pn0d"]
 [ext_resource type="PackedScene" uid="uid://bmguo8a44jygp" path="res://level/environment/fog/World3Fog.tscn" id="21_o344l"]
+[ext_resource type="PackedScene" uid="uid://nrq5scrulmta" path="res://level/desertProps/deathBush.tscn" id="22_yp42v"]
 
 [sub_resource type="Curve2D" id="Curve2D_68f0s"]
 resource_local_to_scene = true
@@ -301,6 +304,27 @@ tilesWith = 5
 
 [node name="Fog5" parent="Fogs" instance=ExtResource("21_o344l")]
 position = Vector2(1904, 368)
+
+[node name="deco" type="Node2D" parent="."]
+position = Vector2(8, 16)
+
+[node name="Cactus" parent="deco" instance=ExtResource("20_81wyg")]
+position = Vector2(496, 288)
+
+[node name="Cactus2" parent="deco" instance=ExtResource("20_81wyg")]
+position = Vector2(3552, 192)
+
+[node name="DeathGras" parent="deco" instance=ExtResource("21_2pn0d")]
+position = Vector2(709, 80)
+
+[node name="DeathGras2" parent="deco" instance=ExtResource("21_2pn0d")]
+position = Vector2(3226, 160)
+
+[node name="DeathBush" parent="deco" instance=ExtResource("22_yp42v")]
+position = Vector2(2104, 352)
+
+[node name="DeathBush2" parent="deco" instance=ExtResource("22_yp42v")]
+position = Vector2(3904, 288)
 
 [node name="WorldEnd" parent="." instance=ExtResource("19_f12qw")]
 

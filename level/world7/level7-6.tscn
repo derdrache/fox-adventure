@@ -177,6 +177,7 @@ withRedCoin = true
 
 [node name="GoldCoin" parent="items/redCoins" instance=ExtResource("8_skv7c")]
 position = Vector2(2055.8, 759.913)
+hasRedCoin = true
 
 [node name="redCoin" parent="items/redCoins" instance=ExtResource("9_gxj21")]
 position = Vector2(1552, 120)

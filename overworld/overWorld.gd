@@ -177,7 +177,6 @@ func _update_cat_moms():
 				if cat: foundedCats += 1
 				
 		allCatMoms[i].catsFounded = foundedCats
-		
 
 func changeCamera():
 	if cameraOnChange: return
@@ -231,9 +230,8 @@ func _check_interactions_disables():
 			disableInteractions.append(level)
 			_disable_level_interaction(i)
 
-
 func _level_interaction(i):
-	await get_tree().create_timer(1)
+	await get_tree().create_timer(1.5)
 	interactionsList[i].move()
 	interactionsList[i].connect("interactionDone", interaction_done)
 

@@ -340,7 +340,7 @@ position = Vector2(2120, 728)
 shape = SubResource("RectangleShape2D_o2gci")
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(224, 480)
+position = Vector2(235.5, 471)
 floor_stop_on_slope = true
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("21_rkeg2")]

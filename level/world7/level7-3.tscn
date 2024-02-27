@@ -380,6 +380,10 @@ position = Vector2(4432, 592)
 position = Vector2(5056, 576)
 tilesWith = 5
 
+[node name="Fog9" parent="Fogs" instance=ExtResource("13_b1o5r")]
+position = Vector2(2640, 528)
+tilesWith = 8
+
 [node name="WorldEnd" parent="." instance=ExtResource("3_074ts")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]

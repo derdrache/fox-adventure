@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cqo5rsy683uri"]
+[gd_scene load_steps=34 format=3 uid="uid://cqo5rsy683uri"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_ma4q1"]
 [ext_resource type="Script" path="res://level/levels.gd" id="1_w5qtl"]
@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://c80b6wwgokyuh" path="res://level/items/key/key.tscn" id="16_lun45"]
 [ext_resource type="PackedScene" uid="uid://bmguo8a44jygp" path="res://level/environment/fog/World3Fog.tscn" id="17_pahr0"]
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="19_fbybh"]
+[ext_resource type="PackedScene" uid="uid://nrq5scrulmta" path="res://level/desertProps/deathBush.tscn" id="21_sieau"]
+[ext_resource type="PackedScene" uid="uid://dwv6mqhiqnqor" path="res://level/desertProps/cactus.tscn" id="22_mf8ow"]
+[ext_resource type="PackedScene" uid="uid://xduq37rq448p" path="res://level/desertProps/deathGras.tscn" id="23_mfh0n"]
 
 [sub_resource type="Curve2D" id="Curve2D_s3vhy"]
 resource_local_to_scene = true
@@ -368,6 +371,44 @@ tilesWith = 13
 [node name="Fog6" parent="Fog" instance=ExtResource("17_pahr0")]
 position = Vector2(5664, 560)
 tilesHeight = 6
+
+[node name="props" type="Node2D" parent="."]
+
+[node name="Cactus" parent="props" instance=ExtResource("22_mf8ow")]
+position = Vector2(232, 528)
+
+[node name="Cactus2" parent="props" instance=ExtResource("22_mf8ow")]
+position = Vector2(6144, 544)
+
+[node name="Cactus3" parent="props" instance=ExtResource("22_mf8ow")]
+position = Vector2(4832, 608)
+
+[node name="Cactus4" parent="props" instance=ExtResource("22_mf8ow")]
+position = Vector2(3664, 608)
+
+[node name="Cactus5" parent="props" instance=ExtResource("22_mf8ow")]
+position = Vector2(888, 528)
+
+[node name="DeathGras" parent="props" instance=ExtResource("23_mfh0n")]
+position = Vector2(504, 432)
+
+[node name="DeathGras2" parent="props" instance=ExtResource("23_mfh0n")]
+position = Vector2(656, 592)
+
+[node name="DeathGras3" parent="props" instance=ExtResource("23_mfh0n")]
+position = Vector2(1194, 528)
+
+[node name="DeathGras4" parent="props" instance=ExtResource("23_mfh0n")]
+position = Vector2(3971, 608)
+
+[node name="DeathGras5" parent="props" instance=ExtResource("23_mfh0n")]
+position = Vector2(5352, 608)
+
+[node name="DeathBush" parent="props" instance=ExtResource("21_sieau")]
+position = Vector2(4248, 608)
+
+[node name="DeathBush2" parent="props" instance=ExtResource("21_sieau")]
+position = Vector2(2072, 480)
 
 [node name="WorldEnd" parent="." instance=ExtResource("2_0ba68")]
 
