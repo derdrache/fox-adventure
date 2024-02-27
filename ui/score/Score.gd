@@ -11,20 +11,20 @@ extends CanvasLayer
 
 var levelName = LevelManager.activeLevelName
 var goldCoinsMax = LevelManager.maxGoldCoins
-var isLoaded = false
 
 func _ready():
 	titleLabel.text = levelName
 	goldCoinLabel.text = "0 / " + str(goldCoinsMax)
+	
 	circleTransitionRect.transition("in", 2)
-	
-	
-	
 	await get_tree().create_timer(2).timeout
 	
 	await _show_score_board()
 	
-	isLoaded = true
+	circleTransitionRect.transition("out", 2)
+	await get_tree().create_timer(2).timeout
+	
+	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
 
 func _show_score_board():
 	var goldCoins = LevelManager.goldCoins
@@ -47,18 +47,8 @@ func _show_score_board():
 	await _cat_animation(cats)
 
 	totalScoreEndLabel.text = str(totalScore * 100 / totalMaxScore) + "%" 
-	
 
-func _input(event):
-	if event.is_action_pressed("ui_accept") && isLoaded: 
-		var circleTransitionShader: ShaderMaterial = circleTransitionRect.get_material()
-		var tween = get_tree().create_tween()
-		
-		tween.tween_property(circleTransitionShader, "shader_parameter/circle_size", 0, 1.9)
-		await get_tree().create_timer(2).timeout
-		
-		get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
-		
+
 func _number_animation(label, number, totalScore):
 	for i in number +1:
 		label.text = str(i) + " / 5"
