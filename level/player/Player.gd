@@ -64,6 +64,8 @@ func _process(_delta):
 	if !is_physics_processing(): sprite.play("idle")
 	if !underWater && "water" in get_tile_data(): 
 		$SoundEffects/WaterSplash.play()
+		velocity = Vector2.ZERO
+		
 	underWater = "water" in get_tile_data()
 	
 	if "ramp" in get_tile_data("bottom"):
@@ -244,12 +246,6 @@ func slide_state(delta):
 
 func swim_state(_delta):
 	if !in_water() || (!in_water() && is_on_floor()): state = MOVE
-	
-	var diggingUpOrDown = digging_object_above_or_below() && (pressedDown || pressedUp)
-	var diggingLeftOrRight = digging_object_left_or_right() && (pressedLeft || pressedRight)
-
-	if diggingUpOrDown || diggingLeftOrRight:
-		state = DIG
 	
 	if "waterTop" in get_tile_data() && Input.is_action_just_pressed("ui_accept"):
 		state = JUMP
