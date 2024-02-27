@@ -113,17 +113,17 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -274.0
-offset_top = -84.0
-offset_right = 274.0
-offset_bottom = 84.0
+anchor_bottom = 1.0
+offset_left = -217.0
+offset_top = 308.0
+offset_right = 331.0
+offset_bottom = 476.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="Credits/VBoxContainer"]
@@ -278,6 +278,14 @@ script = SubResource("GDScript_4v1gu")
 stream = ExtResource("14_p8y2p")
 autoplay = true
 bus = &"BackgroundMusic"
+
+[node name="TestLabel" type="Label" parent="."]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 172.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Folgende Level fehlen:"
 
 [connection signal="timeout" from="BackgroundTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnCats" to="." method="_on_spawn_cats_timeout"]

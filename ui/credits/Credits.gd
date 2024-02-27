@@ -16,7 +16,7 @@ func _ready():
 		$Player/ProcentMessageBox.visible = false
 		$SpawnCats.start()
 	else:
-		procentLabel.text = str(_procent_done()) + "%"
+		procentLabel.text = str(GameManager.procent_done()) + "%"
 
 func _process(delta):
 	$Credits.position.y -= 50 * delta
@@ -52,16 +52,6 @@ func _change_backgrounds():
 		backgroundList[backgroundCount].visible = true
 	
 	backgroundCount += 1
-
-func _procent_done():
-	var procent = 0
-
-	for level in GameManager.levelDetails:
-		var catCount = len(level["cats"].filter(func(boolean): return boolean != false))
-		procent+= (level["goldCoins"] + level["gems"] * 10 + 
-					level["redCoins"] * 10 + catCount * 10) 
-					
-	return procent / GameManager.LEVEL_COUNT
 
 func _on_timer_timeout():
 	_change_backgrounds()
