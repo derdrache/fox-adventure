@@ -123,12 +123,12 @@ func is_on_climbing_object():
 	for collision in getShapeCollision():
 		if collision is Liane: 
 			onLiane = true
-		if "Climb" in collision.name: onClimbingObject = true
-		
+		onClimbingObject = _check_next_climbstep_on_tree(position)
+		#if "Climb" in collision.name: onClimbingObject = true
+
 	var onWall = "climb" in get_tile_data("right") || "climb" in get_tile_data("left")
-
 	if pressedUp && (pressedRight || pressedLeft) : return false
-
+	
 	return onClimbingObject || onLiane || onWall
 
 func digging_object_above_or_below():	
@@ -185,9 +185,10 @@ func climb_state(delta):
 	wasOnCLimbingObject = true
 	
 	var nextStepIsClimbableOnTree = _check_next_climbstep_on_tree(
-		position+ (velocity*2 * delta))
+		position+ (velocity*3 * delta))
+
 	var nextStepIsClimableOnClimgTiles = _check_next_climbstep_on_tiles(
-		position+ (velocity*2 * delta))
+		position+ (velocity*3 * delta))
 	
 	var canClimb = nextStepIsClimbableOnTree || nextStepIsClimableOnClimgTiles
 
@@ -366,7 +367,7 @@ func _check_next_climbstep_on_tree(newPlayerPosition):
 	var space_state = get_world_2d().direct_space_state	
 	var parameters = PhysicsShapeQueryParameters2D.new()
 	var shape_rid = CircleShape2D.new()
-	shape_rid.radius = 7
+	shape_rid.radius = 11
 
 	parameters.collide_with_areas = true
 	parameters.collide_with_bodies = false
