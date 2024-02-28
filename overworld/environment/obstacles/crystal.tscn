@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://wrhsdn4xi5ya"]
 
 [ext_resource type="Script" path="res://overworld/environment/obstacles/obstacleRemove.gd" id="1_glcpr"]
-[ext_resource type="Texture2D" uid="uid://bwaj3r2acxyyg" path="res://overworld/assets/CrystalTiles.png" id="2_k76ad"]
+[ext_resource type="Texture2D" uid="uid://dssln27bv45co" path="res://overworld/assets/cave props.png" id="2_1md8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgwff"]
 size = Vector2(14, 15)
@@ -13,9 +13,9 @@ size = Vector2(14, 15)
 script = ExtResource("1_glcpr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_k76ad")
+texture = ExtResource("2_1md8o")
 region_enabled = true
-region_rect = Rect2(0, 16, 16, 16)
+region_rect = Rect2(17, 0, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
