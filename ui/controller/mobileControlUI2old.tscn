@@ -6,12 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://dup3f2djbvq54" path="res://asset/ui/gdb-switch-2.png" id="3_tpeh7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wn6aa"]
+size = Vector2(23, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctjjn"]
+size = Vector2(23, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxqt5"]
+size = Vector2(23, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_illbp"]
+size = Vector2(23, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_baa1x"]
 
@@ -47,74 +51,74 @@ grow_vertical = 0
 
 [node name="Left" type="Sprite2D" parent="Control/MarginContainer"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(51, 154)
-scale = Vector2(0.45, 0.45)
+position = Vector2(40, 144.75)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_1fimc")
 
 [node name="Right" type="Sprite2D" parent="Control/MarginContainer"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(244, 150)
-scale = Vector2(0.45, 0.45)
+position = Vector2(271, 143.75)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_1fimc")
 flip_h = true
 
 [node name="Up" type="Sprite2D" parent="Control/MarginContainer"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(147, 52)
-scale = Vector2(0.45, 0.45)
+position = Vector2(155.5, 29)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_7r48h")
 
 [node name="Down" type="Sprite2D" parent="Control/MarginContainer"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(148, 252)
-scale = Vector2(0.45, 0.45)
+position = Vector2(155.5, 259)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_7r48h")
 flip_v = true
 
 [node name="left" type="TouchScreenButton" parent="Control/MarginContainer"]
-position = Vector2(53, 153)
+position = Vector2(40, 144.75)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_wn6aa")
 action = "move_left"
 
 [node name="left_down" type="TouchScreenButton" parent="Control/MarginContainer"]
-position = Vector2(53, 250)
+position = Vector2(40, 260)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_wn6aa")
 action = "touch_left_down"
 
 [node name="right_down" type="TouchScreenButton" parent="Control/MarginContainer"]
-position = Vector2(243, 250)
+position = Vector2(271, 259)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_wn6aa")
 action = "touch_right_down"
 
 [node name="right" type="TouchScreenButton" parent="Control/MarginContainer"]
-position = Vector2(243, 153)
+position = Vector2(271, 143.75)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ctjjn")
 action = "move_right"
 
 [node name="up" type="TouchScreenButton" parent="Control/MarginContainer"]
-position = Vector2(149, 54)
+position = Vector2(155.5, 29)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_rxqt5")
 action = "move_up"
 
 [node name="left_up" type="TouchScreenButton" parent="Control/MarginContainer"]
-position = Vector2(53, 54)
+position = Vector2(40, 29)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_wn6aa")
 action = "touch_left_up"
 
 [node name="right_up" type="TouchScreenButton" parent="Control/MarginContainer"]
-position = Vector2(243, 54)
+position = Vector2(271, 29)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_wn6aa")
 action = "touch_right_up"
 
 [node name="down" type="TouchScreenButton" parent="Control/MarginContainer"]
-position = Vector2(149, 250)
+position = Vector2(155.5, 259)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_illbp")
 action = "move_down"

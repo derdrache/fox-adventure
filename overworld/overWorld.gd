@@ -55,7 +55,7 @@ extends Node2D
 
 const CAMERA_VERTICAL = 365
 const CAMERA_HORIZONTAL = 650 
-const LEVEL_INTERACTIONS = [2, 4, 9, 11, 16, 17, 20, 21, 22, 23, 27, 29, 32, 34, 35, 40, 41]
+const LEVEL_INTERACTIONS = [2, 4, 9, 11, 15, 17, 20, 21, 22, 23, 27, 29, 32, 34, 35, 40, 41]
 
 var interactionsList: Array
 var obstaclesList : Array
@@ -288,7 +288,7 @@ func make_save_screenshot():
 func _show_credits(showCredits = false):
 	var gameFullDone = GameManager.full_done_check()
 	
-	if gameFullDone || showCredits:
+	if (gameFullDone && !GameManager.hasFullDone) || showCredits:
 		await get_tree().create_timer(1).timeout
 		$Cameras/Camera2D/CanvasLayer.layer = 15
 		$Cameras/Camera2D/CanvasLayer/CircleTransition.transition("out", 2)
