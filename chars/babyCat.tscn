@@ -218,7 +218,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -790,7 +790,6 @@ position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_yfp1m")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.55287
 
 [node name="blackCat" type="AnimatedSprite2D" parent="."]
 visible = false
