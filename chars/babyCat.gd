@@ -126,7 +126,7 @@ func _show_pick_up_message():
 	pickUpMessage.visible = false
 
 func _random_meow():
-	var randomNumber = rng.randi_range(0.0, 10000.0)
+	var randomNumber = rng.randi_range(0.0, 8000.0)
 	if randomNumber == 1:
 		meowMessage.visible = true
 		audioPlayer.play()
