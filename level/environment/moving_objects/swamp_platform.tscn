@@ -2,15 +2,13 @@
 
 [ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_3kddi"]
 [ext_resource type="Texture2D" uid="uid://i30qxit6v84x" path="res://asset/tileMaps/Swamp.png" id="1_7pk5r"]
+[ext_resource type="Shape2D" uid="uid://b2jpgc5h7opc4" path="res://level/environment/moving_objects/platform_area_collision.tres" id="3_twb1o"]
 
 [sub_resource type="Curve2D" id="Curve2D_sywd7"]
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_miylj"]
 size = Vector2(94, 15)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjkrn"]
-size = Vector2(642, 480)
 
 [node name="SwampPlatform" type="Path2D"]
 curve = SubResource("Curve2D_sywd7")
@@ -38,6 +36,6 @@ remote_path = NodePath("../../SwampPlatformBody")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9, 15)
-shape = SubResource("RectangleShape2D_yjkrn")
+shape = ExtResource("3_twb1o")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

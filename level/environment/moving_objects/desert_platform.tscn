@@ -2,15 +2,13 @@
 
 [ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_rxcge"]
 [ext_resource type="Texture2D" uid="uid://dpv6ocp1aywc4" path="res://asset/sprites/platforms/desert_platform.png" id="2_2qll1"]
+[ext_resource type="Shape2D" uid="uid://b2jpgc5h7opc4" path="res://level/environment/moving_objects/platform_area_collision.tres" id="3_dd5ld"]
 
 [sub_resource type="Curve2D" id="Curve2D_phsli"]
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmkh2"]
 size = Vector2(80, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l0vu"]
-size = Vector2(642, 480)
 
 [node name="DesertPlatform" type="Path2D"]
 curve = SubResource("Curve2D_phsli")
@@ -36,6 +34,6 @@ remote_path = NodePath("../../DesertPlatformBody")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9, 15)
-shape = SubResource("RectangleShape2D_0l0vu")
+shape = ExtResource("3_dd5ld")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

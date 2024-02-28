@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://level/environment/moving_objects/moving_platform.gd" id="1_c0tja"]
 [ext_resource type="Texture2D" uid="uid://dmt2omti0uho" path="res://asset/sprites/platforms/cityPlatform.png" id="2_rpr1g"]
+[ext_resource type="Shape2D" uid="uid://b2jpgc5h7opc4" path="res://level/environment/moving_objects/platform_area_collision.tres" id="3_agt3j"]
 
 [sub_resource type="Curve2D" id="Curve2D_phsli"]
 resource_local_to_scene = true
@@ -12,9 +13,6 @@ point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmkh2"]
 size = Vector2(96, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i6qt"]
-size = Vector2(642, 480)
 
 [node name="CityPlatform" type="Path2D"]
 curve = SubResource("Curve2D_phsli")
@@ -42,6 +40,6 @@ remote_path = NodePath("../../CityPlatformBody")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9, 15)
-shape = SubResource("RectangleShape2D_6i6qt")
+shape = ExtResource("3_agt3j")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
