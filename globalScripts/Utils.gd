@@ -46,6 +46,7 @@ func load_game(loadFile = "game"):
 			GameManager.playerPosition = str_to_var(data["playerPosition"])
 			GameManager.playTimeSeconds = data["playTimeSeconds"] if data.has("playTimeSeconds") else 0
 			if data.has("catMomsDone"): GameManager.catMomsDone = data["catMomsDone"]
+			GameManager.hasFullDone = GameManager.full_done_check()
 		elif loadFile == "settings":
 			GameManager.backgroundMusicVolumen = data["backgroundMusicVolumen"]
 			GameManager.soundEffectsVolumen = data["soundEffectsVolumen"]
@@ -57,6 +58,28 @@ func load_game(loadFile = "game"):
 			var soundEffectBus = AudioServer.get_bus_index("SoundEffect")
 			AudioServer.set_bus_volume_db(soundEffectBus, GameManager.soundEffectsVolumen)
 			if GameManager.soundEffectsVolumen == -25: AudioServer.set_bus_mute(soundEffectBus, true)
+
 func delete_game(gameNumber):
 	var save_path = "user://savegame"+ str(gameNumber) +".bin"
 	DirAccess.remove_absolute(save_path)
+
+func create_full_game_done(saveFileNumber):
+	var save_path = "user://savegame"+ str(saveFileNumber)  +".bin"
+	var oldLevelDetails = GameManager.levelDetails
+	
+	for i in len(oldLevelDetails):
+		oldLevelDetails[i]["redCoins"] = 5
+		oldLevelDetails[i]["gems"] = 5
+		oldLevelDetails[i]["cats"] = [true, true, true]
+		oldLevelDetails[i]["goldCoins"] = oldLevelDetails[i]["maxGoldCoins"]
+	
+	var data = {
+		"levelDetails": oldLevelDetails,
+		"playerPosition": var_to_str(GameManager.playerPosition),
+		"playTimeSeconds": GameManager.playTimeSeconds,
+		"catMomsDone" : GameManager.catMomsDone
+	}
+	
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	var jsonString = JSON.stringify(data)
+	file.store_line(jsonString)
