@@ -8,7 +8,7 @@ var scoreBoardDone = false
 
 func _on_body_entered(body):
 	if body is Player:
-		body.set_physics_process(false)
+		body.level_end()
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("BackgroundMusic"), true)
 		LevelManager.level_done()
 		$AudioStreamPlayer.play()
