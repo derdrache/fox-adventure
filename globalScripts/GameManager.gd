@@ -12,6 +12,7 @@ var gameStart : Dictionary
 var catMomsDone : Array = [false, false, false, false, false, false, false]
 var backgroundMusicVolumen : int
 var soundEffectsVolumen : int
+var hasFullDone = false
 var levelMaxGoldCoins = {
 	"1": 40, "2": 58, "3": 31, "4": 76, "5": 79, "6": 51, "7": 68, "8": 42, 
 	"9": 67, "10": 41, "11": 49, "12": 57, "13": 49, "14": 49, "15": 49, 
