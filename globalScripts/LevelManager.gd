@@ -79,6 +79,12 @@ func _save_items():
 		newLevelData.gems = oldLevelData.gems
 	if newLevelData.goldCoins < oldLevelData.goldCoins:
 		newLevelData.goldCoins = oldLevelData.goldCoins
+		
+	for i in len(newLevelData.cats):
+		if newLevelData.cats[i]: oldLevelData.cats[i] = true
+		
+	newLevelData.cats = oldLevelData.cats
+	
 	GameManager.updateLevelData(newLevelData)
 
 func reset_all_stats():
