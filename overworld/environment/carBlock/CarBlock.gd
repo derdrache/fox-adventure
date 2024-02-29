@@ -6,19 +6,29 @@ extends Path2D
 
 var doMove = false
 var moveSpeed = 50
+var duckBody
+var sendSignal = false
 
+signal interactionStart
+signal interactionDone
 
 func _physics_process(delta):
-	if doMove: pathFollow.progress += moveSpeed * delta
+	if doMove && duckBody == null:
+		if !sendSignal:
+			sendSignal = true
+			emit_signal("interactionStart")
+		animatedSprite.visible = true
+		animatedSprite.play("front")
+		pathFollow.progress += moveSpeed * delta
+	
+	if pathFollow.progress_ratio == 1 && doMove:
+		doMove = false
+		emit_signal("interactionDone")	 
 
 func done():
 	queue_free()
 
 func _on_area_2d_body_entered(body):
 	if "Duck" in body.name:
-		await get_tree().create_timer(2).timeout
-		sprite.visible = false
-		body.queue_free()
-		animatedSprite.visible = true
-		animatedSprite.play("front")
+		duckBody = body
 		doMove = true	
