@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dn01r48g8bq3y" path="res://asset/fonts/ProtestRevolution-Regular.ttf" id="1_71gyj"]
 [ext_resource type="Shader" path="res://ui/load_window/SelectLoadData.gdshader" id="1_hivab"]
+[ext_resource type="Script" path="res://ui/load_window/save_file_container.gd" id="2_nkc7w"]
 [ext_resource type="Texture2D" uid="uid://d05im41paldql" path="res://asset/icon.svg" id="2_ydkpp"]
 [ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="4_1ctd5"]
 [ext_resource type="Texture2D" uid="uid://dunudmcl51vxs" path="res://asset/ui/Icon_Trash.png" id="6_43alo"]
@@ -22,90 +23,6 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
-
-[sub_resource type="GDScript" id="GDScript_eunxd"]
-script/source = "extends PanelContainer
-
-@export var gameNumber : int
-@export var saveData : Dictionary
-@export var loadingTexture : TextureRect
-@export var playTimeLabel :Label
-@export var gameDoneProcentLabel : Label
-
-@onready var headerLabel = $VBoxContainer/Header/PanelContainer/HBoxContainer/LoadCount/PanelContainer/Label
-
-var touchCanFire = true
-
-func _ready():
-	if DisplayServer.is_touchscreen_available(): 
-		focus_mode = Control.FOCUS_NONE
-
-func _process(_delta):
-	if has_focus():
-		var styleBox : StyleBoxFlat = get_theme_stylebox(\"panel\").duplicate()
-		styleBox.border_color = Color(1,1,1)
-		add_theme_stylebox_override(\"panel\", styleBox)
-	else:
-		var styleBox : StyleBoxFlat = get_theme_stylebox(\"panel\").duplicate()
-		styleBox.border_color = Color(0.647, 0.671, 0.718)
-		add_theme_stylebox_override(\"panel\", styleBox)	
-		
-	headerLabel.text = str(gameNumber +1)
-	
-	_set_procent_clear()
-	_set_play_time()
-	_set_load_file_image()
-
-func _set_procent_clear():
-	var allLevel : Array = saveData[\"levelDetails\"]
-	gameDoneProcentLabel.text = str(GameManager.procent_done(allLevel)) + \" %\"
-
-func _set_play_time():
-	var playTimeSeconds : int = saveData[\"playTimeSeconds\"]
-	playTimeLabel.text =  HelperFunctions.time_convert(playTimeSeconds)
-
-func _set_load_file_image():  	
-	var image = Image.load_from_file(\"user://screenshot\"+ str(gameNumber) +\".png\")
-	var texture = ImageTexture.create_from_image(image)
-	loadingTexture.texture = texture  
-
-func _start_game():
-	if !touchCanFire: return
-	
-	GameManager.gameNumber = gameNumber
-	GameManager.gameStart = Time.get_datetime_dict_from_system()
-	Utils.load_game()
-	await get_tree().create_timer(0.1).timeout
-	get_tree().change_scene_to_file(\"res://overworld/overWorld.tscn\")
-
-func _input(event):
-	if event.is_action_pressed(\"ui_accept\") && has_focus():
-		_start_game()
-
-func _on_delete_button_pressed():
-	$reallyDeleteContainer.visible = true
-		
-	touchCanFire = false
-	$VBoxContainer.visible = false
-	$MarginContainer/deleteButton.visible = false
-
-
-func _on_start_game_touch_button_released():
-	_start_game()
-
-
-func _on_yes_button_pressed():
-	Utils.delete_game(gameNumber)
-	queue_free()
-
-
-func _on_no_button_pressed():
-	$reallyDeleteContainer.visible = false
-		
-	touchCanFire = true
-	$VBoxContainer.visible = true
-	$MarginContainer/deleteButton.visible = true
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ca2b"]
 size = Vector2(320, 230)
@@ -141,9 +58,7 @@ offset_bottom = 229.0
 focus_mode = 2
 theme = SubResource("Theme_w5j34")
 theme_override_styles/panel = SubResource("StyleBoxFlat_lcg07")
-script = SubResource("GDScript_eunxd")
-gameNumber = null
-saveData = null
+script = ExtResource("2_nkc7w")
 loadingTexture = NodePath("VBoxContainer/LoadImageContainer/LoadingScreen1")
 playTimeLabel = NodePath("VBoxContainer/Header/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/playtimeLabel")
 gameDoneProcentLabel = NodePath("VBoxContainer/Header/PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/completedLabel")
