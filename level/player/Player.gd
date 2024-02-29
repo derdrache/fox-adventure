@@ -52,13 +52,13 @@ var wasOnCLimbingObject = false
 var movingObjectSpeed
 var onEagle = false
 var rampType
+var levelEnd = false
 
 func _ready():
 	$MobileControlUi.visible = true
 	$LevelUI.visible = true
 	Utils.load_game("settings")
-	if "-6" in get_parent().name: $SoundEffects/BackGroundCastleMusic.play()
-	else: $SoundEffects/BackgroundMusic.play()
+	_play_background_music()
 
 func _process(_delta):
 	if !is_physics_processing(): sprite.play("idle")
@@ -101,9 +101,15 @@ func _physics_process(delta):
 		STOMP: stomp_state(delta)
 		SLIDE: slide_state(delta)
 	
+	if levelEnd: 
+		direction.x = 0
+		velocity.x = 0
+	
 	animation_state()
 	
 	_change_collider()
+
+	
 
 	move_and_slide()
 	
@@ -111,11 +117,15 @@ func _physics_process(delta):
 	if is_on_floor() || is_on_climbing_object() || in_water():
 		forceVelocityX = 0
 
+func _play_background_music():
+	if "-6" in get_parent().name: 
+		$SoundEffects/BackgroundMusic/BackGroundCastleMusic.play()
+	else: $SoundEffects/BackgroundMusic/BackgroundMusic.play()
 
 func apply_gravity(delta):
 		if not is_on_floor():
 			velocity.y += gravity * delta
-
+		
 func is_on_climbing_object():
 	var onClimbingObject
 	var onLiane
@@ -231,15 +241,11 @@ func slide_state(delta):
 	if not "ramp" in get_tile_data("bottom"): 
 		sliderEndCounter -= 1
 		
-	velocity.y += gravity * delta * 10
+	velocity.y += gravity * delta * 30
 	velocity.x = sliderEndCounter * 10
 	
 	if get_tile_data("bottom").replace("ramp", "")  == "Left":
 		velocity.x = -velocity.x
-	
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		state = JUMP
-		velocity.y = JUMP_VELOCITY * 1.5
 	
 	if sliderEndCounter == 0:
 		state = MOVE
@@ -297,7 +303,11 @@ func animation_state():
 			if velocity.y <= 0: playerAnimation.play("jumpUp")
 			else: playerAnimation.play("jumpDown")
 		SWIM: playerAnimation.play("swim")
-		SLIDE: rotation_degrees = -30
+		SLIDE: 
+			if "rampRight" in get_tile_data("bottom"): 
+				rotation_degrees = -30
+			elif "rampLeft" in get_tile_data("bottom"): 
+				rotation_degrees = 30
 
 func stompAnimation():
 	$stompSprite.visible = true
@@ -526,4 +536,5 @@ func circle_transition(direction, duration):
 	await get_tree().create_timer(duration).timeout
 	$Camera2D/CanvasLayer.layer = -1
 
-
+func level_end():
+	levelEnd = true
