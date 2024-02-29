@@ -251,7 +251,7 @@ shader = ExtResource("8_bype2")
 shader_parameter/circle_size = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1rr"]
-size = Vector2(10, 17.5)
+size = Vector2(8, 17.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmf5s"]
 size = Vector2(13, 6)
@@ -371,8 +371,7 @@ layer = -1
 material = SubResource("ShaderMaterial_kx1s4")
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-1, 6.25)
+position = Vector2(0, 6.25)
 shape = SubResource("RectangleShape2D_5v1rr")
 
 [node name="crawlCollision" type="CollisionShape2D" parent="."]
@@ -391,6 +390,7 @@ disabled = true
 visible = false
 position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_qppnu")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -438,8 +438,14 @@ visible = false
 
 [node name="SoundEffects" type="Node" parent="."]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundEffects"]
+[node name="BackgroundMusic" type="Node" parent="SoundEffects"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="SoundEffects/BackgroundMusic"]
 stream = ExtResource("12_54odv")
+bus = &"BackgroundMusic"
+
+[node name="BackGroundCastleMusic" type="AudioStreamPlayer" parent="SoundEffects/BackgroundMusic"]
+stream = ExtResource("13_5rvpj")
 bus = &"BackgroundMusic"
 
 [node name="WaterSplash" type="AudioStreamPlayer" parent="SoundEffects"]
@@ -449,10 +455,6 @@ bus = &"SoundEffect"
 [node name="DigSound" type="AudioStreamPlayer" parent="SoundEffects"]
 stream = ExtResource("11_ejjfl")
 bus = &"SoundEffect"
-
-[node name="BackGroundCastleMusic" type="AudioStreamPlayer" parent="SoundEffects"]
-stream = ExtResource("13_5rvpj")
-bus = &"BackgroundMusic"
 
 [node name="BirdSpawnTimer" type="Timer" parent="."]
 wait_time = 10.0
