@@ -85,5 +85,5 @@ func procent_done(allLevel = GameManager.levelDetails):
 		var catCount = len(level["cats"].filter(func(boolean): return boolean != false))
 		procent+= (level["goldCoins"] + level["gems"] * 10 + 
 					level["redCoins"] * 10 + catCount * 10) * 100 / (130 + level["maxGoldCoins"])
-		
-	return round(procent / GameManager.LEVEL_COUNT)
+	
+	return floor(procent / LEVEL_COUNT)
