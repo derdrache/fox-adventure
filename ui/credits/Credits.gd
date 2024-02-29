@@ -5,21 +5,23 @@ extends Node2D
 var fullDone = GameManager.full_done_check()
 var backgroundCount = 1
 var babyCatRessource = preload("res://chars/babyCat.tscn")
-var creditDuration = 14
+var creditDuration = 40
 
 
 func _ready():
 	_move_player()
 	
-	if fullDone: 
-		$Player/ShortMessageBox.visible= true
+	var procentDone = GameManager.procent_done()
+	
+	if fullDone || procentDone == 100: 
+		$Player/ShortMessageBox.visible = true
 		$Player/ProcentMessageBox.visible = false
 		$SpawnCats.start()
 	else:
-		procentLabel.text = str(GameManager.procent_done()) + "%"
+		procentLabel.text = str(procentDone) + "%"
 
 func _process(delta):
-	$Credits.position.y -= 50 * delta
+	$Credits.position.y -= 90 * delta
 
 func _move_player():
 	var screenWidth = get_viewport().size.x
@@ -41,6 +43,8 @@ func _spawn_baby_cats():
 	
 func _credits_done():
 	$CanvasLayer/CircleTransition.transition("out", 1)
+	await  get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
 	
 func _change_backgrounds():
 	var backgroundList = $Backgrounds.get_children()

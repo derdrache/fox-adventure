@@ -118,10 +118,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -217.0
-offset_top = 308.0
-offset_right = 331.0
-offset_bottom = 476.0
+offset_left = -320.5
+offset_top = 400.0
+offset_right = 482.5
+offset_bottom = 4037.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 30
@@ -143,19 +143,112 @@ theme_override_font_sizes/font_size = 30
 text = "created by DevDrache (Dominik Mast)"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Credits/VBoxContainer"]
+[node name="LevelAssets" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/VBoxContainer/LevelAssets"]
 layout_mode = 2
 theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="Label3" type="Label" parent="Credits/VBoxContainer/MarginContainer"]
+[node name="Label3" type="Label" parent="Credits/VBoxContainer/LevelAssets/MarginContainer"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 50
-text = "Assets"
+text = "Level Assets"
 horizontal_alignment = 1
 
-[node name="AssetsCredit" type="Label" parent="Credits/VBoxContainer"]
+[node name="AssetsCredit" type="Label" parent="Credits/VBoxContainer/LevelAssets"]
 layout_mode = 2
-text = "Fox and World 1 Level Assets: Ansimuz"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/line_spacing = 60
+theme_override_font_sizes/font_size = 25
+text = "Grass: Ansimuz and Bigbuckbunny
+Swamp: Craftpix
+Desert: Retroviralgames
+Cave: RaimundoNC, Rottingpixels and Mira Ma
+Winter: Atari Boy and Mira Ma
+Beach: Crusenho
+City: Pixel-Shack
+Castle: Enjl
+Fox: Ansimuz
+Fox extra animations: Mira Ma
+Birds: Pop-shop-packs
+Coins: Laredgames
+Cat Babies: Ikoiku
+Key and Door: Goodgis"
+
+[node name="OverWorldAssets" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/VBoxContainer/OverWorldAssets"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label3" type="Label" parent="Credits/VBoxContainer/OverWorldAssets/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 50
+text = "Overworld Assets"
+horizontal_alignment = 1
+
+[node name="AssetsCredit" type="Label" parent="Credits/VBoxContainer/OverWorldAssets"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/line_spacing = 60
+theme_override_font_sizes/font_size = 25
+text = "Grass and Swamp: Srtoasty
+Desert: Beyonderboy
+Cave: Weentermakesgames
+Winter: Analogstudios
+Beach: Schwarnhild
+City: Kenney
+Cat Mom: Pop-shop-packs
+Ducks: Goodgis
+Ducks extra animations: Mira Ma"
+
+[node name="OverWorldAssets2" type="VBoxContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/VBoxContainer/OverWorldAssets2"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label3" type="Label" parent="Credits/VBoxContainer/OverWorldAssets2/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 50
+text = "Music"
+horizontal_alignment = 1
+
+[node name="AssetsCredit" type="Label" parent="Credits/VBoxContainer/OverWorldAssets2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/line_spacing = 60
+theme_override_font_sizes/font_size = 25
+text = "Grass: Morning mood by Grieg
+Swamp: K.488 Piano Concerto #23 in A 2nd mov. Adagio by Mozart 
+Desert: Arabian Dance by Tchaikovsky
+Cave: the old castle by Mussorgsky 
+Winter: Waltz of the Snowflakes by Tchaikovsky
+Beach: Hebrides Overture by Mendelssohn
+City: Symphony no 40 - 1st movement by Mozart
+Castle: In The Hall Of The Mountain King by Grieg
+Overworld: Waltz No. 2 by Shostakovich"
 
 [node name="City" type="Control" parent="Credits"]
 anchors_preset = 0
@@ -294,14 +387,6 @@ script = SubResource("GDScript_4v1gu")
 stream = ExtResource("14_p8y2p")
 autoplay = true
 bus = &"BackgroundMusic"
-
-[node name="TestLabel" type="Label" parent="."]
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 172.0
-offset_bottom = 22.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Folgende Level fehlen:"
 
 [connection signal="timeout" from="BackgroundTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnCats" to="." method="_on_spawn_cats_timeout"]
