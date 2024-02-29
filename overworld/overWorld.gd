@@ -65,6 +65,7 @@ var activeInteraction = false
 var lastLevelUi
 var disableInteractions = []
 var cameraOnChange = false
+var duckInteraction = false
 
 
 func _ready():
@@ -74,10 +75,16 @@ func _ready():
 		duckWorld3_1, duckWorld3_2, duckWorld4_1, duckWorld4_2, duckWorld4_3, duckWorld4_4, 
 		duckWorld5_1, duckWorld5_2, duckWorld6_1, duckWorld6_2, duckWorld6_3, 
 		duckWorld7_1, duckWorld7_2]
+	var extraInteractionList = [$"World7 - City/Obstacales/CarBlock", $"World4 - Cave/Obstacales/GoodsWagon",
+		 $"World4 - Cave/Obstacales/GoodsWagon2"]
 	obstaclesList = [obstacle1_1, obstacle1_2, obstacle2_1, obstacle2_2, 
 		obstacle3_1, obstacle3_2, obstacle4_1, obstacle4_2, obstacle4_3, obstacle4_4, 
 		obstacle5_1, obstacle5_2, obstacle6_1, obstacle6_2, obstacle6_3, obstacle7_1, 
 		obstacle7_2]
+		
+	for interaction in interactionsList + extraInteractionList:
+		interaction.connect("interactionStart", interaction_start)
+		interaction.connect("interactionDone", interaction_done)
 
 	_load_and_update_data()
 	Utils.load_game("settings")
@@ -231,9 +238,8 @@ func _check_interactions_disables():
 			_disable_level_interaction(i)
 
 func _level_interaction(i):
-	await get_tree().create_timer(1.5)
 	interactionsList[i].move()
-	interactionsList[i].connect("interactionDone", interaction_done)
+	
 
 func _disable_level_interaction(i):
 	interactionsList[i].visible = false
@@ -254,8 +260,13 @@ func set_ui_visible(boolean):
 			ui.hide()
 
 func interaction_done():
+	duckInteraction = false
 	activeInteraction = false
 
+func interaction_start():
+	duckInteraction = true
+	activeInteraction = true
+	set_ui_visible(false)
 
 func make_save_screenshot():
 	LevelManager.levelCleared = false
@@ -280,6 +291,7 @@ func make_save_screenshot():
 	
 	await get_tree().create_timer(1).timeout
 	
+	if !duckInteraction: activeInteraction = false
 	camera.make_current()
 	player.set_control_ui(true)
 	
