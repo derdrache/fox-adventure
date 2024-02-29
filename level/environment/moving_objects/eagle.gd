@@ -42,7 +42,7 @@ func _moving(delta):
 	if move && playerBody != null: 
 		var ridePosition = Vector2(
 			5 if flipH else 0, 
-			5 if enteredBottom else -10)
+			8 if enteredBottom else -10)
 		
 		path_follow.progress += MOVE_SPEED * delta
 		var newPosition = eagleBody.global_position
@@ -50,7 +50,8 @@ func _moving(delta):
 		playerBody.position = newPosition
 
 func _release():
-	if path_follow.progress_ratio == 1: move = false
+	if path_follow.progress_ratio == 1: 
+		move = false
 		
 func _on_area_top_body_entered(body):
 	if body is Player && isActive:
@@ -64,7 +65,6 @@ func _on_area_top_body_exited(body):
 		move = false
 		playerBody = null
 		body.onEagle = false
-		body.onEagle = false
 
 func _on_area_bottom_body_entered(body):
 	if body is Player && isActive:
@@ -77,6 +77,6 @@ func _on_area_bottom_body_exited(body):
 	if body is Player && isActive: 
 		move = false
 		playerBody = null
-		body.onEagle = true
+		body.onEagle = false
 
 
