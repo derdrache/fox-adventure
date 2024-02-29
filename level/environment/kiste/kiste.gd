@@ -53,6 +53,7 @@ func _changeSpawningNodeVisibility(show):
 	spawningNode.visible = show
 	for node : Area2D in spawningNode.get_children():
 		node.set_collision_layer_value(1, show)
+		node.set_collision_layer_value(2, show)
 
 
 func _dropGem():
