@@ -9,7 +9,7 @@ extends Path2D
 @export var doMove = false
 @export var spriteVisible = true
 
-
+signal interactionStart
 signal interactionDone
 
 
@@ -35,7 +35,8 @@ func _physics_process(delta):
 		queue_free()
 
 func move():
-	doMove = true;
+	doMove = true
+	emit_signal("interactionStart")
 		
 
 func _remove_obstacle_animation():
