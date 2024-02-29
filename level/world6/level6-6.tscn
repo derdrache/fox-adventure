@@ -59,7 +59,7 @@ _data = {
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt623"]
-size = Vector2(3600, 74)
+size = Vector2(3484, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0nur"]
 size = Vector2(603.638, 20)
@@ -405,7 +405,7 @@ position = Vector2(480, -624)
 [node name="WorldEnd" parent="." instance=ExtResource("3_cdh3m")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(1384, 888)
+position = Vector2(1338, 761)
 shape = SubResource("RectangleShape2D_dt623")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
@@ -417,11 +417,11 @@ position = Vector2(1608, 240)
 shape = SubResource("RectangleShape2D_8gfsj")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(400, 135.183)
+position = Vector2(397, 50)
 shape = SubResource("RectangleShape2D_qomhl")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(848, -455)
+position = Vector2(824, -512)
 shape = SubResource("RectangleShape2D_7ylqh")
 
 [node name="Player" parent="." instance=ExtResource("4_owi0s")]

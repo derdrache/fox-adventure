@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://vsyi20ijqcc0"]
+[gd_scene load_steps=29 format=3 uid="uid://vsyi20ijqcc0"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_fhb7j"]
 [ext_resource type="Script" path="res://level/levels.gd" id="1_hw8ro"]
@@ -47,8 +47,20 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6r8i"]
-size = Vector2(6173, 40.3594)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbssc"]
+size = Vector2(1034, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8bgv"]
+size = Vector2(962, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oy1vq"]
+size = Vector2(992.25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa6ma"]
+size = Vector2(529.868, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ecn1"]
+size = Vector2(661.528, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyb60"]
 size = Vector2(20, 238)
@@ -142,7 +154,7 @@ position = Vector2(3817, 248)
 withGem = true
 
 [node name="Gem3" parent="items/gems" instance=ExtResource("9_kaqqj")]
-position = Vector2(2603, 310)
+position = Vector2(2640, 252)
 
 [node name="Gem4" parent="items/gems" instance=ExtResource("9_kaqqj")]
 position = Vector2(5813, 384)
@@ -315,8 +327,24 @@ tilesHeight = 11
 position = Vector2(426.553, 373.132)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(2611.95, 317.868)
-shape = SubResource("RectangleShape2D_y6r8i")
+position = Vector2(400.447, 178.868)
+shape = SubResource("RectangleShape2D_hbssc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(1668.45, 138.868)
+shape = SubResource("RectangleShape2D_b8bgv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(3005.32, 194.868)
+shape = SubResource("RectangleShape2D_oy1vq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(4412.51, 78.9883)
+shape = SubResource("RectangleShape2D_qa6ma")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(5474.68, 180.7)
+shape = SubResource("RectangleShape2D_2ecn1")
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 
@@ -325,8 +353,9 @@ position = Vector2(6, 420)
 shape = SubResource("RectangleShape2D_wyb60")
 
 [node name="Player" parent="." instance=ExtResource("3_u0bos")]
-position = Vector2(88, 432)
+position = Vector2(35.1902, 432.854)
 floor_max_angle = 1.22173
+floor_snap_length = 2.0
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_bhrq0")]
 position = Vector2(663, 474)

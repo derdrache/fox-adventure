@@ -328,11 +328,11 @@ tilesHeight = 9
 [node name="WorldEnd" parent="." instance=ExtResource("2_nvtlw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(5648.25, 948)
+position = Vector2(5648, 928)
 shape = SubResource("RectangleShape2D_axd5f")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(3992, 880)
+position = Vector2(3992, 839)
 shape = SubResource("RectangleShape2D_4c2r8")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
@@ -340,7 +340,7 @@ position = Vector2(2120, 728)
 shape = SubResource("RectangleShape2D_o2gci")
 
 [node name="Player" parent="." instance=ExtResource("2_dbmni")]
-position = Vector2(235.5, 471)
+position = Vector2(207, 479)
 floor_stop_on_slope = true
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("21_rkeg2")]

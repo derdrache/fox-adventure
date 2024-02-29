@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://jclysa3sirrx"]
+[gd_scene load_steps=29 format=3 uid="uid://jclysa3sirrx"]
 
 [ext_resource type="Script" path="res://level/levels.gd" id="1_4lakb"]
 [ext_resource type="PackedScene" uid="uid://d0y52ct28jrv1" path="res://backgrounds/city/cityBackground.tscn" id="1_hn1q5"]
@@ -46,18 +46,27 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_ey737"]
+[sub_resource type="Curve2D" id="Curve2D_idp1k"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -242.953, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -136, 0, 0, 0, 0, 0, 0)
 }
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pa8v"]
-size = Vector2(3728, 61.4308)
+size = Vector2(688, 18.7154)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rdgh"]
 size = Vector2(3608, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnvwv"]
+size = Vector2(372, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yjq2"]
+size = Vector2(836.631, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cn7v"]
+size = Vector2(893.198, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85rqn"]
 size = Vector2(26, 312)
@@ -134,13 +143,12 @@ position = Vector2(390, -162)
 position = Vector2(6020, 246)
 curve = SubResource("Curve2D_rqcak")
 
-[node name="CityPlatform5" parent="environment" instance=ExtResource("3_4esc1")]
-position = Vector2(6689, 401)
-scale = Vector2(1, 0.498039)
-curve = SubResource("Curve2D_ey737")
-
 [node name="Goal" parent="environment" instance=ExtResource("7_bre8r")]
 position = Vector2(6944, 296)
+
+[node name="CityPlatform6" parent="environment" instance=ExtResource("3_4esc1")]
+position = Vector2(6687, 416)
+curve = SubResource("Curve2D_idp1k")
 
 [node name="items" type="Node2D" parent="."]
 
@@ -318,12 +326,24 @@ tilesHeight = 5
 [node name="WorldEnd" parent="." instance=ExtResource("3_owils")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(1920, 838.715)
+position = Vector2(744, 678.642)
 shape = SubResource("RectangleShape2D_2pa8v")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(5624, 509)
+position = Vector2(5608, 450)
 shape = SubResource("RectangleShape2D_8rdgh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(1232, 710)
+shape = SubResource("RectangleShape2D_vnvwv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(2085.68, 710)
+shape = SubResource("RectangleShape2D_4yjq2")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(3481.4, 785.985)
+shape = SubResource("RectangleShape2D_0cn7v")
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 
@@ -332,7 +352,7 @@ position = Vector2(83, 468)
 shape = SubResource("RectangleShape2D_85rqn")
 
 [node name="Player" parent="." instance=ExtResource("4_4yis3")]
-position = Vector2(121, 528)
+position = Vector2(115, 528)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_pwfvk")]
 position = Vector2(1328, 617)

@@ -413,7 +413,7 @@ shape = SubResource("RectangleShape2D_3nuuu")
 position = Vector2(-1, 567)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(4329, -31)
+position = Vector2(4391, -390)
 shape = SubResource("RectangleShape2D_ko8k0")
 
 [node name="SwampBackground" parent="." instance=ExtResource("3_gb4p2")]

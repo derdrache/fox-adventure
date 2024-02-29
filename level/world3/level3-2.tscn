@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cd1sxqyo4afpc"]
+[gd_scene load_steps=39 format=3 uid="uid://cd1sxqyo4afpc"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_1poy8"]
 [ext_resource type="Script" path="res://level/levels.gd" id="1_8xsia"]
@@ -57,7 +57,7 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_15hko"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2, 4, 0, 0, 0, 0, 238, -182, 0, 0, 0, 0, 2, 4)
+"points": PackedVector2Array(0, 0, 0, 0, -3, 28, 0, 0, 0, 0, 238, -182, 0, 0, 0, 0, -3, 28)
 }
 point_count = 3
 
@@ -403,10 +403,19 @@ sources/0 = SubResource("TileSetAtlasSource_qig41")
 size = Vector2(40, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71nj2"]
-size = Vector2(5790.78, 51)
+size = Vector2(2341.39, 70.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq7ek"]
+size = Vector2(312.756, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kea71"]
+size = Vector2(1193.77, 36.9908)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkbmn"]
 size = Vector2(20, 335)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r45yg"]
+size = Vector2(20, 588)
 
 [node name="Level3-2" type="Node2D"]
 script = ExtResource("1_8xsia")
@@ -705,6 +714,10 @@ position = Vector2(5056, 304)
 tilesWith = 8
 tilesHeight = 8
 
+[node name="Fog5" parent="Fog" instance=ExtResource("19_sxe0o")]
+position = Vector2(1632, -384)
+tilesWith = 5
+
 [node name="deco" type="Node2D" parent="."]
 
 [node name="DeathGras" parent="deco" instance=ExtResource("23_5vw0p")]
@@ -740,14 +753,26 @@ position = Vector2(2856, 288)
 [node name="WorldEnd" parent="." instance=ExtResource("1_n3xqo")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(2908.61, 915)
+position = Vector2(1141.31, 350)
 shape = SubResource("RectangleShape2D_71nj2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(2235.62, 214.748)
+shape = SubResource("RectangleShape2D_yq7ek")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(3771.12, 434.495)
+shape = SubResource("RectangleShape2D_kea71")
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(5, 166)
 shape = SubResource("RectangleShape2D_dkbmn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(5528, 206)
+shape = SubResource("RectangleShape2D_r45yg")
 
 [node name="Player" parent="." instance=ExtResource("4_rv5bl")]
 position = Vector2(56, 256)

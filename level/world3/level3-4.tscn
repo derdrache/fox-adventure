@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b6w3decyhh2tv"]
+[gd_scene load_steps=36 format=3 uid="uid://b6w3decyhh2tv"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_2mg4t"]
 [ext_resource type="Script" path="res://level/levels.gd" id="1_feejb"]
@@ -78,7 +78,13 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(352, 352, 544, 352, 544
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4blre"]
-size = Vector2(6133.93, 191.636)
+size = Vector2(1380.47, 29.818)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_st0er"]
+size = Vector2(999.997, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtp6h"]
+size = Vector2(307, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v26m3"]
 size = Vector2(20, 351)
@@ -341,8 +347,16 @@ position = Vector2(4416, 496)
 [node name="WorldEnd" parent="." instance=ExtResource("2_uaevd")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(2994.03, 981)
+position = Vector2(600, 509)
 shape = SubResource("RectangleShape2D_4blre")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(1460, 624.161)
+shape = SubResource("RectangleShape2D_st0er")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(4632, 655)
+shape = SubResource("RectangleShape2D_rtp6h")
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 

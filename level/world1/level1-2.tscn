@@ -64,11 +64,11 @@ script = ExtResource("1_hmxu7")
 [node name="WorldEnd" parent="." instance=ExtResource("19_ktcov")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(184, 168)
+position = Vector2(192, 136)
 shape = SubResource("RectangleShape2D_74pcc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(1366, -2304)
+position = Vector2(1368, -2336)
 shape = SubResource("RectangleShape2D_oss0o")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
@@ -354,7 +354,7 @@ tilesWith = 3
 tilesHeight = 1
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(32, 31)
+position = Vector2(21, 32)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
 position = Vector2(431, -567)

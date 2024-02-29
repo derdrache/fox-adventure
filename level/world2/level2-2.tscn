@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cuyk1s6m6eekk"]
+[gd_scene load_steps=32 format=3 uid="uid://cuyk1s6m6eekk"]
 
 [ext_resource type="Script" path="res://level/levels.gd" id="1_i8mki"]
 [ext_resource type="PackedScene" uid="uid://dy5jjw0aaa4l" path="res://backgrounds/swarm/swampBackground.tscn" id="1_sv2ka"]
@@ -28,7 +28,13 @@
 size = Vector2(12, 494)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrlo6"]
-size = Vector2(6598.5, 56)
+size = Vector2(656, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_maur5"]
+size = Vector2(1080, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jp0k"]
+size = Vector2(1628.26, 20)
 
 [sub_resource type="Curve2D" id="Curve2D_r8r2l"]
 resource_local_to_scene = true
@@ -47,7 +53,7 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_8kh3b"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 169, -151)
+"points": PackedVector2Array(0, 0, 0, 0, 23, 13, 0, 0, 0, 0, 169, -151)
 }
 point_count = 2
 
@@ -76,8 +82,16 @@ shape = SubResource("RectangleShape2D_gkwnb")
 [node name="WorldEnd" parent="." instance=ExtResource("5_xbny2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(3020, 416)
+position = Vector2(2056, 416)
 shape = SubResource("RectangleShape2D_jrlo6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(3432, 352)
+shape = SubResource("RectangleShape2D_maur5")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(5433.87, 302)
+shape = SubResource("RectangleShape2D_5jp0k")
 
 [node name="environment" type="Node2D" parent="."]
 
