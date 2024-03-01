@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://ciaakrk6cy3yu"]
+[gd_scene load_steps=27 format=3 uid="uid://ciaakrk6cy3yu"]
 
 [ext_resource type="Script" path="res://ui/credits/Credits.gd" id="1_30teg"]
 [ext_resource type="PackedScene" uid="uid://d0y52ct28jrv1" path="res://backgrounds/city/cityBackground.tscn" id="1_oelah"]
 [ext_resource type="Texture2D" uid="uid://uivjlcofhaxb" path="res://asset/sprites/player/player.png" id="2_0h2dw"]
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="2_biufp"]
 [ext_resource type="Texture2D" uid="uid://dts8bcbtpoav0" path="res://asset/ui/Box.png" id="3_5sys0"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="3_cf4o6"]
 [ext_resource type="PackedScene" uid="uid://cg0wi1yv88l" path="res://ui/short_message_box.tscn" id="3_d606b"]
@@ -110,6 +111,7 @@ offset_right = 551.0
 offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_biufp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
 layout_mode = 1
@@ -133,13 +135,16 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_font_sizes/font_size = 70
-text = "Fox Adventure"
+text = "Luna the Fox"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Credits/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 40
 text = "created by DevDrache (Dominik Mast)"
 horizontal_alignment = 1
 
@@ -166,7 +171,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/line_spacing = 60
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Grass: Ansimuz and Bigbuckbunny
 Swamp: Craftpix
 Desert: Retroviralgames
@@ -205,7 +210,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/line_spacing = 60
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Grass and Swamp: Srtoasty
 Desert: Beyonderboy
 Cave: Weentermakesgames
@@ -215,40 +220,6 @@ City: Kenney
 Cat Mom: Pop-shop-packs
 Ducks: Goodgis
 Ducks extra animations: Mira Ma"
-
-[node name="OverWorldAssets2" type="VBoxContainer" parent="Credits/VBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Credits/VBoxContainer/OverWorldAssets2"]
-layout_mode = 2
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="Label3" type="Label" parent="Credits/VBoxContainer/OverWorldAssets2/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 3
-theme_override_font_sizes/font_size = 50
-text = "Music"
-horizontal_alignment = 1
-
-[node name="AssetsCredit" type="Label" parent="Credits/VBoxContainer/OverWorldAssets2"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/line_spacing = 60
-theme_override_font_sizes/font_size = 25
-text = "Grass: Morning mood by Grieg
-Swamp: K.488 Piano Concerto #23 in A 2nd mov. Adagio by Mozart 
-Desert: Arabian Dance by Tchaikovsky
-Cave: the old castle by Mussorgsky 
-Winter: Waltz of the Snowflakes by Tchaikovsky
-Beach: Hebrides Overture by Mendelssohn
-City: Symphony no 40 - 1st movement by Mozart
-Castle: In The Hall Of The Mountain King by Grieg
-Overworld: Waltz No. 2 by Shostakovich"
 
 [node name="City" type="Control" parent="Credits"]
 anchors_preset = 0

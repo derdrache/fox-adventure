@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cd1sxqyo4afpc"]
+[gd_scene load_steps=40 format=3 uid="uid://cd1sxqyo4afpc"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_1poy8"]
 [ext_resource type="Script" path="res://level/levels.gd" id="1_8xsia"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dkgjqda0pkshw" path="res://asset/tileMaps/desert.png" id="19_rkgjr"]
 [ext_resource type="PackedScene" uid="uid://bmguo8a44jygp" path="res://level/environment/fog/World3Fog.tscn" id="19_sxe0o"]
 [ext_resource type="Script" path="res://level/environment/fog/fog.gd" id="19_uu2up"]
+[ext_resource type="PackedScene" uid="uid://cy85fq6rvujk1" path="res://level/environment/fog/World1Fog.tscn" id="20_f5mg7"]
 [ext_resource type="PackedScene" uid="uid://dwv6mqhiqnqor" path="res://level/desertProps/cactus.tscn" id="21_r0k34"]
 [ext_resource type="PackedScene" uid="uid://xduq37rq448p" path="res://level/desertProps/deathGras.tscn" id="23_5vw0p"]
 [ext_resource type="PackedScene" uid="uid://nrq5scrulmta" path="res://level/desertProps/deathBush.tscn" id="24_ylghw"]
@@ -406,7 +407,7 @@ size = Vector2(40, 18)
 size = Vector2(2341.39, 70.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yq7ek"]
-size = Vector2(312.756, 20)
+size = Vector2(144.758, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kea71"]
 size = Vector2(1193.77, 36.9908)
@@ -471,7 +472,7 @@ closed = true
 conectionDoor = NodePath("../door2")
 
 [node name="door2" parent="environment/doorSet/doorSet2" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("4_57x1t")]
-position = Vector2(4309, 207)
+position = Vector2(4309, 208)
 conectionDoor = NodePath("../door")
 
 [node name="Switch2" parent="environment" instance=ExtResource("10_km2cv")]
@@ -714,7 +715,7 @@ position = Vector2(5056, 304)
 tilesWith = 8
 tilesHeight = 8
 
-[node name="Fog5" parent="Fog" instance=ExtResource("19_sxe0o")]
+[node name="Fog5" parent="Fog" instance=ExtResource("20_f5mg7")]
 position = Vector2(1632, -384)
 tilesWith = 5
 
@@ -757,7 +758,7 @@ position = Vector2(1141.31, 350)
 shape = SubResource("RectangleShape2D_71nj2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(2235.62, 214.748)
+position = Vector2(2152, 216)
 shape = SubResource("RectangleShape2D_yq7ek")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]

@@ -251,10 +251,10 @@ shader = ExtResource("8_bype2")
 shader_parameter/circle_size = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1rr"]
-size = Vector2(8, 17.5)
+size = Vector2(8, 18.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmf5s"]
-size = Vector2(13, 6)
+size = Vector2(13, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wxj5"]
 size = Vector2(12, 20)
@@ -350,6 +350,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 floor_stop_on_slope = false
+floor_snap_length = 2.0
 script = ExtResource("1_ii644")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -371,12 +372,12 @@ layer = -1
 material = SubResource("ShaderMaterial_kx1s4")
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.25)
+position = Vector2(0, 6.75)
 shape = SubResource("RectangleShape2D_5v1rr")
 
 [node name="crawlCollision" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(0.5, 12)
+position = Vector2(0.5, 12.5)
 shape = SubResource("RectangleShape2D_wmf5s")
 disabled = true
 

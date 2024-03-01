@@ -400,7 +400,7 @@ position = Vector2(4892, 1280)
 conectionDoor = NodePath("../door2")
 
 [node name="door2" parent="envoirnment/doorSets/doorSet3" node_paths=PackedStringArray("conectionDoor") instance=ExtResource("6_dcssn")]
-position = Vector2(5693, 1)
+position = Vector2(5712, 0)
 conectionDoor = NodePath("../door")
 
 [node name="Switch" parent="envoirnment" instance=ExtResource("6_gbwl1")]
@@ -457,7 +457,7 @@ navigation_polygon = SubResource("NavigationPolygon_nwv23")
 navigation_polygon = SubResource("NavigationPolygon_2ws6n")
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(3420.96, 557.337)
+position = Vector2(48, 592)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(1529, 601)

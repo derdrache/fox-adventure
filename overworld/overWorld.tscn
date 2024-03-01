@@ -5178,10 +5178,10 @@ levelPath = "res://level/world7/level7-1.tscn"
 [node name="LevelDetails2" parent="World7 - City/ui" instance=ExtResource("26_nsm6m")]
 visible = false
 layout_mode = 1
-offset_left = -273.0
-offset_top = -1106.0
-offset_right = -1350.0
-offset_bottom = -1559.0
+offset_left = -330.0
+offset_top = -1081.0
+offset_right = -1407.0
+offset_bottom = -1534.0
 level_name = "City 2"
 level = 38
 levelPath = "res://level/world7/level7-2.tscn"
@@ -5231,7 +5231,7 @@ level = 42
 levelPath = "res://level/world7/level7-6.tscn"
 
 [node name="LastCatMom" parent="World7 - City" instance=ExtResource("9_jscls")]
-position = Vector2(-344, -877)
+position = Vector2(-338, -877)
 curve = SubResource("Curve2D_n85r5")
 world = 7
 

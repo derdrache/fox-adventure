@@ -223,11 +223,19 @@ layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxFlat_26cix")
 
-[node name="totalScore" type="HBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="totalScore" type="HBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/totalScore"]
+[node name="Label" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/totalScore"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -237,20 +245,44 @@ theme_override_fonts/font = ExtResource("7_yovmr")
 theme_override_font_sizes/font_size = 40
 text = "TOTAL SCORE"
 
-[node name="Label2" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/totalScore"]
+[node name="Label2" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/totalScore"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_font_sizes/font_size = 40
-text = "0%"
+text = "  0%"
+
+[node name="time" type="HBoxContainer" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/time"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_yovmr")
+theme_override_font_sizes/font_size = 40
+text = "Time"
+
+[node name="TimeInMin" type="Label" parent="Control/ScoreBoard/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/time"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 40
+text = "00:00"
 
 [node name="CircleTransition" parent="Control" instance=ExtResource("9_wfxj7")]
 material = SubResource("ShaderMaterial_utp2o")
 layout_mode = 1
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+visible = false
 position = Vector2(642, 359)
 shape = SubResource("RectangleShape2D_54c8k")
 action = "ui_accept"

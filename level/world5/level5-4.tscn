@@ -391,5 +391,5 @@ position = Vector2(2859, 105)
 target = NodePath("../Player")
 
 [node name="Cat3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("14_1gtsa")]
-position = Vector2(4263, 377)
+position = Vector2(4480, 233)
 target = NodePath("../Player")

@@ -63,7 +63,6 @@ func _ready():
 func _process(_delta):
 	if !is_physics_processing(): sprite.play("idle")
 	if !underWater && "water" in get_tile_data(): 
-		$SoundEffects/WaterSplash.play()
 		velocity = Vector2.ZERO
 		
 	underWater = "water" in get_tile_data()
@@ -149,12 +148,15 @@ func digging_object_left_or_right():
 		
 func move_state(delta):
 	speed = MOVE_SPEED
-	
+
 	if underWater: speed = SWIM_SPEED
 	elif state == CRAWL: speed = speed / 2
-		
+	
 	if in_water() && !is_on_floor():
 		if state != SWIM: _spawn_water_splash()
+	
+	
+	if in_water():
 		state = SWIM
 	elif "ramp" in get_tile_data("bottom") && pressedDown: 
 		state = SLIDE
@@ -485,7 +487,7 @@ func _change_collider():
 func _check_last_floor_position():
 	var isOnDigTile = "dig" == get_tile_data("bottom", "customData",position)
 
-	if is_on_floor() && !isOnDigTile && not state == DIG:
+	if is_on_floor() && !isOnDigTile && not state == DIG && !onEagle:
 		var onPlatform = false
 		
 		for collision in getShapeCollision():
@@ -529,6 +531,7 @@ func _spawn_water_splash():
 	var waterSplash = waterSplashRessource.instantiate()
 	waterSplash.global_position = global_position - Vector2(0,8)
 	get_parent().add_child(waterSplash)
+	$SoundEffects/WaterSplash.play()
 	
 func circle_transition(direction, duration):
 	circleTransitionRect.transition(direction, duration)
