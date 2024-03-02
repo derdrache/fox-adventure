@@ -28,7 +28,7 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_dlteg"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 288, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -16, 0, 0, 0, 0, 0, 304, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 3
 
@@ -227,6 +227,9 @@ hasRedCoin = true
 position = Vector2(359, 328)
 goldCoins = 3
 
+[node name="kiste7" parent="items/goldCoins" instance=ExtResource("9_oe0fa")]
+position = Vector2(843.966, 437.835)
+
 [node name="GoldCoin" parent="items/goldCoins" instance=ExtResource("8_wr20c")]
 position = Vector2(1056, 520)
 
@@ -252,7 +255,7 @@ position = Vector2(445, 288)
 position = Vector2(445, 240)
 
 [node name="GoldCoin9" parent="items/goldCoins" instance=ExtResource("8_wr20c")]
-position = Vector2(1597.37, 551.614)
+position = Vector2(1597.37, 552.614)
 
 [node name="GoldCoin10" parent="items/goldCoins" instance=ExtResource("8_wr20c")]
 position = Vector2(1596, 728)
@@ -410,7 +413,7 @@ position = Vector2(3324, 428.25)
 shape = SubResource("RectangleShape2D_dnejg")
 
 [node name="Player" parent="." instance=ExtResource("4_ppptf")]
-position = Vector2(32, 448)
+position = Vector2(23.9407, 448.256)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("14_j20jy")]
 position = Vector2(1272, 409)

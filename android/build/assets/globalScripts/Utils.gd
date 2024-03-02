@@ -72,14 +72,16 @@ func create_full_game_done(saveFileNumber):
 		oldLevelDetails[i]["gems"] = 5
 		oldLevelDetails[i]["cats"] = [true, true, true]
 		oldLevelDetails[i]["goldCoins"] = oldLevelDetails[i]["maxGoldCoins"]
+		oldLevelDetails[i]["isFinished"] = true
 	
 	var data = {
 		"levelDetails": oldLevelDetails,
 		"playerPosition": var_to_str(GameManager.playerPosition),
 		"playTimeSeconds": GameManager.playTimeSeconds,
-		"catMomsDone" : GameManager.catMomsDone
+		"catMomsDone" :[true,true,true,true,true,true,true]
 	}
 	
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	var jsonString = JSON.stringify(data)
 	file.store_line(jsonString)
+	

@@ -67,6 +67,8 @@ var disableInteractions = []
 var cameraOnChange = false
 var duckInteraction = false
 
+func _input(event):
+	if event.is_action_pressed("ui_end"): print("ok")
 
 func _ready():
 	levelUis = [uiNodesWorld1, uiNodesWorld2, uiNodesWorld3, uiNodesWorld4,

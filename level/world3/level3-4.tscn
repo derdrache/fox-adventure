@@ -135,7 +135,7 @@ position = Vector2(2617, 440)
 [node name="DesertPlatform5" parent="environment" instance=ExtResource("4_ijnbk")]
 position = Vector2(2115, 168)
 curve = SubResource("Curve2D_l8j5v")
-moving_speed = 70
+moving_speed = 60
 
 [node name="Switch" parent="environment" instance=ExtResource("6_8fu6y")]
 position = Vector2(2271.8, 221.739)

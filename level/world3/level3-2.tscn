@@ -44,7 +44,7 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_rlvyh"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2, 1, 0, 0, 0, 0, 0, -147, 0, 0, 0, 0, -2, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, -147, 0, 0, 0, 0, 0, 5)
 }
 point_count = 3
 
@@ -436,17 +436,15 @@ layer_1/tile_data = PackedInt32Array(1114113, 65539, 0, 1114114, 65539, 0, 11141
 [node name="DesertPlatform" parent="environment" instance=ExtResource("3_xlbtd")]
 position = Vector2(336, 160)
 curve = SubResource("Curve2D_8robn")
-moving_speed = 100
 
 [node name="DesertPlatform2" parent="environment" instance=ExtResource("3_xlbtd")]
 position = Vector2(679, 181)
 curve = SubResource("Curve2D_nkk5x")
-moving_speed = 80
 
 [node name="DesertPlatform3" parent="environment" instance=ExtResource("3_xlbtd")]
 position = Vector2(680, 139)
 curve = SubResource("Curve2D_rlvyh")
-moving_speed = 80
+moving_speed = 70
 
 [node name="DesertPlatform5" parent="environment" instance=ExtResource("3_xlbtd")]
 position = Vector2(1151, 136)

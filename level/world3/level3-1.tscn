@@ -174,7 +174,7 @@ flipH = true
 [node name="DesertPlatform4" parent="environment" instance=ExtResource("6_q2e50")]
 position = Vector2(4452, 488)
 curve = SubResource("Curve2D_rcy2e")
-moving_speed = 80
+moving_speed = 70
 
 [node name="DesertPlatform5" parent="environment" instance=ExtResource("6_q2e50")]
 position = Vector2(5806, 552)

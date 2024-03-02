@@ -61,7 +61,7 @@ func _calculate_velocity():
 	
 	if isWaiting: return
 
-	var targetPosition = target.global_position - Vector2(0, -8)
+	var targetPosition = target.global_position - Vector2(0, -9)
 	
 
 	if global_position.distance_to(targetPosition) > 40  * followPosition:
