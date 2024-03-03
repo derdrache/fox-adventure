@@ -62,18 +62,19 @@ func _calculate_velocity():
 	if isWaiting: return
 
 	var targetPosition = target.global_position - Vector2(0, -9)
-	
+	var direction = (targetPosition - global_position).normalized()
 
 	if global_position.distance_to(targetPosition) > 40  * followPosition:
-		var direction = (targetPosition - global_position).normalized()
 		velocity = direction * (MAX_SPEED + speed)
 		if !target.onEagle: velocity.y *= 3		
 	elif global_position.distance_to(targetPosition) > 20  * followPosition:
-		var direction = (targetPosition - global_position).normalized()
 		velocity = direction * (speed)
 		if !target.onEagle: velocity.y *= 3
-	elif (global_position.y - targetPosition.y) < -2 || (global_position.y - targetPosition.y) > 2:
+	elif (global_position.y - targetPosition.y) < -5 || (global_position.y - targetPosition.y) > 5:
+		velocity.y = direction.y * (speed / 16 * abs(global_position.y - targetPosition.y))
 		velocity.x = 0
+	elif (global_position.y - targetPosition.y) < -0.3 || (global_position.y - targetPosition.y) > 0.3:
+		pass
 	else: velocity = Vector2.ZERO
 	
 	if target.rampType != null:

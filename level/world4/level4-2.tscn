@@ -246,7 +246,7 @@ position = Vector2(1054, 244)
 shape = SubResource("RectangleShape2D_cabhp")
 
 [node name="Player" parent="." instance=ExtResource("3_s74we")]
-position = Vector2(66, 80)
+position = Vector2(64, 80)
 rotation = -0.00442657
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_1hgjy")]

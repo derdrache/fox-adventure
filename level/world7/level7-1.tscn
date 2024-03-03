@@ -355,7 +355,6 @@ shape = SubResource("RectangleShape2D_wyb60")
 [node name="Player" parent="." instance=ExtResource("3_u0bos")]
 position = Vector2(35.1902, 432.854)
 floor_max_angle = 1.22173
-floor_snap_length = 2.0
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_bhrq0")]
 position = Vector2(663, 474)

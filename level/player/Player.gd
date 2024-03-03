@@ -293,6 +293,9 @@ func animation_state():
 			else: playerAnimation.play("run")	
 		CLIMB:
 			if climbSideways: 
+				if "climb" in get_tile_data("left","customData", position):
+					sprite.flip_h = true
+				else: sprite.flip_h = false
 				playerAnimation.play("climbSideways")
 			else: playerAnimation.play("climb")
 			

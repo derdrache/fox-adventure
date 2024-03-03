@@ -304,7 +304,7 @@ tilesWith = 10
 tilesHeight = 8
 
 [node name="Player" parent="." instance=ExtResource("3_no2du")]
-position = Vector2(75.1422, 397.567)
+position = Vector2(88, 400)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_dwsbg")]
 position = Vector2(944, 105)

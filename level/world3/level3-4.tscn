@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b6w3decyhh2tv"]
+[gd_scene load_steps=37 format=3 uid="uid://b6w3decyhh2tv"]
 
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="1_2mg4t"]
 [ext_resource type="Script" path="res://level/levels.gd" id="1_feejb"]
@@ -85,6 +85,9 @@ size = Vector2(999.997, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtp6h"]
 size = Vector2(307, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttc1t"]
+size = Vector2(250, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v26m3"]
 size = Vector2(20, 351)
@@ -357,6 +360,10 @@ shape = SubResource("RectangleShape2D_st0er")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(4632, 655)
 shape = SubResource("RectangleShape2D_rtp6h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldEnd"]
+position = Vector2(3131, 600)
+shape = SubResource("RectangleShape2D_ttc1t")
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 

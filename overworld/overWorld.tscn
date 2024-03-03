@@ -4109,13 +4109,6 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_3bquv"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2.00012, 2, 0, 0, 0, 0, -252, 60)
-}
-point_count = 2
-
 [sub_resource type="Curve2D" id="Curve2D_mapc7"]
 resource_local_to_scene = true
 _data = {
@@ -4136,6 +4129,13 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 90, 4, 0, 0, 0, 0, 133, -68)
 }
 point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_3bquv"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2.00012, 2, 0, 0, 0, 0, -252, 60)
+}
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_kwngv"]
 resource_local_to_scene = true
@@ -4740,11 +4740,6 @@ position = Vector2(844, -627)
 
 [node name="Ducks" type="Node2D" parent="World4 - Cave"]
 
-[node name="Duck4" parent="World4 - Cave/Ducks" instance=ExtResource("10_1f0eq")]
-position = Vector2(1096, -694)
-curve = SubResource("Curve2D_3bquv")
-flipH = true
-
 [node name="Duck1" parent="World4 - Cave/Ducks" instance=ExtResource("10_1f0eq")]
 position = Vector2(746, -393)
 curve = SubResource("Curve2D_mapc7")
@@ -4757,6 +4752,11 @@ flipH = true
 [node name="Duck3" parent="World4 - Cave/Ducks" instance=ExtResource("10_1f0eq")]
 position = Vector2(696, -567)
 curve = SubResource("Curve2D_gngyt")
+
+[node name="Duck4" parent="World4 - Cave/Ducks" instance=ExtResource("10_1f0eq")]
+position = Vector2(1096, -694)
+curve = SubResource("Curve2D_3bquv")
+flipH = true
 
 [node name="ui" type="Control" parent="World4 - Cave"]
 layout_mode = 3
@@ -5285,7 +5285,7 @@ enabled = false
 zoom = Vector2(2, 2)
 
 [node name="PlayerOverWorld" parent="." instance=ExtResource("4_8spb5")]
-position = Vector2(249, 288)
+position = Vector2(250, 288)
 
 [node name="ScreenshotCamera" type="Camera2D" parent="."]
 position = Vector2(243, 272)

@@ -251,7 +251,7 @@ shader = ExtResource("8_bype2")
 shader_parameter/circle_size = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1rr"]
-size = Vector2(8, 18.5)
+size = Vector2(8, 19.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmf5s"]
 size = Vector2(13, 7)
@@ -372,7 +372,7 @@ layer = -1
 material = SubResource("ShaderMaterial_kx1s4")
 
 [node name="normalCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.75)
+position = Vector2(0, 6.375)
 shape = SubResource("RectangleShape2D_5v1rr")
 
 [node name="crawlCollision" type="CollisionShape2D" parent="."]

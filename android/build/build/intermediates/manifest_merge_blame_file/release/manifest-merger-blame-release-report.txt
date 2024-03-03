@@ -1,8 +1,8 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.example.foxadventure"
+3    package="com.foxadventure"
 4    android:installLocation="auto"
-5    android:versionCode="1"
+5    android:versionCode="2"
 6    android:versionName="1.0.0" >
 7
 8    <uses-sdk
@@ -110,7 +110,7 @@
 65-->[godot-lib.template_release.aar] C:\Users\domin\.gradle\caches\transforms-3\bce0b6f33e6a5d0c9706dbd1003ff54d\transformed\jetified-godot-lib.template_release\AndroidManifest.xml:26:9-34:20
 66            android:name="androidx.core.content.FileProvider"
 66-->[godot-lib.template_release.aar] C:\Users\domin\.gradle\caches\transforms-3\bce0b6f33e6a5d0c9706dbd1003ff54d\transformed\jetified-godot-lib.template_release\AndroidManifest.xml:27:13-62
-67            android:authorities="com.example.foxadventure.fileprovider"
+67            android:authorities="com.foxadventure.fileprovider"
 67-->[godot-lib.template_release.aar] C:\Users\domin\.gradle\caches\transforms-3\bce0b6f33e6a5d0c9706dbd1003ff54d\transformed\jetified-godot-lib.template_release\AndroidManifest.xml:28:13-64
 68            android:exported="false"
 68-->[godot-lib.template_release.aar] C:\Users\domin\.gradle\caches\transforms-3\bce0b6f33e6a5d0c9706dbd1003ff54d\transformed\jetified-godot-lib.template_release\AndroidManifest.xml:29:13-37

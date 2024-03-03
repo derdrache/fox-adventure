@@ -413,7 +413,7 @@ position = Vector2(26.4873, 181)
 shape = SubResource("RectangleShape2D_ievim")
 
 [node name="Player" parent="." instance=ExtResource("3_66tec")]
-position = Vector2(80, 273)
+position = Vector2(2698.42, -109.121)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_6mkfb")]
 position = Vector2(865, 425)

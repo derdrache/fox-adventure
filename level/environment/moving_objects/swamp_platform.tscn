@@ -23,7 +23,7 @@ region_enabled = true
 region_rect = Rect2(192, 0, 96, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwampPlatformBody"]
-position = Vector2(0, -7.5)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_miylj")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
