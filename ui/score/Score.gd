@@ -42,7 +42,6 @@ func _show_score_board():
 	var goldCoinProcent = goldCoins * 100 / totalMaxScore
 	var redCoinProcent = redCoins * 100 / totalMaxScore
 	var gemsProcent = gems * 100 / totalMaxScore
-	var catsProcent = catCount * 100 / totalMaxScore
 	
 	var endTimeInSeconds = Time.get_unix_time_from_datetime_dict(LevelManager.endTime)
 	var startTimeInSeconds = Time.get_unix_time_from_datetime_dict(LevelManager.startTime)
@@ -51,15 +50,15 @@ func _show_score_board():
 	timeLabel.text = HelperFunctions.time_convert(timeDifference, "minutes")
 	
 	await _gold_coin_animation(goldCoins,  goldCoinsMax)
-	await _number_animation(redCoinLabel, redCoins, totalMaxScore)
-	await _number_animation(gemLabel, gems, totalMaxScore)
+	await _number_animation(redCoinLabel, redCoins)
+	await _number_animation(gemLabel, gems)
 	await _cat_animation(cats)
 
 	totalScoreEndLabel.text = str(totalScore * 100 / totalMaxScore) + "%"
 	
 
 
-func _number_animation(label, number, totalScore):
+func _number_animation(label, number):
 	for i in number +1:
 		label.text = str(i) + " / 5"
 		await get_tree().create_timer(0.1).timeout
@@ -76,7 +75,7 @@ func _cat_animation(cats):
 		if cats[i]:
 			catCounter += 1
 			var path = catRect + str(i+1)
-			var catRect = get_node(path)		
-			catRect.set_modulate(Color(1,1,1))
+			var catNode = get_node(path)		
+			catNode.set_modulate(Color(1,1,1))
 		await get_tree().create_timer(0.25).timeout	
 

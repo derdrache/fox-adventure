@@ -36,10 +36,10 @@ func _ready():
 	
 	_set_random_cat_color()
 
-func _process(delta):
+func _process(_delta):
 	if !isWaiting: _random_meow()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if target == null: 
 		animationSprite.play("walk")
 		isWaiting = false
@@ -55,16 +55,15 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	_set_animation()
+
 	
 func _calculate_velocity():
-	
 	if isWaiting: return
 
 	var targetPosition = target.global_position - Vector2(0, -9)
 	var direction = (targetPosition - global_position).normalized()
-
-	if global_position.distance_to(targetPosition) > 40  * followPosition:
+	
+	if global_position.distance_to(targetPosition) > 80  * followPosition:
 		velocity = direction * (MAX_SPEED + speed)
 		if !target.onEagle: velocity.y *= 3		
 	elif global_position.distance_to(targetPosition) > 20  * followPosition:
@@ -76,12 +75,20 @@ func _calculate_velocity():
 	elif (global_position.y - targetPosition.y) < -0.3 || (global_position.y - targetPosition.y) > 0.3:
 		pass
 	else: velocity = Vector2.ZERO
-	
+
 	if target.rampType != null:
-		if target.rampType == "rampLeft" && target.velocity.x > 0: velocity *= 0.9
-		elif target.rampType == "rampRight" && target.velocity.x < 0: velocity *= 0.9
+		if target.rampType == "rampLeft" && target.velocity.x > 0: velocity *= 0.5
+		elif target.rampType == "rampRight" && target.velocity.x < 0: velocity *= 0.5
+		
+	if target.movingObjectSpeed != null:
+		global_position = target.global_position - Vector2(0, -9)
+		velocity = Vector2.ZERO
+		_set_animation(target.velocity)
+	else:
+		_set_animation(velocity)
 	
-func _set_animation():
+
+func _set_animation(velocity):
 	if isWaiting || target.velocity == Vector2.ZERO: 
 		animationSprite.play("idle")
 		return
@@ -91,17 +98,10 @@ func _set_animation():
 	if velocity.x > 0: animationSprite.flip_h = false
 	elif velocity.x < 0: animationSprite.flip_h = true
 	
-	var not_on_floor = (position.y - targetPosition.y) < -2 || (position.y - targetPosition.y) > 2
-	
-	if not target.is_on_floor() || not_on_floor:
-		if targetPosition.y < position.y: animationSprite.play("jumpUp")
-		else: animationSprite.play("jumpDown")
-	elif velocity != Vector2.ZERO:
-		animationSprite.play("walk")
+	if velocity != Vector2.ZERO: animationSprite.play("walk")
 	else: animationSprite.play("idle")
-
+	
 func _set_random_cat_color():
-	var rng = RandomNumberGenerator.new()
 	var randomNumber = rng.randi_range(0, len(catColorArray)-1)
 	
 	animationSprite = catColorArray[randomNumber]

@@ -774,7 +774,7 @@ position = Vector2(5528, 206)
 shape = SubResource("RectangleShape2D_r45yg")
 
 [node name="Player" parent="." instance=ExtResource("4_rv5bl")]
-position = Vector2(56, 256)
+position = Vector2(52, 253)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_wg7e2")]
 position = Vector2(597, 137)

@@ -8,7 +8,7 @@
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmkh2"]
-size = Vector2(96, 15.5)
+size = Vector2(96, 16)
 
 [node name="BeachPlatform" type="Path2D"]
 curve = SubResource("Curve2D_phsli")
@@ -22,7 +22,7 @@ texture = ExtResource("2_mhuih")
 region_rect = Rect2(0, 128, 96, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeachPlatformBody"]
-position = Vector2(1, -7.75)
+position = Vector2(1, -8)
 shape = SubResource("RectangleShape2D_vmkh2")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]

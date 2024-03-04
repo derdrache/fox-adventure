@@ -16,7 +16,7 @@ func _ready():
 	await get_tree().create_timer(0.1).timeout
 	set_physics_process(true)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction = Vector2.ZERO
 	
 	direction = (navigator.get_next_path_position() - global_position).normalized()

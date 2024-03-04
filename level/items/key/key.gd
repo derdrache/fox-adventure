@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 var speed = 100
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	speed = target.speed
 	if !isWaiting && !target.hasKey: queue_free()
 	

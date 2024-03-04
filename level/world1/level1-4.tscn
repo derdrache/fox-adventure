@@ -457,7 +457,7 @@ navigation_polygon = SubResource("NavigationPolygon_nwv23")
 navigation_polygon = SubResource("NavigationPolygon_2ws6n")
 
 [node name="Player" parent="." instance=ExtResource("2_shwbj")]
-position = Vector2(48, 592)
+position = Vector2(44, 592)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_pk0sr")]
 position = Vector2(1529, 601)
