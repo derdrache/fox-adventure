@@ -34,9 +34,6 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogrf3"]
-size = Vector2(2903.5, 99)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0mlj"]
 size = Vector2(48, 40)
 
@@ -54,6 +51,9 @@ size = Vector2(48, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hs5cp"]
 size = Vector2(31, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogrf3"]
+size = Vector2(2903.5, 99)
 
 [node name="Level1-1" type="Node2D"]
 script = ExtResource("1_betlj")
@@ -267,101 +267,103 @@ position = Vector2(2048, 624)
 tilesWith = 3
 tilesHeight = 1
 
+[node name="Guides" type="Node2D" parent="."]
+
+[node name="GuideMessage" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(1192, 618)
+messageTexture = ExtResource("17_0263a")
+messageTexture2 = ExtResource("18_fh30c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage"]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_b0mlj")
+
+[node name="GuideMessage222" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(2085, 617)
+messageTexture = ExtResource("17_0263a")
+messageTexture2 = ExtResource("18_fh30c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage222"]
+position = Vector2(0, -37)
+shape = SubResource("RectangleShape2D_xuycg")
+
+[node name="GuideMessage7" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(3383, 633)
+messageTexture = ExtResource("17_0263a")
+messageTexture2 = ExtResource("18_7iebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage7"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_wkur3")
+
+[node name="GuideMessage8" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(3063, 473)
+messageTexture = ExtResource("17_0263a")
+messageTexture2 = ExtResource("18_7iebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage8"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_wkur3")
+
+[node name="GuideMessage5" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(2088, 632)
+messageTexture = ExtResource("17_0263a")
+messageTexture2 = ExtResource("18_7iebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage5"]
+shape = SubResource("RectangleShape2D_wkur3")
+
+[node name="GuideMessage4" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(3064, 458)
+messageTexture = ExtResource("17_0263a")
+messageTexture2 = ExtResource("18_fh30c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage4"]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_exad4")
+
+[node name="GuideMessage10" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(3382, 618)
+messageTexture = ExtResource("17_0263a")
+messageTexture2 = ExtResource("18_fh30c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage10"]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_exad4")
+
+[node name="GuideMessage3" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(2680, 433)
+messageTexture = ExtResource("20_xmxkl")
+messageTexture2 = ExtResource("20_8l7wh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage3"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_kv24h")
+
+[node name="GuideMessage6" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(3729, 585)
+messageTexture = ExtResource("20_xmxkl")
+messageTexture2 = ExtResource("20_8l7wh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage6"]
+position = Vector2(-8.5, -9.5)
+shape = SubResource("RectangleShape2D_hs5cp")
+
+[node name="GuideMessage9" parent="Guides" instance=ExtResource("18_ayohq")]
+position = Vector2(1182, 746)
+messageTexture = ExtResource("20_xmxkl")
+messageTexture2 = ExtResource("20_8l7wh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guides/GuideMessage9"]
+position = Vector2(2, -9)
+shape = SubResource("RectangleShape2D_hs5cp")
+
 [node name="WorldEnd" parent="." instance=ExtResource("16_seo3y")]
 position = Vector2(723, 453)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldEnd"]
 position = Vector2(4597, -28)
 shape = SubResource("RectangleShape2D_ogrf3")
-
-[node name="GuideMessage" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(1192, 618)
-messageTexture = ExtResource("17_0263a")
-messageTexture2 = ExtResource("18_fh30c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage"]
-position = Vector2(0, -30)
-shape = SubResource("RectangleShape2D_b0mlj")
-
-[node name="GuideMessage222" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(2085, 617)
-messageTexture = ExtResource("17_0263a")
-messageTexture2 = ExtResource("18_fh30c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage222"]
-position = Vector2(0, -37)
-shape = SubResource("RectangleShape2D_xuycg")
-
-[node name="GuideMessage7" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(3383, 633)
-messageTexture = ExtResource("17_0263a")
-messageTexture2 = ExtResource("18_7iebn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage7"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_wkur3")
-
-[node name="GuideMessage8" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(3063, 473)
-messageTexture = ExtResource("17_0263a")
-messageTexture2 = ExtResource("18_7iebn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage8"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_wkur3")
-
-[node name="GuideMessage5" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(2088, 632)
-messageTexture = ExtResource("17_0263a")
-messageTexture2 = ExtResource("18_7iebn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage5"]
-shape = SubResource("RectangleShape2D_wkur3")
-
-[node name="GuideMessage4" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(3064, 458)
-messageTexture = ExtResource("17_0263a")
-messageTexture2 = ExtResource("18_fh30c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage4"]
-position = Vector2(0, -30)
-shape = SubResource("RectangleShape2D_exad4")
-
-[node name="GuideMessage10" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(3382, 618)
-messageTexture = ExtResource("17_0263a")
-messageTexture2 = ExtResource("18_fh30c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage10"]
-position = Vector2(0, -30)
-shape = SubResource("RectangleShape2D_exad4")
-
-[node name="GuideMessage3" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(2680, 433)
-messageTexture = ExtResource("20_xmxkl")
-messageTexture2 = ExtResource("20_8l7wh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage3"]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_kv24h")
-
-[node name="GuideMessage6" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(3729, 585)
-messageTexture = ExtResource("20_xmxkl")
-messageTexture2 = ExtResource("20_8l7wh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage6"]
-position = Vector2(-8.5, -9.5)
-shape = SubResource("RectangleShape2D_hs5cp")
-
-[node name="GuideMessage9" parent="." instance=ExtResource("18_ayohq")]
-position = Vector2(1182, 746)
-messageTexture = ExtResource("20_xmxkl")
-messageTexture2 = ExtResource("20_8l7wh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuideMessage9"]
-position = Vector2(2, -9)
-shape = SubResource("RectangleShape2D_hs5cp")
 
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
 position = Vector2(28, 496)

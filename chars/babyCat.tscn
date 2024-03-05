@@ -257,7 +257,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rf3p7"]
@@ -460,7 +460,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -499,7 +499,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywvuy"]
@@ -781,14 +781,14 @@ script = ExtResource("1_ll2a6")
 
 [node name="whiteCat" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xh83l")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="yellowCat" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_yfp1m")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="blackCat" type="AnimatedSprite2D" parent="."]
@@ -802,9 +802,8 @@ autoplay = "idle"
 visible = false
 position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_2jcs7")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.354417
 
 [node name="blueCat" type="AnimatedSprite2D" parent="."]
 visible = false

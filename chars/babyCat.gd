@@ -92,8 +92,6 @@ func _set_animation(velocity):
 	if isWaiting || target.velocity == Vector2.ZERO: 
 		animationSprite.play("idle")
 		return
-	
-	var targetPosition = target.position - Vector2(0, -9)
 
 	if velocity.x > 0: animationSprite.flip_h = false
 	elif velocity.x < 0: animationSprite.flip_h = true

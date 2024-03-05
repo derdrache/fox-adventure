@@ -7,7 +7,6 @@
 script = ExtResource("1_i5jfy")
 
 [node name="ShortMessageBox" parent="." instance=ExtResource("1_i5aoe")]
-visible = false
 offset_left = -3.0
 offset_top = 1.0
 offset_right = 37.0
