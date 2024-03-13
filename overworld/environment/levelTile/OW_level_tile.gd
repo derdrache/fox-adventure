@@ -16,6 +16,7 @@ func set_level_full_done():
 
 func _on_body_entered(body):
 	if body is PlayerOverworld && levelDetails:
+		LevelManager.levelTilePosition = global_position + Vector2(1,-8)
 		levelDetails.visible = true
 
 

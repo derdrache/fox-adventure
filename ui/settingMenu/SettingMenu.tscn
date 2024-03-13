@@ -76,7 +76,7 @@ focus_neighbor_bottom = NodePath("../../Sound Effects/SoundEffectSlider")
 focus_next = NodePath("../../Sound Effects/SoundEffectSlider")
 focus_previous = NodePath("../../Sound Effects/SoundEffectSlider")
 min_value = -25.0
-max_value = 25.0
+max_value = 10.0
 
 [node name="Sound Effects" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
@@ -101,7 +101,7 @@ focus_neighbor_bottom = NodePath("../../Background Music/BackgroundMusicSlider")
 focus_next = NodePath("../../Background Music/BackgroundMusicSlider")
 focus_previous = NodePath("../../Background Music/BackgroundMusicSlider")
 min_value = -25.0
-max_value = 25.0
+max_value = 10.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_vh17k")

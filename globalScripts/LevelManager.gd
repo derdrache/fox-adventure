@@ -11,12 +11,12 @@ var goldCoins : int
 var maxGoldCoins : int
 var activeLevel : int
 var activeLevelName: String
-var activeLevelPosition : Vector2
 var levelCleared = false
 var levelNewClear : bool
 var catArray: Array = [false, false, false]
 var startTime
 var endTime
+var levelTilePosition
 
 
 func gain_gem(newGem:int):
@@ -35,14 +35,13 @@ func gain_cat(catNumber: int):
 	catArray[catNumber-1] = true
 	emit_signal("gained_cat", catArray)
 
-func set_level(level : int, position: Vector2, levelName):
+func set_level(level : int, levelName):
 	reset_all_stats()
 
 	startTime = Time.get_datetime_dict_from_system()
 	maxGoldCoins = GameManager.levelMaxGoldCoins[str(level)]
 	activeLevelName = levelName
 	activeLevel = level
-	activeLevelPosition = position
 	
 func level_done():
 	if activeLevel < 0: print("error level -1")
@@ -54,9 +53,9 @@ func level_done():
 	_save_items()
 
 	if !levelFinished: levelNewClear = true
-	
+
 	GameManager.change_level_status("isFinished", activeLevel, true)
-	GameManager.save_player_position_and_time(activeLevelPosition)
+	GameManager.save_player_position_and_time(levelTilePosition)
 	
 	Utils.save_game()
 
@@ -96,6 +95,7 @@ func reset_all_stats():
 	goldCoins = 0
 	activeLevel = 0
 	activeLevelName = ""
+	levelTilePosition
 	levelCleared = false
 	levelNewClear = false
 	catArray = [false, false, false]

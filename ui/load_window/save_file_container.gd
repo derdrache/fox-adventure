@@ -8,8 +8,11 @@ extends PanelContainer
 
 @onready var headerLabel = $VBoxContainer/Header/PanelContainer/HBoxContainer/LoadCount/PanelContainer/Label
 
+signal deleteGame
+
 var touchCanFire = true
 var isLoaded = false
+
 
 func _ready():
 	if DisplayServer.is_touchscreen_available(): 
@@ -73,6 +76,7 @@ func _on_start_game_touch_button_released():
 
 func _on_yes_button_pressed():
 	Utils.delete_game(gameNumber)
+	deleteGame.emit()
 	queue_free()
 
 

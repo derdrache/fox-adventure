@@ -53,8 +53,10 @@ var movingObjectSpeed
 var onEagle = false
 var rampType
 var levelEnd = false
+var playerStartPosition
 
 func _ready():
+	playerStartPosition = global_position
 	$MobileControlUi.visible = true
 	$LevelUI.visible = true
 	Utils.load_game("settings")
@@ -69,8 +71,14 @@ func _process(_delta):
 	
 	if "ramp" in get_tile_data("bottom"):
 		rampType = get_tile_data("bottom")
+		
+	_emergency_rescue()
 
 func _physics_process(delta):
+	if levelEnd: 
+		playerAnimation.play("idle")
+		return
+		
 	_get_moving_object_speed()
 	
 	if is_on_floor(): doStomp = false
@@ -100,15 +108,10 @@ func _physics_process(delta):
 		STOMP: stomp_state(delta)
 		SLIDE: slide_state(delta)
 	
-	if levelEnd: 
-		direction.x = 0
-		velocity.x = 0
-	
 	animation_state()
 	
 	_change_collider()
 
-	
 
 	move_and_slide()
 	
@@ -544,3 +547,7 @@ func circle_transition(direction, duration):
 
 func level_end():
 	levelEnd = true
+
+func _emergency_rescue():
+	if global_position.y > 10000:
+		global_position = playerStartPosition

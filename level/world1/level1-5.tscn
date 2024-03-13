@@ -30,16 +30,16 @@ size = Vector2(561.75, 50)
 size = Vector2(115.544, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31y0o"]
-size = Vector2(1224, 20)
+size = Vector2(1224, 63.339)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mtng"]
-size = Vector2(560, 33.339)
+size = Vector2(560, 64.6695)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvrvm"]
-size = Vector2(304.455, 20)
+size = Vector2(304.455, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ap6"]
-size = Vector2(2448, 20)
+size = Vector2(2448, 147.774)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyhfm"]
 size = Vector2(53, 959)
@@ -99,19 +99,19 @@ position = Vector2(5520, 226)
 shape = SubResource("RectangleShape2D_y4apb")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(1708, 674.661)
+position = Vector2(1708, 696.331)
 shape = SubResource("RectangleShape2D_31y0o")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(6376, 240)
+position = Vector2(6376, 255.665)
 shape = SubResource("RectangleShape2D_8mtng")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(6408.23, 12)
+position = Vector2(6408.23, 25)
 shape = SubResource("RectangleShape2D_kvrvm")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="WorldEnd"]
-position = Vector2(8544, 150.226)
+position = Vector2(8544, 214.113)
 shape = SubResource("RectangleShape2D_t3ap6")
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]

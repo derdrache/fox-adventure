@@ -57,7 +57,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mjol"]
-size = Vector2(9, 49.5)
+size = Vector2(9, 175.5)
 
 [node name="Goal" type="Area2D"]
 script = ExtResource("1_yxub4")
@@ -70,7 +70,7 @@ animation = &"new"
 autoplay = "new"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10.5, 0.75)
+position = Vector2(10.5, -62.25)
 shape = SubResource("RectangleShape2D_6mjol")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
