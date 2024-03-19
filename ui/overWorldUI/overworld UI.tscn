@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxec7dx2y5mlt"]
+[gd_scene load_steps=9 format=3 uid="uid://bxec7dx2y5mlt"]
 
 [ext_resource type="Script" path="res://ui/overWorldUI/overworld UI.gd" id="1_d4etb"]
 [ext_resource type="Texture2D" uid="uid://p1of5lj6w0tl" path="res://asset/ui/Icon_Menu.png" id="1_ntu1n"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/Button_normal.png" id="3_ahmor"]
 [ext_resource type="PackedScene" uid="uid://ug6dcwplmet0" path="res://ui/settingMenu/SettingMenu.tscn" id="5_f8ggd"]
 [ext_resource type="Texture2D" uid="uid://do43xfipjh5bc" path="res://asset/ui/Button_focus.png" id="6_yd1l3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5bjo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="OverworldUI" type="CanvasLayer"]
 layer = 0
@@ -40,54 +43,47 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 30.0
 grow_horizontal = 2
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
 
-[node name="MenuButton" type="TextureButton" parent="Control/MenuButtonContainer"]
+[node name="MenuButtonIcon" type="TextureRect" parent="Control/MenuButtonContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="Control/MenuButtonContainer/MenuButton"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -129.0
-offset_top = 21.0
-offset_right = 64.0
-offset_bottom = 178.0
-grow_horizontal = 0
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ntu1n")
 expand_mode = 1
 
-[node name="CloseButtonMenu" type="MarginContainer" parent="Control"]
-visible = false
+[node name="MenuButton" type="Button" parent="Control/MenuButtonContainer/MenuButtonIcon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_b5bjo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b5bjo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b5bjo")
 
-[node name="CloseButton" type="TextureButton" parent="Control/CloseButtonMenu"]
+[node name="CloseButtonIcon" type="TextureRect" parent="Control/MenuButtonContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/CloseButtonMenu/CloseButton"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -48.0
-offset_right = 145.0
-offset_bottom = 157.0
-grow_horizontal = 0
-scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 0
 texture = ExtResource("3_1yawe")
 expand_mode = 1
+
+[node name="CloseButton" type="Button" parent="Control/MenuButtonContainer/CloseButtonIcon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_b5bjo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b5bjo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b5bjo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 visible = false
@@ -177,8 +173,8 @@ text = "Quit"
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="Control/MenuButtonContainer/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="Control/CloseButtonMenu/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Control/MenuButtonContainer/MenuButtonIcon/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Control/MenuButtonContainer/CloseButtonIcon/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="close_window" from="Control/SettingMenu" to="." method="_on_setting_menu_close_window"]

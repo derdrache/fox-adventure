@@ -49,8 +49,8 @@ void fragment() {
 		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
 			COLOR.a = 0.0;
 		} else {
-			COLOR = texture(TEXTURE, uv);
-			
+			COLOR *= texture(TEXTURE, uv);
+			COLOR.rgb = mix(vec3(0.0), COLOR.rgb, 1.4);
 		}
 	} else {
 		COLOR = texture(TEXTURE, uv);

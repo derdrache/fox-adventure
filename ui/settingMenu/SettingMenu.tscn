@@ -22,7 +22,7 @@ theme = ExtResource("1_xnspw")
 script = ExtResource("1_nxojf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(600, 250)
+custom_minimum_size = Vector2(600, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,24 +41,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -186.5
-offset_top = -33.0
-offset_right = 186.5
-offset_bottom = 33.0
+offset_left = -231.0
+offset_top = -60.0
+offset_right = 231.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 40
 
-[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/VBoxContainer"]
+[node name="Background Music" type="VBoxContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
-
-[node name="Background Music" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 70
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer/Background Music"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
@@ -78,13 +74,12 @@ focus_previous = NodePath("../../Sound Effects/SoundEffectSlider")
 min_value = -25.0
 max_value = 10.0
 
-[node name="Sound Effects" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+[node name="Sound Effects" type="VBoxContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer/Sound Effects"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
@@ -127,9 +122,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -48.0
-offset_right = 145.0
-offset_bottom = 157.0
+offset_left = -10.3333
+offset_top = -61.6667
+offset_right = 182.667
+offset_bottom = 95.3333
 grow_horizontal = 0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_tk30n")

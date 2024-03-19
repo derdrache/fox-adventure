@@ -57,8 +57,7 @@ var playerStartPosition
 
 func _ready():
 	playerStartPosition = global_position
-	$MobileControlUi.visible = true
-	$LevelUI.visible = true
+	#$LevelUI.visible = true
 	Utils.load_game("settings")
 	_play_background_music()
 
@@ -71,6 +70,7 @@ func _process(_delta):
 	
 	if "ramp" in get_tile_data("bottom"):
 		rampType = get_tile_data("bottom")
+	else: rampType = ""
 		
 	_emergency_rescue()
 

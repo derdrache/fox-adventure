@@ -13,7 +13,7 @@ func _process(_delta):
 	elif not closed: doorSprite.frame = 1
 	
 func _input(event):	
-	if event.is_action_pressed("move_up") && not closed && playerIn:
+	if (event.is_action_pressed("move_up") || event.is_action_pressed("ui_accept")) && not closed && playerIn:
 		if !playerBody.is_physics_processing(): return
 		
 		playerBody.circle_transition("out", 1)

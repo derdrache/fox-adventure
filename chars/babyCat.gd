@@ -62,7 +62,7 @@ func _calculate_velocity():
 
 	var targetPosition = target.global_position - Vector2(0, -9)
 	var direction = (targetPosition - global_position).normalized()
-	
+
 	if global_position.distance_to(targetPosition) > 80  * followPosition:
 		velocity = direction * (MAX_SPEED + speed)
 		if !target.onEagle: velocity.y *= 3		
@@ -86,7 +86,7 @@ func _calculate_velocity():
 		_set_animation(target.velocity)
 	else:
 		_set_animation(velocity)
-	
+
 
 func _set_animation(velocity):
 	if isWaiting || target.velocity == Vector2.ZERO: 

@@ -78,8 +78,6 @@ layer_1/tile_data = PackedInt32Array(2097152, 65536, 1, 2097153, 196608, 1, 2097
 
 [node name="envoirnment" type="Node2D" parent="."]
 
-[node name="doorSets" type="Node2D" parent="envoirnment"]
-
 [node name="Goal" parent="envoirnment" instance=ExtResource("5_88kff")]
 position = Vector2(4766, 295)
 

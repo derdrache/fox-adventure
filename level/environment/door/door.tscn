@@ -26,7 +26,6 @@ stream = ExtResource("3_ibya8")
 bus = &"SoundEffect"
 
 [node name="ShortMessageBox" parent="." instance=ExtResource("4_uyumd")]
-visible = false
 messageTexture = ExtResource("5_wgs3p")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

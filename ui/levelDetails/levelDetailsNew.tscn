@@ -24,10 +24,10 @@ corner_radius_bottom_left = 10
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnwoa"]
-size = Vector2(200, 55)
+size = Vector2(200, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svw61"]
-size = Vector2(160, 50)
+size = Vector2(150, 50)
 
 [node name="LevelDetailsNew" type="Control"]
 top_level = true
@@ -43,10 +43,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_gcs0h")
 script = ExtResource("1_oxweo")
-level_name = null
-level = null
-levelPath = null
-maxGoldCoins = null
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -106,6 +102,31 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "20 %"
+
+[node name="Cats" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="cat1" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Cats"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(25, 20)
+layout_mode = 2
+texture = ExtResource("3_dmx8g")
+expand_mode = 2
+
+[node name="cat2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Cats"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(25, 20)
+layout_mode = 2
+texture = ExtResource("3_dmx8g")
+expand_mode = 2
+
+[node name="cat3" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Cats"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(25, 20)
+layout_mode = 2
+texture = ExtResource("3_dmx8g")
+expand_mode = 2
 
 [node name="LevelDetails" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 visible = false
@@ -183,31 +204,6 @@ layout_mode = 2
 texture = ExtResource("2_341hl")
 expand_mode = 2
 
-[node name="Cats" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LevelDetails"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="cat1" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/LevelDetails/Cats"]
-modulate = Color(0, 0, 0, 1)
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-texture = ExtResource("3_dmx8g")
-expand_mode = 2
-
-[node name="cat2" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/LevelDetails/Cats"]
-modulate = Color(0, 0, 0, 1)
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-texture = ExtResource("3_dmx8g")
-expand_mode = 2
-
-[node name="cat3" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/LevelDetails/Cats"]
-modulate = Color(0, 0, 0, 1)
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-texture = ExtResource("3_dmx8g")
-expand_mode = 2
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/LevelDetails"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -231,13 +227,13 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxFlat_f40j3")
 
 [node name="enterLevel1" type="TouchScreenButton" parent="PanelContainer/MarginContainer"]
-position = Vector2(97, 55)
+position = Vector2(98, 75)
 scale = Vector2(1, 0.6)
 shape = SubResource("RectangleShape2D_wnwoa")
 action = "ui_accept"
 
 [node name="enterLevel2" type="TouchScreenButton" parent="PanelContainer/MarginContainer"]
-position = Vector2(77, 19)
+position = Vector2(72, 20)
 scale = Vector2(1, 0.88)
 shape = SubResource("RectangleShape2D_svw61")
 action = "ui_accept"

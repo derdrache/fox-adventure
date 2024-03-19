@@ -6,10 +6,6 @@ class_name PlayerOverworld
 @export var blockMovement = false
 
 const SPEED = 70
-const DIALOG_LINES: Array[String] = [
-	"Oh Wow",
-	"Ich kann sprechen!",
-]
 const TILE_ABOVE_ADJUSTMENT = Vector2(0, 12)	
 const TILE_UNDER_ADJUSTMENT = Vector2(0,-12)
 const TILE_LEFT_ADJUSTMENT = Vector2(12, 0)

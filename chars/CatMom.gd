@@ -8,9 +8,12 @@ signal game_done
 @onready var animationSprite = $PathFollow2D/CatMomBody/AnimatedSprite2D
 @onready var pathFollow = $PathFollow2D
 
+@export var guideCat = false
 @export var catsFounded = 0
 @export var world = -1
 @export var flipMessageBox = false
+
+signal guideCatDone
 
 const maxCats = 18
 const MOVESPEED = 1
@@ -20,6 +23,12 @@ var direction = Vector2.ZERO
 
 func _ready():
 	add_to_group("catMoms")
+	
+	if guideCat:
+		messageBox.visible = true
+		await get_tree().create_timer(2).timeout
+		messageBox.visible = false
+		done = true
 
 func _process(_delta):
 	_set_founded_cats_label()
@@ -32,7 +41,9 @@ func _physics_process(_delta):
 		direction = oldPosition - newPosition
 		_set_animation()
 
-	if pathFollow.progress_ratio == 1: queue_free()
+	if pathFollow.progress_ratio == 1: 
+		if guideCat: guideCatDone.emit()
+		queue_free()
 
 func _clear_away():
 	messageBox.visible = false
@@ -43,10 +54,13 @@ func _set_founded_cats_label():
 	foundedCatsLabel.text = str(catsFounded) + " / " + str(maxCats)
 
 func _set_animation():
-	if direction.y > 0: animationSprite.play("run_up")
-	elif direction.y < 0: animationSprite.play("run_down")
-	elif direction.x < 0: animationSprite.play("run_right")
-	elif direction.x > 0: animationSprite.play("run_left")
+	var yBiggerThenX = abs(direction.y) > abs(direction.x)
+	var xBiggerThenY = abs(direction.x) > abs(direction.y)
+
+	if direction.y > 0 && yBiggerThenX: animationSprite.play("run_up")
+	elif direction.y < 0 && yBiggerThenX: animationSprite.play("run_down")
+	elif direction.x < 0 && xBiggerThenY : animationSprite.play("run_right")
+	elif direction.x > 0 && xBiggerThenY: animationSprite.play("run_left")
 
 func _game_done():
 	var allCatMoms = get_tree().get_nodes_in_group("catMoms")

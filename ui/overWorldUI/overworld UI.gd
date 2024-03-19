@@ -2,8 +2,8 @@ extends CanvasLayer
 
 @onready var controlNode : Control = $Control
 @onready var backgroundRect = $Control/ColorRect
-@onready var closeButtonRect = $Control/CloseButtonMenu
-@onready var menuButton = $Control/MenuButtonContainer
+@onready var closeButtonButton = $Control/MenuButtonContainer/CloseButtonIcon
+@onready var menuButton = $Control/MenuButtonContainer/MenuButtonIcon
 @onready var menuSelection = $Control/VBoxContainer
 
 signal openMenu
@@ -22,7 +22,7 @@ func _input(event):
 		
 
 func _on_close_button_pressed():
-	closeButtonRect.visible = false
+	closeButtonButton.visible = false
 	backgroundRect.visible = false
 	menuSelection.visible = false
 
@@ -33,7 +33,7 @@ func _on_menu_button_pressed():
 	controlNode.anchors_preset = 15
 	menuButton.visible = false
 	backgroundRect.visible = true
-	closeButtonRect.visible = true
+	closeButtonButton.visible = true
 	menuSelection.visible = true
 	openMenu.emit()
 	
@@ -44,14 +44,14 @@ func _on_setting_button_pressed():
 	$Control/SettingMenu.visible = true
 	layer = 10
 	menuSelection.visible = false
-	closeButtonRect.visible = false
+	closeButtonButton.visible = false
 	menuButton.visible = false
 
 
 func _on_setting_menu_close_window():
 	layer = 0
 	$Control/SettingMenu.visible = false
-	closeButtonRect.visible = true
+	closeButtonButton.visible = true
 	menuSelection.visible = true
 	menuButton.visible = false
 	$Control/VBoxContainer/SettingButton.grab_focus()

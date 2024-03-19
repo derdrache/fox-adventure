@@ -1,20 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjibcolu08tat"]
+[gd_scene load_steps=16 format=3 uid="uid://8u5y22g0gji1"]
 
-[ext_resource type="Script" path="res://ui/levelUI/LevelUI.gd" id="1_tddkm"]
-[ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="2_20pnj"]
-[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="2_e3uep"]
-[ext_resource type="Shader" path="res://asset/shader/outline_with_modulate.gdshader" id="3_q46qx"]
-[ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_rosf4"]
-[ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="5_drr2r"]
-[ext_resource type="Texture2D" uid="uid://p1of5lj6w0tl" path="res://asset/ui/Icon_Menu.png" id="6_57vlx"]
-[ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="6_d1kwq"]
-[ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="7_2cbvi"]
-[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/Button_normal.png" id="8_3f0j3"]
-[ext_resource type="PackedScene" uid="uid://ug6dcwplmet0" path="res://ui/settingMenu/SettingMenu.tscn" id="8_vejx6"]
-[ext_resource type="Texture2D" uid="uid://do43xfipjh5bc" path="res://asset/ui/Button_focus.png" id="10_t6esn"]
+[ext_resource type="Script" path="res://ui/levelUI/LevelUI.gd" id="1_rii2h"]
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="2_p2olj"]
+[ext_resource type="Shader" path="res://asset/shader/outline_with_modulate.gdshader" id="3_swfyv"]
+[ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="4_opot5"]
+[ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="5_wv2et"]
+[ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="6_xo5tj"]
+[ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="7_m2a3c"]
+[ext_resource type="Texture2D" uid="uid://p1of5lj6w0tl" path="res://asset/ui/Icon_Menu.png" id="8_hqbv5"]
+[ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="9_3b2yp"]
+[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/Button_normal.png" id="10_yo2uh"]
+[ext_resource type="Texture2D" uid="uid://do43xfipjh5bc" path="res://asset/ui/Button_focus.png" id="11_jb2vj"]
+[ext_resource type="PackedScene" uid="uid://ug6dcwplmet0" path="res://ui/settingMenu/SettingMenu.tscn" id="12_vl4ng"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1kl7s"]
-shader = ExtResource("3_q46qx")
+shader = ExtResource("3_swfyv")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/width = 1.0
 shader_parameter/pattern = 0
@@ -30,7 +30,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="LevelUI" type="CanvasLayer"]
 process_mode = 3
 layer = 3
-script = ExtResource("1_tddkm")
+script = ExtResource("1_rii2h")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -39,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_e3uep")
+theme = ExtResource("2_p2olj")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 visible = false
@@ -74,49 +74,6 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 50
 
-[node name="RedCoinContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="RedCoin1" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("5_drr2r")
-expand_mode = 1
-
-[node name="RedCoin2" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("5_drr2r")
-expand_mode = 1
-
-[node name="RedCoin3" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("5_drr2r")
-expand_mode = 1
-
-[node name="RedCoin4" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("5_drr2r")
-expand_mode = 1
-
-[node name="RedCoin5" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("5_drr2r")
-expand_mode = 1
-
 [node name="GemContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -127,7 +84,7 @@ modulate = Color(0, 0, 0, 0.0196078)
 material = SubResource("ShaderMaterial_1kl7s")
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
-texture = ExtResource("4_rosf4")
+texture = ExtResource("5_wv2et")
 expand_mode = 1
 
 [node name="Gem2" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
@@ -135,7 +92,7 @@ modulate = Color(0, 0, 0, 0.0196078)
 material = SubResource("ShaderMaterial_1kl7s")
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
-texture = ExtResource("4_rosf4")
+texture = ExtResource("5_wv2et")
 expand_mode = 1
 
 [node name="Gem3" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
@@ -143,7 +100,7 @@ modulate = Color(0, 0, 0, 0.0196078)
 material = SubResource("ShaderMaterial_1kl7s")
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
-texture = ExtResource("4_rosf4")
+texture = ExtResource("5_wv2et")
 expand_mode = 1
 
 [node name="Gem4" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
@@ -151,7 +108,7 @@ modulate = Color(0, 0, 0, 0.0196078)
 material = SubResource("ShaderMaterial_1kl7s")
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
-texture = ExtResource("4_rosf4")
+texture = ExtResource("5_wv2et")
 expand_mode = 1
 
 [node name="Gem5" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
@@ -159,51 +116,105 @@ modulate = Color(0, 0, 0, 0.0196078)
 material = SubResource("ShaderMaterial_1kl7s")
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
-texture = ExtResource("4_rosf4")
+texture = ExtResource("5_wv2et")
 expand_mode = 1
-
-[node name="CatContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="Cat1" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/CatContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(45, 36)
-layout_mode = 2
-texture = ExtResource("6_d1kwq")
-
-[node name="Cat2" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/CatContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(45, 36)
-layout_mode = 2
-texture = ExtResource("6_d1kwq")
-
-[node name="Cat3" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/CatContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(45, 36)
-layout_mode = 2
-texture = ExtResource("6_d1kwq")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 37
 
-[node name="GoldContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="RedCoinContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RedCoin1" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
+[node name="RedCoin2" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
+[node name="RedCoin3" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
+[node name="RedCoin4" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
+[node name="RedCoin5" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 37
+
+[node name="CatContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Cat1" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer3/CatContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(45, 36)
+layout_mode = 2
+texture = ExtResource("6_xo5tj")
+
+[node name="Cat2" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer3/CatContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(45, 36)
+layout_mode = 2
+texture = ExtResource("6_xo5tj")
+
+[node name="Cat3" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer3/CatContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(45, 36)
+layout_mode = 2
+texture = ExtResource("6_xo5tj")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 37
+
+[node name="GoldContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/GoldContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer4/GoldContainer"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
-texture = ExtResource("2_20pnj")
+texture = ExtResource("7_m2a3c")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/GoldContainer"]
+[node name="Label" type="Label" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer4/GoldContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -225,7 +236,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture = ExtResource("6_57vlx")
+texture = ExtResource("8_hqbv5")
 expand_mode = 1
 
 [node name="MenuButton" type="Button" parent="Control/FirstRow/MarginContainer2/menuOpenIcon"]
@@ -245,7 +256,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-texture = ExtResource("7_2cbvi")
+texture = ExtResource("9_3b2yp")
 expand_mode = 1
 
 [node name="MenuCloseButton" type="Button" parent="Control/FirstRow/MarginContainer2/MenuCloseIcon"]
@@ -283,10 +294,10 @@ focus_neighbor_right = NodePath("../ExitButton")
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../ExitButton")
-texture_normal = ExtResource("8_3f0j3")
-texture_pressed = ExtResource("8_3f0j3")
-texture_hover = ExtResource("8_3f0j3")
-texture_focused = ExtResource("10_t6esn")
+texture_normal = ExtResource("10_yo2uh")
+texture_pressed = ExtResource("10_yo2uh")
+texture_hover = ExtResource("10_yo2uh")
+texture_focused = ExtResource("11_jb2vj")
 
 [node name="Label" type="Label" parent="Control/MenuContainer/SettingButton"]
 layout_mode = 1
@@ -317,10 +328,10 @@ focus_neighbor_right = NodePath("../SettingButton")
 focus_neighbor_bottom = NodePath("../SettingButton")
 focus_next = NodePath("../SettingButton")
 focus_previous = NodePath("../SettingButton")
-texture_normal = ExtResource("8_3f0j3")
-texture_pressed = ExtResource("8_3f0j3")
-texture_hover = ExtResource("8_3f0j3")
-texture_focused = ExtResource("10_t6esn")
+texture_normal = ExtResource("10_yo2uh")
+texture_pressed = ExtResource("10_yo2uh")
+texture_hover = ExtResource("10_yo2uh")
+texture_focused = ExtResource("11_jb2vj")
 
 [node name="Label" type="Label" parent="Control/MenuContainer/ExitButton"]
 layout_mode = 1
@@ -341,7 +352,7 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 40
 text = "Leave"
 
-[node name="SettingMenu" parent="Control" instance=ExtResource("8_vejx6")]
+[node name="SettingMenu" parent="Control" instance=ExtResource("12_vl4ng")]
 visible = false
 layout_mode = 1
 

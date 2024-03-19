@@ -9,7 +9,7 @@ extends Control
 @onready var levelDetails = $PanelContainer/MarginContainer/VBoxContainer/LevelDetails
 @onready var gemPath = "PanelContainer/MarginContainer/VBoxContainer/LevelDetails/Gems/gem"
 @onready var redCoinPath = "PanelContainer/MarginContainer/VBoxContainer/LevelDetails/RedCoins/redCoin"
-@onready var catPath = "PanelContainer/MarginContainer/VBoxContainer/LevelDetails/Cats/cat"
+@onready var catPath = "PanelContainer/MarginContainer/VBoxContainer/Cats/cat"
 @onready var goldCoinLabel = $PanelContainer/MarginContainer/VBoxContainer/LevelDetails/HBoxContainer2/Label
 @onready var percentDoneLabel = $PanelContainer/MarginContainer/VBoxContainer/Label
 

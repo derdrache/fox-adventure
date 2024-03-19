@@ -87,3 +87,8 @@ func procent_done(allLevel = GameManager.levelDetails):
 					level["redCoins"] * 10 + catCount * 10) * 100 / (130 + level["maxGoldCoins"])
 	
 	return floor(procent / LEVEL_COUNT)
+
+func is_new_start():
+	for level in levelDetails:
+		if level["isFinished"]: return false
+	return true

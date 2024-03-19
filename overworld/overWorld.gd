@@ -67,6 +67,8 @@ var disableInteractions = []
 var cameraOnChange = false
 var duckInteraction = false
 
+
+
 func _input(event):
 	if event.is_action_pressed("ui_end"): print("ok")
 
@@ -94,8 +96,10 @@ func _ready():
 	_set_full_complete()
 	_check_interactions_disables()
 	_check_start_interactions()
+	
+	if GameManager.is_new_start(): showGuideCatMom()
 
-func _process(_delta):	
+func _process(_delta):
 	changeCamera()
 	
 	_all_cats_founded()
@@ -318,3 +322,11 @@ func _on_overworld_ui_open_menu():
 
 func _on_cat_mom_game_done():
 	_show_credits(true)
+
+func showGuideCatMom():
+	$"World1 - Wood/CatMom".visible = false
+	$"World1 - Wood/GuideCatMom".visible = true
+	$"World1 - Wood/GuideCatMom".guideCatDone.connect(guide_cat_done)
+
+func guide_cat_done():
+	$"World1 - Wood/CatMom".visible = true

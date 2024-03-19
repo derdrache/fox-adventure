@@ -1,0 +1,291 @@
+[gd_scene load_steps=12 format=3 uid="uid://cpcsa647gc2fb"]
+
+[ext_resource type="Script" path="res://ui/levelUI/LevelUI.gd" id="1_ghnpv"]
+[ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="2_njxty"]
+[ext_resource type="Texture2D" uid="uid://c0yubmwoidxd8" path="res://asset/ui/goldCoin.png" id="3_wibqt"]
+[ext_resource type="Texture2D" uid="uid://duyc66ghlyvjq" path="res://asset/ui/gem.png" id="4_qi3ur"]
+[ext_resource type="Texture2D" uid="uid://05lrthggrwfk" path="res://asset/ui/MonedaR.png" id="5_0n0ua"]
+[ext_resource type="Texture2D" uid="uid://p1of5lj6w0tl" path="res://asset/ui/Icon_Menu.png" id="6_00gpb"]
+[ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="7_ybueu"]
+[ext_resource type="Texture2D" uid="uid://ce20rr8rjyd62" path="res://asset/ui/cat ui test.png" id="8_ktkfy"]
+[ext_resource type="Texture2D" uid="uid://ru3pu1gvkecp" path="res://asset/ui/Button_normal.png" id="9_4mdos"]
+[ext_resource type="Texture2D" uid="uid://do43xfipjh5bc" path="res://asset/ui/Button_focus.png" id="10_hjlwm"]
+[ext_resource type="PackedScene" uid="uid://ug6dcwplmet0" path="res://ui/settingMenu/SettingMenu.tscn" id="11_tafi5"]
+
+[node name="LevelUI" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("1_ghnpv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_njxty")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.364706, 0.364706, 0.364706, 0.588235)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = -641.0
+offset_bottom = -635.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="GoldContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GoldContainer"]
+layout_mode = 2
+texture = ExtResource("3_wibqt")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GoldContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 25
+text = "x 0"
+
+[node name="GemContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Gem1" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("4_qi3ur")
+expand_mode = 1
+
+[node name="Gem2" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_qi3ur")
+expand_mode = 2
+
+[node name="Gem3" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_qi3ur")
+expand_mode = 2
+
+[node name="Gem4" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_qi3ur")
+expand_mode = 2
+
+[node name="Gem5" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/GemContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("4_qi3ur")
+expand_mode = 2
+
+[node name="RedCoinContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RedCoin1" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_0n0ua")
+expand_mode = 2
+
+[node name="RedCoin2" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_0n0ua")
+expand_mode = 2
+
+[node name="RedCoin3" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_0n0ua")
+expand_mode = 2
+
+[node name="RedCoin4" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_0n0ua")
+expand_mode = 2
+
+[node name="RedCoin5" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("5_0n0ua")
+expand_mode = 2
+
+[node name="MenuButton" type="TextureButton" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MenuIcon" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/MenuButton"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_00gpb")
+expand_mode = 1
+
+[node name="MenuCloseButton" type="TextureButton" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MenuIcon" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/MenuCloseButton"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_ybueu")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 70
+
+[node name="CatContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Cat1" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/CatContainer"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("8_ktkfy")
+
+[node name="Cat2" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/CatContainer"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("8_ktkfy")
+
+[node name="Cat3" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2/CatContainer"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("8_ktkfy")
+
+[node name="MenuContainer" type="VBoxContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="SettingButton" type="TextureButton" parent="Control/MenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../ExitButton")
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_right = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../ExitButton")
+texture_normal = ExtResource("9_4mdos")
+texture_pressed = ExtResource("9_4mdos")
+texture_hover = ExtResource("9_4mdos")
+texture_focused = ExtResource("10_hjlwm")
+
+[node name="Label" type="Label" parent="Control/MenuContainer/SettingButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -11.5
+offset_right = 29.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
+[node name="ExitButton" type="TextureButton" parent="Control/MenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../SettingButton")
+focus_neighbor_top = NodePath("../SettingButton")
+focus_neighbor_right = NodePath("../SettingButton")
+focus_neighbor_bottom = NodePath("../SettingButton")
+focus_next = NodePath("../SettingButton")
+focus_previous = NodePath("../SettingButton")
+texture_normal = ExtResource("9_4mdos")
+texture_pressed = ExtResource("9_4mdos")
+texture_hover = ExtResource("9_4mdos")
+texture_focused = ExtResource("10_hjlwm")
+
+[node name="Label" type="Label" parent="Control/MenuContainer/ExitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -11.5
+offset_right = 29.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 40
+text = "Leave"
+
+[node name="SettingMenu" parent="Control" instance=ExtResource("11_tafi5")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HBoxContainer/MenuCloseButton" to="." method="_on_menu_close_button_pressed"]
+[connection signal="pressed" from="Control/MenuContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Control/MenuContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="close_window" from="Control/SettingMenu" to="." method="_on_setting_menu_close_window"]
