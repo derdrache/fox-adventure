@@ -140,5 +140,6 @@ func movePath(_delta):
 			movePathDirection = "left"
 
 func set_control_ui(boolean):
-	$MobileControlUi.visible = boolean
+	if DisplayServer.is_touchscreen_available():
+		$MobileControlUi.visible = boolean
 			

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var goldCoinLabel = $Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer4/GoldContainer/Label
+@onready var goldCoinLabel = $Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/GoldContainer/Label
 @onready var levelUi = $Control/FirstRow/MarginContainer
 @onready var settingMenu = $Control/SettingMenu
 @onready var backgroundColor = $Control/ColorRect
@@ -39,14 +39,14 @@ func update_gem_display(gems):
 
 func update_red_coin_display(coins):
 	for i in range(coins):
-		var path = "Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer/RedCoin" + str(i+1)
+		var path = "Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer/RedCoin" + str(i+1)
 		var redCoinRect = get_node(path)
 		redCoinRect.set_modulate(Color(1,1,1))
 		
 func update_cat_display(catArray):
 	for i in len(catArray):
 		if catArray[i]: 
-			var path = "Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer3/CatContainer/Cat" + str(i+1)
+			var path = "Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/CatContainer/Cat" + str(i+1)
 			var catRect = get_node(path)		
 			catRect.set_modulate(Color(1,1,1))
 
@@ -68,9 +68,11 @@ func _on_setting_menu_close_window():
 	menuCloseIcon.visible = true
 	
 	settingMenu.visible = false
+	$Control/MenuContainer/SettingButton.grab_focus()
 
 
 func _on_exit_button_pressed():
+	get_tree().paused = false
 	LevelManager.reset_all_stats()
 	get_tree().change_scene_to_file("res://overworld/overWorld.tscn")
 

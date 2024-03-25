@@ -58,4 +58,4 @@ func _on_setting_menu_close_window():
 
 
 func _on_exit_button_pressed():
-	get_tree().change_scene_to_file("res://ui/startMenu/startMenu.tscn")
+	get_tree().quit()

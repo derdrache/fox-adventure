@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cx2064asos07c"]
+[gd_scene load_steps=34 format=3 uid="uid://cx2064asos07c"]
 
 [ext_resource type="Script" path="res://level/levels.gd" id="1_hmxu7"]
 [ext_resource type="TileSet" uid="uid://dp11l4l72jfor" path="res://level/levelTileMap.tres" id="2_5dy3f"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://bk2g3c83ik1k6" path="res://chars/babyCat.tscn" id="17_o2srk"]
 [ext_resource type="PackedScene" uid="uid://bw2j20ejabhmj" path="res://level/items/goldCoins/GoldCoin.tscn" id="17_wio1f"]
 [ext_resource type="PackedScene" uid="uid://rigwbpt8u7nn" path="res://level/environment/world_end.tscn" id="19_ktcov"]
+[ext_resource type="PackedScene" uid="uid://xhris2vpcaeh" path="res://level/guide/guideMessage.tscn" id="20_8xnpk"]
+[ext_resource type="Texture2D" uid="uid://cwddxxm1lgw0k" path="res://asset/guide/Icon_ArrowDown.png" id="21_omdg7"]
+[ext_resource type="Texture2D" uid="uid://cay8euckcq4uk" path="res://asset/guide/fox_dig.png" id="22_fsu4a"]
+[ext_resource type="Texture2D" uid="uid://0pstkl1jwbgr" path="res://asset/guide/fox_crawl.png" id="23_rdh5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74pcc"]
 size = Vector2(2895, 76)
@@ -55,6 +59,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -25, 33, 0, 0, 0, 0, -572, -268)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_un022"]
+size = Vector2(48, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4g7h"]
+size = Vector2(16, 16)
 
 [node name="Level1-3" type="Node2D"]
 script = ExtResource("1_hmxu7")
@@ -353,8 +363,27 @@ position = Vector2(112, 64)
 tilesWith = 3
 tilesHeight = 1
 
+[node name="guides" type="Node2D" parent="."]
+
+[node name="GuideMessage" parent="guides" instance=ExtResource("20_8xnpk")]
+position = Vector2(120, 58)
+messageTexture = ExtResource("21_omdg7")
+messageTexture2 = ExtResource("22_fsu4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="guides/GuideMessage"]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_un022")
+
+[node name="GuideMessage5" parent="guides" instance=ExtResource("20_8xnpk")]
+position = Vector2(120, 72)
+messageTexture = ExtResource("21_omdg7")
+messageTexture2 = ExtResource("23_rdh5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="guides/GuideMessage5"]
+shape = SubResource("RectangleShape2D_w4g7h")
+
 [node name="Player" parent="." instance=ExtResource("3_dbuas")]
-position = Vector2(32, 32)
+position = Vector2(24, 28)
 
 [node name="Cat1" parent="." node_paths=PackedStringArray("target") instance=ExtResource("17_o2srk")]
 position = Vector2(431, -567)

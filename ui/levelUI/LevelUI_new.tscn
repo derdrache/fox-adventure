@@ -74,6 +74,50 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 50
 
+[node name="RedCoinContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RedCoin1" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
+[node name="RedCoin2" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
+[node name="RedCoin3" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
+[node name="RedCoin4" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
+[node name="RedCoin5" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/RedCoinContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("4_opot5")
+expand_mode = 1
+
 [node name="GemContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -119,102 +163,48 @@ layout_mode = 2
 texture = ExtResource("5_wv2et")
 expand_mode = 1
 
+[node name="CatContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Cat1" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/CatContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(45, 36)
+layout_mode = 2
+texture = ExtResource("6_xo5tj")
+
+[node name="Cat2" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/CatContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(45, 36)
+layout_mode = 2
+texture = ExtResource("6_xo5tj")
+
+[node name="Cat3" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer/CatContainer"]
+modulate = Color(0, 0, 0, 0.0196078)
+material = SubResource("ShaderMaterial_1kl7s")
+custom_minimum_size = Vector2(45, 36)
+layout_mode = 2
+texture = ExtResource("6_xo5tj")
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 37
 
-[node name="RedCoinContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="RedCoin1" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("4_opot5")
-expand_mode = 1
-
-[node name="RedCoin2" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("4_opot5")
-expand_mode = 1
-
-[node name="RedCoin3" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("4_opot5")
-expand_mode = 1
-
-[node name="RedCoin4" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("4_opot5")
-expand_mode = 1
-
-[node name="RedCoin5" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/RedCoinContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("4_opot5")
-expand_mode = 1
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 37
-
-[node name="CatContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Cat1" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer3/CatContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(45, 36)
-layout_mode = 2
-texture = ExtResource("6_xo5tj")
-
-[node name="Cat2" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer3/CatContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(45, 36)
-layout_mode = 2
-texture = ExtResource("6_xo5tj")
-
-[node name="Cat3" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer3/CatContainer"]
-modulate = Color(0, 0, 0, 0.0196078)
-material = SubResource("ShaderMaterial_1kl7s")
-custom_minimum_size = Vector2(45, 36)
-layout_mode = 2
-texture = ExtResource("6_xo5tj")
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 37
-
-[node name="GoldContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="GoldContainer" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer4/GoldContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/GoldContainer"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("7_m2a3c")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer4/GoldContainer"]
+[node name="Label" type="Label" parent="Control/FirstRow/MarginContainer/VBoxContainer/HBoxContainer2/GoldContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -222,6 +212,16 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 30
 text = "x 0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 37
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/FirstRow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 37
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/FirstRow"]
 layout_mode = 2

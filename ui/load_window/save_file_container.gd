@@ -62,12 +62,18 @@ func _input(event):
 	if event.is_action_pressed("ui_accept") && has_focus():
 		_start_game()
 
+func delete_save_file():
+	_on_delete_button_pressed()
+
+
 func _on_delete_button_pressed():
 	$reallyDeleteContainer.visible = true
 		
 	touchCanFire = false
 	$VBoxContainer.visible = false
 	$MarginContainer/deleteButton.visible = false
+	
+	$reallyDeleteContainer/VBoxContainer/HBoxContainer/noButton.grab_focus()
 
 
 func _on_start_game_touch_button_released():
@@ -76,7 +82,7 @@ func _on_start_game_touch_button_released():
 
 func _on_yes_button_pressed():
 	Utils.delete_game(gameNumber)
-	deleteGame.emit()
+	deleteGame.emit(gameNumber)
 	queue_free()
 
 

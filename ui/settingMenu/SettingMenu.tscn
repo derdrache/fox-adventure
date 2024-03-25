@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ug6dcwplmet0"]
+[gd_scene load_steps=7 format=3 uid="uid://ug6dcwplmet0"]
 
 [ext_resource type="Texture2D" uid="uid://cl24lyhupr7hc" path="res://asset/ui/Box_WhiteOutline_Rounded.png" id="1_lipvg"]
 [ext_resource type="Script" path="res://ui/settingMenu/SettingMenu.gd" id="1_nxojf"]
 [ext_resource type="Theme" uid="uid://bm00mxxnom0na" path="res://ui/uiTheme.tres" id="1_xnspw"]
 [ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="2_tk30n"]
 [ext_resource type="AudioStream" uid="uid://qhoy1jcwqwa8" path="res://asset/sound/cat-meow.mp3" id="5_vh17k"]
+[ext_resource type="Texture2D" uid="uid://dm15gpv5sqn0j" path="res://asset/ui/Icon_X_ white_outline.png" id="6_82g4o"]
 
 [node name="SettingMenu" type="Control"]
 layout_mode = 3
@@ -65,9 +66,9 @@ text = "Background Music"
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../../Sound Effects/SoundEffectSlider")
-focus_neighbor_top = NodePath("../../Sound Effects/SoundEffectSlider")
-focus_neighbor_right = NodePath("../../Sound Effects/SoundEffectSlider")
+focus_neighbor_left = NodePath("../../../../CloseButtonMenu/CloseButton")
+focus_neighbor_top = NodePath("../../../../CloseButtonMenu/CloseButton")
+focus_neighbor_right = NodePath("../../../../CloseButtonMenu/CloseButton")
 focus_neighbor_bottom = NodePath("../../Sound Effects/SoundEffectSlider")
 focus_next = NodePath("../../Sound Effects/SoundEffectSlider")
 focus_previous = NodePath("../../Sound Effects/SoundEffectSlider")
@@ -90,9 +91,10 @@ text = "Sound Effects"
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../../../CloseButtonMenu/CloseButton")
 focus_neighbor_top = NodePath("../../Background Music/BackgroundMusicSlider")
-focus_neighbor_right = NodePath("../../Background Music/BackgroundMusicSlider")
-focus_neighbor_bottom = NodePath("../../Background Music/BackgroundMusicSlider")
+focus_neighbor_right = NodePath("../../../../CloseButtonMenu/CloseButton")
+focus_neighbor_bottom = NodePath("../../../../CloseButtonMenu/CloseButton")
 focus_next = NodePath("../../Background Music/BackgroundMusicSlider")
 focus_previous = NodePath("../../Background Music/BackgroundMusicSlider")
 min_value = -25.0
@@ -106,30 +108,22 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -406.0
-offset_top = 235.0
-offset_right = -357.0
-offset_bottom = 282.0
+offset_left = -397.333
+offset_top = 190.667
+offset_right = -159.333
+offset_bottom = 433.667
 grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 
 [node name="CloseButton" type="TextureButton" parent="CloseButtonMenu"]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CloseButtonMenu/CloseButton"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -10.3333
-offset_top = -61.6667
-offset_right = 182.667
-offset_bottom = 95.3333
-grow_horizontal = 0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_tk30n")
-expand_mode = 1
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_tk30n")
+texture_pressed = ExtResource("2_tk30n")
+texture_hover = ExtResource("2_tk30n")
+texture_focused = ExtResource("6_82g4o")
 
 [connection signal="value_changed" from="TextureRect/VBoxContainer/Background Music/BackgroundMusicSlider" to="." method="_on_background_music_slider_value_changed"]
 [connection signal="value_changed" from="TextureRect/VBoxContainer/Sound Effects/SoundEffectSlider" to="." method="_on_sound_effect_slider_value_changed"]

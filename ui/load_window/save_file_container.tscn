@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wuh44imlcxym"]
+[gd_scene load_steps=16 format=3 uid="uid://wuh44imlcxym"]
 
 [ext_resource type="FontFile" uid="uid://dn01r48g8bq3y" path="res://asset/fonts/ProtestRevolution-Regular.ttf" id="1_71gyj"]
 [ext_resource type="Shader" path="res://ui/load_window/SelectLoadData.gdshader" id="1_hivab"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bqlqmtyx20utl" path="res://asset/ui/Icon_X.png" id="4_1ctd5"]
 [ext_resource type="Texture2D" uid="uid://dunudmcl51vxs" path="res://asset/ui/Icon_Trash.png" id="6_43alo"]
 [ext_resource type="Texture2D" uid="uid://dewanqyare4x" path="res://asset/ui/Icon_Small_WhiteOutline_Check.png" id="7_7mcvf"]
+[ext_resource type="Texture2D" uid="uid://dm15gpv5sqn0j" path="res://asset/ui/Icon_X_ white_outline.png" id="8_7k7ds"]
+[ext_resource type="Texture2D" uid="uid://tst3ob8tl4x4" path="res://asset/ui/Icon_Small_Check_white_outline.png" id="8_gdkd1"]
 
 [sub_resource type="Theme" id="Theme_w5j34"]
 default_font = ExtResource("1_71gyj")
@@ -191,9 +193,14 @@ custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../noButton")
+focus_neighbor_top = NodePath("../noButton")
+focus_neighbor_right = NodePath("../noButton")
+focus_neighbor_bottom = NodePath("../noButton")
 texture_normal = ExtResource("7_7mcvf")
 texture_pressed = ExtResource("7_7mcvf")
 texture_hover = ExtResource("7_7mcvf")
+texture_focused = ExtResource("8_gdkd1")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -201,9 +208,14 @@ stretch_mode = 0
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../yesButton")
+focus_neighbor_top = NodePath("../yesButton")
+focus_neighbor_right = NodePath("../yesButton")
+focus_neighbor_bottom = NodePath("../yesButton")
 texture_normal = ExtResource("4_1ctd5")
 texture_pressed = ExtResource("4_1ctd5")
 texture_hover = ExtResource("4_1ctd5")
+texture_focused = ExtResource("8_7k7ds")
 ignore_texture_size = true
 stretch_mode = 0
 

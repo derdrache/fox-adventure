@@ -68,10 +68,6 @@ var cameraOnChange = false
 var duckInteraction = false
 
 
-
-func _input(event):
-	if event.is_action_pressed("ui_end"): print("ok")
-
 func _ready():
 	levelUis = [uiNodesWorld1, uiNodesWorld2, uiNodesWorld3, uiNodesWorld4,
 		uiNodesWorld5, uiNodesWorld6, uiNodesWorld7]
@@ -315,10 +311,12 @@ func _show_credits(showCredits = false):
 
 func _on_overworld_ui_close_menu():
 	activeInteraction = false
+	set_ui_visible(true)
 
 
 func _on_overworld_ui_open_menu():
-	activeInteraction = true	
+	activeInteraction = true
+	set_ui_visible(false)
 
 func _on_cat_mom_game_done():
 	_show_credits(true)

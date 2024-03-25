@@ -21,7 +21,7 @@ func _ready():
 	maxGoldCoins = GameManager.levelMaxGoldCoins[str(level)]
 
 func _input(event):
-	if event.is_action_pressed("ui_accept") && visible:
+	if event.is_action_pressed("ui_accept") && visible && get_parent().visible:
 		_enter_level()
 		
 func _enter_level():
