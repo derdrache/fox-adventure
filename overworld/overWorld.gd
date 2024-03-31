@@ -178,13 +178,11 @@ func _update_cat_moms():
 
 	for i in len(allCatMoms):
 		var levelData = GameManager.levelDetails.slice(i + i*5, i + 6 + i*5)
-		
+
 		var foundedCats = 0
-		
 		for level in levelData:
 			for cat in level["cats"]:
 				if cat: foundedCats += 1
-				
 		allCatMoms[i].catsFounded = foundedCats
 
 func changeCamera():

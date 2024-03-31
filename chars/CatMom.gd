@@ -22,7 +22,7 @@ var done = false
 var direction = Vector2.ZERO
 
 func _ready():
-	add_to_group("catMoms")
+	if not guideCat: add_to_group("catMoms")
 	
 	if guideCat:
 		messageBox.visible = true
