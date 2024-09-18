@@ -13,17 +13,17 @@ bool in_rect(vec2 uv,vec2 orign,vec2 end){
 bool is_hid(vec2 uv,vec2 size,float radius){
   vec2 a = vec2(radius,radius);
   vec2 b = vec2(size.x-radius,size.y-radius);
-	
+
   vec2 c = vec2(size.x-radius,radius);
   vec2 d = vec2(radius,size.y-radius);
-	
+
   vec2 rd_origin = vec2(size.x - radius,0);
   vec2 rd_end = vec2(size.x,radius);
-	
+
   vec2 lu_origin = vec2(0,size.y - radius);
   vec2 lu_end = vec2(radius,size.y);
-	
-	
+
+
   if(!in_rect(uv,a,b)){
     float dis = radius - 1.f;
     if(in_rect(uv,vec2(0.f),a))
@@ -35,14 +35,14 @@ bool is_hid(vec2 uv,vec2 size,float radius){
       if(bottomRightCorner) dis = distance(b,uv);
     }
     if(in_rect(uv,rd_origin,rd_end))
-    {			
+    {
       if (topRightCorner) dis = distance(c,uv);
     }
     if(in_rect(uv,lu_origin,lu_end))
     {
       if(bottomLeftCorner) dis = distance(d,uv);
     }
-    return dis > radius;		
+    return dis > radius;
   }
   return false;
 }
@@ -53,11 +53,11 @@ void fragment() {
   float pixel_size_y = 1.0 / TEXTURE_PIXEL_SIZE.y;
   float max_r = min(pixel_size_x,pixel_size_y) / 2.f;
 
-if(is_hid(vec2(UV.x*pixel_size_x,UV.y*pixel_size_y),vec2(pixel_size_x,pixel_size_y),min(corner_radius,max_r)))  
+if(is_hid(vec2(UV.x*pixel_size_x,UV.y*pixel_size_y),vec2(pixel_size_x,pixel_size_y),min(corner_radius,max_r)))
   {
     COLOR = vec4(0.0);
   }
-  else 
+  else
   {
     COLOR = texture(TEXTURE,UV);
   }

@@ -38,7 +38,3 @@ func _on_body_exited(body):
 	if body is Player:
 		playerIn = false
 		$ShortMessageBox.visible = false
-
-
-
-

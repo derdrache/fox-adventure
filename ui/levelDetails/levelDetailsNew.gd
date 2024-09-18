@@ -70,4 +70,3 @@ func _on_texture_button_pressed():
 		levelDetails.visible = true		
 
 	showDetails = !showDetails
-
